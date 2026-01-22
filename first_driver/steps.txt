@@ -2,3 +2,5 @@
 2. sudo insmod ldd.ko, loads kernel object into live system
 3. sudo dmesg to see prints
 4. sudo rmmod ldd.ko to remove from live system.
+
+NOTE: modinfo file.ko to see description of the kernel object
