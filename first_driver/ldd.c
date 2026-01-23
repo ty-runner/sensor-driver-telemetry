@@ -9,6 +9,21 @@ MODULE_DESCRIPTION("Dynamically loadable kernel module");
 
 static struct proc_dir_entry *custom_proc_node;
 
+static ssize_t mod_write(struct file* file_pointer,
+                        const char *user_space_buffer,
+                        size_t count,
+                        loff_t* offset) {
+    char proc_msg[128];
+
+    if(copy_from_user(proc_msg, user_space_buffer, count))
+        return -EFAULT;
+
+    proc_msg[count] = '\0';
+
+    printk("PROC WRITE: %s\n", proc_msg);
+
+    return count;
+}
 static ssize_t mod_read(struct file* file_pointer,
                         char *user_space_buffer,
                         size_t count,
@@ -27,11 +42,12 @@ static ssize_t mod_read(struct file* file_pointer,
 }
 
 struct proc_ops driver_proc_ops = {
-    .proc_read = mod_read
+    .proc_read = mod_read,
+    .proc_write = mod_write
 };
 static int mod_init (void){
 	printk("HI! - entry\n");
-    custom_proc_node = proc_create("ty's driver",
+    custom_proc_node = proc_create("ty_driver",
                                    0,
                                    NULL,
                                    &driver_proc_ops);
