@@ -1,18 +1,49 @@
 //this is the first c module for our driver
 #include <linux/init.h>
 #include <linux/module.h>
-
+#include <linux/proc_fs.h>
 
 MODULE_LICENSE("GPL");
 MODULE_AUTHOR("Ty");
 MODULE_DESCRIPTION("Dynamically loadable kernel module");
 
+static struct proc_dir_entry *custom_proc_node;
+
+static ssize_t mod_read(struct file* file_pointer,
+                        char *user_space_buffer,
+                        size_t count,
+                        loff_t* offset) {
+    char msg[] = "ACK!\n";
+    size_t len = strlen(msg);
+
+    int result = copy_to_user(user_space_buffer, msg, len);
+
+    printk("READ\n");
+    if(*offset >= len)
+        return 0;
+    *offset += len;
+
+    return len;
+}
+
+struct proc_ops driver_proc_ops = {
+    .proc_read = mod_read
+};
 static int mod_init (void){
-	printk("HI!\n");
+	printk("HI! - entry\n");
+    custom_proc_node = proc_create("ty's driver",
+                                   0,
+                                   NULL,
+                                   &driver_proc_ops);
+    if(!custom_proc_node){
+        return -ENOMEM;
+    }
+	printk("HI! - eexit\n");
 	return 0;
 }
 
 static void mod_exit (void){
+    proc_remove(custom_proc_node);
 	printk("BYE!\n");
 }
 
