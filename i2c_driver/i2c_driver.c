@@ -2,6 +2,8 @@
 #include <linux/init.h>
 #include <linux/i2c.h>
 #include <linux/delay.h>
+#include <linux/timekeeping.h>
+
 
 MODULE_LICENSE("GPL");
 
@@ -92,18 +94,19 @@ static void read_calibration_data(struct i2c_client *client){
 }
 
 
-static void control_write(struct i2c_client *client){
-    i2c_smbus_write_byte_data(client, 0xF2, 0x01);
-    i2c_smbus_write_byte_data(client, 0xF4, 0x27);
+static int bme280_init(struct i2c_client *client){
+    if (i2c_smbus_write_byte_data(client, 0xF2, 0x01) < 0)
+        return -EIO;
+    if (i2c_smbus_write_byte_data(client, 0xF4, 0x27) < 0)
+        return -EIO;
+    return 0;
 }
 
 static int read_bit_data(uint8_t* buffer, struct i2c_client *client, int offset, int bytes){
-    control_write(client); //param here will be the oversampling
-    msleep(10);
     int return_status = i2c_smbus_read_i2c_block_data(client, offset, bytes, buffer);
 
-    if(return_status < bytes){
-        return -1;
+    if(return_status < 0){
+        return return_status;
     }
     return 0;
 }
@@ -159,72 +162,70 @@ static uint32_t compensate_humidity(int32_t adc_H)
     return (uint32_t)(v_x1 >> 12); // %RH * 1024
 }
 
-/*static int my_probe(struct i2c_client *client)
-{
-    struct my_data *data;
-    uint8_t buf[3];
-    data = (struct my_data *)i2c_get_match_data(client);
-    if (!data)
-        return -ENODEV;
-
-    printk(KERN_INFO "my_i2c_driver - %s data->i=%d\n",
-           data->name, data->i);
-
-    printk(KERN_INFO "my_i2c_driver - ID: 0x%x\n",
-           i2c_smbus_read_byte_data(client, 0xd0));
-
-    int ret = read_bit_data(buf, client, 0xf7, 3);
-    if(ret == 0){
-        uint32_t press_raw = (buf[0] << 12) | (buf[1] << 4) | (buf[2] >> 4);
-        printk(KERN_INFO "Raw pressure: %u\n", press_raw);
-    }
-
-    ret = read_bit_data(buf, client, 0xfa, 3);
-    if(ret == 0){
-        uint32_t temp_raw = (buf[0] << 12) | (buf[1] << 4) | (buf[2] >> 4);
-        printk(KERN_INFO "Raw temp: %u\n", temp_raw);
-    }
-
-    ret = read_bit_data(buf, client, 0xfd, 2);
-    if(ret == 0){
-        uint32_t humid_raw = (buf[0] << 8) | (buf[1]);
-        printk(KERN_INFO "Raw humidity: %u\n", humid_raw);
-    }
-    //pressure - 0xF7 - 0xF9
-    //temp - 0xFA - 0xFC
-    //temp - 0xFA - 0xFC
-    //humidity - 0xFD - 0xFE
-    return 0;
-}*/
 static int my_probe(struct i2c_client *client)
 {
+    int id = i2c_smbus_read_byte_data(client, 0xD0);
+    if (id < 0) {
+        pr_err("Chip ID read failed: %d\n", id);
+        return id;
+    }
+    pr_info("BME280 Chip ID: 0x%x\n", id);
+
     struct my_data *data = (struct my_data *)i2c_get_match_data(client);
     if (!data)
         data = &a; // fallback
+    int init_result = bme280_init(client); 
+    msleep(50);
+    struct timespec64 ts;
+    //ktime_get_real_ts64(&ts); wall clock, used fro data logging and sensors
+    ktime_get_ts64(&ts); //monotonic, kernel
 
     printk(KERN_INFO "my_i2c_driver - %s data->i=%d\n", data->name, data->i);
 
     read_calibration_data(client);
 
     uint8_t buf[3];
+
+    printk(KERN_INFO
+           "[%lld.%09ld] Timestamp and Read data code: %d\n",
+           (long long)ts.tv_sec,
+           ts.tv_nsec,
+           read_bit_data(buf, client, 0xFA, 3));
+
     if (read_bit_data(buf, client, 0xFA, 3) == 0) { // temp
         int32_t temp_raw = (buf[0] << 12) | (buf[1] << 4) | (buf[2] >> 4);
         int32_t temp_c = compensate_temp(temp_raw);
-        printk(KERN_INFO "Temp: %d.%02d °C\n", temp_c/100, temp_c%100);
+        printk(KERN_INFO
+               "[%lld.%09ld] Temp: %d.%02d C\n",
+               (long long)ts.tv_sec,
+               ts.tv_nsec,
+               temp_c / 100,
+               temp_c % 100);
     }
 
     if (read_bit_data(buf, client, 0xF7, 3) == 0) { // pressure
         int32_t press_raw = (buf[0] << 12) | (buf[1] << 4) | (buf[2] >> 4);
         uint32_t press_pa = compensate_pressure(press_raw) >> 8;
-        printk(KERN_INFO "Pressure: %u Pa\n", press_pa);
+
+        printk(KERN_INFO
+               "[%lld.%09ld] Pressure: %u Pa\n",
+               (long long)ts.tv_sec,
+               ts.tv_nsec,
+               press_pa);
     }
 
     if (read_bit_data(buf, client, 0xFD, 2) == 0) { // humidity
         int32_t humid_raw = (buf[0] << 8) | buf[1];
         uint32_t humid_rh = compensate_humidity(humid_raw) / 1024;
-        printk(KERN_INFO "Humidity: %u %%\n", humid_rh);
+
+        printk(KERN_INFO
+               "[%lld.%09ld] Humidity: %u %%\n",
+               (long long)ts.tv_sec,
+               ts.tv_nsec,
+               humid_rh);
     }
 
+    printk("End of probe \n");
     return 0;
 }
 static void my_remove(struct i2c_client *client){
