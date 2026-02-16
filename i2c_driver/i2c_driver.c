@@ -165,7 +165,7 @@ static uint32_t compensate_humidity(int32_t adc_H)
 
 
 //Grouped data read
-static void bme280_read_all(struct i2c_client *client){
+static void bme280_read_all(struct i2c_client *client, int32_t* temp_c, uint32_t* press_pa, uint32_t* humid_rh){
     struct timespec64 ts;
     //ktime_get_real_ts64(&ts); wall clock, used fro data logging and sensors
     ktime_get_ts64(&ts); //monotonic, kernel
@@ -179,35 +179,35 @@ static void bme280_read_all(struct i2c_client *client){
 
     if (read_bit_data(buf, client, 0xFA, 3) == 0) { // temp
         int32_t temp_raw = (buf[0] << 12) | (buf[1] << 4) | (buf[2] >> 4);
-        int32_t temp_c = compensate_temp(temp_raw);
+        *temp_c = compensate_temp(temp_raw);
         printk(KERN_INFO
                "[%lld.%09ld] Temp: %d.%02d C\n",
                (long long)ts.tv_sec,
                ts.tv_nsec,
-               temp_c / 100,
-               temp_c % 100);
+               *temp_c / 100,
+               *temp_c % 100);
     }
 
     if (read_bit_data(buf, client, 0xF7, 3) == 0) { // pressure
         int32_t press_raw = (buf[0] << 12) | (buf[1] << 4) | (buf[2] >> 4);
-        uint32_t press_pa = compensate_pressure(press_raw) >> 8;
+        *press_pa = compensate_pressure(press_raw) >> 8;
 
         printk(KERN_INFO
                "[%lld.%09ld] Pressure: %u Pa\n",
                (long long)ts.tv_sec,
                ts.tv_nsec,
-               press_pa);
+               *press_pa);
     }
 
     if (read_bit_data(buf, client, 0xFD, 2) == 0) { // humidity
         int32_t humid_raw = (buf[0] << 8) | buf[1];
-        uint32_t humid_rh = compensate_humidity(humid_raw) / 1024;
+        *humid_rh = compensate_humidity(humid_raw) / 1024;
 
         printk(KERN_INFO
                "[%lld.%09ld] Humidity: %u %%\n",
                (long long)ts.tv_sec,
                ts.tv_nsec,
-               humid_rh);
+               *humid_rh);
     }
 }
 
@@ -218,8 +218,16 @@ static ssize_t read_sensor_show(struct device *dev,
                                 char *buf)
 {
     struct i2c_client *client = to_i2c_client(dev);
-    bme280_read_all(client);
-    return sprintf(buf, "Sensor read triggered\n");
+    int32_t temp_c;
+    uint32_t press_pa;
+    uint32_t humid_rh;
+    bme280_read_all(client, &temp_c, &press_pa, &humid_rh);
+    return sprintf(buf,
+        "Temp: %d.%02d C\nPressure: %u Pa\nHumidity: %u %%\n",
+        temp_c / 100, temp_c % 100,
+        press_pa,
+        humid_rh);
+
 }
 
 static DEVICE_ATTR_RO(read_sensor);
@@ -243,7 +251,7 @@ static int my_probe(struct i2c_client *client)
 
     read_calibration_data(client);
 
-    bme280_read_all(client);
+    //bme280_read_all(client);
     
     device_create_file(&client->dev, &dev_attr_read_sensor);
 
@@ -251,6 +259,7 @@ static int my_probe(struct i2c_client *client)
     return 0;
 }
 static void my_remove(struct i2c_client *client){
+    device_remove_file(&client->dev, &dev_attr_read_sensor);
     printk("Removing device \n");
 }
 
