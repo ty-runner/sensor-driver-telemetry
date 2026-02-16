@@ -3,6 +3,7 @@
 #include <linux/i2c.h>
 #include <linux/delay.h>
 #include <linux/timekeeping.h>
+#include <linux/of_device.h>
 
 
 MODULE_LICENSE("GPL");
@@ -47,7 +48,7 @@ struct bme280_calib_data {
 };
 
 static struct i2c_device_id my_ids[] = {
-    {"bme280", (long unsigned int) &a},
+    {"tyrunner_bme280", (long unsigned int) &a},
     {"b-dev", (long unsigned int) &b},
     {},
 };
@@ -162,28 +163,12 @@ static uint32_t compensate_humidity(int32_t adc_H)
     return (uint32_t)(v_x1 >> 12); // %RH * 1024
 }
 
-static int my_probe(struct i2c_client *client)
-{
-    int id = i2c_smbus_read_byte_data(client, 0xD0);
-    if (id < 0) {
-        pr_err("Chip ID read failed: %d\n", id);
-        return id;
-    }
-    pr_info("BME280 Chip ID: 0x%x\n", id);
 
-    struct my_data *data = (struct my_data *)i2c_get_match_data(client);
-    if (!data)
-        data = &a; // fallback
-    int init_result = bme280_init(client); 
-    msleep(50);
+//Grouped data read
+static void bme280_read_all(struct i2c_client *client){
     struct timespec64 ts;
     //ktime_get_real_ts64(&ts); wall clock, used fro data logging and sensors
     ktime_get_ts64(&ts); //monotonic, kernel
-
-    printk(KERN_INFO "my_i2c_driver - %s data->i=%d\n", data->name, data->i);
-
-    read_calibration_data(client);
-
     uint8_t buf[3];
 
     printk(KERN_INFO
@@ -224,6 +209,43 @@ static int my_probe(struct i2c_client *client)
                ts.tv_nsec,
                humid_rh);
     }
+}
+
+
+//Exposing the data to the userspace in the device tree
+static ssize_t read_sensor_show(struct device *dev,
+                                struct device_attribute *attr,
+                                char *buf)
+{
+    struct i2c_client *client = to_i2c_client(dev);
+    bme280_read_all(client);
+    return sprintf(buf, "Sensor read triggered\n");
+}
+
+static DEVICE_ATTR_RO(read_sensor);
+
+static int my_probe(struct i2c_client *client)
+{
+    int id = i2c_smbus_read_byte_data(client, 0xD0);
+    if (id < 0) {
+        pr_err("Chip ID read failed: %d\n", id);
+        return id;
+    }
+    pr_info("BME280 Chip ID: 0x%x\n", id);
+
+    struct my_data *data = (struct my_data *)i2c_get_match_data(client);
+    if (!data)
+        data = &a; // fallback
+    int init_result = bme280_init(client); 
+    msleep(50);
+
+    printk(KERN_INFO "my_i2c_driver - %s data->i=%d\n", data->name, data->i);
+
+    read_calibration_data(client);
+
+    bme280_read_all(client);
+    
+    device_create_file(&client->dev, &dev_attr_read_sensor);
 
     printk("End of probe \n");
     return 0;
@@ -232,12 +254,18 @@ static void my_remove(struct i2c_client *client){
     printk("Removing device \n");
 }
 
+static const struct of_device_id my_of_match[] = {
+    { .compatible = "tyrunner,bme280" },
+    { }
+};
+
 static struct i2c_driver my_driver= {
     .probe = my_probe,
     .remove = my_remove,
     .id_table = my_ids,
     .driver = {
         .name = "my-i2c-driver",
+        .of_match_table = my_of_match,
     }
 };
 
