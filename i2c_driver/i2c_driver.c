@@ -4,7 +4,11 @@
 #include <linux/delay.h>
 #include <linux/timekeeping.h>
 #include <linux/of_device.h>
+#include <linux/kthread.h>
+#include <linux/delay.h>
 
+static struct task_struct *sensor_thread;
+static bool thread_run = true;
 
 MODULE_LICENSE("GPL");
 
@@ -22,6 +26,14 @@ static struct my_data b = {
     "Device B",
     123,
 };
+
+struct bme280_sensor_packet{ //packet structure for transmission
+    uint64_t timestamp_ns;
+    int32_t temp_c;
+    uint32_t humidity_percent;
+    uint32_t pressure_pa;
+    uint16_t crc;
+} __attribute__((packed));
 
 /* BME280 calibration data */
 struct bme280_calib_data {
@@ -211,7 +223,25 @@ static void bme280_read_all(struct i2c_client *client, int32_t* temp_c, uint32_t
     }
 }
 
+static int sensor_thread_fn(void* client_ptr){
+    struct i2c_client *client = client_ptr;
+    int32_t temp_c;
+    uint32_t press_pa;
+    uint32_t humid_rh;
+    while(!kthread_should_stop()){
 
+        bme280_read_all(client, &temp_c, &press_pa, &humid_rh);
+        pr_info("THREAD READ -> Temp: %d.%02d C | Pressure: %u Pa | Humidity: %u %%\n",
+                temp_c / 100,
+                abs(temp_c % 100),
+                press_pa,
+                humid_rh);
+        //send packet
+        msleep(1000);
+    }
+
+    return 0;
+}
 //Exposing the data to the userspace in the device tree
 static ssize_t read_sensor_show(struct device *dev,
                                 struct device_attribute *attr,
@@ -254,11 +284,15 @@ static int my_probe(struct i2c_client *client)
     //bme280_read_all(client);
     
     device_create_file(&client->dev, &dev_attr_read_sensor);
-
+    sensor_thread = kthread_run(sensor_thread_fn,
+                            client,
+                            "bme280_thread");
     printk("End of probe \n");
     return 0;
 }
 static void my_remove(struct i2c_client *client){
+    if (sensor_thread)
+        kthread_stop(sensor_thread);
     device_remove_file(&client->dev, &dev_attr_read_sensor);
     printk("Removing device \n");
 }
