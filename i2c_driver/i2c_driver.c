@@ -6,6 +6,7 @@
 #include <linux/of_device.h>
 #include <linux/kthread.h>
 #include <linux/delay.h>
+#include "adc_conversion.h"
 
 static struct task_struct *sensor_thread;
 static bool thread_run = true;
@@ -22,11 +23,6 @@ static struct my_data a = {
     42,
 };
 
-static struct my_data b = {
-    "Device B",
-    123,
-};
-
 struct bme280_sensor_packet{ //packet structure for transmission
     uint64_t timestamp_ns;
     int32_t temp_c;
@@ -36,7 +32,7 @@ struct bme280_sensor_packet{ //packet structure for transmission
 } __attribute__((packed));
 
 /* BME280 calibration data */
-struct bme280_calib_data {
+/*struct bme280_calib_data {
     uint16_t dig_T1;
     int16_t  dig_T2;
     int16_t  dig_T3;
@@ -57,11 +53,10 @@ struct bme280_calib_data {
     int16_t  dig_H4;
     int16_t  dig_H5;
     int8_t   dig_H6;
-};
+};*/
 
 static struct i2c_device_id my_ids[] = {
     {"tyrunner_bme280", (long unsigned int) &a},
-    {"b-dev", (long unsigned int) &b},
     {},
 };
 MODULE_DEVICE_TABLE(i2c, my_ids);
@@ -80,8 +75,8 @@ static uint16_t read_u16_data(struct i2c_client *client, int reg){
     return (uint16_t)((higher << 8) | lower);
 }
 
-static struct bme280_calib_data calib;
-static int32_t t_fine;
+//static struct bme280_calib_data calib;
+//static int32_t t_fine;
 
 static void read_calibration_data(struct i2c_client *client){
     calib.dig_T1 = read_u16_data(client, 0x88);
@@ -124,7 +119,7 @@ static int read_bit_data(uint8_t* buffer, struct i2c_client *client, int offset,
     return 0;
 }
 /* Temperature compensation */
-static int32_t compensate_temp(int32_t adc_T)
+/*static int32_t compensate_temp(int32_t adc_T)
 {
     int32_t var1, var2;
     var1 = ((((adc_T >> 3) - ((int32_t)calib.dig_T1 << 1))) *
@@ -134,10 +129,10 @@ static int32_t compensate_temp(int32_t adc_T)
             ((int32_t)calib.dig_T3)) >> 14;
     t_fine = var1 + var2;
     return (t_fine * 5 + 128) >> 8; // 0.01°C
-}
+}*/
 
 /* Pressure compensation */
-static uint32_t compensate_pressure(int32_t adc_P)
+/*static uint32_t compensate_pressure(int32_t adc_P)
 {
     int64_t var1, var2, p;
     var1 = (int64_t)t_fine - 128000;
@@ -157,10 +152,10 @@ static uint32_t compensate_pressure(int32_t adc_P)
     var2 = (calib.dig_P8 * p) >> 19;
     p = ((p + var1 + var2) >> 8) + ((int64_t)calib.dig_P7 << 4);
     return (uint32_t)p; // Pa * 256
-}
+}*/
 
 /* Humidity compensation */
-static uint32_t compensate_humidity(int32_t adc_H)
+/*static uint32_t compensate_humidity(int32_t adc_H)
 {
     int32_t v_x1;
     v_x1 = t_fine - 76800;
@@ -173,7 +168,7 @@ static uint32_t compensate_humidity(int32_t adc_H)
     if (v_x1 < 0) v_x1 = 0;
     if (v_x1 > 419430400) v_x1 = 419430400;
     return (uint32_t)(v_x1 >> 12); // %RH * 1024
-}
+}*/
 
 
 //Grouped data read
