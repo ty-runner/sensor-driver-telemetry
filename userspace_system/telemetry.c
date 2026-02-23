@@ -193,7 +193,7 @@ int main() {
     i2c_write(REG_CTRL_MEAS, 0x27);
     i2c_write(REG_CONFIG, 0xA0);
 
-    struct timespec ts = {0, 20000000L}; // 50 Hz → 20ms
+    struct timespec ts = {0, 1000000000L}; // 1 Hz → 1000ms
     while(1) {
         float t, p, h;
         read_sensor(&t, &p, &h);
