@@ -93,16 +93,15 @@ static int read_bit_data(uint8_t* buffer, struct i2c_client *client, int offset,
 }
 
 //Grouped data read
-static void bme280_read_all(struct i2c_client *client, int32_t* temp_c, uint32_t* press_pa, uint32_t* humid_rh){
-    struct timespec64 ts;
-    //ktime_get_real_ts64(&ts); wall clock, used fro data logging and sensors
-    ktime_get_ts64(&ts); //monotonic, kernel
+static void bme280_read_all(struct i2c_client *client, int32_t* temp_c, uint32_t* press_pa, uint32_t* humid_rh, struct timespec64 *ts){
+    //ktime_get_real_ts64(ts); wall clock, used fro data logging and sensors
+    ktime_get_ts64(ts); //monotonic, kernel
     uint8_t buf[3];
 
     printk(KERN_INFO
            "[%lld.%09ld] Timestamp and Read data code: %d\n",
-           (long long)ts.tv_sec,
-           ts.tv_nsec,
+           (long long)ts->tv_sec,
+           ts->tv_nsec,
            read_bit_data(buf, client, 0xFA, 3));
 
     if (read_bit_data(buf, client, 0xFA, 3) == 0) { // temp
@@ -110,8 +109,8 @@ static void bme280_read_all(struct i2c_client *client, int32_t* temp_c, uint32_t
         *temp_c = compensate_temp(temp_raw);
         printk(KERN_INFO
                "[%lld.%09ld] Temp: %d.%02d C\n",
-               (long long)ts.tv_sec,
-               ts.tv_nsec,
+               (long long)ts->tv_sec,
+               ts->tv_nsec,
                *temp_c / 100,
                *temp_c % 100);
     }
@@ -122,8 +121,8 @@ static void bme280_read_all(struct i2c_client *client, int32_t* temp_c, uint32_t
 
         printk(KERN_INFO
                "[%lld.%09ld] Pressure: %u Pa\n",
-               (long long)ts.tv_sec,
-               ts.tv_nsec,
+               (long long)ts->tv_sec,
+               ts->tv_nsec,
                *press_pa);
     }
 
@@ -133,26 +132,41 @@ static void bme280_read_all(struct i2c_client *client, int32_t* temp_c, uint32_t
 
         printk(KERN_INFO
                "[%lld.%09ld] Humidity: %u %%\n",
-               (long long)ts.tv_sec,
-               ts.tv_nsec,
+               (long long)ts->tv_sec,
+               ts->tv_nsec,
                *humid_rh);
     }
 }
 
+static void send_data_packet(uint64_t timestamp_ns, int32_t temp_c, uint32_t press_pa, uint32_t humid_rh){
+    struct bme280_sensor_packet pkt = {
+        .timestamp_ns = timestamp_ns,
+        .temp_c = temp_c,
+        .humidity_percent = humid_rh,
+        .pressure_pa = press_pa,
+        .crc = 0
+    };
+    //transmit formed packet to given endpoint
+}
 static int sensor_thread_fn(void* client_ptr){
+    struct timespec64 ts;
     struct i2c_client *client = client_ptr;
     int32_t temp_c;
     uint32_t press_pa;
     uint32_t humid_rh;
+    uint64_t timestamp_ns;
     while(!kthread_should_stop()){
 
-        bme280_read_all(client, &temp_c, &press_pa, &humid_rh);
+        bme280_read_all(client, &temp_c, &press_pa, &humid_rh, &ts);
         pr_info("THREAD READ -> Temp: %d.%02d C | Pressure: %u Pa | Humidity: %u %%\n",
                 temp_c / 100,
                 abs(temp_c % 100),
                 press_pa,
                 humid_rh);
-        //send packet
+
+
+        timestamp_ns = (uint64_t)ts.tv_sec * 1000000000ULL + (uint64_t)ts.tv_nsec;
+        send_data_packet(timestamp_ns, temp_c, press_pa, humid_rh);
         msleep(1000);
     }
 
@@ -163,11 +177,12 @@ static ssize_t read_sensor_show(struct device *dev,
                                 struct device_attribute *attr,
                                 char *buf)
 {
+    struct timespec64 ts;
     struct i2c_client *client = to_i2c_client(dev);
     int32_t temp_c;
     uint32_t press_pa;
     uint32_t humid_rh;
-    bme280_read_all(client, &temp_c, &press_pa, &humid_rh);
+    bme280_read_all(client, &temp_c, &press_pa, &humid_rh, &ts);
     return sprintf(buf,
         "Temp: %d.%02d C\nPressure: %u Pa\nHumidity: %u %%\n",
         temp_c / 100, temp_c % 100,
@@ -197,8 +212,6 @@ static int my_probe(struct i2c_client *client)
 
     read_calibration_data(client);
 
-    //bme280_read_all(client);
-    
     device_create_file(&client->dev, &dev_attr_read_sensor);
     sensor_thread = kthread_run(sensor_thread_fn,
                             client,
