@@ -17,7 +17,7 @@ static bool thread_run = true;
 static struct socket *udp_sock;
 static struct sockaddr_in udp_addr;
 
-static char *dest_ip = "??????";
+static char *dest_ip = "192.168.68.75";
 module_param(dest_ip, charp, 0644);
 MODULE_PARM_DESC(dest_ip, "Destination IPv4 address for UDP packets");
 
@@ -111,11 +111,11 @@ static void bme280_read_all(struct i2c_client *client, int32_t* temp_c, uint32_t
     ktime_get_ts64(ts); //monotonic, kernel
     uint8_t buf[3];
 
-    printk(KERN_INFO
-           "[%lld.%09ld] Timestamp and Read data code: %d\n",
-           (long long)ts->tv_sec,
-           ts->tv_nsec,
-           read_bit_data(buf, client, 0xFA, 3));
+    //printk(KERN_INFO
+    //       "[%lld.%09ld] Timestamp and Read data code: %d\n",
+    //       (long long)ts->tv_sec,
+    //       ts->tv_nsec,
+    //       read_bit_data(buf, client, 0xFA, 3));
 
     if (read_bit_data(buf, client, 0xFA, 3) == 0) { // temp
         int32_t temp_raw = (buf[0] << 12) | (buf[1] << 4) | (buf[2] >> 4);
@@ -190,15 +190,32 @@ static void udp_close_socket(void)
 }
 
 static void send_data_packet(uint64_t timestamp_ns, int32_t temp_c, uint32_t press_pa, uint32_t humid_rh){
-    struct bme280_sensor_packet pkt = {
-        .timestamp_ns = timestamp_ns,
-        .temp_c = temp_c,
-        .humidity_percent = humid_rh,
-        .pressure_pa = press_pa,
-        .crc = 0
-    };
+    struct bme280_sensor_packet pkt;
+    struct msghdr msg;
+    struct kvec vec;
+
+    if(!udp_sock)
+        return;
+    pkt.timestamp_ns = timestamp_ns;
+    pkt.temp_c = temp_c;
+    pkt.pressure_pa = press_pa;
+    pkt.humidity_percent = humid_rh;
+    pkt.crc = 0; //TODO
+
+    msg.msg_name = &udp_addr;
+    msg.msg_namelen = sizeof(udp_addr);
+
+    vec.iov_base = &pkt;
+    vec.iov_len = sizeof(pkt);
     //transmit formed packet to given endpoint
+    int ret = kernel_sendmsg(udp_sock, &msg, &vec, 1, sizeof(pkt));
+    if (ret < 0) {
+        pr_debug("UDP send failed: %d\n", ret);
+    } else if (ret != sizeof(pkt)) {
+        pr_debug("UDP partial send: %d/%zu\n", ret, sizeof(pkt));
+    }
 }
+
 static int sensor_thread_fn(void* client_ptr){
     struct timespec64 ts;
     struct i2c_client *client = client_ptr;
