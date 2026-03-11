@@ -1,0 +1,2 @@
+source C:/Users/jsrun/Desktop/GitHub/sensor-driver-telemetry/esp32_rtos_telemetry/sensor_interface_i2c/build/bootloader/gdbinit/symbols
+source C:/Users/jsrun/Desktop/GitHub/sensor-driver-telemetry/esp32_rtos_telemetry/sensor_interface_i2c/build/bootloader/gdbinit/connect
