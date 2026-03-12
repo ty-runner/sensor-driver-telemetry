@@ -3,6 +3,7 @@
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
 #include "esp_log.h"
+#include "adc_conversion_32bit.h"
 
 #define I2C_MASTER_SCL_IO 22
 #define I2C_MASTER_SDA_IO 21
@@ -75,6 +76,8 @@ void bme280_verify()
     }
 }
 
+data_packet_struct bme280_read(){
+    
 void app_main(void)
 {
     ESP_ERROR_CHECK(i2c_master_init());
@@ -83,8 +86,13 @@ void app_main(void)
 
     bme280_verify();
 
+    //bme280_read_calib_data();
     while (1)
     {
+        //sensor read task
+        //bme280_read();
+
+        //UDP packet send to endpoint
         vTaskDelay(pdMS_TO_TICKS(1000));
     }
 }
