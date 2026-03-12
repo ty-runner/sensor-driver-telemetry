@@ -49,6 +49,18 @@ static esp_err_t i2c_read_reg(uint8_t dev_addr, uint8_t reg, uint8_t *data, size
     );
 }
 
+static esp_err_t i2c_write_reg(uint8_t dev_addr, uint8_t reg, uint8_t data)
+{
+    uint8_t write_buf[2] = {reg, data};
+
+    return i2c_master_write_to_device(
+        I2C_MASTER_PORT,
+        dev_addr,
+        write_buf,
+        sizeof(write_buf),
+        pdMS_TO_TICKS(1000)
+    );
+}
 void bme280_verify()
 {
     uint8_t chip_id;
@@ -74,6 +86,7 @@ void bme280_verify()
     {
         ESP_LOGE("BME280", "Unexpected chip ID: 0x%02X", chip_id);
     }
+    i2c_write_reg(BME280_ADDR, 0xF2, 0x01);
 }
 
 data_packet_struct bme280_read(){
@@ -84,7 +97,7 @@ void app_main(void)
 
     vTaskDelay(pdMS_TO_TICKS(100));
 
-    bme280_verify();
+    bme280_verify_and_init();
 
     //bme280_read_calib_data();
     while (1)
