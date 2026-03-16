@@ -1,3 +1,4 @@
+#include <stdint.h>
 #include "adc_conversion_32bit.h"
 //In here lives the adc constant translations from raw ADC reads to sensor values we can understand
 int32_t t_fine;
