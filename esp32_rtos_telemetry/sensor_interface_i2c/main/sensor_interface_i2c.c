@@ -15,6 +15,14 @@
 #define BME280_CHIP_ID_REG 0xD0
 #define BME280_CHIP_ID 0x60
 
+struct bme280_sensor_packet{ //packet structure for transmission
+    uint64_t timestamp_ns;
+    int32_t temp_c;
+    uint32_t humidity_percent;
+    uint32_t pressure_pa;
+    uint16_t crc;
+} __attribute__((packed));
+
 static esp_err_t i2c_master_init(void)
 {
     i2c_config_t conf = {
@@ -86,7 +94,16 @@ void bme280_verify()
     {
         ESP_LOGE("BME280", "Unexpected chip ID: 0x%02X", chip_id);
     }
-    i2c_write_reg(BME280_ADDR, 0xF2, 0x01);
+
+    //init sensor readings from BME280
+    if(i2c_write_reg(BME280_ADDR, 0xF2, 0x01) < 0){
+        ESP_LOGE("BME280", "I2C Init Write Failed");
+        return;   
+    }
+    if(i2c_write_reg(BME280_ADDR, 0xF4, 0x27) < 0){
+        ESP_LOGE("BME280", "I2C Init Write Failed");
+        return;   
+    }
 }
 
 data_packet_struct bme280_read(){
