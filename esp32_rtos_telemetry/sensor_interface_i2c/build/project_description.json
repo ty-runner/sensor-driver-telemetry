@@ -1,7 +1,7 @@
 {
     "version":            "1.2",
     "project_name":       "sensor_interface_i2c",
-    "project_version":    "109272e",
+    "project_version":    "d98f854-dirty",
     "project_path":       "C:/Users/jsrun/Desktop/GitHub/sensor-driver-telemetry/esp32_rtos_telemetry/sensor_interface_i2c",
     "idf_path":           "C:/Espressif/frameworks/esp-idf-v5.5.3",
     "build_dir":          "C:/Users/jsrun/Desktop/GitHub/sensor-driver-telemetry/esp32_rtos_telemetry/sensor_interface_i2c/build",
@@ -1240,7 +1240,7 @@
             "managed_reqs": [],
             "managed_priv_reqs": [],
             "file": "C:/Users/jsrun/Desktop/GitHub/sensor-driver-telemetry/esp32_rtos_telemetry/sensor_interface_i2c/build/esp-idf/main/libmain.a",
-            "sources": [ "C:/Users/jsrun/Desktop/GitHub/sensor-driver-telemetry/esp32_rtos_telemetry/sensor_interface_i2c/main/sensor_interface_i2c.c" ],
+            "sources": [ "C:/Users/jsrun/Desktop/GitHub/sensor-driver-telemetry/esp32_rtos_telemetry/sensor_interface_i2c/main/sensor_interface_i2c.c", "C:/Users/jsrun/Desktop/GitHub/sensor-driver-telemetry/esp32_rtos_telemetry/sensor_interface_i2c/main/adc_conversion_32bit.c" ],
             "include_dirs": [ "." ]
         },
         "mbedtls": {

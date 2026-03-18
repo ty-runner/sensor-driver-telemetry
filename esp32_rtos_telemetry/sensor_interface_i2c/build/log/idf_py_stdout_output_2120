@@ -1,0 +1,178 @@
+Command: C:\Espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe C:\Espressif\frameworks\esp-idf-v5.5.3\tools/idf_monitor.py -p COM5 -b 115200 --toolchain-prefix xtensa-esp32-elf- --target esp32 --revision 0 C:\Users\jsrun\Desktop\GitHub\sensor-driver-telemetry\esp32_rtos_telemetry\sensor_interface_i2c\build\sensor_interface_i2c.elf C:\Users\jsrun\Desktop\GitHub\sensor-driver-telemetry\esp32_rtos_telemetry\sensor_interface_i2c\build\bootloader\bootloader.elf --force-color -m 'C:\Espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe' 'C:\Espressif\frameworks\esp-idf-v5.5.3\tools\idf.py' '-p' 'COM5'
+�2: SPI Flash Size �ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:6280
+load:0x40078000,len:15864
+load:0x40080400,len:3920
+entry 0x40080644
+[0;32mI (27) boot: ESP-IDF v5.5.3 2nd stage bootloader[0m
+[0;32mI (27) boot: compile time Mar 11 2026 13:49:18[0m
+[0;32mI (28) boot: Multicore bootloader[0m
+[0;32mI (29) boot: chip revision: v3.1[0m
+[0;32mI (32) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (35) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (39) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (42) boot: Enabling RNG early entropy source...[0m
+[0;32mI (47) boot: Partition Table:[0m
+[0;32mI (49) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (56) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (62) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (69) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (75) boot: End of partition table[0m
+[0;32mI (79) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=1a274h (107124) map[0m
+[0;32mI (123) esp_image: segment 1: paddr=0002a29c vaddr=3ffb0000 size=04388h ( 17288) load[0m
+[0;32mI (129) esp_image: segment 2: paddr=0002e62c vaddr=40080000 size=019ech (  6636) load[0m
+[0;32mI (132) esp_image: segment 3: paddr=00030020 vaddr=400d0020 size=84d0ch (544012) map[0m
+[0;32mI (320) esp_image: segment 4: paddr=000b4d34 vaddr=400819ec size=17958h ( 96600) load[0m
+[0;32mI (358) esp_image: segment 5: paddr=000cc694 vaddr=50000000 size=00020h (    32) load[0m
+[0;32mI (370) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (370) boot: Disabling RNG early entropy source...[0m
+[0;32mI (381) cpu_start: Multicore app[0m
+[0;32mI (389) cpu_start: GPIO 3 and 1 are used as console UART I/O pins[0m
+[0;32mI (389) cpu_start: Pro cpu start user code[0m
+[0;32mI (390) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (391) app_init: Application information:[0m
+[0;32mI (395) app_init: Project name:     sensor_interface_i2c[0m
+[0;32mI (400) app_init: App version:      d98f854-dirty[0m
+[0;32mI (405) app_init: Compile time:     Mar 18 2026 09:16:19[0m
+[0;32mI (410) app_init: ELF file SHA256:  4a9b6faa0...[0m
+[0;32mI (414) app_init: ESP-IDF:          v5.5.3[0m
+[0;32mI (418) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (422) efuse_init: Max chip rev:     v3.99 [0m
+[0;32mI (426) efuse_init: Chip rev:         v3.1[0m
+[0;32mI (430) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (436) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (441) heap_init: At 3FFB86E0 len 00027920 (158 KiB): DRAM[0m
+[0;32mI (446) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (451) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (457) heap_init: At 40099344 len 00006CBC (27 KiB): IRAM[0m
+[0;32mI (464) spi_flash: detected chip: generic[0m
+[0;32mI (466) spi_flash: flash io: dio[0m
+[0;33mW (469) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;33mW (481) i2c: This driver is an old driver, please migrate your application code to adapt `driver/i2c_master.h`[0m
+[0;32mI (492) main_task: Started on CPU0[0m
+[0;32mI (502) main_task: Calling app_main()[0m
+[0;32mI (602) BME280: Sensor detected! Chip ID: 0x60[0m
+[0;32mI (742) wifi:wifi driver task: 3ffc089c, prio:23, stack:6656, core=0[0m
+[0;32mI (752) wifi:wifi firmware version: 4df78f2[0m
+[0;32mI (752) wifi:wifi certification version: v7.0[0m
+[0;32mI (752) wifi:config NVS flash: enabled[0m
+[0;32mI (752) wifi:config nano formatting: disabled[0m
+[0;32mI (762) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (762) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (762) wifi:Init management short buffer num: 32[0m
+[0;32mI (772) wifi:Init dynamic tx buffer num: 32[0m
+[0;32mI (772) wifi:Init static rx buffer size: 1600[0m
+[0;32mI (782) wifi:Init static rx buffer num: 10[0m
+[0;32mI (782) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (792) wifi_init: rx ba win: 6[0m
+[0;32mI (792) wifi_init: accept mbox: 6[0m
+[0;32mI (792) wifi_init: tcpip mbox: 32[0m
+[0;32mI (792) wifi_init: udp mbox: 6[0m
+[0;32mI (802) wifi_init: tcp mbox: 6[0m
+[0;32mI (802) wifi_init: tcp tx win: 5760[0m
+[0;32mI (802) wifi_init: tcp rx win: 5760[0m
+[0;32mI (812) wifi_init: tcp mss: 1440[0m
+[0;32mI (812) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (812) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;33mW (822) wifi:Password length matches WPA2 standards, authmode threshold changes from OPEN to WPA2[0m
+[0;32mI (832) phy_init: phy_version 4863,a3a4459,Oct 28 2025,14:30:06[0m
+[0;32mI (912) wifi:mode : sta (24:dc:c3:c1:01:64)[0m
+[0;32mI (912) wifi:enable tsf[0m
+[0;32mI (912) WIFI: wifi_init_sta finished[0m
+[0;32mI (932) wifi:new:<3,1>, old:<1,0>, ap:<255,255>, sta:<3,1>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (932) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (1952) wifi:state: auth -> assoc (0x0)[0m
+[0;32mI (1982) wifi:Association refused temporarily time 1000, comeback time 1100 (TUs)[0m
+[0;32mI (3112) wifi:state: assoc -> auth (0xb0)[0m
+[0;32mI (4132) UDP: UDP socket created, sending to 192.168.68.83:5005[0m
+[0;32mI (4132) wifi:state: auth -> assoc (0x0)[0m
+[0;32mI (4142) BME280: Temp: 22.86 C  Pressure: 100852 Pa  Humidity: 42 %[0m
+[0;32mI (4142) BME280: TS=3675712000 ns Temp=22.86 C Press=100852 Pa Hum=42%[0m
+[1;31mE (4142) UDP: sendto failed: errno=118[0m
+[0;32mI (4162) wifi:state: assoc -> run (0x10)[0m
+[0;32mI (4192) wifi:connected with MountVernon, aid = 5, channel 3, 40U, bssid = 0c:ef:15:3c:9f:ce[0m
+[0;32mI (4192) wifi:security: WPA3-SAE, phy: bgn, rssi: -57[0m
+[0;32mI (4202) wifi:pm start, type: 1[0m
+
+[0;32mI (4202) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us[0m
+[0;32mI (4222) wifi:<ba-add>idx:0 (ifx:0, 0c:ef:15:3c:9f:ce), tid:0, ssn:0, winSize:64[0m
+[0;32mI (4272) wifi:AP's beacon interval = 102400 us, DTIM period = 1[0m
+[0;32mI (4302) wifi:<ba-add>idx:1 (ifx:0, 0c:ef:15:3c:9f:ce), tid:6, ssn:2, winSize:64[0m
+[0;32mI (5142) BME280: Temp: 22.85 C  Pressure: 100844 Pa  Humidity: 42 %[0m
+[0;32mI (5142) BME280: TS=4679560000 ns Temp=22.85 C Press=100844 Pa Hum=42%[0m
+[1;31mE (5142) UDP: sendto failed: errno=118[0m
+[0;32mI (5242) esp_netif_handlers: sta ip: 192.168.68.73, mask: 255.255.252.0, gw: 192.168.68.1[0m
+[0;32mI (6142) BME280: Temp: 22.85 C  Pressure: 100850 Pa  Humidity: 42 %[0m
+[0;32mI (6142) BME280: TS=5679560000 ns Temp=22.85 C Press=100850 Pa Hum=42%[0m
+[0;32mI (6142) UDP: Sent 22 bytes[0m
+[0;32mI (7142) BME280: Temp: 22.86 C  Pressure: 100857 Pa  Humidity: 42 %[0m
+[0;32mI (7142) BME280: TS=6679560000 ns Temp=22.86 C Press=100857 Pa Hum=42%[0m
+[0;32mI (7142) UDP: Sent 22 bytes[0m
+[0;32mI (8142) BME280: Temp: 22.86 C  Pressure: 100843 Pa  Humidity: 42 %[0m
+[0;32mI (8142) BME280: TS=7679560000 ns Temp=22.86 C Press=100843 Pa Hum=42%[0m
+[0;32mI (8142) UDP: Sent 22 bytes[0m
+[0;32mI (9142) BME280: Temp: 22.86 C  Pressure: 100845 Pa  Humidity: 42 %[0m
+[0;32mI (9142) BME280: TS=8679556000 ns Temp=22.86 C Press=100845 Pa Hum=42%[0m
+[0;32mI (9142) UDP: Sent 22 bytes[0m
+[0;32mI (10142) BME280: Temp: 22.86 C  Pressure: 100852 Pa  Humidity: 42 %[0m
+[0;32mI (10142) BME280: TS=9679560000 ns Temp=22.86 C Press=100852 Pa Hum=42%[0m
+[0;32mI (10142) UDP: Sent 22 bytes[0m
+[0;32mI (11142) BME280: Temp: 22.86 C  Pressure: 100851 Pa  Humidity: 42 %[0m
+[0;32mI (11142) BME280: TS=10679556000 ns Temp=22.86 C Press=100851 Pa Hum=42%[0m
+[0;32mI (11142) UDP: Sent 22 bytes[0m
+[0;32mI (12142) BME280: Temp: 22.86 C  Pressure: 100849 Pa  Humidity: 42 %[0m
+[0;32mI (12142) BME280: TS=11679560000 ns Temp=22.86 C Press=100849 Pa Hum=42%[0m
+[0;32mI (12142) UDP: Sent 22 bytes[0m
+[0;32mI (13142) BME280: Temp: 22.86 C  Pressure: 100852 Pa  Humidity: 42 %[0m
+[0;32mI (13142) BME280: TS=12679556000 ns Temp=22.86 C Press=100852 Pa Hum=42%[0m
+[0;32mI (13142) UDP: Sent 22 bytes[0m
+[0;32mI (14142) BME280: Temp: 22.86 C  Pressure: 100846 Pa  Humidity: 42 %[0m
+[0;32mI (14142) BME280: TS=13679560000 ns Temp=22.86 C Press=100846 Pa Hum=42%[0m
+[0;32mI (14142) UDP: Sent 22 bytes[0m
+[0;32mI (15142) BME280: Temp: 22.85 C  Pressure: 100847 Pa  Humidity: 42 %[0m
+[0;32mI (15142) BME280: TS=14679556000 ns Temp=22.85 C Press=100847 Pa Hum=42%[0m
+[0;32mI (15142) UDP: Sent 22 bytes[0m
+[0;32mI (16142) BME280: Temp: 22.85 C  Pressure: 100850 Pa  Humidity: 42 %[0m
+[0;32mI (16142) BME280: TS=15679560000 ns Temp=22.85 C Press=100850 Pa Hum=42%[0m
+[0;32mI (16142) UDP: Sent 22 bytes[0m
+[0;32mI (17142) BME280: Temp: 22.86 C  Pressure: 100852 Pa  Humidity: 42 %[0m
+[0;32mI (17142) BME280: TS=16679556000 ns Temp=22.86 C Press=100852 Pa Hum=42%[0m
+[0;32mI (17142) UDP: Sent 22 bytes[0m
+[0;32mI (18142) BME280: Temp: 22.86 C  Pressure: 100852 Pa  Humidity: 42 %[0m
+[0;32mI (18142) BME280: TS=17679560000 ns Temp=22.86 C Press=100852 Pa Hum=42%[0m
+[0;32mI (18142) UDP: Sent 22 bytes[0m
+[0;32mI (19142) BME280: Temp: 22.86 C  Pressure: 100852 Pa  Humidity: 42 %[0m
+[0;32mI (19142) BME280: TS=18679556000 ns Temp=22.86 C Press=100852 Pa Hum=42%[0m
+[0;32mI (19142) UDP: Sent 22 bytes[0m
+[0;32mI (20142) BME280: Temp: 22.87 C  Pressure: 100852 Pa  Humidity: 42 %[0m
+[0;32mI (20142) BME280: TS=19679560000 ns Temp=22.87 C Press=100852 Pa Hum=42%[0m
+[0;32mI (20142) UDP: Sent 22 bytes[0m
+[0;32mI (21142) BME280: Temp: 22.87 C  Pressure: 100852 Pa  Humidity: 42 %[0m
+[0;32mI (21142) BME280: TS=20679556000 ns Temp=22.87 C Press=100852 Pa Hum=42%[0m
+[0;32mI (21142) UDP: Sent 22 bytes[0m
+[0;32mI (22142) BME280: Temp: 22.86 C  Pressure: 100854 Pa  Humidity: 42 %[0m
+[0;32mI (22142) BME280: TS=21679560000 ns Temp=22.86 C Press=100854 Pa Hum=42%[0m
+[0;32mI (22142) UDP: Sent 22 bytes[0m
+[0;32mI (23142) BME280: Temp: 22.86 C  Pressure: 100852 Pa  Humidity: 42 %[0m
+[0;32mI (23142) BME280: TS=22679556000 ns Temp=22.86 C Press=100852 Pa Hum=42%[0m
+[0;32mI (23142) UDP: Sent 22 bytes[0m
+[0;32mI (24142) BME280: Temp: 22.86 C  Pressure: 100854 Pa  Humidity: 42 %[0m
+[0;32mI (24142) BME280: TS=23679563000 ns Temp=22.86 C Press=100854 Pa Hum=42%[0m
+[0;32mI (24142) UDP: Sent 22 bytes[0m
+[0;32mI (25142) BME280: Temp: 22.86 C  Pressure: 100854 Pa  Humidity: 42 %[0m
+[0;32mI (25142) BME280: TS=24679556000 ns Temp=22.86 C Press=100854 Pa Hum=42%[0m
+[0;32mI (25142) UDP: Sent 22 bytes[0m
+[0;32mI (26142) BME280: Temp: 22.86 C  Pressure: 100849 Pa  Humidity: 42 %[0m
+[0;32mI (26142) BME280: TS=25679560000 ns Temp=22.86 C Press=100849 Pa Hum=42%[0m
+[0;32mI (26142) UDP: Sent 22 bytes[0m
+[0;32mI (27142) BME280: Temp: 22.88 C  Pressure: 100843 Pa  Humidity: 42 %[0m
+[0;32mI (27142) BME280: TS=26679556000 ns Temp=22.88 C Press=100843 Pa Hum=42%[0m
+[0;32mI (27142) UDP: Sent 22 bytes[0m
+[0;32mI (28142) BME280: Temp: 22.86 C  Pressure: 100852 Pa  Humidity: 42 %[0m
+[0;32mI (28142) BME280: TS=27680068000 ns Temp=22.86 C Press=100852 Pa Hum=42%[0m
+[0;32mI (28142) UDP: Sent 22 bytes[0m

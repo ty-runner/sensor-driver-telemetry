@@ -1,0 +1,297 @@
+Command: C:\Espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe C:\Espressif\frameworks\esp-idf-v5.5.3\tools/idf_monitor.py -p COM5 -b 115200 --toolchain-prefix xtensa-esp32-elf- --target esp32 --revision 0 C:\Users\jsrun\Desktop\GitHub\sensor-driver-telemetry\esp32_rtos_telemetry\sensor_interface_i2c\build\sensor_interface_i2c.elf C:\Users\jsrun\Desktop\GitHub\sensor-driver-telemetry\esp32_rtos_telemetry\sensor_interface_i2c\build\bootloader\bootloader.elf --force-color -m 'C:\Espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe' 'C:\Espressif\frameworks\esp-idf-v5.5.3\tools\idf.py' '-p' 'COM5'
+e����2: SPI Flash Size�ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:6280
+load:0x40078000,len:15864
+load:0x40080400,len:3920
+entry 0x40080644
+[0;32mI (27) boot: ESP-IDF v5.5.3 2nd stage bootloader[0m
+[0;32mI (27) boot: compile time Mar 11 2026 13:49:18[0m
+[0;32mI (28) boot: Multicore bootloader[0m
+[0;32mI (29) boot: chip revision: v3.1[0m
+[0;32mI (32) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (35) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (39) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (42) boot: Enabling RNG early entropy source...[0m
+[0;32mI (47) boot: Partition Table:[0m
+[0;32mI (49) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (56) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (62) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (69) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (75) boot: End of partition table[0m
+[0;32mI (79) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=1a274h (107124) map[0m
+[0;32mI (123) esp_image: segment 1: paddr=0002a29c vaddr=3ffb0000 size=04388h ( 17288) load[0m
+[0;32mI (129) esp_image: segment 2: paddr=0002e62c vaddr=40080000 size=019ech (  6636) load[0m
+[0;32mI (132) esp_image: segment 3: paddr=00030020 vaddr=400d0020 size=84d0ch (544012) map[0m
+[0;32mI (320) esp_image: segment 4: paddr=000b4d34 vaddr=400819ec size=17958h ( 96600) load[0m
+[0;32mI (358) esp_image: segment 5: paddr=000cc694 vaddr=50000000 size=00020h (    32) load[0m
+[0;32mI (370) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (370) boot: Disabling RNG early entropy source...[0m
+[0;32mI (381) cpu_start: Multicore app[0m
+[0;32mI (389) cpu_start: GPIO 3 and 1 are used as console UART I/O pins[0m
+[0;32mI (389) cpu_start: Pro cpu start user code[0m
+[0;32mI (390) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (391) app_init: Application information:[0m
+[0;32mI (395) app_init: Project name:     sensor_interface_i2c[0m
+[0;32mI (400) app_init: App version:      d98f854-dirty[0m
+[0;32mI (405) app_init: Compile time:     Mar 18 2026 09:16:19[0m
+[0;32mI (410) app_init: ELF file SHA256:  4a9b6faa0...[0m
+[0;32mI (414) app_init: ESP-IDF:          v5.5.3[0m
+[0;32mI (418) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (422) efuse_init: Max chip rev:     v3.99 [0m
+[0;32mI (426) efuse_init: Chip rev:         v3.1[0m
+[0;32mI (430) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (436) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (441) heap_init: At 3FFB86E0 len 00027920 (158 KiB): DRAM[0m
+[0;32mI (446) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (451) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (457) heap_init: At 40099344 len 00006CBC (27 KiB): IRAM[0m
+[0;32mI (464) spi_flash: detected chip: generic[0m
+[0;32mI (466) spi_flash: flash io: dio[0m
+[0;33mW (469) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;33mW (481) i2c: This driver is an old driver, please migrate your application code to adapt `driver/i2c_master.h`[0m
+[0;32mI (492) main_task: Started on CPU0[0m
+[0;32mI (502) main_task: Calling app_main()[0m
+[0;32mI (602) BME280: Sensor detected! Chip ID: 0x60[0m
+[0;32mI (752) wifi:wifi driver task: 3ffc0818, prio:23, stack:6656, core=0[0m
+[0;32mI (762) wifi:wifi firmware version: 4df78f2[0m
+[0;32mI (762) wifi:wifi certification version: v7.0[0m
+[0;32mI (762) wifi:config NVS flash: enabled[0m
+[0;32mI (762) wifi:config nano formatting: disabled[0m
+[0;32mI (772) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (772) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (772) wifi:Init management short buffer num: 32[0m
+[0;32mI (782) wifi:Init dynamic tx buffer num: 32[0m
+[0;32mI (782) wifi:Init static rx buffer size: 1600[0m
+[0;32mI (792) wifi:Init static rx buffer num: 10[0m
+[0;32mI (792) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (802) wifi_init: rx ba win: 6[0m
+[0;32mI (802) wifi_init: accept mbox: 6[0m
+[0;32mI (802) wifi_init: tcpip mbox: 32[0m
+[0;32mI (802) wifi_init: udp mbox: 6[0m
+[0;32mI (812) wifi_init: tcp mbox: 6[0m
+[0;32mI (812) wifi_init: tcp tx win: 5760[0m
+[0;32mI (812) wifi_init: tcp rx win: 5760[0m
+[0;32mI (812) wifi_init: tcp mss: 1440[0m
+[0;32mI (822) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (822) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;33mW (832) wifi:Password length matches WPA2 standards, authmode threshold changes from OPEN to WPA2[0m
+[0;32mI (832) phy_init: phy_version 4863,a3a4459,Oct 28 2025,14:30:06[0m
+[0;33mW (842) phy_init: failed to load RF calibration data (0xffffffff), falling back to full calibration[0m
+[0;32mI (912) phy_init: Saving new calibration data due to checksum failure or outdated calibration data, mode(2)[0m
+[0;32mI (932) wifi:mode : sta (24:dc:c3:c1:01:64)[0m
+[0;32mI (932) wifi:enable tsf[0m
+[0;32mI (932) WIFI: wifi_init_sta finished[0m
+[0;32mI (1192) wifi:new:<3,1>, old:<1,0>, ap:<255,255>, sta:<3,1>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (1192) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (2222) wifi:state: auth -> assoc (0x0)[0m
+[0;32mI (2252) wifi:state: assoc -> run (0x10)[0m
+[0;32mI (2272) wifi:connected with MountVernon, aid = 5, channel 3, 40U, bssid = 0c:ef:15:3c:9f:ce[0m
+[0;32mI (2272) wifi:security: WPA3-SAE, phy: bgn, rssi: -57[0m
+[0;32mI (2282) wifi:pm start, type: 1[0m
+
+[0;32mI (2282) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us[0m
+[0;32mI (2292) wifi:AP's beacon interval = 102400 us, DTIM period = 1[0m
+[0;32mI (2832) wifi:<ba-add>idx:0 (ifx:0, 0c:ef:15:3c:9f:ce), tid:0, ssn:0, winSize:64[0m
+[0;32mI (2912) wifi:<ba-add>idx:1 (ifx:0, 0c:ef:15:3c:9f:ce), tid:6, ssn:2, winSize:64[0m
+[0;32mI (3852) esp_netif_handlers: sta ip: 192.168.68.73, mask: 255.255.252.0, gw: 192.168.68.1[0m
+[0;32mI (3932) UDP: UDP socket created, sending to 192.168.68.83:5005[0m
+[0;32mI (3932) BME280: Temp: 22.51 C  Pressure: 100850 Pa  Humidity: 43 %[0m
+[0;32mI (3932) BME280: TS=3470880000 ns Temp=22.51 C Press=100850 Pa Hum=43%[0m
+[0;32mI (3942) UDP: Sent 22 bytes[0m
+[0;32mI (4942) BME280: Temp: 22.52 C  Pressure: 100849 Pa  Humidity: 43 %[0m
+[0;32mI (4942) BME280: TS=4479562000 ns Temp=22.52 C Press=100849 Pa Hum=43%[0m
+[0;32mI (4942) UDP: Sent 22 bytes[0m
+[0;32mI (5942) BME280: Temp: 22.53 C  Pressure: 100857 Pa  Humidity: 43 %[0m
+[0;32mI (5942) BME280: TS=5479562000 ns Temp=22.53 C Press=100857 Pa Hum=43%[0m
+[0;32mI (5942) UDP: Sent 22 bytes[0m
+[0;32mI (6942) BME280: Temp: 22.52 C  Pressure: 100855 Pa  Humidity: 43 %[0m
+[0;32mI (6942) BME280: TS=6479562000 ns Temp=22.52 C Press=100855 Pa Hum=43%[0m
+[0;32mI (6942) UDP: Sent 22 bytes[0m
+[0;32mI (7942) BME280: Temp: 22.53 C  Pressure: 100852 Pa  Humidity: 42 %[0m
+[0;32mI (7942) BME280: TS=7479562000 ns Temp=22.53 C Press=100852 Pa Hum=42%[0m
+[0;32mI (7942) UDP: Sent 22 bytes[0m
+[0;32mI (8942) BME280: Temp: 22.53 C  Pressure: 100854 Pa  Humidity: 42 %[0m
+[0;32mI (8942) BME280: TS=8479562000 ns Temp=22.53 C Press=100854 Pa Hum=42%[0m
+[0;32mI (8942) UDP: Sent 22 bytes[0m
+[0;32mI (9942) BME280: Temp: 22.53 C  Pressure: 100852 Pa  Humidity: 42 %[0m
+[0;32mI (9942) BME280: TS=9479562000 ns Temp=22.53 C Press=100852 Pa Hum=42%[0m
+[0;32mI (9942) UDP: Sent 22 bytes[0m
+[0;32mI (10942) BME280: Temp: 22.53 C  Pressure: 100852 Pa  Humidity: 42 %[0m
+[0;32mI (10942) BME280: TS=10479562000 ns Temp=22.53 C Press=100852 Pa Hum=42%[0m
+[0;32mI (10942) UDP: Sent 22 bytes[0m
+[0;32mI (11942) BME280: Temp: 22.54 C  Pressure: 100850 Pa  Humidity: 42 %[0m
+[0;32mI (11942) BME280: TS=11479562000 ns Temp=22.54 C Press=100850 Pa Hum=42%[0m
+[0;32mI (11942) UDP: Sent 22 bytes[0m
+[0;32mI (12942) BME280: Temp: 22.54 C  Pressure: 100848 Pa  Humidity: 43 %[0m
+[0;32mI (12942) BME280: TS=12479562000 ns Temp=22.54 C Press=100848 Pa Hum=43%[0m
+[0;32mI (12942) UDP: Sent 22 bytes[0m
+[0;32mI (13942) BME280: Temp: 22.54 C  Pressure: 100848 Pa  Humidity: 43 %[0m
+[0;32mI (13942) BME280: TS=13479562000 ns Temp=22.54 C Press=100848 Pa Hum=43%[0m
+[0;32mI (13942) UDP: Sent 22 bytes[0m
+[0;32mI (14942) BME280: Temp: 22.54 C  Pressure: 100851 Pa  Humidity: 43 %[0m
+[0;32mI (14942) BME280: TS=14479562000 ns Temp=22.54 C Press=100851 Pa Hum=43%[0m
+[0;32mI (14942) UDP: Sent 22 bytes[0m
+[0;32mI (15942) BME280: Temp: 22.55 C  Pressure: 100852 Pa  Humidity: 43 %[0m
+[0;32mI (15942) BME280: TS=15479562000 ns Temp=22.55 C Press=100852 Pa Hum=43%[0m
+[0;32mI (15942) UDP: Sent 22 bytes[0m
+[0;32mI (16942) BME280: Temp: 22.55 C  Pressure: 100843 Pa  Humidity: 43 %[0m
+[0;32mI (16942) BME280: TS=16479562000 ns Temp=22.55 C Press=100843 Pa Hum=43%[0m
+[0;32mI (16942) UDP: Sent 22 bytes[0m
+[0;32mI (17942) BME280: Temp: 22.55 C  Pressure: 100841 Pa  Humidity: 43 %[0m
+[0;32mI (17942) BME280: TS=17479562000 ns Temp=22.55 C Press=100841 Pa Hum=43%[0m
+[0;32mI (17942) UDP: Sent 22 bytes[0m
+[0;32mI (18942) BME280: Temp: 22.56 C  Pressure: 100851 Pa  Humidity: 42 %[0m
+[0;32mI (18942) BME280: TS=18479562000 ns Temp=22.56 C Press=100851 Pa Hum=42%[0m
+[0;32mI (18942) UDP: Sent 22 bytes[0m
+[0;32mI (19942) BME280: Temp: 22.55 C  Pressure: 100850 Pa  Humidity: 42 %[0m
+[0;32mI (19942) BME280: TS=19479562000 ns Temp=22.55 C Press=100850 Pa Hum=42%[0m
+[0;32mI (19942) UDP: Sent 22 bytes[0m
+[0;32mI (20942) BME280: Temp: 22.55 C  Pressure: 100849 Pa  Humidity: 42 %[0m
+[0;32mI (20942) BME280: TS=20479562000 ns Temp=22.55 C Press=100849 Pa Hum=42%[0m
+[0;32mI (20942) UDP: Sent 22 bytes[0m
+[0;32mI (21942) BME280: Temp: 22.55 C  Pressure: 100852 Pa  Humidity: 42 %[0m
+[0;32mI (21942) BME280: TS=21479562000 ns Temp=22.55 C Press=100852 Pa Hum=42%[0m
+[0;32mI (21942) UDP: Sent 22 bytes[0m
+[0;32mI (22942) BME280: Temp: 22.56 C  Pressure: 100849 Pa  Humidity: 42 %[0m
+[0;32mI (22942) BME280: TS=22479562000 ns Temp=22.56 C Press=100849 Pa Hum=42%[0m
+[0;32mI (22942) UDP: Sent 22 bytes[0m
+[0;32mI (23942) BME280: Temp: 22.56 C  Pressure: 100848 Pa  Humidity: 42 %[0m
+[0;32mI (23942) BME280: TS=23479562000 ns Temp=22.56 C Press=100848 Pa Hum=42%[0m
+[0;32mI (23942) UDP: Sent 22 bytes[0m
+[0;32mI (24942) BME280: Temp: 22.57 C  Pressure: 100855 Pa  Humidity: 42 %[0m
+[0;32mI (24942) BME280: TS=24479562000 ns Temp=22.57 C Press=100855 Pa Hum=42%[0m
+[0;32mI (24942) UDP: Sent 22 bytes[0m
+[0;32mI (25942) BME280: Temp: 22.57 C  Pressure: 100850 Pa  Humidity: 43 %[0m
+[0;32mI (25942) BME280: TS=25479562000 ns Temp=22.57 C Press=100850 Pa Hum=43%[0m
+[0;32mI (25942) UDP: Sent 22 bytes[0m
+[0;32mI (26942) BME280: Temp: 22.57 C  Pressure: 100850 Pa  Humidity: 43 %[0m
+[0;32mI (26942) BME280: TS=26479562000 ns Temp=22.57 C Press=100850 Pa Hum=43%[0m
+[0;32mI (26942) UDP: Sent 22 bytes[0m
+[0;32mI (27942) BME280: Temp: 22.57 C  Pressure: 100852 Pa  Humidity: 43 %[0m
+[0;32mI (27942) BME280: TS=27479562000 ns Temp=22.57 C Press=100852 Pa Hum=43%[0m
+[0;32mI (27942) UDP: Sent 22 bytes[0m
+[0;32mI (28942) BME280: Temp: 22.57 C  Pressure: 100849 Pa  Humidity: 43 %[0m
+[0;32mI (28942) BME280: TS=28479562000 ns Temp=22.57 C Press=100849 Pa Hum=43%[0m
+[0;32mI (28942) UDP: Sent 22 bytes[0m
+[0;32mI (29942) BME280: Temp: 22.57 C  Pressure: 100848 Pa  Humidity: 43 %[0m
+[0;32mI (29942) BME280: TS=29479562000 ns Temp=22.57 C Press=100848 Pa Hum=43%[0m
+[0;32mI (29942) UDP: Sent 22 bytes[0m
+[0;32mI (30942) BME280: Temp: 22.57 C  Pressure: 100841 Pa  Humidity: 43 %[0m
+[0;32mI (30942) BME280: TS=30479562000 ns Temp=22.57 C Press=100841 Pa Hum=43%[0m
+[0;32mI (30942) UDP: Sent 22 bytes[0m
+[0;32mI (31942) BME280: Temp: 22.58 C  Pressure: 100848 Pa  Humidity: 42 %[0m
+[0;32mI (31942) BME280: TS=31479562000 ns Temp=22.58 C Press=100848 Pa Hum=42%[0m
+[0;32mI (31942) UDP: Sent 22 bytes[0m
+[0;32mI (32942) BME280: Temp: 22.58 C  Pressure: 100851 Pa  Humidity: 42 %[0m
+[0;32mI (32942) BME280: TS=32479562000 ns Temp=22.58 C Press=100851 Pa Hum=42%[0m
+[0;32mI (32942) UDP: Sent 22 bytes[0m
+[0;32mI (33942) BME280: Temp: 22.57 C  Pressure: 100842 Pa  Humidity: 42 %[0m
+[0;32mI (33942) BME280: TS=33479562000 ns Temp=22.57 C Press=100842 Pa Hum=42%[0m
+[0;32mI (33942) UDP: Sent 22 bytes[0m
+[0;32mI (34942) BME280: Temp: 22.58 C  Pressure: 100855 Pa  Humidity: 42 %[0m
+[0;32mI (34942) BME280: TS=34479562000 ns Temp=22.58 C Press=100855 Pa Hum=42%[0m
+[0;32mI (34942) UDP: Sent 22 bytes[0m
+[0;32mI (35942) BME280: Temp: 22.59 C  Pressure: 100856 Pa  Humidity: 42 %[0m
+[0;32mI (35942) BME280: TS=35479562000 ns Temp=22.59 C Press=100856 Pa Hum=42%[0m
+[0;32mI (35942) UDP: Sent 22 bytes[0m
+[0;32mI (36942) BME280: Temp: 22.58 C  Pressure: 100851 Pa  Humidity: 42 %[0m
+[0;32mI (36942) BME280: TS=36479562000 ns Temp=22.58 C Press=100851 Pa Hum=42%[0m
+[0;32mI (36942) UDP: Sent 22 bytes[0m
+[0;32mI (37942) BME280: Temp: 22.58 C  Pressure: 100846 Pa  Humidity: 42 %[0m
+[0;32mI (37942) BME280: TS=37479562000 ns Temp=22.58 C Press=100846 Pa Hum=42%[0m
+[0;32mI (37942) UDP: Sent 22 bytes[0m
+[0;32mI (38942) BME280: Temp: 22.58 C  Pressure: 100844 Pa  Humidity: 42 %[0m
+[0;32mI (38942) BME280: TS=38480270000 ns Temp=22.58 C Press=100844 Pa Hum=42%[0m
+[0;32mI (38942) UDP: Sent 22 bytes[0m
+[0;32mI (39942) BME280: Temp: 22.59 C  Pressure: 100853 Pa  Humidity: 42 %[0m
+[0;32mI (39942) BME280: TS=39479562000 ns Temp=22.59 C Press=100853 Pa Hum=42%[0m
+[0;32mI (39942) UDP: Sent 22 bytes[0m
+[0;32mI (40942) BME280: Temp: 22.59 C  Pressure: 100845 Pa  Humidity: 42 %[0m
+[0;32mI (40942) BME280: TS=40479562000 ns Temp=22.59 C Press=100845 Pa Hum=42%[0m
+[0;32mI (40942) UDP: Sent 22 bytes[0m
+[0;32mI (41942) BME280: Temp: 22.59 C  Pressure: 100845 Pa  Humidity: 42 %[0m
+[0;32mI (41942) BME280: TS=41479562000 ns Temp=22.59 C Press=100845 Pa Hum=42%[0m
+[0;32mI (41942) UDP: Sent 22 bytes[0m
+[0;32mI (42942) BME280: Temp: 22.58 C  Pressure: 100844 Pa  Humidity: 42 %[0m
+[0;32mI (42942) BME280: TS=42479562000 ns Temp=22.58 C Press=100844 Pa Hum=42%[0m
+[0;32mI (42942) UDP: Sent 22 bytes[0m
+[0;32mI (43942) BME280: Temp: 22.60 C  Pressure: 100843 Pa  Humidity: 42 %[0m
+[0;32mI (43942) BME280: TS=43479562000 ns Temp=22.60 C Press=100843 Pa Hum=42%[0m
+[0;32mI (43942) UDP: Sent 22 bytes[0m
+[0;32mI (44942) BME280: Temp: 22.59 C  Pressure: 100853 Pa  Humidity: 42 %[0m
+[0;32mI (44942) BME280: TS=44479562000 ns Temp=22.59 C Press=100853 Pa Hum=42%[0m
+[0;32mI (44942) UDP: Sent 22 bytes[0m
+[0;32mI (45942) BME280: Temp: 22.58 C  Pressure: 100844 Pa  Humidity: 42 %[0m
+[0;32mI (45942) BME280: TS=45479562000 ns Temp=22.58 C Press=100844 Pa Hum=42%[0m
+[0;32mI (45942) UDP: Sent 22 bytes[0m
+[0;32mI (46942) BME280: Temp: 22.59 C  Pressure: 100861 Pa  Humidity: 42 %[0m
+[0;32mI (46942) BME280: TS=46479562000 ns Temp=22.59 C Press=100861 Pa Hum=42%[0m
+[0;32mI (46942) UDP: Sent 22 bytes[0m
+[0;32mI (47942) BME280: Temp: 22.58 C  Pressure: 100849 Pa  Humidity: 42 %[0m
+[0;32mI (47942) BME280: TS=47479562000 ns Temp=22.58 C Press=100849 Pa Hum=42%[0m
+[0;32mI (47942) UDP: Sent 22 bytes[0m
+[0;32mI (48942) BME280: Temp: 22.58 C  Pressure: 100849 Pa  Humidity: 42 %[0m
+[0;32mI (48942) BME280: TS=48479562000 ns Temp=22.58 C Press=100849 Pa Hum=42%[0m
+[0;32mI (48942) UDP: Sent 22 bytes[0m
+[0;32mI (49942) BME280: Temp: 22.58 C  Pressure: 100848 Pa  Humidity: 42 %[0m
+[0;32mI (49942) BME280: TS=49479562000 ns Temp=22.58 C Press=100848 Pa Hum=42%[0m
+[0;32mI (49942) UDP: Sent 22 bytes[0m
+[0;32mI (50942) BME280: Temp: 22.59 C  Pressure: 100856 Pa  Humidity: 42 %[0m
+[0;32mI (50942) BME280: TS=50479562000 ns Temp=22.59 C Press=100856 Pa Hum=42%[0m
+[0;32mI (50942) UDP: Sent 22 bytes[0m
+[0;32mI (51942) BME280: Temp: 22.58 C  Pressure: 100846 Pa  Humidity: 42 %[0m
+[0;32mI (51942) BME280: TS=51479562000 ns Temp=22.58 C Press=100846 Pa Hum=42%[0m
+[0;32mI (51942) UDP: Sent 22 bytes[0m
+[0;32mI (52942) BME280: Temp: 22.58 C  Pressure: 100846 Pa  Humidity: 42 %[0m
+[0;32mI (52942) BME280: TS=52479562000 ns Temp=22.58 C Press=100846 Pa Hum=42%[0m
+[0;32mI (52942) UDP: Sent 22 bytes[0m
+[0;32mI (53942) BME280: Temp: 22.59 C  Pressure: 100845 Pa  Humidity: 42 %[0m
+[0;32mI (53942) BME280: TS=53479562000 ns Temp=22.59 C Press=100845 Pa Hum=42%[0m
+[0;32mI (53942) UDP: Sent 22 bytes[0m
+[0;32mI (54942) BME280: Temp: 22.59 C  Pressure: 100839 Pa  Humidity: 42 %[0m
+[0;32mI (54942) BME280: TS=54479562000 ns Temp=22.59 C Press=100839 Pa Hum=42%[0m
+[0;32mI (54942) UDP: Sent 22 bytes[0m
+[0;32mI (55942) BME280: Temp: 22.59 C  Pressure: 100850 Pa  Humidity: 42 %[0m
+[0;32mI (55942) BME280: TS=55479562000 ns Temp=22.59 C Press=100850 Pa Hum=42%[0m
+[0;32mI (55942) UDP: Sent 22 bytes[0m
+[0;32mI (56942) BME280: Temp: 22.59 C  Pressure: 100840 Pa  Humidity: 42 %[0m
+[0;32mI (56942) BME280: TS=56479562000 ns Temp=22.59 C Press=100840 Pa Hum=42%[0m
+[0;32mI (56942) UDP: Sent 22 bytes[0m
+[0;32mI (57942) BME280: Temp: 22.61 C  Pressure: 100853 Pa  Humidity: 43 %[0m
+[0;32mI (57942) BME280: TS=57479562000 ns Temp=22.61 C Press=100853 Pa Hum=43%[0m
+[0;32mI (57942) UDP: Sent 22 bytes[0m
+[0;32mI (58942) BME280: Temp: 22.85 C  Pressure: 100860 Pa  Humidity: 50 %[0m
+[0;32mI (58942) BME280: TS=58479550000 ns Temp=22.85 C Press=100860 Pa Hum=50%[0m
+[0;32mI (58942) UDP: Sent 22 bytes[0m
+[0;32mI (59942) BME280: Temp: 23.80 C  Pressure: 100843 Pa  Humidity: 63 %[0m
+[0;32mI (59942) BME280: TS=59479550000 ns Temp=23.80 C Press=100843 Pa Hum=63%[0m
+[0;32mI (59942) UDP: Sent 22 bytes[0m
+[0;32mI (60942) BME280: Temp: 23.53 C  Pressure: 100848 Pa  Humidity: 63 %[0m
+[0;32mI (60942) BME280: TS=60479562000 ns Temp=23.53 C Press=100848 Pa Hum=63%[0m
+[0;32mI (60942) UDP: Sent 22 bytes[0m
+[0;32mI (61942) BME280: Temp: 23.76 C  Pressure: 100886 Pa  Humidity: 65 %[0m
+[0;32mI (61942) BME280: TS=61479562000 ns Temp=23.76 C Press=100886 Pa Hum=65%[0m
+[0;32mI (61942) UDP: Sent 22 bytes[0m
+[0;32mI (62942) BME280: Temp: 25.08 C  Pressure: 100857 Pa  Humidity: 73 %[0m
+[0;32mI (62942) BME280: TS=62479562000 ns Temp=25.08 C Press=100857 Pa Hum=73%[0m
+[0;32mI (62942) UDP: Sent 22 bytes[0m
+[0;32mI (63942) BME280: Temp: 24.64 C  Pressure: 100853 Pa  Humidity: 70 %[0m
+[0;32mI (63942) BME280: TS=63479562000 ns Temp=24.64 C Press=100853 Pa Hum=70%[0m
+[0;32mI (63942) UDP: Sent 22 bytes[0m
+[0;32mI (64942) BME280: Temp: 24.52 C  Pressure: 100852 Pa  Humidity: 67 %[0m
+[0;32mI (64942) BME280: TS=64479550000 ns Temp=24.52 C Press=100852 Pa Hum=67%[0m
+[0;32mI (64942) UDP: Sent 22 bytes[0m
+[0;32mI (65942) BME280: Temp: 24.50 C  Pressure: 100854 Pa  Humidity: 66 %[0m
+[0;32mI (65942) BME280: TS=65479550000 ns Temp=24.50 C Press=100854 Pa Hum=66%[0m
+[0;32mI (65942) UDP: Sent 22 bytes[0m
+[0;32mI (66942) BME280: Temp: 24.49 C  Pressure: 100852 Pa  Humidity: 65 %[0m
+[0;32mI (66942) BME280: TS=66479562000 ns Temp=24.49 C Press=100852 Pa Hum=65%[0m
+[0;32mI (66942) UDP: Sent 22 bytes[0m
+[0;32mI (67942) BME280: Temp: 24.46 C  Pressure: 100850 Pa  Humidity: 64 %[0m
+[0;32mI (67942) BME280: TS=67479550000 ns Temp=24.46 C Press=100850 Pa Hum=64%[0m
+[0;32mI (67942) UDP: Sent 22 bytes[0m

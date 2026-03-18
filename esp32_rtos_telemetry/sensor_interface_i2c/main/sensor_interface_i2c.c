@@ -1,3 +1,4 @@
+#include "secrets.h"
 #include <stdio.h>
 #include <stdint.h>
 #include "driver/i2c.h"
@@ -6,6 +7,13 @@
 #include "esp_log.h"
 #include "esp_timer.h"
 #include "adc_conversion_32bit.h"
+#include <string.h>
+#include <sys/socket.h>
+#include <netinet/in.h>
+#include <arpa/inet.h>
+#include "esp_wifi.h"
+#include "esp_event.h"
+#include "nvs_flash.h"
 
 #define I2C_MASTER_SCL_IO 22
 #define I2C_MASTER_SDA_IO 21
@@ -77,6 +85,18 @@ static esp_err_t i2c_write_reg(uint8_t dev_addr, uint8_t reg, uint8_t data)
         sizeof(write_buf),
         pdMS_TO_TICKS(1000)
     );
+}
+
+static uint64_t htonll(uint64_t value)
+{
+    uint32_t high = htonl((uint32_t)(value >> 32));
+    uint32_t low  = htonl((uint32_t)(value & 0xFFFFFFFFULL));
+    return ((uint64_t)low << 32) | high;
+}
+
+static int32_t htonl_i32(int32_t value)
+{
+    return (int32_t)htonl((uint32_t)value);
 }
 
 static int16_t read_s16_data(int reg){
@@ -209,40 +229,133 @@ static void bme280_read_all(int32_t* temp_c, uint32_t* press_pa, uint32_t* humid
         *press_pa,
         *humid_rh);
 }
-struct bme280_sensor_packet bme280_read(){
-    struct bme280_sensor_packet pkt = {
-        .timestamp_ns = 0,
-        .temp_c = 0,
-        .humidity_percent = 0,
-        .pressure_pa = 0,
-        .crc = 0,
-    };
+
+static struct bme280_sensor_packet bme280_read(void)
+{
+    struct bme280_sensor_packet pkt;
+    memset(&pkt, 0, sizeof(pkt));
+
+    bme280_read_all(&pkt.temp_c,
+                    &pkt.pressure_pa,
+                    &pkt.humidity_percent,
+                    &pkt.timestamp_ns);
+
+    pkt.crc = 0;  // set after serialization
     return pkt;
 }
-    
+
+static void serialize_bme280_packet(const struct bme280_sensor_packet *src, struct bme280_sensor_packet *dst)
+{
+    dst->timestamp_ns      = htonll(src->timestamp_ns);
+    dst->temp_c            = htonl_i32(src->temp_c);
+    dst->humidity_percent  = htonl(src->humidity_percent);
+    dst->pressure_pa       = htonl(src->pressure_pa);
+    dst->crc               = 0;
+
+    //uint16_t crc = crc16_ccitt((const uint8_t *)dst, sizeof(struct bme280_sensor_packet) - sizeof(uint16_t));
+
+    //dst->crc = htons(crc);
+}
+/* NETWORKING FUNCTIONS*/
+static void wifi_init_sta(void)
+{
+    ESP_ERROR_CHECK(nvs_flash_init());
+    ESP_ERROR_CHECK(esp_netif_init());
+    ESP_ERROR_CHECK(esp_event_loop_create_default());
+    esp_netif_create_default_wifi_sta();
+
+    wifi_init_config_t cfg = WIFI_INIT_CONFIG_DEFAULT();
+    ESP_ERROR_CHECK(esp_wifi_init(&cfg));
+
+    wifi_config_t wifi_config = {
+        .sta = {
+            .ssid = WIFI_SSID,
+            .password = WIFI_PASS,
+        },
+    };
+
+    ESP_ERROR_CHECK(esp_wifi_set_mode(WIFI_MODE_STA));
+    ESP_ERROR_CHECK(esp_wifi_set_config(WIFI_IF_STA, &wifi_config));
+    ESP_ERROR_CHECK(esp_wifi_start());
+    ESP_ERROR_CHECK(esp_wifi_connect());
+
+    ESP_LOGI("WIFI", "wifi_init_sta finished");
+}
+
+static int udp_socket_create(struct sockaddr_in *dest_addr)
+{
+    int sock = socket(AF_INET, SOCK_DGRAM, IPPROTO_IP);
+    if (sock < 0) {
+        ESP_LOGE("UDP", "Unable to create socket");
+        return -1;
+    }
+
+    memset(dest_addr, 0, sizeof(*dest_addr));
+    dest_addr->sin_family = AF_INET;
+    dest_addr->sin_port = htons(UDP_DEST_PORT);
+    dest_addr->sin_addr.s_addr = inet_addr(UDP_DEST_IP);
+
+    ESP_LOGI("UDP", "UDP socket created, sending to %s:%d", UDP_DEST_IP, UDP_DEST_PORT);
+    return sock;
+}
+
+static esp_err_t udp_send_packet(int sock, const struct sockaddr_in *dest_addr,
+                                 const struct bme280_sensor_packet *pkt)
+{
+    int err = sendto(sock,
+                     pkt,
+                     sizeof(*pkt),
+                     0,
+                     (const struct sockaddr *)dest_addr,
+                     sizeof(*dest_addr));
+
+    if (err < 0) {
+        ESP_LOGE("UDP", "sendto failed: errno=%d", errno);
+        return ESP_FAIL;
+    }
+
+    ESP_LOGI("UDP", "Sent %d bytes", err);
+    return ESP_OK;
+}
+
 void app_main(void)
 {
     ESP_ERROR_CHECK(i2c_master_init());
-
     vTaskDelay(pdMS_TO_TICKS(100));
 
     bme280_verify_and_init();
-
     vTaskDelay(pdMS_TO_TICKS(100));
 
     read_calibration_data();
 
-    int32_t temp_c;
-    uint32_t press_pa;
-    uint32_t humid_rh;
-    uint64_t ts;
-    while (1)
-    {
-        //sensor read task
-        bme280_read_all(&temp_c, &press_pa, &humid_rh, &ts);
+    wifi_init_sta();
+    vTaskDelay(pdMS_TO_TICKS(3000)); // simple delay so Wi-Fi can associate
 
-        ESP_LOGI("BME280", "Timestamp: %llu ns", ts);
-        //UDP packet send to endpoint
+    struct sockaddr_in dest_addr;
+    int sock = udp_socket_create(&dest_addr);
+    if (sock < 0) {
+        ESP_LOGE("APP", "Failed to create UDP socket");
+        return;
+    }
+
+    while (1) {
+        struct bme280_sensor_packet pkt_host = bme280_read();
+        struct bme280_sensor_packet pkt_net;
+
+        serialize_bme280_packet(&pkt_host, &pkt_net);
+
+        ESP_LOGI("BME280",
+                 "TS=%llu ns Temp=%d.%02d C Press=%u Pa Hum=%u%%",
+                 pkt_host.timestamp_ns,
+                 pkt_host.temp_c / 100,
+                 abs(pkt_host.temp_c % 100),
+                 pkt_host.pressure_pa,
+                 pkt_host.humidity_percent);
+
+        udp_send_packet(sock, &dest_addr, &pkt_net);
+
         vTaskDelay(pdMS_TO_TICKS(1000));
     }
+
+    close(sock);
 }

@@ -1,0 +1,31 @@
+Command: ninja all
+[1/9] Performing build step for 'bootloader'
+[1/1] C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\jsrun\Desktop\GitHub\sensor-driver-telemetry\esp32_rtos_telemetry\sensor_interface_i2c\build\bootloader\esp-idf\esptool_py && C:\Espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe C:/Espressif/frameworks/esp-idf-v5.5.3/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x1000 C:/Users/jsrun/Desktop/GitHub/sensor-driver-telemetry/esp32_rtos_telemetry/sensor_interface_i2c/build/bootloader/bootloader.bin"
+Bootloader binary size 0x6630 bytes. 0x9d0 bytes (9%) free.
+[2/9] No install step for 'bootloader'
+[3/9] Completed 'bootloader'
+[4/9] Building C object esp-idf/main/CMakeFiles/__idf_main.dir/sensor_interface_i2c.c.obj
+C:/Users/jsrun/Desktop/GitHub/sensor-driver-telemetry/esp32_rtos_telemetry/sensor_interface_i2c/main/sensor_interface_i2c.c: In function 'bme280_read':
+C:/Users/jsrun/Desktop/GitHub/sensor-driver-telemetry/esp32_rtos_telemetry/sensor_interface_i2c/main/sensor_interface_i2c.c:242:21: warning: taking address of packed member of 'struct bme280_sensor_packet' may result in an unaligned pointer value [-Waddress-of-packed-member]
+  242 |     bme280_read_all(&pkt.temp_c,
+      |                     ^~~~~~~~~~~
+C:/Users/jsrun/Desktop/GitHub/sensor-driver-telemetry/esp32_rtos_telemetry/sensor_interface_i2c/main/sensor_interface_i2c.c:243:21: warning: taking address of packed member of 'struct bme280_sensor_packet' may result in an unaligned pointer value [-Waddress-of-packed-member]
+  243 |                     &pkt.pressure_pa,
+      |                     ^~~~~~~~~~~~~~~~
+C:/Users/jsrun/Desktop/GitHub/sensor-driver-telemetry/esp32_rtos_telemetry/sensor_interface_i2c/main/sensor_interface_i2c.c:244:21: warning: taking address of packed member of 'struct bme280_sensor_packet' may result in an unaligned pointer value [-Waddress-of-packed-member]
+  244 |                     &pkt.humidity_percent,
+      |                     ^~~~~~~~~~~~~~~~~~~~~
+C:/Users/jsrun/Desktop/GitHub/sensor-driver-telemetry/esp32_rtos_telemetry/sensor_interface_i2c/main/sensor_interface_i2c.c:245:21: warning: taking address of packed member of 'struct bme280_sensor_packet' may result in an unaligned pointer value [-Waddress-of-packed-member]
+  245 |                     &pkt.timestamp_ns);
+      |                     ^~~~~~~~~~~~~~~~~
+[5/9] Linking C static library esp-idf\main\libmain.a
+[6/9] Generating esp-idf/esp_system/ld/sections.ld
+[7/9] Linking CXX executable sensor_interface_i2c.elf
+[8/9] Generating binary image from built executable
+esptool.py v4.12.dev1
+Creating esp32 image...
+Merged 2 ELF sections
+Successfully created esp32 image.
+Generated C:/Users/jsrun/Desktop/GitHub/sensor-driver-telemetry/esp32_rtos_telemetry/sensor_interface_i2c/build/sensor_interface_i2c.bin
+[9/9] C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\jsrun\Desktop\GitHub\sensor-driver-telemetry\esp32_rtos_telemetry\sensor_interface_i2c\build\esp-idf\esptool_py && C:\Espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe C:/Espressif/frameworks/esp-idf-v5.5.3/components/partition_table/check_sizes.py --offset 0x8000 partition --type app C:/Users/jsrun/Desktop/GitHub/sensor-driver-telemetry/esp32_rtos_telemetry/sensor_interface_i2c/build/partition_table/partition-table.bin C:/Users/jsrun/Desktop/GitHub/sensor-driver-telemetry/esp32_rtos_telemetry/sensor_interface_i2c/build/sensor_interface_i2c.bin"
+sensor_interface_i2c.bin binary size 0xbc6e0 bytes. Smallest app partition is 0x100000 bytes. 0x43920 bytes (26%) free.
