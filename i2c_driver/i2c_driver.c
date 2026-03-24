@@ -215,8 +215,60 @@ static void send_data_packet(uint64_t timestamp_ns, int32_t temp_c, uint32_t pre
         pr_debug("UDP partial send: %d/%zu\n", ret, sizeof(pkt));
     }
 }
-
 static int sensor_thread_fn(void* client_ptr){
+    struct timespec64 ts;
+    struct i2c_client *client = client_ptr;
+    int32_t temp_c;
+    uint32_t press_pa;
+    uint32_t humid_rh;
+    uint64_t timestamp_ns;
+
+    // ---- METRICS ----
+    uint64_t prev_loop_start = 0;
+
+    while(!kthread_should_stop()){
+
+        // ---- LOOP START ----
+        uint64_t loop_start = ktime_get_ns();
+
+        // ---- JITTER (LOOP PERIOD) ----
+        if (prev_loop_start != 0) {
+            uint64_t loop_period = loop_start - prev_loop_start;
+            pr_info("METRIC: Loop Period (Jitter): %llu us\n", loop_period / 1000);
+        }
+        prev_loop_start = loop_start;
+
+        // ---- END-TO-END LATENCY START ----
+        uint64_t e2e_start = ktime_get_ns();
+
+        // ---- SENSOR READ ----
+        bme280_read_all(client, &temp_c, &press_pa, &humid_rh, &ts);
+
+        pr_info("THREAD READ -> Temp: %d.%02d C | Pressure: %u Pa | Humidity: %u %%\n",
+                temp_c / 100,
+                abs(temp_c % 100),
+                press_pa,
+                humid_rh);
+
+        // ---- TIMESTAMP + SEND ----
+        timestamp_ns = (uint64_t)ts.tv_sec * 1000000000ULL + (uint64_t)ts.tv_nsec;
+
+        send_data_packet(timestamp_ns, temp_c, press_pa, humid_rh);
+
+        // ---- END-TO-END LATENCY END ----
+        uint64_t e2e_end = ktime_get_ns();
+        pr_info("METRIC: E2E Latency: %llu us\n", (e2e_end - e2e_start) / 1000);
+
+        // ---- LOOP EXECUTION TIME ----
+        uint64_t loop_end = ktime_get_ns();
+        pr_info("METRIC: Loop Exec Time: %llu us\n", (loop_end - loop_start) / 1000);
+
+        msleep(1000);
+    }
+
+    return 0;
+}
+/*static int sensor_thread_fn(void* client_ptr){
     struct timespec64 ts;
     struct i2c_client *client = client_ptr;
     int32_t temp_c;
@@ -239,7 +291,7 @@ static int sensor_thread_fn(void* client_ptr){
     }
 
     return 0;
-}
+}*/
 //Exposing the data to the userspace in the device tree
 static ssize_t read_sensor_show(struct device *dev,
                                 struct device_attribute *attr,
