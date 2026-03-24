@@ -337,8 +337,54 @@ void app_main(void)
         ESP_LOGE("APP", "Failed to create UDP socket");
         return;
     }
+    const TickType_t xFrequency = pdMS_TO_TICKS(1000);
+    TickType_t xLastWakeTime = xTaskGetTickCount();
+
+    uint64_t prev_loop_start = 0;
 
     while (1) {
+        // ---- LOOP START TIMESTAMP ----
+        uint64_t loop_start = esp_timer_get_time(); // us
+
+        // ---- JITTER (TRUE PERIOD) ----
+        if (prev_loop_start != 0) {
+            uint64_t loop_period = loop_start - prev_loop_start;
+            ESP_LOGI("METRIC", "Loop Period (Jitter): %llu us", loop_period);
+        }
+        prev_loop_start = loop_start;
+
+        // ---- END-TO-END LATENCY START ----
+        uint64_t e2e_start = esp_timer_get_time();
+
+        struct bme280_sensor_packet pkt_host = bme280_read();
+        struct bme280_sensor_packet pkt_net;
+
+        serialize_bme280_packet(&pkt_host, &pkt_net);
+
+        udp_send_packet(sock, &dest_addr, &pkt_net);
+
+        // ---- END-TO-END LATENCY END ----
+        uint64_t e2e_end = esp_timer_get_time();
+        ESP_LOGI("METRIC", "E2E Latency: %llu us", (e2e_end - e2e_start));
+
+        // ---- LOOP EXECUTION TIME ----
+        uint64_t loop_end = esp_timer_get_time();
+        ESP_LOGI("METRIC", "Loop Exec Time: %llu us", (loop_end - loop_start));
+
+        // Optional: keep your sensor print
+        ESP_LOGI("BME280",
+                 "TS=%llu ns Temp=%d.%02d C Press=%u Pa Hum=%u%%",
+                 pkt_host.timestamp_ns,
+                 pkt_host.temp_c / 100,
+                 abs(pkt_host.temp_c % 100),
+                 pkt_host.pressure_pa,
+                 pkt_host.humidity_percent);
+
+        // ---- DETERMINISTIC DELAY ----
+        vTaskDelayUntil(&xLastWakeTime, xFrequency);
+    }
+    close(sock);
+    /*while (1) {
         struct bme280_sensor_packet pkt_host = bme280_read();
         struct bme280_sensor_packet pkt_net;
 
@@ -357,5 +403,5 @@ void app_main(void)
         vTaskDelay(pdMS_TO_TICKS(1000));
     }
 
-    close(sock);
+    close(sock);*/
 }
