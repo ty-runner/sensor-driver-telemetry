@@ -7,7 +7,8 @@
 #include <linux/i2c-dev.h>
 #include <time.h>
 #include <string.h>
-#include <curl/curl.h>
+#include <arpa/inet.h>
+#include <sys/socket.h>
 
 #define BME280_I2C_ADDR 0x77
 #define I2C_DEV "/dev/i2c-1"
@@ -16,6 +17,10 @@
 #define REG_CTRL_MEAS 0xF4
 #define REG_CONFIG    0xF5
 #define REG_DATA      0xF7
+
+// UDP destination
+#define UDP_IP "192.168.1.100" // change to your receiver
+#define UDP_PORT 5005
 
 // Calibration struct
 typedef struct {
@@ -43,6 +48,8 @@ typedef struct {
 
 bme280_calib_data calib;
 int fd;
+int sockfd;
+struct sockaddr_in udp_addr;
 
 // --- Helper functions ---
 void i2c_write(uint8_t reg, uint8_t val) {
@@ -84,7 +91,7 @@ void read_calibration() {
     calib.dig_H6 = buf[6];
 }
 
-// --- Compensation formulas from datasheet ---
+// --- Compensation formulas ---
 int32_t t_fine;
 
 float compensate_T(int32_t adc_T) {
@@ -102,7 +109,7 @@ float compensate_P(int32_t adc_P) {
     var2 = var2 + (((int64_t)calib.dig_P4)<<35);
     var1 = ((var1 * var1 * (int64_t)calib.dig_P3)>>8) + ((var1 * (int64_t)calib.dig_P2)<<12);
     var1 = (((((int64_t)1)<<47)+var1))*((int64_t)calib.dig_P1)>>33;
-    if (var1 == 0) return 0; // avoid divide by zero
+    if (var1 == 0) return 0;
     p = 1048576 - adc_P;
     p = (((p<<31) - var2)*3125)/var1;
     var1 = (((int64_t)calib.dig_P9) * (p>>13) * (p>>13)) >> 25;
@@ -135,44 +142,11 @@ void read_sensor(float *temperature, float *pressure, float *humidity) {
     *humidity    = compensate_H(adc_H);
 }
 
-// --- Send HTTP POST ---
-
-void send_http(float temperature, float pressure, float humidity) {
-    CURL *curl = curl_easy_init();
-    if(curl) {
-        CURLcode res;
-
-        // Build JSON
-        char json[128];
-        snprintf(json, sizeof(json),
-                 "{\"temperature\":%.2f,\"pressure\":%.2f,\"humidity\":%.2f}",
-                 temperature, pressure, humidity);
-
-        // Set headers
-        struct curl_slist *headers = NULL;
-        headers = curl_slist_append(headers, "Content-Type: application/json");
-
-        curl_easy_setopt(curl, CURLOPT_URL, "https://webhook.site/101131b5-b101-43d4-87cb-9f75b75b6444");
-        curl_easy_setopt(curl, CURLOPT_HTTPHEADER, headers);
-
-        // Tell curl this is a POST with a body
-        curl_easy_setopt(curl, CURLOPT_POSTFIELDS, json);
-
-        // Optional: timeout
-        curl_easy_setopt(curl, CURLOPT_TIMEOUT, 5L);
-
-        // Perform the request
-        res = curl_easy_perform(curl);
-        if(res != CURLE_OK) {
-            fprintf(stderr, "curl failed: %s\n", curl_easy_strerror(res));
-        } else {
-            printf("POST sent: %s\n", json);
-        }
-
-        // Clean up
-        curl_slist_free_all(headers);
-        curl_easy_cleanup(curl);
-    }
+// --- Send UDP ---
+void send_udp(float temperature, float pressure, float humidity) {
+    char msg[128];
+    snprintf(msg, sizeof(msg), "%.2f,%.2f,%.2f", temperature, pressure, humidity);
+    sendto(sockfd, msg, strlen(msg), 0, (struct sockaddr*)&udp_addr, sizeof(udp_addr));
 }
 
 int main() {
@@ -189,19 +163,48 @@ int main() {
     // Read calibration
     read_calibration();
 
-    // Configure sensor: normal mode, 1x oversampling for speed
+    // Configure sensor: normal mode, 1x oversampling
     i2c_write(REG_CTRL_MEAS, 0x27);
     i2c_write(REG_CONFIG, 0xA0);
 
-    struct timespec ts = {0, 1000000000L}; // 1 Hz → 1000ms
+    // Setup UDP
+    sockfd = socket(AF_INET, SOCK_DGRAM, 0);
+    memset(&udp_addr, 0, sizeof(udp_addr));
+    udp_addr.sin_family = AF_INET;
+    udp_addr.sin_port = htons(UDP_PORT);
+    inet_pton(AF_INET, UDP_IP, &udp_addr.sin_addr);
+
+    struct timespec ts = {1, 0}; // 1 Hz
+    struct timespec last_loop_time;
+    clock_gettime(CLOCK_MONOTONIC, &last_loop_time);
+
     while(1) {
+        struct timespec start, end;
+        clock_gettime(CLOCK_MONOTONIC, &start);
+
         float t, p, h;
         read_sensor(&t, &p, &h);
-        printf("T: %.2f C, P: %.2f hPa, H: %.2f %%\n", t, p, h);
-        send_http(t, p, h);
+
+        struct timespec after_read;
+        clock_gettime(CLOCK_MONOTONIC, &after_read);
+
+        send_udp(t, p, h);
+
+        struct timespec after_send;
+        clock_gettime(CLOCK_MONOTONIC, &after_send);
+
+        // Metrics
+        double loop_exec_time = (after_send.tv_sec - start.tv_sec) + (after_send.tv_nsec - start.tv_nsec)/1e9;
+        double e2e_latency   = (after_send.tv_sec - start.tv_sec) + (after_send.tv_nsec - start.tv_nsec)/1e9;
+        double true_period   = (start.tv_sec - last_loop_time.tv_sec) + (start.tv_nsec - last_loop_time.tv_nsec)/1e9;
+        double jitter        = true_period - 1.0; // expected 1s
+
+        printf("T: %.2f C, P: %.2f hPa, H: %.2f %% | Exec: %.6f s | E2E: %.6f s | Jitter: %.6f s\n",
+               t, p, h, loop_exec_time, e2e_latency, jitter);
+
+        last_loop_time = start;
         nanosleep(&ts, NULL);
     }
 
     return 0;
 }
-
