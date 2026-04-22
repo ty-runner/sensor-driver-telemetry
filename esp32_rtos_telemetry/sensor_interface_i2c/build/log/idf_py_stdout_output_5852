@@ -1,0 +1,1302 @@
+Command: C:\Espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe C:\Espressif\frameworks\esp-idf-v5.5.3\tools/idf_monitor.py -p COM5 -b 115200 --toolchain-prefix xtensa-esp32-elf- --target esp32 --revision 0 C:\Users\jsrun\Desktop\GitHub\sensor-driver-telemetry\esp32_rtos_telemetry\sensor_interface_i2c\build\sensor_interface_i2c.elf C:\Users\jsrun\Desktop\GitHub\sensor-driver-telemetry\esp32_rtos_telemetry\sensor_interface_i2c\build\bootloader\bootloader.elf --force-color -m 'C:\Espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe' 'C:\Espressif\frameworks\esp-idf-v5.5.3\tools\idf.py' '-p' 'COM5'
+e*���2: SPI Flash �ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:6280
+load:0x40078000,len:15864
+load:0x40080400,len:3920
+entry 0x40080644
+[0;32mI (27) boot: ESP-IDF v5.5.3 2nd stage bootloader[0m
+[0;32mI (27) boot: compile time Mar 11 2026 13:49:18[0m
+[0;32mI (28) boot: Multicore bootloader[0m
+[0;32mI (29) boot: chip revision: v3.1[0m
+[0;32mI (32) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (35) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (39) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (42) boot: Enabling RNG early entropy source...[0m
+[0;32mI (47) boot: Partition Table:[0m
+[0;32mI (49) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (56) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (62) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (69) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (75) boot: End of partition table[0m
+[0;32mI (79) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=1a334h (107316) map[0m
+[0;32mI (123) esp_image: segment 1: paddr=0002a35c vaddr=3ffb0000 size=04388h ( 17288) load[0m
+[0;32mI (129) esp_image: segment 2: paddr=0002e6ec vaddr=40080000 size=0192ch (  6444) load[0m
+[0;32mI (132) esp_image: segment 3: paddr=00030020 vaddr=400d0020 size=84dc4h (544196) map[0m
+[0;32mI (320) esp_image: segment 4: paddr=000b4dec vaddr=4008192c size=17ac4h ( 96964) load[0m
+[0;32mI (358) esp_image: segment 5: paddr=000cc8b8 vaddr=50000000 size=00020h (    32) load[0m
+[0;32mI (371) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (371) boot: Disabling RNG early entropy source...[0m
+[0;32mI (381) cpu_start: Multicore app[0m
+[0;32mI (389) cpu_start: GPIO 3 and 1 are used as console UART I/O pins[0m
+[0;32mI (390) cpu_start: Pro cpu start user code[0m
+[0;32mI (390) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (392) app_init: Application information:[0m
+[0;32mI (395) app_init: Project name:     sensor_interface_i2c[0m
+[0;32mI (400) app_init: App version:      e35660c-dirty[0m
+[0;32mI (405) app_init: Compile time:     Mar 25 2026 07:15:43[0m
+[0;32mI (410) app_init: ELF file SHA256:  aeed0ae43...[0m
+[0;32mI (414) app_init: ESP-IDF:          v5.5.3[0m
+[0;32mI (418) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (422) efuse_init: Max chip rev:     v3.99 [0m
+[0;32mI (426) efuse_init: Chip rev:         v3.1[0m
+[0;32mI (430) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (436) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (441) heap_init: At 3FFB86E0 len 00027920 (158 KiB): DRAM[0m
+[0;32mI (446) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (452) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (457) heap_init: At 400993F0 len 00006C10 (27 KiB): IRAM[0m
+[0;32mI (464) spi_flash: detected chip: generic[0m
+[0;32mI (466) spi_flash: flash io: dio[0m
+[0;33mW (469) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;33mW (481) i2c: This driver is an old driver, please migrate your application code to adapt `driver/i2c_master.h`[0m
+[0;32mI (492) main_task: Started on CPU0[0m
+[0;32mI (502) main_task: Calling app_main()[0m
+[0;32mI (602) BME280: Sensor detected! Chip ID: 0x60[0m
+[0;32mI (742) wifi:wifi driver task: 3ffc089c, prio:23, stack:6656, core=0[0m
+[0;32mI (752) wifi:wifi firmware version: 4df78f2[0m
+[0;32mI (752) wifi:wifi certification version: v7.0[0m
+[0;32mI (752) wifi:config NVS flash: enabled[0m
+[0;32mI (752) wifi:config nano formatting: disabled[0m
+[0;32mI (762) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (762) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (762) wifi:Init management short buffer num: 32[0m
+[0;32mI (772) wifi:Init dynamic tx buffer num: 32[0m
+[0;32mI (772) wifi:Init static rx buffer size: 1600[0m
+[0;32mI (782) wifi:Init static rx buffer num: 10[0m
+[0;32mI (782) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (792) wifi_init: rx ba win: 6[0m
+[0;32mI (792) wifi_init: accept mbox: 6[0m
+[0;32mI (792) wifi_init: tcpip mbox: 32[0m
+[0;32mI (792) wifi_init: udp mbox: 6[0m
+[0;32mI (802) wifi_init: tcp mbox: 6[0m
+[0;32mI (802) wifi_init: tcp tx win: 5760[0m
+[0;32mI (802) wifi_init: tcp rx win: 5760[0m
+[0;32mI (802) wifi_init: tcp mss: 1440[0m
+[0;32mI (812) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (812) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;33mW (822) wifi:Password length matches WPA2 standards, authmode threshold changes from OPEN to WPA2[0m
+[0;32mI (822) phy_init: phy_version 4863,a3a4459,Oct 28 2025,14:30:06[0m
+[0;32mI (912) wifi:mode : sta (24:dc:c3:c1:01:64)[0m
+[0;32mI (912) wifi:enable tsf[0m
+[0;32mI (922) WIFI: wifi_init_sta finished[0m
+[0;32mI (932) wifi:new:<3,1>, old:<1,0>, ap:<255,255>, sta:<3,1>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (932) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (1972) wifi:state: auth -> assoc (0x0)[0m
+[0;32mI (2012) wifi:Association refused temporarily time 1000, comeback time 1100 (TUs)[0m
+[0;32mI (3142) wifi:state: assoc -> auth (0xb0)[0m
+[0;32mI (4162) UDP: UDP socket created, sending to 192.168.68.83:5005[0m
+[0;32mI (4172) BME280: Temp: 20.59 C  Pressure: 100769 Pa  Humidity: 58 %[0m
+[0;32mI (4172) wifi:state: auth -> assoc (0x0)[0m
+[1;31mE (4172) UDP: sendto failed: errno=118[0m
+[0;32mI (4172) METRIC: E2E Latency: 8078 us[0m
+[0;32mI (4182) METRIC: Loop Exec Time: 10907 us[0m
+[0;32mI (4182) BME280: TS=3709467000 ns Temp=20.59 C Press=100769 Pa Hum=58%[0m
+[0;32mI (4202) wifi:state: assoc -> run (0x10)[0m
+[0;32mI (4222) wifi:connected with MountVernon, aid = 6, channel 3, 40U, bssid = 0c:ef:15:3c:9f:ce[0m
+[0;32mI (4232) wifi:security: WPA3-SAE, phy: bgn, rssi: -58[0m
+[0;32mI (4232) wifi:pm start, type: 1[0m
+
+[0;32mI (4232) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us[0m
+[0;32mI (4272) wifi:<ba-add>idx:0 (ifx:0, 0c:ef:15:3c:9f:ce), tid:0, ssn:0, winSize:64[0m
+[0;32mI (4282) wifi:AP's beacon interval = 102400 us, DTIM period = 1[0m
+[0;32mI (4812) wifi:<ba-add>idx:1 (ifx:0, 0c:ef:15:3c:9f:ce), tid:6, ssn:2, winSize:64[0m
+[0;32mI (5162) METRIC: Loop Period (Jitter): 990047 us[0m
+[0;32mI (5162) BME280: Temp: 20.59 C  Pressure: 100771 Pa  Humidity: 58 %[0m
+[1;31mE (5162) UDP: sendto failed: errno=118[0m
+[0;32mI (5162) METRIC: E2E Latency: 2773 us[0m
+[0;32mI (5162) METRIC: Loop Exec Time: 6529 us[0m
+[0;32mI (5172) BME280: TS=4700046000 ns Temp=20.59 C Press=100771 Pa Hum=58%[0m
+[0;32mI (5312) esp_netif_handlers: sta ip: 192.168.68.76, mask: 255.255.252.0, gw: 192.168.68.1[0m
+[0;32mI (6162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (6162) BME280: Temp: 20.60 C  Pressure: 100765 Pa  Humidity: 58 %[0m
+[0;32mI (6162) UDP: Sent 22 bytes[0m
+[0;32mI (6162) METRIC: E2E Latency: 6042 us[0m
+[0;32mI (6162) METRIC: Loop Exec Time: 6920 us[0m
+[0;32mI (6162) BME280: TS=5700104000 ns Temp=20.60 C Press=100765 Pa Hum=58%[0m
+[0;32mI (7162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (7162) BME280: Temp: 20.60 C  Pressure: 100770 Pa  Humidity: 58 %[0m
+[0;32mI (7162) UDP: Sent 22 bytes[0m
+[0;32mI (7162) METRIC: E2E Latency: 3128 us[0m
+[0;32mI (7162) METRIC: Loop Exec Time: 5695 us[0m
+[0;32mI (7162) BME280: TS=6700084000 ns Temp=20.60 C Press=100770 Pa Hum=58%[0m
+[0;32mI (8162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (8162) BME280: Temp: 20.59 C  Pressure: 100774 Pa  Humidity: 58 %[0m
+[0;32mI (8162) UDP: Sent 22 bytes[0m
+[0;32mI (8162) METRIC: E2E Latency: 3119 us[0m
+[0;32mI (8162) METRIC: Loop Exec Time: 5710 us[0m
+[0;32mI (8162) BME280: TS=7700100000 ns Temp=20.59 C Press=100774 Pa Hum=58%[0m
+[0;32mI (9162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (9162) BME280: Temp: 20.59 C  Pressure: 100772 Pa  Humidity: 58 %[0m
+[1;31mE (9162) UDP: sendto failed: errno=12[0m
+[0;32mI (9162) METRIC: E2E Latency: 3179 us[0m
+[0;32mI (9162) METRIC: Loop Exec Time: 6575 us[0m
+[0;32mI (9172) BME280: TS=8700095000 ns Temp=20.59 C Press=100772 Pa Hum=58%[0m
+[0;32mI (10162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (10162) BME280: Temp: 20.59 C  Pressure: 100767 Pa  Humidity: 58 %[0m
+[1;31mE (10162) UDP: sendto failed: errno=12[0m
+[0;32mI (10162) METRIC: E2E Latency: 3169 us[0m
+[0;32mI (10162) METRIC: Loop Exec Time: 6923 us[0m
+[0;32mI (10172) BME280: TS=9700097000 ns Temp=20.59 C Press=100767 Pa Hum=58%[0m
+[0;32mI (11162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (11162) BME280: Temp: 20.59 C  Pressure: 100772 Pa  Humidity: 58 %[0m
+[0;32mI (11162) UDP: Sent 22 bytes[0m
+[0;32mI (11162) METRIC: E2E Latency: 6026 us[0m
+[0;32mI (11162) METRIC: Loop Exec Time: 6752 us[0m
+[0;32mI (11162) BME280: TS=10700021000 ns Temp=20.59 C Press=100772 Pa Hum=58%[0m
+[0;32mI (12162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (12162) BME280: Temp: 20.59 C  Pressure: 100769 Pa  Humidity: 58 %[0m
+[0;32mI (12162) UDP: Sent 22 bytes[0m
+[0;32mI (12162) METRIC: E2E Latency: 3215 us[0m
+[0;32mI (12162) METRIC: Loop Exec Time: 7088 us[0m
+[0;32mI (12172) BME280: TS=11701130000 ns Temp=20.59 C Press=100769 Pa Hum=58%[0m
+[0;32mI (13162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (13162) BME280: Temp: 20.59 C  Pressure: 100769 Pa  Humidity: 58 %[0m
+[0;32mI (13162) UDP: Sent 22 bytes[0m
+[0;32mI (13162) METRIC: E2E Latency: 3060 us[0m
+[0;32mI (13162) METRIC: Loop Exec Time: 6063 us[0m
+[0;32mI (13162) BME280: TS=12700105000 ns Temp=20.59 C Press=100769 Pa Hum=58%[0m
+[0;32mI (14162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (14162) BME280: Temp: 20.60 C  Pressure: 100765 Pa  Humidity: 58 %[0m
+[1;31mE (14162) UDP: sendto failed: errno=12[0m
+[0;32mI (14162) METRIC: E2E Latency: 3155 us[0m
+[0;32mI (14162) METRIC: Loop Exec Time: 6935 us[0m
+[0;32mI (14172) BME280: TS=13700109000 ns Temp=20.60 C Press=100765 Pa Hum=58%[0m
+[0;32mI (15162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (15162) BME280: Temp: 20.60 C  Pressure: 100770 Pa  Humidity: 58 %[0m
+[1;31mE (15162) UDP: sendto failed: errno=12[0m
+[0;32mI (15162) METRIC: E2E Latency: 3163 us[0m
+[0;32mI (15162) METRIC: Loop Exec Time: 6935 us[0m
+[0;32mI (15172) BME280: TS=14700109000 ns Temp=20.60 C Press=100770 Pa Hum=58%[0m
+[0;32mI (16162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (16162) BME280: Temp: 20.60 C  Pressure: 100765 Pa  Humidity: 58 %[0m
+[0;32mI (16162) UDP: Sent 22 bytes[0m
+[0;32mI (16162) METRIC: E2E Latency: 6407 us[0m
+[0;32mI (16162) METRIC: Loop Exec Time: 7200 us[0m
+[0;32mI (16162) BME280: TS=15700021000 ns Temp=20.60 C Press=100765 Pa Hum=58%[0m
+[0;32mI (17162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (17162) BME280: Temp: 20.59 C  Pressure: 100769 Pa  Humidity: 58 %[0m
+[0;32mI (17162) UDP: Sent 22 bytes[0m
+[0;32mI (17162) METRIC: E2E Latency: 3115 us[0m
+[0;32mI (17162) METRIC: Loop Exec Time: 6043 us[0m
+[0;32mI (17162) BME280: TS=16700086000 ns Temp=20.59 C Press=100769 Pa Hum=58%[0m
+[0;32mI (18162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (18162) BME280: Temp: 20.60 C  Pressure: 100767 Pa  Humidity: 57 %[0m
+[0;32mI (18162) UDP: Sent 22 bytes[0m
+[0;32mI (18162) METRIC: E2E Latency: 3115 us[0m
+[0;32mI (18162) METRIC: Loop Exec Time: 6067 us[0m
+[0;32mI (18162) BME280: TS=17700109000 ns Temp=20.60 C Press=100767 Pa Hum=57%[0m
+[0;32mI (19162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (19162) BME280: Temp: 20.60 C  Pressure: 100770 Pa  Humidity: 57 %[0m
+[1;31mE (19162) UDP: sendto failed: errno=12[0m
+[0;32mI (19162) METRIC: E2E Latency: 3167 us[0m
+[0;32mI (19162) METRIC: Loop Exec Time: 6935 us[0m
+[0;32mI (19172) BME280: TS=18700109000 ns Temp=20.60 C Press=100770 Pa Hum=57%[0m
+[0;32mI (20162) METRIC: Loop Period (Jitter): 1000088 us[0m
+[0;32mI (20162) BME280: Temp: 20.60 C  Pressure: 100770 Pa  Humidity: 57 %[0m
+[1;31mE (20162) UDP: sendto failed: errno=12[0m
+[0;32mI (20162) METRIC: E2E Latency: 3841 us[0m
+[0;32mI (20162) METRIC: Loop Exec Time: 6939 us[0m
+[0;32mI (20172) BME280: TS=19700194000 ns Temp=20.60 C Press=100770 Pa Hum=57%[0m
+[0;32mI (21162) METRIC: Loop Period (Jitter): 999912 us[0m
+[0;32mI (21162) BME280: Temp: 20.60 C  Pressure: 100771 Pa  Humidity: 57 %[0m
+[0;32mI (21162) UDP: Sent 22 bytes[0m
+[0;32mI (21162) METRIC: E2E Latency: 5883 us[0m
+[0;32mI (21162) METRIC: Loop Exec Time: 6601 us[0m
+[0;32mI (21162) BME280: TS=20700020000 ns Temp=20.60 C Press=100771 Pa Hum=57%[0m
+[0;32mI (22162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (22162) BME280: Temp: 20.60 C  Pressure: 100771 Pa  Humidity: 57 %[0m
+[0;32mI (22162) UDP: Sent 22 bytes[0m
+[0;32mI (22162) METRIC: E2E Latency: 3100 us[0m
+[0;32mI (22162) METRIC: Loop Exec Time: 6051 us[0m
+[0;32mI (22162) BME280: TS=21700093000 ns Temp=20.60 C Press=100771 Pa Hum=57%[0m
+[0;32mI (23162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (23162) BME280: Temp: 20.60 C  Pressure: 100770 Pa  Humidity: 57 %[0m
+[0;32mI (23162) UDP: Sent 22 bytes[0m
+[0;32mI (23162) METRIC: E2E Latency: 3103 us[0m
+[0;32mI (23162) METRIC: Loop Exec Time: 6059 us[0m
+[0;32mI (23162) BME280: TS=22700101000 ns Temp=20.60 C Press=100770 Pa Hum=57%[0m
+[0;32mI (24162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (24162) BME280: Temp: 20.60 C  Pressure: 100765 Pa  Humidity: 57 %[0m
+[1;31mE (24162) UDP: sendto failed: errno=12[0m
+[0;32mI (24162) METRIC: E2E Latency: 3155 us[0m
+[0;32mI (24162) METRIC: Loop Exec Time: 6939 us[0m
+[0;32mI (24172) BME280: TS=23700113000 ns Temp=20.60 C Press=100765 Pa Hum=57%[0m
+[0;32mI (25162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (25162) BME280: Temp: 20.60 C  Pressure: 100776 Pa  Humidity: 57 %[0m
+[1;31mE (25162) UDP: sendto failed: errno=12[0m
+[0;32mI (25162) METRIC: E2E Latency: 3163 us[0m
+[0;32mI (25162) METRIC: Loop Exec Time: 7163 us[0m
+[0;32mI (25172) BME280: TS=24700105000 ns Temp=20.60 C Press=100776 Pa Hum=57%[0m
+[0;32mI (26162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (26162) BME280: Temp: 20.60 C  Pressure: 100770 Pa  Humidity: 57 %[0m
+[0;32mI (26162) UDP: Sent 22 bytes[0m
+[0;32mI (26162) METRIC: E2E Latency: 5819 us[0m
+[0;32mI (26162) METRIC: Loop Exec Time: 6605 us[0m
+[0;32mI (26162) BME280: TS=25700009000 ns Temp=20.60 C Press=100770 Pa Hum=57%[0m
+[0;32mI (27162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (27162) BME280: Temp: 20.60 C  Pressure: 100777 Pa  Humidity: 57 %[0m
+[0;32mI (27162) UDP: Sent 22 bytes[0m
+[0;32mI (27162) METRIC: E2E Latency: 3119 us[0m
+[0;32mI (27162) METRIC: Loop Exec Time: 6047 us[0m
+[0;32mI (27162) BME280: TS=26700090000 ns Temp=20.60 C Press=100777 Pa Hum=57%[0m
+[0;32mI (28162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (28162) BME280: Temp: 20.60 C  Pressure: 100765 Pa  Humidity: 57 %[0m
+[0;32mI (28162) UDP: Sent 22 bytes[0m
+[0;32mI (28162) METRIC: E2E Latency: 3115 us[0m
+[0;32mI (28162) METRIC: Loop Exec Time: 6063 us[0m
+[0;32mI (28162) BME280: TS=27700105000 ns Temp=20.60 C Press=100765 Pa Hum=57%[0m
+[0;32mI (29162) METRIC: Loop Period (Jitter): 1000342 us[0m
+[0;32mI (29162) BME280: Temp: 20.60 C  Pressure: 100767 Pa  Humidity: 57 %[0m
+[1;31mE (29162) UDP: sendto failed: errno=12[0m
+[0;32mI (29162) METRIC: E2E Latency: 3143 us[0m
+[0;32mI (29162) METRIC: Loop Exec Time: 7401 us[0m
+[0;32mI (29172) BME280: TS=28700436000 ns Temp=20.60 C Press=100767 Pa Hum=57%[0m
+[0;32mI (30162) METRIC: Loop Period (Jitter): 999658 us[0m
+[0;32mI (30162) BME280: Temp: 20.61 C  Pressure: 100770 Pa  Humidity: 58 %[0m
+[1;31mE (30162) UDP: sendto failed: errno=12[0m
+[0;32mI (30162) METRIC: E2E Latency: 3170 us[0m
+[0;32mI (30162) METRIC: Loop Exec Time: 6835 us[0m
+[0;32mI (30172) BME280: TS=29700096000 ns Temp=20.61 C Press=100770 Pa Hum=58%[0m
+[0;32mI (31162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (31162) BME280: Temp: 20.61 C  Pressure: 100769 Pa  Humidity: 58 %[0m
+[0;32mI (31162) UDP: Sent 22 bytes[0m
+[0;32mI (31162) METRIC: E2E Latency: 6142 us[0m
+[0;32mI (31162) METRIC: Loop Exec Time: 7003 us[0m
+[0;32mI (31162) BME280: TS=30700021000 ns Temp=20.61 C Press=100769 Pa Hum=58%[0m
+[0;32mI (32162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (32162) BME280: Temp: 20.61 C  Pressure: 100772 Pa  Humidity: 58 %[0m
+[0;32mI (32162) UDP: Sent 22 bytes[0m
+[0;32mI (32162) METRIC: E2E Latency: 3119 us[0m
+[0;32mI (32162) METRIC: Loop Exec Time: 6047 us[0m
+[0;32mI (32162) BME280: TS=31700090000 ns Temp=20.61 C Press=100772 Pa Hum=58%[0m
+[0;32mI (33162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (33162) BME280: Temp: 20.61 C  Pressure: 100772 Pa  Humidity: 58 %[0m
+[0;32mI (33162) UDP: Sent 22 bytes[0m
+[0;32mI (33162) METRIC: E2E Latency: 3123 us[0m
+[0;32mI (33162) METRIC: Loop Exec Time: 6918 us[0m
+[0;32mI (33172) BME280: TS=32700965000 ns Temp=20.61 C Press=100772 Pa Hum=58%[0m
+[0;32mI (34162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (34162) BME280: Temp: 20.60 C  Pressure: 100777 Pa  Humidity: 58 %[0m
+[1;31mE (34162) UDP: sendto failed: errno=12[0m
+[0;32mI (34162) METRIC: E2E Latency: 3167 us[0m
+[0;32mI (34162) METRIC: Loop Exec Time: 6931 us[0m
+[0;32mI (34172) BME280: TS=33700105000 ns Temp=20.60 C Press=100777 Pa Hum=58%[0m
+[0;32mI (35162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (35162) BME280: Temp: 20.61 C  Pressure: 100769 Pa  Humidity: 58 %[0m
+[1;31mE (35162) UDP: sendto failed: errno=12[0m
+[0;32mI (35162) METRIC: E2E Latency: 3167 us[0m
+[0;32mI (35162) METRIC: Loop Exec Time: 6935 us[0m
+[0;32mI (35172) BME280: TS=34700109000 ns Temp=20.61 C Press=100769 Pa Hum=58%[0m
+[0;32mI (36162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (36162) BME280: Temp: 20.60 C  Pressure: 100774 Pa  Humidity: 58 %[0m
+[0;32mI (36162) UDP: Sent 22 bytes[0m
+[0;32mI (36162) METRIC: E2E Latency: 5356 us[0m
+[0;32mI (36162) METRIC: Loop Exec Time: 6074 us[0m
+[0;32mI (36162) BME280: TS=35700021000 ns Temp=20.60 C Press=100774 Pa Hum=58%[0m
+[0;32mI (37162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (37162) BME280: Temp: 20.61 C  Pressure: 100775 Pa  Humidity: 58 %[0m
+[0;32mI (37162) UDP: Sent 22 bytes[0m
+[0;32mI (37162) METRIC: E2E Latency: 3119 us[0m
+[0;32mI (37162) METRIC: Loop Exec Time: 6047 us[0m
+[0;32mI (37162) BME280: TS=36700090000 ns Temp=20.61 C Press=100775 Pa Hum=58%[0m
+[0;32mI (38162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (38162) BME280: Temp: 20.61 C  Pressure: 100770 Pa  Humidity: 58 %[0m
+[0;32mI (38162) UDP: Sent 22 bytes[0m
+[0;32mI (38162) METRIC: E2E Latency: 3064 us[0m
+[0;32mI (38162) METRIC: Loop Exec Time: 6063 us[0m
+[0;32mI (38162) BME280: TS=37700105000 ns Temp=20.61 C Press=100770 Pa Hum=58%[0m
+[0;32mI (39162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (39162) BME280: Temp: 20.61 C  Pressure: 100772 Pa  Humidity: 58 %[0m
+[1;31mE (39162) UDP: sendto failed: errno=12[0m
+[0;32mI (39162) METRIC: E2E Latency: 3163 us[0m
+[0;32mI (39162) METRIC: Loop Exec Time: 6939 us[0m
+[0;32mI (39172) BME280: TS=38700113000 ns Temp=20.61 C Press=100772 Pa Hum=58%[0m
+[0;32mI (40162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (40162) BME280: Temp: 20.61 C  Pressure: 100766 Pa  Humidity: 58 %[0m
+[1;31mE (40162) UDP: sendto failed: errno=12[0m
+[0;32mI (40162) METRIC: E2E Latency: 3167 us[0m
+[0;32mI (40162) METRIC: Loop Exec Time: 6931 us[0m
+[0;32mI (40172) BME280: TS=39700105000 ns Temp=20.61 C Press=100766 Pa Hum=58%[0m
+[0;32mI (41162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (41162) BME280: Temp: 20.61 C  Pressure: 100767 Pa  Humidity: 58 %[0m
+[0;32mI (41162) UDP: Sent 22 bytes[0m
+[0;32mI (41162) METRIC: E2E Latency: 5879 us[0m
+[0;32mI (41162) METRIC: Loop Exec Time: 6598 us[0m
+[0;32mI (41162) BME280: TS=40700021000 ns Temp=20.61 C Press=100767 Pa Hum=58%[0m
+[0;32mI (42162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (42162) BME280: Temp: 20.61 C  Pressure: 100772 Pa  Humidity: 58 %[0m
+[0;32mI (42162) UDP: Sent 22 bytes[0m
+[0;32mI (42162) METRIC: E2E Latency: 3120 us[0m
+[0;32mI (42162) METRIC: Loop Exec Time: 6121 us[0m
+[0;32mI (42162) BME280: TS=41700090000 ns Temp=20.61 C Press=100772 Pa Hum=58%[0m
+[0;32mI (43162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (43162) BME280: Temp: 20.61 C  Pressure: 100770 Pa  Humidity: 58 %[0m
+[0;32mI (43162) UDP: Sent 22 bytes[0m
+[0;32mI (43162) METRIC: E2E Latency: 3060 us[0m
+[0;32mI (43162) METRIC: Loop Exec Time: 6055 us[0m
+[0;32mI (43162) BME280: TS=42700097000 ns Temp=20.61 C Press=100770 Pa Hum=58%[0m
+[0;32mI (44162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (44162) BME280: Temp: 20.61 C  Pressure: 100770 Pa  Humidity: 58 %[0m
+[1;31mE (44162) UDP: sendto failed: errno=12[0m
+[0;32mI (44162) METRIC: E2E Latency: 3163 us[0m
+[0;32mI (44162) METRIC: Loop Exec Time: 6939 us[0m
+[0;32mI (44172) BME280: TS=43700113000 ns Temp=20.61 C Press=100770 Pa Hum=58%[0m
+[0;32mI (45162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (45162) BME280: Temp: 20.61 C  Pressure: 100773 Pa  Humidity: 58 %[0m
+[1;31mE (45162) UDP: sendto failed: errno=12[0m
+[0;32mI (45162) METRIC: E2E Latency: 3175 us[0m
+[0;32mI (45162) METRIC: Loop Exec Time: 6931 us[0m
+[0;32mI (45172) BME280: TS=44700105000 ns Temp=20.61 C Press=100773 Pa Hum=58%[0m
+[0;32mI (46162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (46162) BME280: Temp: 20.62 C  Pressure: 100768 Pa  Humidity: 58 %[0m
+[0;32mI (46162) UDP: Sent 22 bytes[0m
+[0;32mI (46162) METRIC: E2E Latency: 4302 us[0m
+[0;32mI (46162) METRIC: Loop Exec Time: 6469 us[0m
+[0;32mI (46162) BME280: TS=45700021000 ns Temp=20.62 C Press=100768 Pa Hum=58%[0m
+[0;32mI (47162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (47162) BME280: Temp: 20.61 C  Pressure: 100767 Pa  Humidity: 58 %[0m
+[0;32mI (47162) UDP: Sent 22 bytes[0m
+[0;32mI (47162) METRIC: E2E Latency: 3104 us[0m
+[0;32mI (47162) METRIC: Loop Exec Time: 6043 us[0m
+[0;32mI (47162) BME280: TS=46700086000 ns Temp=20.61 C Press=100767 Pa Hum=58%[0m
+[0;32mI (48162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (48162) BME280: Temp: 20.61 C  Pressure: 100769 Pa  Humidity: 58 %[0m
+[0;32mI (48162) UDP: Sent 22 bytes[0m
+[0;32mI (48162) METRIC: E2E Latency: 3116 us[0m
+[0;32mI (48162) METRIC: Loop Exec Time: 6063 us[0m
+[0;32mI (48162) BME280: TS=47700105000 ns Temp=20.61 C Press=100769 Pa Hum=58%[0m
+[0;32mI (49162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (49162) BME280: Temp: 20.61 C  Pressure: 100770 Pa  Humidity: 58 %[0m
+[1;31mE (49162) UDP: sendto failed: errno=12[0m
+[0;32mI (49162) METRIC: E2E Latency: 3151 us[0m
+[0;32mI (49162) METRIC: Loop Exec Time: 6931 us[0m
+[0;32mI (49172) BME280: TS=48700105000 ns Temp=20.61 C Press=100770 Pa Hum=58%[0m
+[0;32mI (50162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (50162) BME280: Temp: 20.61 C  Pressure: 100772 Pa  Humidity: 58 %[0m
+[1;31mE (50162) UDP: sendto failed: errno=12[0m
+[0;32mI (50162) METRIC: E2E Latency: 3159 us[0m
+[0;32mI (50162) METRIC: Loop Exec Time: 6927 us[0m
+[0;32mI (50172) BME280: TS=49700101000 ns Temp=20.61 C Press=100772 Pa Hum=58%[0m
+[0;32mI (51162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (51162) BME280: Temp: 20.61 C  Pressure: 100767 Pa  Humidity: 58 %[0m
+[0;32mI (51162) UDP: Sent 22 bytes[0m
+[0;32mI (51162) METRIC: E2E Latency: 5813 us[0m
+[0;32mI (51162) METRIC: Loop Exec Time: 6531 us[0m
+[0;32mI (51162) BME280: TS=50700021000 ns Temp=20.61 C Press=100767 Pa Hum=58%[0m
+[0;32mI (52162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (52162) BME280: Temp: 20.62 C  Pressure: 100768 Pa  Humidity: 58 %[0m
+[0;32mI (52162) UDP: Sent 22 bytes[0m
+[0;32mI (52162) METRIC: E2E Latency: 3100 us[0m
+[0;32mI (52162) METRIC: Loop Exec Time: 6039 us[0m
+[0;32mI (52162) BME280: TS=51700082000 ns Temp=20.62 C Press=100768 Pa Hum=58%[0m
+[0;32mI (53162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (53162) BME280: Temp: 20.62 C  Pressure: 100763 Pa  Humidity: 58 %[0m
+[0;32mI (53162) UDP: Sent 22 bytes[0m
+[0;32mI (53162) METRIC: E2E Latency: 3064 us[0m
+[0;32mI (53162) METRIC: Loop Exec Time: 6067 us[0m
+[0;32mI (53162) BME280: TS=52700109000 ns Temp=20.62 C Press=100763 Pa Hum=58%[0m
+[0;32mI (54162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (54162) BME280: Temp: 20.61 C  Pressure: 100770 Pa  Humidity: 58 %[0m
+[1;31mE (54162) UDP: sendto failed: errno=12[0m
+[0;32mI (54162) METRIC: E2E Latency: 3171 us[0m
+[0;32mI (54162) METRIC: Loop Exec Time: 6939 us[0m
+[0;32mI (54172) BME280: TS=53700113000 ns Temp=20.61 C Press=100770 Pa Hum=58%[0m
+[0;32mI (55162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (55162) BME280: Temp: 20.62 C  Pressure: 100768 Pa  Humidity: 58 %[0m
+[1;31mE (55162) UDP: sendto failed: errno=12[0m
+[0;32mI (55162) METRIC: E2E Latency: 3159 us[0m
+[0;32mI (55162) METRIC: Loop Exec Time: 6931 us[0m
+[0;32mI (55172) BME280: TS=54700105000 ns Temp=20.62 C Press=100768 Pa Hum=58%[0m
+[0;32mI (56162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (56162) BME280: Temp: 20.63 C  Pressure: 100767 Pa  Humidity: 58 %[0m
+[0;32mI (56162) UDP: Sent 22 bytes[0m
+[0;32mI (56162) METRIC: E2E Latency: 5791 us[0m
+[0;32mI (56162) METRIC: Loop Exec Time: 6498 us[0m
+[0;32mI (56162) BME280: TS=55700010000 ns Temp=20.63 C Press=100767 Pa Hum=58%[0m
+[0;32mI (57162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (57162) BME280: Temp: 20.62 C  Pressure: 100768 Pa  Humidity: 58 %[0m
+[0;32mI (57162) UDP: Sent 22 bytes[0m
+[0;32mI (57162) METRIC: E2E Latency: 3100 us[0m
+[0;32mI (57162) METRIC: Loop Exec Time: 6039 us[0m
+[0;32mI (57162) BME280: TS=56700082000 ns Temp=20.62 C Press=100768 Pa Hum=58%[0m
+[0;32mI (58162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (58162) BME280: Temp: 20.62 C  Pressure: 100769 Pa  Humidity: 58 %[0m
+[0;32mI (58162) UDP: Sent 22 bytes[0m
+[0;32mI (58162) METRIC: E2E Latency: 3095 us[0m
+[0;32mI (58162) METRIC: Loop Exec Time: 6043 us[0m
+[0;32mI (58162) BME280: TS=57700082000 ns Temp=20.62 C Press=100769 Pa Hum=58%[0m
+[0;32mI (59162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (59162) BME280: Temp: 20.62 C  Pressure: 100771 Pa  Humidity: 58 %[0m
+[1;31mE (59162) UDP: sendto failed: errno=12[0m
+[0;32mI (59162) METRIC: E2E Latency: 4654 us[0m
+[0;32mI (59162) METRIC: Loop Exec Time: 6935 us[0m
+[0;32mI (59172) BME280: TS=58700109000 ns Temp=20.62 C Press=100771 Pa Hum=58%[0m
+[0;32mI (60162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (60162) BME280: Temp: 20.62 C  Pressure: 100768 Pa  Humidity: 58 %[0m
+[1;31mE (60162) UDP: sendto failed: errno=12[0m
+[0;32mI (60162) METRIC: E2E Latency: 3099 us[0m
+[0;32mI (60162) METRIC: Loop Exec Time: 6919 us[0m
+[0;32mI (60172) BME280: TS=59700094000 ns Temp=20.62 C Press=100768 Pa Hum=58%[0m
+[0;32mI (61162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (61162) BME280: Temp: 20.62 C  Pressure: 100763 Pa  Humidity: 58 %[0m
+[0;32mI (61162) UDP: Sent 22 bytes[0m
+[0;32mI (61162) METRIC: E2E Latency: 5491 us[0m
+[0;32mI (61162) METRIC: Loop Exec Time: 6314 us[0m
+[0;32mI (61162) BME280: TS=60700125000 ns Temp=20.62 C Press=100763 Pa Hum=58%[0m
+[0;32mI (62162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (62162) BME280: Temp: 20.63 C  Pressure: 100767 Pa  Humidity: 58 %[0m
+[0;32mI (62162) UDP: Sent 22 bytes[0m
+[0;32mI (62162) METRIC: E2E Latency: 3120 us[0m
+[0;32mI (62162) METRIC: Loop Exec Time: 6047 us[0m
+[0;32mI (62162) BME280: TS=61700090000 ns Temp=20.63 C Press=100767 Pa Hum=58%[0m
+[0;32mI (63162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (63162) BME280: Temp: 20.63 C  Pressure: 100764 Pa  Humidity: 58 %[0m
+[0;32mI (63162) UDP: Sent 22 bytes[0m
+[0;32mI (63162) METRIC: E2E Latency: 3108 us[0m
+[0;32mI (63162) METRIC: Loop Exec Time: 6079 us[0m
+[0;32mI (63162) BME280: TS=62700101000 ns Temp=20.63 C Press=100764 Pa Hum=58%[0m
+[0;32mI (64162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (64162) BME280: Temp: 20.63 C  Pressure: 100770 Pa  Humidity: 58 %[0m
+[1;31mE (64162) UDP: sendto failed: errno=12[0m
+[0;32mI (64162) METRIC: E2E Latency: 3170 us[0m
+[0;32mI (64162) METRIC: Loop Exec Time: 6935 us[0m
+[0;32mI (64172) BME280: TS=63700110000 ns Temp=20.63 C Press=100770 Pa Hum=58%[0m
+[0;32mI (65162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (65162) BME280: Temp: 20.63 C  Pressure: 100770 Pa  Humidity: 58 %[0m
+[1;31mE (65162) UDP: sendto failed: errno=12[0m
+[0;32mI (65162) METRIC: E2E Latency: 3167 us[0m
+[0;32mI (65162) METRIC: Loop Exec Time: 6931 us[0m
+[0;32mI (65172) BME280: TS=64700106000 ns Temp=20.63 C Press=100770 Pa Hum=58%[0m
+[0;32mI (66162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (66162) BME280: Temp: 20.63 C  Pressure: 100770 Pa  Humidity: 58 %[0m
+[0;32mI (66162) UDP: Sent 22 bytes[0m
+[0;32mI (66162) METRIC: E2E Latency: 5379 us[0m
+[0;32mI (66162) METRIC: Loop Exec Time: 6098 us[0m
+[0;32mI (66162) BME280: TS=65700022000 ns Temp=20.63 C Press=100770 Pa Hum=58%[0m
+[0;32mI (67162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (67162) BME280: Temp: 20.62 C  Pressure: 100776 Pa  Humidity: 58 %[0m
+[0;32mI (67162) UDP: Sent 22 bytes[0m
+[0;32mI (67162) METRIC: E2E Latency: 3120 us[0m
+[0;32mI (67162) METRIC: Loop Exec Time: 6051 us[0m
+[0;32mI (67162) BME280: TS=66700094000 ns Temp=20.62 C Press=100776 Pa Hum=58%[0m
+[0;32mI (68162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (68162) BME280: Temp: 20.63 C  Pressure: 100775 Pa  Humidity: 58 %[0m
+[0;32mI (68162) UDP: Sent 22 bytes[0m
+[0;32mI (68162) METRIC: E2E Latency: 3107 us[0m
+[0;32mI (68162) METRIC: Loop Exec Time: 6059 us[0m
+[0;32mI (68162) BME280: TS=67700102000 ns Temp=20.63 C Press=100775 Pa Hum=58%[0m
+[0;32mI (69162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (69162) BME280: Temp: 20.63 C  Pressure: 100771 Pa  Humidity: 58 %[0m
+[1;31mE (69162) UDP: sendto failed: errno=12[0m
+[0;32mI (69162) METRIC: E2E Latency: 3171 us[0m
+[0;32mI (69162) METRIC: Loop Exec Time: 6939 us[0m
+[0;32mI (69172) BME280: TS=68700113000 ns Temp=20.63 C Press=100771 Pa Hum=58%[0m
+[0;32mI (70162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (70162) BME280: Temp: 20.63 C  Pressure: 100767 Pa  Humidity: 58 %[0m
+[1;31mE (70162) UDP: sendto failed: errno=12[0m
+[0;32mI (70162) METRIC: E2E Latency: 3162 us[0m
+[0;32mI (70162) METRIC: Loop Exec Time: 6927 us[0m
+[0;32mI (70172) BME280: TS=69700102000 ns Temp=20.63 C Press=100767 Pa Hum=58%[0m
+[0;32mI (71162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (71162) BME280: Temp: 20.63 C  Pressure: 100770 Pa  Humidity: 58 %[0m
+[0;32mI (71162) UDP: Sent 22 bytes[0m
+[0;32mI (71162) METRIC: E2E Latency: 5877 us[0m
+[0;32mI (71162) METRIC: Loop Exec Time: 6675 us[0m
+[0;32mI (71162) BME280: TS=70700022000 ns Temp=20.63 C Press=100770 Pa Hum=58%[0m
+[0;32mI (72162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (72162) BME280: Temp: 20.63 C  Pressure: 100770 Pa  Humidity: 58 %[0m
+[0;32mI (72162) UDP: Sent 22 bytes[0m
+[0;32mI (72162) METRIC: E2E Latency: 3120 us[0m
+[0;32mI (72162) METRIC: Loop Exec Time: 6047 us[0m
+[0;32mI (72172) BME280: TS=71700090000 ns Temp=20.63 C Press=100770 Pa Hum=58%[0m
+[0;32mI (73162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (73162) BME280: Temp: 20.64 C  Pressure: 100771 Pa  Humidity: 58 %[0m
+[0;32mI (73162) UDP: Sent 22 bytes[0m
+[0;32mI (73162) METRIC: E2E Latency: 3059 us[0m
+[0;32mI (73162) METRIC: Loop Exec Time: 6055 us[0m
+[0;32mI (73162) BME280: TS=72700098000 ns Temp=20.64 C Press=100771 Pa Hum=58%[0m
+[0;32mI (74162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (74162) BME280: Temp: 20.63 C  Pressure: 100775 Pa  Humidity: 58 %[0m
+[1;31mE (74162) UDP: sendto failed: errno=12[0m
+[0;32mI (74162) METRIC: E2E Latency: 3163 us[0m
+[0;32mI (74162) METRIC: Loop Exec Time: 6939 us[0m
+[0;32mI (74172) BME280: TS=73700113000 ns Temp=20.63 C Press=100775 Pa Hum=58%[0m
+[0;32mI (75162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (75162) BME280: Temp: 20.63 C  Pressure: 100770 Pa  Humidity: 58 %[0m
+[1;31mE (75162) UDP: sendto failed: errno=12[0m
+[0;32mI (75162) METRIC: E2E Latency: 3175 us[0m
+[0;32mI (75162) METRIC: Loop Exec Time: 6931 us[0m
+[0;32mI (75172) BME280: TS=74700106000 ns Temp=20.63 C Press=100770 Pa Hum=58%[0m
+[0;32mI (76162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (76162) BME280: Temp: 20.64 C  Pressure: 100771 Pa  Humidity: 58 %[0m
+[0;32mI (76162) UDP: Sent 22 bytes[0m
+[0;32mI (76162) METRIC: E2E Latency: 6144 us[0m
+[0;32mI (76162) METRIC: Loop Exec Time: 6863 us[0m
+[0;32mI (76172) BME280: TS=75700022000 ns Temp=20.64 C Press=100771 Pa Hum=58%[0m
+[0;32mI (77162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (77162) BME280: Temp: 20.63 C  Pressure: 100771 Pa  Humidity: 58 %[0m
+[0;32mI (77162) UDP: Sent 22 bytes[0m
+[0;32mI (77162) METRIC: E2E Latency: 3116 us[0m
+[0;32mI (77162) METRIC: Loop Exec Time: 6043 us[0m
+[0;32mI (77162) BME280: TS=76700086000 ns Temp=20.63 C Press=100771 Pa Hum=58%[0m
+[0;32mI (78162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (78162) BME280: Temp: 20.62 C  Pressure: 100774 Pa  Humidity: 58 %[0m
+[0;32mI (78162) UDP: Sent 22 bytes[0m
+[0;32mI (78162) METRIC: E2E Latency: 3115 us[0m
+[0;32mI (78162) METRIC: Loop Exec Time: 6067 us[0m
+[0;32mI (78162) BME280: TS=77700110000 ns Temp=20.62 C Press=100774 Pa Hum=58%[0m
+[0;32mI (79162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (79162) BME280: Temp: 20.62 C  Pressure: 100769 Pa  Humidity: 58 %[0m
+[1;31mE (79162) UDP: sendto failed: errno=12[0m
+[0;32mI (79162) METRIC: E2E Latency: 3179 us[0m
+[0;32mI (79162) METRIC: Loop Exec Time: 6947 us[0m
+[0;32mI (79172) BME280: TS=78700121000 ns Temp=20.62 C Press=100769 Pa Hum=58%[0m
+[0;32mI (80162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (80162) BME280: Temp: 20.62 C  Pressure: 100769 Pa  Humidity: 58 %[0m
+[1;31mE (80162) UDP: sendto failed: errno=12[0m
+[0;32mI (80162) METRIC: E2E Latency: 4650 us[0m
+[0;32mI (80162) METRIC: Loop Exec Time: 6935 us[0m
+[0;32mI (80172) BME280: TS=79700110000 ns Temp=20.62 C Press=100769 Pa Hum=58%[0m
+[0;32mI (81162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (81162) BME280: Temp: 20.63 C  Pressure: 100764 Pa  Humidity: 58 %[0m
+[0;32mI (81162) UDP: Sent 22 bytes[0m
+[0;32mI (81162) METRIC: E2E Latency: 5802 us[0m
+[0;32mI (81162) METRIC: Loop Exec Time: 6502 us[0m
+[0;32mI (81162) BME280: TS=80700006000 ns Temp=20.63 C Press=100764 Pa Hum=58%[0m
+[0;32mI (82162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (82162) BME280: Temp: 20.63 C  Pressure: 100775 Pa  Humidity: 58 %[0m
+[0;32mI (82162) UDP: Sent 22 bytes[0m
+[0;32mI (82162) METRIC: E2E Latency: 3120 us[0m
+[0;32mI (82162) METRIC: Loop Exec Time: 6051 us[0m
+[0;32mI (82162) BME280: TS=81700094000 ns Temp=20.63 C Press=100775 Pa Hum=58%[0m
+[0;32mI (83162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (83162) BME280: Temp: 20.64 C  Pressure: 100766 Pa  Humidity: 58 %[0m
+[0;32mI (83162) UDP: Sent 22 bytes[0m
+[0;32mI (83162) METRIC: E2E Latency: 3111 us[0m
+[0;32mI (83162) METRIC: Loop Exec Time: 6063 us[0m
+[0;32mI (83162) BME280: TS=82700106000 ns Temp=20.64 C Press=100766 Pa Hum=58%[0m
+[0;32mI (84162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (84162) BME280: Temp: 20.64 C  Pressure: 100771 Pa  Humidity: 58 %[0m
+[1;31mE (84162) UDP: sendto failed: errno=12[0m
+[0;32mI (84162) METRIC: E2E Latency: 3167 us[0m
+[0;32mI (84162) METRIC: Loop Exec Time: 6943 us[0m
+[0;32mI (84172) BME280: TS=83700118000 ns Temp=20.64 C Press=100771 Pa Hum=58%[0m
+[0;32mI (85162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (85162) BME280: Temp: 20.63 C  Pressure: 100770 Pa  Humidity: 58 %[0m
+[1;31mE (85162) UDP: sendto failed: errno=12[0m
+[0;32mI (85162) METRIC: E2E Latency: 3167 us[0m
+[0;32mI (85162) METRIC: Loop Exec Time: 6935 us[0m
+[0;32mI (85172) BME280: TS=84700110000 ns Temp=20.63 C Press=100770 Pa Hum=58%[0m
+[0;32mI (86162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (86162) BME280: Temp: 20.64 C  Pressure: 100777 Pa  Humidity: 58 %[0m
+[0;32mI (86162) UDP: Sent 22 bytes[0m
+[0;32mI (86162) METRIC: E2E Latency: 5815 us[0m
+[0;32mI (86162) METRIC: Loop Exec Time: 6530 us[0m
+[0;32mI (86162) BME280: TS=85700022000 ns Temp=20.64 C Press=100777 Pa Hum=58%[0m
+[0;32mI (87162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (87162) BME280: Temp: 20.64 C  Pressure: 100771 Pa  Humidity: 58 %[0m
+[0;32mI (87162) UDP: Sent 22 bytes[0m
+[0;32mI (87162) METRIC: E2E Latency: 3120 us[0m
+[0;32mI (87162) METRIC: Loop Exec Time: 6051 us[0m
+[0;32mI (87162) BME280: TS=86700094000 ns Temp=20.64 C Press=100771 Pa Hum=58%[0m
+[0;32mI (88162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (88162) BME280: Temp: 20.64 C  Pressure: 100777 Pa  Humidity: 58 %[0m
+[0;32mI (88162) UDP: Sent 22 bytes[0m
+[0;32mI (88162) METRIC: E2E Latency: 3115 us[0m
+[0;32mI (88162) METRIC: Loop Exec Time: 6067 us[0m
+[0;32mI (88162) BME280: TS=87700110000 ns Temp=20.64 C Press=100777 Pa Hum=58%[0m
+[0;32mI (89162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (89162) BME280: Temp: 20.65 C  Pressure: 100773 Pa  Humidity: 58 %[0m
+[1;31mE (89162) UDP: sendto failed: errno=12[0m
+[0;32mI (89162) METRIC: E2E Latency: 3152 us[0m
+[0;32mI (89162) METRIC: Loop Exec Time: 6935 us[0m
+[0;32mI (89172) BME280: TS=88700109000 ns Temp=20.65 C Press=100773 Pa Hum=58%[0m
+[0;32mI (90162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (90162) BME280: Temp: 20.64 C  Pressure: 100772 Pa  Humidity: 58 %[0m
+[1;31mE (90162) UDP: sendto failed: errno=12[0m
+[0;32mI (90162) METRIC: E2E Latency: 3163 us[0m
+[0;32mI (90162) METRIC: Loop Exec Time: 6935 us[0m
+[0;32mI (90172) BME280: TS=89700110000 ns Temp=20.64 C Press=100772 Pa Hum=58%[0m
+[0;32mI (91162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (91162) BME280: Temp: 20.64 C  Pressure: 100771 Pa  Humidity: 58 %[0m
+[0;32mI (91162) UDP: Sent 22 bytes[0m
+[0;32mI (91162) METRIC: E2E Latency: 5390 us[0m
+[0;32mI (91162) METRIC: Loop Exec Time: 6483 us[0m
+[0;32mI (91162) BME280: TS=90700026000 ns Temp=20.64 C Press=100771 Pa Hum=58%[0m
+[0;32mI (92162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (92162) BME280: Temp: 20.64 C  Pressure: 100777 Pa  Humidity: 58 %[0m
+[0;32mI (92162) UDP: Sent 22 bytes[0m
+[0;32mI (92162) METRIC: E2E Latency: 3120 us[0m
+[0;32mI (92162) METRIC: Loop Exec Time: 6051 us[0m
+[0;32mI (92162) BME280: TS=91700094000 ns Temp=20.64 C Press=100777 Pa Hum=58%[0m
+[0;32mI (93162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (93162) BME280: Temp: 20.63 C  Pressure: 100775 Pa  Humidity: 58 %[0m
+[0;32mI (93162) UDP: Sent 22 bytes[0m
+[0;32mI (93162) METRIC: E2E Latency: 3928 us[0m
+[0;32mI (93162) METRIC: Loop Exec Time: 6063 us[0m
+[0;32mI (93162) BME280: TS=92700106000 ns Temp=20.63 C Press=100775 Pa Hum=58%[0m
+[0;32mI (94162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (94162) BME280: Temp: 20.64 C  Pressure: 100775 Pa  Humidity: 58 %[0m
+[1;31mE (94162) UDP: sendto failed: errno=12[0m
+[0;32mI (94162) METRIC: E2E Latency: 3163 us[0m
+[0;32mI (94162) METRIC: Loop Exec Time: 6939 us[0m
+[0;32mI (94172) BME280: TS=93700114000 ns Temp=20.64 C Press=100775 Pa Hum=58%[0m
+[0;32mI (95162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (95162) BME280: Temp: 20.64 C  Pressure: 100772 Pa  Humidity: 58 %[0m
+[1;31mE (95162) UDP: sendto failed: errno=12[0m
+[0;32mI (95162) METRIC: E2E Latency: 3175 us[0m
+[0;32mI (95162) METRIC: Loop Exec Time: 6935 us[0m
+[0;32mI (95172) BME280: TS=94700110000 ns Temp=20.64 C Press=100772 Pa Hum=58%[0m
+[0;32mI (96162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (96162) BME280: Temp: 20.64 C  Pressure: 100771 Pa  Humidity: 58 %[0m
+[0;32mI (96162) UDP: Sent 22 bytes[0m
+[0;32mI (96162) METRIC: E2E Latency: 5810 us[0m
+[0;32mI (96162) METRIC: Loop Exec Time: 6530 us[0m
+[0;32mI (96162) BME280: TS=95700026000 ns Temp=20.64 C Press=100771 Pa Hum=58%[0m
+[0;32mI (97162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (97162) BME280: Temp: 20.64 C  Pressure: 100771 Pa  Humidity: 58 %[0m
+[0;32mI (97162) UDP: Sent 22 bytes[0m
+[0;32mI (97162) METRIC: E2E Latency: 4391 us[0m
+[0;32mI (97162) METRIC: Loop Exec Time: 6047 us[0m
+[0;32mI (97162) BME280: TS=96700090000 ns Temp=20.64 C Press=100771 Pa Hum=58%[0m
+[0;32mI (98162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (98162) BME280: Temp: 20.65 C  Pressure: 100768 Pa  Humidity: 58 %[0m
+[0;32mI (98162) UDP: Sent 22 bytes[0m
+[0;32mI (98162) METRIC: E2E Latency: 3107 us[0m
+[0;32mI (98162) METRIC: Loop Exec Time: 6063 us[0m
+[0;32mI (98162) BME280: TS=97700106000 ns Temp=20.65 C Press=100768 Pa Hum=58%[0m
+[0;32mI (99162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (99162) BME280: Temp: 20.65 C  Pressure: 100770 Pa  Humidity: 58 %[0m
+[1;31mE (99162) UDP: sendto failed: errno=12[0m
+[0;32mI (99162) METRIC: E2E Latency: 3168 us[0m
+[0;32mI (99162) METRIC: Loop Exec Time: 6935 us[0m
+[0;32mI (99172) BME280: TS=98700109000 ns Temp=20.65 C Press=100770 Pa Hum=58%[0m
+[0;32mI (100162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (100162) BME280: Temp: 20.64 C  Pressure: 100772 Pa  Humidity: 58 %[0m
+[1;31mE (100162) UDP: sendto failed: errno=12[0m
+[0;32mI (100162) METRIC: E2E Latency: 3124 us[0m
+[0;32mI (100162) METRIC: Loop Exec Time: 7279 us[0m
+[0;32mI (100172) BME280: TS=99700107000 ns Temp=20.64 C Press=100772 Pa Hum=58%[0m
+[0;32mI (101162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (101162) BME280: Temp: 20.64 C  Pressure: 100767 Pa  Humidity: 58 %[0m
+[0;32mI (101162) UDP: Sent 22 bytes[0m
+[0;32mI (101162) METRIC: E2E Latency: 5838 us[0m
+[0;32mI (101162) METRIC: Loop Exec Time: 6560 us[0m
+[0;32mI (101172) BME280: TS=100700027000 ns Temp=20.64 C Press=100767 Pa Hum=58%[0m
+[0;32mI (102162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (102162) BME280: Temp: 20.65 C  Pressure: 100779 Pa  Humidity: 58 %[0m
+[0;32mI (102162) UDP: Sent 22 bytes[0m
+[0;32mI (102162) METRIC: E2E Latency: 3064 us[0m
+[0;32mI (102162) METRIC: Loop Exec Time: 6399 us[0m
+[0;32mI (102172) BME280: TS=101700096000 ns Temp=20.65 C Press=100779 Pa Hum=58%[0m
+[0;32mI (103162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (103162) BME280: Temp: 20.65 C  Pressure: 100773 Pa  Humidity: 58 %[0m
+[0;32mI (103162) UDP: Sent 22 bytes[0m
+[0;32mI (103162) METRIC: E2E Latency: 3068 us[0m
+[0;32mI (103162) METRIC: Loop Exec Time: 6415 us[0m
+[0;32mI (103172) BME280: TS=102700111000 ns Temp=20.65 C Press=100773 Pa Hum=58%[0m
+[0;32mI (104162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (104162) BME280: Temp: 20.65 C  Pressure: 100776 Pa  Humidity: 58 %[0m
+[1;31mE (104162) UDP: sendto failed: errno=12[0m
+[0;32mI (104162) METRIC: E2E Latency: 3163 us[0m
+[0;32mI (104162) METRIC: Loop Exec Time: 7283 us[0m
+[0;32mI (104172) BME280: TS=103700111000 ns Temp=20.65 C Press=100776 Pa Hum=58%[0m
+[0;32mI (105162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (105162) BME280: Temp: 20.65 C  Pressure: 100777 Pa  Humidity: 58 %[0m
+[1;31mE (105162) UDP: sendto failed: errno=12[0m
+[0;32mI (105162) METRIC: E2E Latency: 3179 us[0m
+[0;32mI (105162) METRIC: Loop Exec Time: 7287 us[0m
+[0;32mI (105172) BME280: TS=104700115000 ns Temp=20.65 C Press=100777 Pa Hum=58%[0m
+[0;32mI (106162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (106162) BME280: Temp: 20.64 C  Pressure: 100777 Pa  Humidity: 58 %[0m
+[0;32mI (106162) UDP: Sent 22 bytes[0m
+[0;32mI (106162) METRIC: E2E Latency: 5885 us[0m
+[0;32mI (106162) METRIC: Loop Exec Time: 6608 us[0m
+[0;32mI (106172) BME280: TS=105700027000 ns Temp=20.64 C Press=100777 Pa Hum=58%[0m
+[0;32mI (107162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (107162) BME280: Temp: 20.65 C  Pressure: 100763 Pa  Humidity: 58 %[0m
+[0;32mI (107162) UDP: Sent 22 bytes[0m
+[0;32mI (107162) METRIC: E2E Latency: 3112 us[0m
+[0;32mI (107162) METRIC: Loop Exec Time: 6395 us[0m
+[0;32mI (107172) BME280: TS=106700092000 ns Temp=20.65 C Press=100763 Pa Hum=58%[0m
+[0;32mI (108162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (108162) BME280: Temp: 20.65 C  Pressure: 100774 Pa  Humidity: 58 %[0m
+[0;32mI (108162) UDP: Sent 22 bytes[0m
+[0;32mI (108162) METRIC: E2E Latency: 3120 us[0m
+[0;32mI (108162) METRIC: Loop Exec Time: 6415 us[0m
+[0;32mI (108172) BME280: TS=107700111000 ns Temp=20.65 C Press=100774 Pa Hum=58%[0m
+[0;32mI (109162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (109162) BME280: Temp: 20.65 C  Pressure: 100773 Pa  Humidity: 58 %[0m
+[1;31mE (109162) UDP: sendto failed: errno=12[0m
+[0;32mI (109162) METRIC: E2E Latency: 3175 us[0m
+[0;32mI (109162) METRIC: Loop Exec Time: 7291 us[0m
+[0;32mI (109172) BME280: TS=108700119000 ns Temp=20.65 C Press=100773 Pa Hum=58%[0m
+[0;32mI (110162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (110162) BME280: Temp: 20.65 C  Pressure: 100771 Pa  Humidity: 58 %[0m
+[1;31mE (110162) UDP: sendto failed: errno=12[0m
+[0;32mI (110162) METRIC: E2E Latency: 3202 us[0m
+[0;32mI (110162) METRIC: Loop Exec Time: 8777 us[0m
+[0;32mI (110172) BME280: TS=109701198000 ns Temp=20.65 C Press=100771 Pa Hum=58%[0m
+[0;32mI (111162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (111162) BME280: Temp: 20.65 C  Pressure: 100773 Pa  Humidity: 58 %[0m
+[0;32mI (111162) UDP: Sent 22 bytes[0m
+[0;32mI (111162) METRIC: E2E Latency: 5360 us[0m
+[0;32mI (111162) METRIC: Loop Exec Time: 6311 us[0m
+[0;32mI (111172) BME280: TS=110700007000 ns Temp=20.65 C Press=100773 Pa Hum=58%[0m
+[0;32mI (112162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (112162) BME280: Temp: 20.65 C  Pressure: 100777 Pa  Humidity: 58 %[0m
+[0;32mI (112162) UDP: Sent 22 bytes[0m
+[0;32mI (112162) METRIC: E2E Latency: 3060 us[0m
+[0;32mI (112162) METRIC: Loop Exec Time: 6392 us[0m
+[0;32mI (112172) BME280: TS=111700088000 ns Temp=20.65 C Press=100777 Pa Hum=58%[0m
+[0;32mI (113162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (113162) BME280: Temp: 20.65 C  Pressure: 100771 Pa  Humidity: 58 %[0m
+[0;32mI (113162) UDP: Sent 22 bytes[0m
+[0;32mI (113162) METRIC: E2E Latency: 3120 us[0m
+[0;32mI (113162) METRIC: Loop Exec Time: 6419 us[0m
+[0;32mI (113172) BME280: TS=112700115000 ns Temp=20.65 C Press=100771 Pa Hum=58%[0m
+[0;32mI (114162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (114162) BME280: Temp: 20.66 C  Pressure: 100769 Pa  Humidity: 58 %[0m
+[1;31mE (114162) UDP: sendto failed: errno=12[0m
+[0;32mI (114162) METRIC: E2E Latency: 3571 us[0m
+[0;32mI (114162) METRIC: Loop Exec Time: 7287 us[0m
+[0;32mI (114172) BME280: TS=113700115000 ns Temp=20.66 C Press=100769 Pa Hum=58%[0m
+[0;32mI (115162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (115162) BME280: Temp: 20.65 C  Pressure: 100779 Pa  Humidity: 58 %[0m
+[1;31mE (115162) UDP: sendto failed: errno=12[0m
+[0;32mI (115162) METRIC: E2E Latency: 3163 us[0m
+[0;32mI (115162) METRIC: Loop Exec Time: 7279 us[0m
+[0;32mI (115172) BME280: TS=114700107000 ns Temp=20.65 C Press=100779 Pa Hum=58%[0m
+[0;32mI (116162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (116162) BME280: Temp: 20.66 C  Pressure: 100780 Pa  Humidity: 58 %[0m
+[0;32mI (116162) UDP: Sent 22 bytes[0m
+[0;32mI (116162) METRIC: E2E Latency: 5806 us[0m
+[0;32mI (116162) METRIC: Loop Exec Time: 6529 us[0m
+[0;32mI (116172) BME280: TS=115700027000 ns Temp=20.66 C Press=100780 Pa Hum=58%[0m
+[0;32mI (117162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (117162) BME280: Temp: 20.65 C  Pressure: 100774 Pa  Humidity: 58 %[0m
+[0;32mI (117162) UDP: Sent 22 bytes[0m
+[0;32mI (117162) METRIC: E2E Latency: 3124 us[0m
+[0;32mI (117162) METRIC: Loop Exec Time: 6399 us[0m
+[0;32mI (117172) BME280: TS=116700096000 ns Temp=20.65 C Press=100774 Pa Hum=58%[0m
+[0;32mI (118162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (118162) BME280: Temp: 20.65 C  Pressure: 100777 Pa  Humidity: 58 %[0m
+[0;32mI (118162) UDP: Sent 22 bytes[0m
+[0;32mI (118162) METRIC: E2E Latency: 3116 us[0m
+[0;32mI (118162) METRIC: Loop Exec Time: 6415 us[0m
+[0;32mI (118172) BME280: TS=117700111000 ns Temp=20.65 C Press=100777 Pa Hum=58%[0m
+[0;32mI (119162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (119162) BME280: Temp: 20.65 C  Pressure: 100779 Pa  Humidity: 58 %[0m
+[1;31mE (119162) UDP: sendto failed: errno=12[0m
+[0;32mI (119162) METRIC: E2E Latency: 3163 us[0m
+[0;32mI (119162) METRIC: Loop Exec Time: 7283 us[0m
+[0;32mI (119172) BME280: TS=118700111000 ns Temp=20.65 C Press=100779 Pa Hum=58%[0m
+[0;32mI (120162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (120162) BME280: Temp: 20.65 C  Pressure: 100774 Pa  Humidity: 58 %[0m
+[1;31mE (120162) UDP: sendto failed: errno=12[0m
+[0;32mI (120162) METRIC: E2E Latency: 3171 us[0m
+[0;32mI (120162) METRIC: Loop Exec Time: 7287 us[0m
+[0;32mI (120172) BME280: TS=119700115000 ns Temp=20.65 C Press=100774 Pa Hum=58%[0m
+[0;32mI (121162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (121162) BME280: Temp: 20.65 C  Pressure: 100774 Pa  Humidity: 58 %[0m
+[0;32mI (121162) UDP: Sent 22 bytes[0m
+[0;32mI (121162) METRIC: E2E Latency: 5876 us[0m
+[0;32mI (121162) METRIC: Loop Exec Time: 6695 us[0m
+[0;32mI (121172) BME280: TS=120700123000 ns Temp=20.65 C Press=100774 Pa Hum=58%[0m
+[0;32mI (122162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (122162) BME280: Temp: 20.65 C  Pressure: 100770 Pa  Humidity: 58 %[0m
+[0;32mI (122162) UDP: Sent 22 bytes[0m
+[0;32mI (122162) METRIC: E2E Latency: 3124 us[0m
+[0;32mI (122162) METRIC: Loop Exec Time: 6400 us[0m
+[0;32mI (122172) BME280: TS=121700096000 ns Temp=20.65 C Press=100770 Pa Hum=58%[0m
+[0;32mI (123162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (123162) BME280: Temp: 20.66 C  Pressure: 100775 Pa  Humidity: 58 %[0m
+[0;32mI (123162) UDP: Sent 22 bytes[0m
+[0;32mI (123162) METRIC: E2E Latency: 3116 us[0m
+[0;32mI (123162) METRIC: Loop Exec Time: 7039 us[0m
+[0;32mI (123172) BME280: TS=122700111000 ns Temp=20.66 C Press=100775 Pa Hum=58%[0m
+[0;32mI (124162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (124162) BME280: Temp: 20.66 C  Pressure: 100775 Pa  Humidity: 58 %[0m
+[1;31mE (124162) UDP: sendto failed: errno=12[0m
+[0;32mI (124162) METRIC: E2E Latency: 3175 us[0m
+[0;32mI (124162) METRIC: Loop Exec Time: 7287 us[0m
+[0;32mI (124172) BME280: TS=123700115000 ns Temp=20.66 C Press=100775 Pa Hum=58%[0m
+[0;32mI (125162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (125162) BME280: Temp: 20.66 C  Pressure: 100778 Pa  Humidity: 58 %[0m
+[1;31mE (125162) UDP: sendto failed: errno=12[0m
+[0;32mI (125162) METRIC: E2E Latency: 3174 us[0m
+[0;32mI (125162) METRIC: Loop Exec Time: 7287 us[0m
+[0;32mI (125172) BME280: TS=124700115000 ns Temp=20.66 C Press=100778 Pa Hum=58%[0m
+[0;32mI (126162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (126162) BME280: Temp: 20.66 C  Pressure: 100775 Pa  Humidity: 58 %[0m
+[0;32mI (126162) UDP: Sent 22 bytes[0m
+[0;32mI (126162) METRIC: E2E Latency: 6171 us[0m
+[0;32mI (126162) METRIC: Loop Exec Time: 6969 us[0m
+[0;32mI (126172) BME280: TS=125700027000 ns Temp=20.66 C Press=100775 Pa Hum=58%[0m
+[0;32mI (127162) METRIC: Loop Period (Jitter): 1000259 us[0m
+[0;32mI (127162) BME280: Temp: 20.66 C  Pressure: 100775 Pa  Humidity: 58 %[0m
+[0;32mI (127162) UDP: Sent 22 bytes[0m
+[0;32mI (127162) METRIC: E2E Latency: 3116 us[0m
+[0;32mI (127162) METRIC: Loop Exec Time: 6400 us[0m
+[0;32mI (127172) BME280: TS=126700355000 ns Temp=20.66 C Press=100775 Pa Hum=58%[0m
+[0;32mI (128162) METRIC: Loop Period (Jitter): 999741 us[0m
+[0;32mI (128162) BME280: Temp: 20.66 C  Pressure: 100775 Pa  Humidity: 58 %[0m
+[0;32mI (128162) UDP: Sent 22 bytes[0m
+[0;32mI (128162) METRIC: E2E Latency: 3116 us[0m
+[0;32mI (128162) METRIC: Loop Exec Time: 6327 us[0m
+[0;32mI (128172) BME280: TS=127700110000 ns Temp=20.66 C Press=100775 Pa Hum=58%[0m
+[0;32mI (129162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (129162) BME280: Temp: 20.66 C  Pressure: 100775 Pa  Humidity: 58 %[0m
+[1;31mE (129162) UDP: sendto failed: errno=12[0m
+[0;32mI (129162) METRIC: E2E Latency: 3150 us[0m
+[0;32mI (129162) METRIC: Loop Exec Time: 7271 us[0m
+[0;32mI (129172) BME280: TS=128700099000 ns Temp=20.66 C Press=100775 Pa Hum=58%[0m
+[0;32mI (130162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (130162) BME280: Temp: 20.66 C  Pressure: 100776 Pa  Humidity: 58 %[0m
+[1;31mE (130162) UDP: sendto failed: errno=12[0m
+[0;32mI (130162) METRIC: E2E Latency: 3166 us[0m
+[0;32mI (130162) METRIC: Loop Exec Time: 7279 us[0m
+[0;32mI (130172) BME280: TS=129700107000 ns Temp=20.66 C Press=100776 Pa Hum=58%[0m
+[0;32mI (131162) METRIC: Loop Period (Jitter): 1000778 us[0m
+[0;32mI (131162) BME280: Temp: 20.67 C  Pressure: 100774 Pa  Humidity: 57 %[0m
+[0;32mI (131162) UDP: Sent 22 bytes[0m
+[0;32mI (131162) METRIC: E2E Latency: 5391 us[0m
+[0;32mI (131162) METRIC: Loop Exec Time: 6332 us[0m
+[0;32mI (131172) BME280: TS=130700806000 ns Temp=20.67 C Press=100774 Pa Hum=57%[0m
+[0;32mI (132162) METRIC: Loop Period (Jitter): 999222 us[0m
+[0;32mI (132162) BME280: Temp: 20.66 C  Pressure: 100775 Pa  Humidity: 57 %[0m
+[0;32mI (132162) UDP: Sent 22 bytes[0m
+[0;32mI (132162) METRIC: E2E Latency: 3124 us[0m
+[0;32mI (132162) METRIC: Loop Exec Time: 6311 us[0m
+[0;32mI (132172) BME280: TS=131700094000 ns Temp=20.66 C Press=100775 Pa Hum=57%[0m
+[0;32mI (133162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (133162) BME280: Temp: 20.66 C  Pressure: 100775 Pa  Humidity: 57 %[0m
+[0;32mI (133162) UDP: Sent 22 bytes[0m
+[0;32mI (133162) METRIC: E2E Latency: 3069 us[0m
+[0;32mI (133162) METRIC: Loop Exec Time: 6415 us[0m
+[0;32mI (133172) BME280: TS=132700111000 ns Temp=20.66 C Press=100775 Pa Hum=57%[0m
+[0;32mI (134162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (134162) BME280: Temp: 20.66 C  Pressure: 100776 Pa  Humidity: 57 %[0m
+[1;31mE (134162) UDP: sendto failed: errno=12[0m
+[0;32mI (134162) METRIC: E2E Latency: 3158 us[0m
+[0;32mI (134162) METRIC: Loop Exec Time: 7291 us[0m
+[0;32mI (134172) BME280: TS=133700119000 ns Temp=20.66 C Press=100776 Pa Hum=57%[0m
+[0;32mI (135162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (135162) BME280: Temp: 20.66 C  Pressure: 100776 Pa  Humidity: 57 %[0m
+[1;31mE (135162) UDP: sendto failed: errno=12[0m
+[0;32mI (135162) METRIC: E2E Latency: 3166 us[0m
+[0;32mI (135162) METRIC: Loop Exec Time: 7283 us[0m
+[0;32mI (135172) BME280: TS=134700111000 ns Temp=20.66 C Press=100776 Pa Hum=57%[0m
+[0;32mI (136162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (136162) BME280: Temp: 20.67 C  Pressure: 100774 Pa  Humidity: 58 %[0m
+[0;32mI (136162) UDP: Sent 22 bytes[0m
+[0;32mI (136162) METRIC: E2E Latency: 5866 us[0m
+[0;32mI (136162) METRIC: Loop Exec Time: 6668 us[0m
+[0;32mI (136172) BME280: TS=135700027000 ns Temp=20.67 C Press=100774 Pa Hum=58%[0m
+[0;32mI (137162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (137162) BME280: Temp: 20.67 C  Pressure: 100777 Pa  Humidity: 58 %[0m
+[0;32mI (137162) UDP: Sent 22 bytes[0m
+[0;32mI (137162) METRIC: E2E Latency: 3124 us[0m
+[0;32mI (137162) METRIC: Loop Exec Time: 6399 us[0m
+[0;32mI (137172) BME280: TS=136700096000 ns Temp=20.67 C Press=100777 Pa Hum=58%[0m
+[0;32mI (138162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (138162) BME280: Temp: 20.67 C  Pressure: 100777 Pa  Humidity: 58 %[0m
+[0;32mI (138162) UDP: Sent 22 bytes[0m
+[0;32mI (138162) METRIC: E2E Latency: 3117 us[0m
+[0;32mI (138162) METRIC: Loop Exec Time: 6411 us[0m
+[0;32mI (138172) BME280: TS=137700107000 ns Temp=20.67 C Press=100777 Pa Hum=58%[0m
+[0;32mI (139162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (139162) BME280: Temp: 20.67 C  Pressure: 100771 Pa  Humidity: 58 %[0m
+[1;31mE (139162) UDP: sendto failed: errno=12[0m
+[0;32mI (139162) METRIC: E2E Latency: 3173 us[0m
+[0;32mI (139162) METRIC: Loop Exec Time: 7283 us[0m
+[0;32mI (139172) BME280: TS=138700111000 ns Temp=20.67 C Press=100771 Pa Hum=58%[0m
+[0;32mI (140162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (140162) BME280: Temp: 20.67 C  Pressure: 100768 Pa  Humidity: 58 %[0m
+[1;31mE (140162) UDP: sendto failed: errno=12[0m
+[0;32mI (140162) METRIC: E2E Latency: 3124 us[0m
+[0;32mI (140162) METRIC: Loop Exec Time: 7307 us[0m
+[0;32mI (140172) BME280: TS=139700115000 ns Temp=20.67 C Press=100768 Pa Hum=58%[0m
+[0;32mI (141162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (141162) BME280: Temp: 20.67 C  Pressure: 100771 Pa  Humidity: 58 %[0m
+[0;32mI (141162) UDP: Sent 22 bytes[0m
+[0;32mI (141162) METRIC: E2E Latency: 5850 us[0m
+[0;32mI (141162) METRIC: Loop Exec Time: 6561 us[0m
+[0;32mI (141172) BME280: TS=140700015000 ns Temp=20.67 C Press=100771 Pa Hum=58%[0m
+[0;32mI (142162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (142162) BME280: Temp: 20.67 C  Pressure: 100777 Pa  Humidity: 58 %[0m
+[0;32mI (142162) UDP: Sent 22 bytes[0m
+[0;32mI (142162) METRIC: E2E Latency: 3108 us[0m
+[0;32mI (142162) METRIC: Loop Exec Time: 6400 us[0m
+[0;32mI (142172) BME280: TS=141700096000 ns Temp=20.67 C Press=100777 Pa Hum=58%[0m
+[0;32mI (143162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (143162) BME280: Temp: 20.67 C  Pressure: 100779 Pa  Humidity: 58 %[0m
+[0;32mI (143162) UDP: Sent 22 bytes[0m
+[0;32mI (143162) METRIC: E2E Latency: 3105 us[0m
+[0;32mI (143162) METRIC: Loop Exec Time: 6411 us[0m
+[0;32mI (143172) BME280: TS=142700107000 ns Temp=20.67 C Press=100779 Pa Hum=58%[0m
+[0;32mI (144162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (144162) BME280: Temp: 20.67 C  Pressure: 100777 Pa  Humidity: 58 %[0m
+[1;31mE (144162) UDP: sendto failed: errno=12[0m
+[0;32mI (144162) METRIC: E2E Latency: 3142 us[0m
+[0;32mI (144162) METRIC: Loop Exec Time: 7311 us[0m
+[0;32mI (144172) BME280: TS=143700119000 ns Temp=20.67 C Press=100777 Pa Hum=58%[0m
+[0;32mI (145162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (145162) BME280: Temp: 20.67 C  Pressure: 100777 Pa  Humidity: 58 %[0m
+[1;31mE (145162) UDP: sendto failed: errno=12[0m
+[0;32mI (145162) METRIC: E2E Latency: 3161 us[0m
+[0;32mI (145162) METRIC: Loop Exec Time: 7279 us[0m
+[0;32mI (145172) BME280: TS=144700108000 ns Temp=20.67 C Press=100777 Pa Hum=58%[0m
+[0;32mI (146162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (146162) BME280: Temp: 20.68 C  Pressure: 100778 Pa  Humidity: 58 %[0m
+[0;32mI (146162) UDP: Sent 22 bytes[0m
+[0;32mI (146162) METRIC: E2E Latency: 5733 us[0m
+[0;32mI (146162) METRIC: Loop Exec Time: 6456 us[0m
+[0;32mI (146172) BME280: TS=145700027000 ns Temp=20.68 C Press=100778 Pa Hum=58%[0m
+[0;32mI (147162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (147162) BME280: Temp: 20.66 C  Pressure: 100767 Pa  Humidity: 58 %[0m
+[0;32mI (147162) UDP: Sent 22 bytes[0m
+[0;32mI (147162) METRIC: E2E Latency: 3064 us[0m
+[0;32mI (147162) METRIC: Loop Exec Time: 6391 us[0m
+[0;32mI (147172) BME280: TS=146700088000 ns Temp=20.66 C Press=100767 Pa Hum=58%[0m
+[0;32mI (148162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (148162) BME280: Temp: 20.67 C  Pressure: 100771 Pa  Humidity: 58 %[0m
+[0;32mI (148162) UDP: Sent 22 bytes[0m
+[0;32mI (148162) METRIC: E2E Latency: 3121 us[0m
+[0;32mI (148162) METRIC: Loop Exec Time: 6419 us[0m
+[0;32mI (148172) BME280: TS=147700115000 ns Temp=20.67 C Press=100771 Pa Hum=58%[0m
+[0;32mI (149162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (149162) BME280: Temp: 20.67 C  Pressure: 100775 Pa  Humidity: 58 %[0m
+[1;31mE (149162) UDP: sendto failed: errno=12[0m
+[0;32mI (149162) METRIC: E2E Latency: 3169 us[0m
+[0;32mI (149162) METRIC: Loop Exec Time: 7275 us[0m
+[0;32mI (149172) BME280: TS=148700103000 ns Temp=20.67 C Press=100775 Pa Hum=58%[0m
+[0;32mI (150162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (150162) BME280: Temp: 20.68 C  Pressure: 100773 Pa  Humidity: 58 %[0m
+[1;31mE (150162) UDP: sendto failed: errno=12[0m
+[0;32mI (150162) METRIC: E2E Latency: 3161 us[0m
+[0;32mI (150162) METRIC: Loop Exec Time: 7271 us[0m
+[0;32mI (150172) BME280: TS=149700100000 ns Temp=20.68 C Press=100773 Pa Hum=58%[0m
+[0;32mI (151162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (151162) BME280: Temp: 20.67 C  Pressure: 100775 Pa  Humidity: 58 %[0m
+[0;32mI (151162) UDP: Sent 22 bytes[0m
+[0;32mI (151162) METRIC: E2E Latency: 5372 us[0m
+[0;32mI (151162) METRIC: Loop Exec Time: 6331 us[0m
+[0;32mI (151172) BME280: TS=150700027000 ns Temp=20.67 C Press=100775 Pa Hum=58%[0m
+[0;32mI (152162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (152162) BME280: Temp: 20.68 C  Pressure: 100776 Pa  Humidity: 58 %[0m
+[0;32mI (152162) UDP: Sent 22 bytes[0m
+[0;32mI (152162) METRIC: E2E Latency: 3124 us[0m
+[0;32mI (152162) METRIC: Loop Exec Time: 6399 us[0m
+[0;32mI (152172) BME280: TS=151700096000 ns Temp=20.68 C Press=100776 Pa Hum=58%[0m
+[0;32mI (153162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (153162) BME280: Temp: 20.67 C  Pressure: 100775 Pa  Humidity: 58 %[0m
+[0;32mI (153162) UDP: Sent 22 bytes[0m
+[0;32mI (153162) METRIC: E2E Latency: 3109 us[0m
+[0;32mI (153162) METRIC: Loop Exec Time: 6411 us[0m
+[0;32mI (153172) BME280: TS=152700107000 ns Temp=20.67 C Press=100775 Pa Hum=58%[0m
+[0;32mI (154162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (154162) BME280: Temp: 20.68 C  Pressure: 100778 Pa  Humidity: 58 %[0m
+[1;31mE (154162) UDP: sendto failed: errno=12[0m
+[0;32mI (154162) METRIC: E2E Latency: 3173 us[0m
+[0;32mI (154162) METRIC: Loop Exec Time: 7287 us[0m
+[0;32mI (154172) BME280: TS=153700115000 ns Temp=20.68 C Press=100778 Pa Hum=58%[0m
+[0;32mI (155162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (155162) BME280: Temp: 20.67 C  Pressure: 100772 Pa  Humidity: 58 %[0m
+[1;31mE (155162) UDP: sendto failed: errno=12[0m
+[0;32mI (155162) METRIC: E2E Latency: 3178 us[0m
+[0;32mI (155162) METRIC: Loop Exec Time: 7283 us[0m
+[0;32mI (155172) BME280: TS=154700111000 ns Temp=20.67 C Press=100772 Pa Hum=58%[0m
+[0;32mI (156162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (156162) BME280: Temp: 20.67 C  Pressure: 100775 Pa  Humidity: 58 %[0m
+[0;32mI (156162) UDP: Sent 22 bytes[0m
+[0;32mI (156162) METRIC: E2E Latency: 5869 us[0m
+[0;32mI (156162) METRIC: Loop Exec Time: 6592 us[0m
+[0;32mI (156172) BME280: TS=155700027000 ns Temp=20.67 C Press=100775 Pa Hum=58%[0m
+[0;32mI (157162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (157162) BME280: Temp: 20.68 C  Pressure: 100774 Pa  Humidity: 58 %[0m
+[0;32mI (157162) UDP: Sent 22 bytes[0m
+[0;32mI (157162) METRIC: E2E Latency: 4757 us[0m
+[0;32mI (157162) METRIC: Loop Exec Time: 6400 us[0m
+[0;32mI (157172) BME280: TS=156700096000 ns Temp=20.68 C Press=100774 Pa Hum=58%[0m
+[0;32mI (158162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (158162) BME280: Temp: 20.68 C  Pressure: 100776 Pa  Humidity: 58 %[0m
+[0;32mI (158162) UDP: Sent 22 bytes[0m
+[0;32mI (158162) METRIC: E2E Latency: 3116 us[0m
+[0;32mI (158162) METRIC: Loop Exec Time: 6403 us[0m
+[0;32mI (158172) BME280: TS=157700100000 ns Temp=20.68 C Press=100776 Pa Hum=58%[0m
+[0;32mI (159162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (159162) BME280: Temp: 20.68 C  Pressure: 100767 Pa  Humidity: 58 %[0m
+[1;31mE (159162) UDP: sendto failed: errno=12[0m
+[0;32mI (159162) METRIC: E2E Latency: 3154 us[0m
+[0;32mI (159162) METRIC: Loop Exec Time: 7283 us[0m
+[0;32mI (159172) BME280: TS=158700111000 ns Temp=20.68 C Press=100767 Pa Hum=58%[0m
+[0;32mI (160162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (160162) BME280: Temp: 20.69 C  Pressure: 100774 Pa  Humidity: 58 %[0m
+[1;31mE (160162) UDP: sendto failed: errno=12[0m
+[0;32mI (160162) METRIC: E2E Latency: 3166 us[0m
+[0;32mI (160162) METRIC: Loop Exec Time: 7288 us[0m
+[0;32mI (160172) BME280: TS=159700115000 ns Temp=20.69 C Press=100774 Pa Hum=58%[0m
+[0;32mI (161162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (161162) BME280: Temp: 20.68 C  Pressure: 100771 Pa  Humidity: 58 %[0m
+[0;32mI (161162) UDP: Sent 22 bytes[0m
+[0;32mI (161162) METRIC: E2E Latency: 5581 us[0m
+[0;32mI (161162) METRIC: Loop Exec Time: 6331 us[0m
+[0;32mI (161172) BME280: TS=160700027000 ns Temp=20.68 C Press=100771 Pa Hum=58%[0m
+[0;32mI (162162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (162162) BME280: Temp: 20.69 C  Pressure: 100774 Pa  Humidity: 58 %[0m
+[0;32mI (162162) UDP: Sent 22 bytes[0m
+[0;32mI (162162) METRIC: E2E Latency: 3124 us[0m
+[0;32mI (162162) METRIC: Loop Exec Time: 6392 us[0m
+[0;32mI (162172) BME280: TS=161700088000 ns Temp=20.69 C Press=100774 Pa Hum=58%[0m
+[0;32mI (163162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (163162) BME280: Temp: 20.67 C  Pressure: 100775 Pa  Humidity: 58 %[0m
+[0;32mI (163162) UDP: Sent 22 bytes[0m
+[0;32mI (163162) METRIC: E2E Latency: 3113 us[0m
+[0;32mI (163162) METRIC: Loop Exec Time: 6411 us[0m
+[0;32mI (163172) BME280: TS=162700107000 ns Temp=20.67 C Press=100775 Pa Hum=58%[0m
+[0;32mI (164162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (164162) BME280: Temp: 20.67 C  Pressure: 100769 Pa  Humidity: 58 %[0m
+[1;31mE (164162) UDP: sendto failed: errno=12[0m
+[0;32mI (164162) METRIC: E2E Latency: 3165 us[0m
+[0;32mI (164162) METRIC: Loop Exec Time: 7283 us[0m
+[0;32mI (164172) BME280: TS=163700111000 ns Temp=20.67 C Press=100769 Pa Hum=58%[0m
+[0;32mI (165162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (165162) BME280: Temp: 20.67 C  Pressure: 100772 Pa  Humidity: 58 %[0m
+[1;31mE (165162) UDP: sendto failed: errno=12[0m
+[0;32mI (165162) METRIC: E2E Latency: 3174 us[0m
+[0;32mI (165162) METRIC: Loop Exec Time: 7287 us[0m
+[0;32mI (165172) BME280: TS=164700115000 ns Temp=20.67 C Press=100772 Pa Hum=58%[0m
+[0;32mI (166162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (166162) BME280: Temp: 20.68 C  Pressure: 100778 Pa  Humidity: 58 %[0m
+[0;32mI (166162) UDP: Sent 22 bytes[0m
+[0;32mI (166162) METRIC: E2E Latency: 5833 us[0m
+[0;32mI (166162) METRIC: Loop Exec Time: 6556 us[0m
+[0;32mI (166172) BME280: TS=165700027000 ns Temp=20.68 C Press=100778 Pa Hum=58%[0m
+[0;32mI (167162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (167162) BME280: Temp: 20.67 C  Pressure: 100766 Pa  Humidity: 58 %[0m
+[0;32mI (167162) UDP: Sent 22 bytes[0m
+[0;32mI (167162) METRIC: E2E Latency: 3108 us[0m
+[0;32mI (167162) METRIC: Loop Exec Time: 6396 us[0m
+[0;32mI (167172) BME280: TS=166700092000 ns Temp=20.67 C Press=100766 Pa Hum=58%[0m
+[0;32mI (168162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (168162) BME280: Temp: 20.68 C  Pressure: 100773 Pa  Humidity: 58 %[0m
+[0;32mI (168162) UDP: Sent 22 bytes[0m
+[0;32mI (168162) METRIC: E2E Latency: 3121 us[0m
+[0;32mI (168162) METRIC: Loop Exec Time: 6419 us[0m
+[0;32mI (168172) BME280: TS=167700115000 ns Temp=20.68 C Press=100773 Pa Hum=58%[0m
+[0;32mI (169162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (169162) BME280: Temp: 20.69 C  Pressure: 100777 Pa  Humidity: 58 %[0m
+[1;31mE (169162) UDP: sendto failed: errno=12[0m
+[0;32mI (169162) METRIC: E2E Latency: 3169 us[0m
+[0;32mI (169162) METRIC: Loop Exec Time: 7287 us[0m
+[0;32mI (169172) BME280: TS=168700115000 ns Temp=20.69 C Press=100777 Pa Hum=58%[0m
+[0;32mI (170162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (170162) BME280: Temp: 20.69 C  Pressure: 100769 Pa  Humidity: 58 %[0m
+[1;31mE (170162) UDP: sendto failed: errno=12[0m
+[0;32mI (170162) METRIC: E2E Latency: 3170 us[0m
+[0;32mI (170162) METRIC: Loop Exec Time: 7279 us[0m
+[0;32mI (170172) BME280: TS=169700107000 ns Temp=20.69 C Press=100769 Pa Hum=58%[0m
+[0;32mI (171162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (171162) BME280: Temp: 20.68 C  Pressure: 100773 Pa  Humidity: 58 %[0m
+[0;32mI (171162) UDP: Sent 22 bytes[0m
+[0;32mI (171162) METRIC: E2E Latency: 5829 us[0m
+[0;32mI (171162) METRIC: Loop Exec Time: 6539 us[0m
+[0;32mI (171172) BME280: TS=170700015000 ns Temp=20.68 C Press=100773 Pa Hum=58%[0m
+[0;32mI (172162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (172162) BME280: Temp: 20.68 C  Pressure: 100773 Pa  Humidity: 58 %[0m
+[0;32mI (172162) UDP: Sent 22 bytes[0m
+[0;32mI (172162) METRIC: E2E Latency: 3120 us[0m
+[0;32mI (172162) METRIC: Loop Exec Time: 6395 us[0m
+[0;32mI (172172) BME280: TS=171700092000 ns Temp=20.68 C Press=100773 Pa Hum=58%[0m
+[0;32mI (173162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (173162) BME280: Temp: 20.68 C  Pressure: 100776 Pa  Humidity: 58 %[0m
+[0;32mI (173162) UDP: Sent 22 bytes[0m
+[0;32mI (173162) METRIC: E2E Latency: 3125 us[0m
+[0;32mI (173162) METRIC: Loop Exec Time: 6419 us[0m
+[0;32mI (173172) BME280: TS=172700115000 ns Temp=20.68 C Press=100776 Pa Hum=58%[0m
+[0;32mI (174162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (174162) BME280: Temp: 20.68 C  Pressure: 100778 Pa  Humidity: 58 %[0m
+[1;31mE (174162) UDP: sendto failed: errno=12[0m
+[0;32mI (174162) METRIC: E2E Latency: 4608 us[0m
+[0;32mI (174162) METRIC: Loop Exec Time: 7287 us[0m
+[0;32mI (174172) BME280: TS=173700115000 ns Temp=20.68 C Press=100778 Pa Hum=58%[0m
+[0;32mI (175162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (175162) BME280: Temp: 20.68 C  Pressure: 100774 Pa  Humidity: 58 %[0m
+[1;31mE (175162) UDP: sendto failed: errno=12[0m
+[0;32mI (175162) METRIC: E2E Latency: 3169 us[0m
+[0;32mI (175162) METRIC: Loop Exec Time: 7283 us[0m
+[0;32mI (175172) BME280: TS=174700112000 ns Temp=20.68 C Press=100774 Pa Hum=58%[0m
+[0;32mI (176162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (176162) BME280: Temp: 20.67 C  Pressure: 100772 Pa  Humidity: 58 %[0m
+[0;32mI (176162) UDP: Sent 22 bytes[0m
+[0;32mI (176162) METRIC: E2E Latency: 5384 us[0m
+[0;32mI (176162) METRIC: Loop Exec Time: 6331 us[0m
+[0;32mI (176172) BME280: TS=175700027000 ns Temp=20.67 C Press=100772 Pa Hum=58%[0m
+[0;32mI (177162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (177162) BME280: Temp: 20.68 C  Pressure: 100779 Pa  Humidity: 58 %[0m
+[0;32mI (177162) UDP: Sent 22 bytes[0m
+[0;32mI (177162) METRIC: E2E Latency: 3108 us[0m
+[0;32mI (177162) METRIC: Loop Exec Time: 6399 us[0m
+[0;32mI (177172) BME280: TS=176700096000 ns Temp=20.68 C Press=100779 Pa Hum=58%[0m
+[0;32mI (178162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (178162) BME280: Temp: 20.69 C  Pressure: 100774 Pa  Humidity: 57 %[0m
+[0;32mI (178162) UDP: Sent 22 bytes[0m
+[0;32mI (178162) METRIC: E2E Latency: 4621 us[0m
+[0;32mI (178162) METRIC: Loop Exec Time: 6415 us[0m
+[0;32mI (178172) BME280: TS=177700111000 ns Temp=20.69 C Press=100774 Pa Hum=57%[0m
+[0;32mI (179162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (179162) BME280: Temp: 20.69 C  Pressure: 100780 Pa  Humidity: 58 %[0m
+[1;31mE (179162) UDP: sendto failed: errno=12[0m
+[0;32mI (179162) METRIC: E2E Latency: 3124 us[0m
+[0;32mI (179162) METRIC: Loop Exec Time: 7279 us[0m
+[0;32mI (179172) BME280: TS=178700107000 ns Temp=20.69 C Press=100780 Pa Hum=58%[0m
+[0;32mI (180162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (180162) BME280: Temp: 20.69 C  Pressure: 100774 Pa  Humidity: 58 %[0m
+[1;31mE (180162) UDP: sendto failed: errno=12[0m
+[0;32mI (180162) METRIC: E2E Latency: 3170 us[0m
+[0;32mI (180162) METRIC: Loop Exec Time: 7287 us[0m
+[0;32mI (180172) BME280: TS=179700115000 ns Temp=20.69 C Press=100774 Pa Hum=58%[0m
+[0;32mI (181162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (181162) BME280: Temp: 20.68 C  Pressure: 100776 Pa  Humidity: 58 %[0m
+[0;32mI (181162) UDP: Sent 22 bytes[0m
+[0;32mI (181162) METRIC: E2E Latency: 5970 us[0m
+[0;32mI (181162) METRIC: Loop Exec Time: 6793 us[0m
+[0;32mI (181172) BME280: TS=180700127000 ns Temp=20.68 C Press=100776 Pa Hum=58%[0m
+[0;32mI (182162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (182162) BME280: Temp: 20.69 C  Pressure: 100774 Pa  Humidity: 58 %[0m
+[0;32mI (182162) UDP: Sent 22 bytes[0m
+[0;32mI (182162) METRIC: E2E Latency: 3127 us[0m
+[0;32mI (182162) METRIC: Loop Exec Time: 6400 us[0m
+[0;32mI (182172) BME280: TS=181700096000 ns Temp=20.69 C Press=100774 Pa Hum=58%[0m
+[0;32mI (183162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (183162) BME280: Temp: 20.69 C  Pressure: 100774 Pa  Humidity: 58 %[0m
+[0;32mI (183162) UDP: Sent 22 bytes[0m
+[0;32mI (183162) METRIC: E2E Latency: 3117 us[0m
+[0;32mI (183162) METRIC: Loop Exec Time: 6415 us[0m
+[0;32mI (183172) BME280: TS=182700111000 ns Temp=20.69 C Press=100774 Pa Hum=58%[0m
+[0;32mI (184162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (184162) BME280: Temp: 20.69 C  Pressure: 100774 Pa  Humidity: 58 %[0m
+[1;31mE (184162) UDP: sendto failed: errno=12[0m
+[0;32mI (184162) METRIC: E2E Latency: 3166 us[0m
+[0;32mI (184162) METRIC: Loop Exec Time: 7291 us[0m
+[0;32mI (184172) BME280: TS=183700119000 ns Temp=20.69 C Press=100774 Pa Hum=58%[0m
+[0;32mI (185162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (185162) BME280: Temp: 20.69 C  Pressure: 100775 Pa  Humidity: 58 %[0m
+[1;31mE (185162) UDP: sendto failed: errno=12[0m
+[0;32mI (185162) METRIC: E2E Latency: 3166 us[0m
+[0;32mI (185162) METRIC: Loop Exec Time: 7283 us[0m
+[0;32mI (185172) BME280: TS=184700111000 ns Temp=20.69 C Press=100775 Pa Hum=58%[0m
+[0;32mI (186162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (186162) BME280: Temp: 20.69 C  Pressure: 100777 Pa  Humidity: 58 %[0m
+[0;32mI (186162) UDP: Sent 22 bytes[0m
+[0;32mI (186162) METRIC: E2E Latency: 4766 us[0m
+[0;32mI (186162) METRIC: Loop Exec Time: 6397 us[0m
+[0;32mI (186172) BME280: TS=185700027000 ns Temp=20.69 C Press=100777 Pa Hum=58%[0m
+[0;32mI (187162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (187162) BME280: Temp: 20.69 C  Pressure: 100774 Pa  Humidity: 58 %[0m
+[0;32mI (187162) UDP: Sent 22 bytes[0m
+[0;32mI (187162) METRIC: E2E Latency: 3112 us[0m
+[0;32mI (187162) METRIC: Loop Exec Time: 6396 us[0m
+[0;32mI (187172) BME280: TS=186700092000 ns Temp=20.69 C Press=100774 Pa Hum=58%[0m
+[0;32mI (188162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (188162) BME280: Temp: 20.69 C  Pressure: 100773 Pa  Humidity: 58 %[0m
+[0;32mI (188162) UDP: Sent 22 bytes[0m
+[0;32mI (188162) METRIC: E2E Latency: 3117 us[0m
+[0;32mI (188162) METRIC: Loop Exec Time: 6411 us[0m
+[0;32mI (188172) BME280: TS=187700107000 ns Temp=20.69 C Press=100773 Pa Hum=58%[0m
+[0;32mI (189162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (189162) BME280: Temp: 20.69 C  Pressure: 100769 Pa  Humidity: 58 %[0m
+[1;31mE (189162) UDP: sendto failed: errno=12[0m
+[0;32mI (189162) METRIC: E2E Latency: 3169 us[0m
+[0;32mI (189162) METRIC: Loop Exec Time: 7291 us[0m
+[0;32mI (189172) BME280: TS=188700119000 ns Temp=20.69 C Press=100769 Pa Hum=58%[0m
+[0;32mI (190162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (190162) BME280: Temp: 20.68 C  Pressure: 100768 Pa  Humidity: 58 %[0m
+[1;31mE (190162) UDP: sendto failed: errno=12[0m
+[0;32mI (190162) METRIC: E2E Latency: 3158 us[0m
+[0;32mI (190162) METRIC: Loop Exec Time: 7279 us[0m
+[0;32mI (190172) BME280: TS=189700107000 ns Temp=20.68 C Press=100768 Pa Hum=58%[0m
+[0;32mI (191162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (191162) BME280: Temp: 20.69 C  Pressure: 100775 Pa  Humidity: 58 %[0m
+[0;32mI (191162) UDP: Sent 22 bytes[0m
+[0;32mI (191162) METRIC: E2E Latency: 5074 us[0m
+[0;32mI (191162) METRIC: Loop Exec Time: 6331 us[0m
+[0;32mI (191172) BME280: TS=190700027000 ns Temp=20.69 C Press=100775 Pa Hum=58%[0m
+[0;32mI (192162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (192162) BME280: Temp: 20.69 C  Pressure: 100769 Pa  Humidity: 58 %[0m
+[0;32mI (192162) UDP: Sent 22 bytes[0m
+[0;32mI (192162) METRIC: E2E Latency: 3124 us[0m
+[0;32mI (192162) METRIC: Loop Exec Time: 6396 us[0m
+[0;32mI (192172) BME280: TS=191700092000 ns Temp=20.69 C Press=100769 Pa Hum=58%[0m
+[0;32mI (193162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (193162) BME280: Temp: 20.69 C  Pressure: 100775 Pa  Humidity: 58 %[0m
+[0;32mI (193162) UDP: Sent 22 bytes[0m
+[0;32mI (193162) METRIC: E2E Latency: 3073 us[0m
+[0;32mI (193162) METRIC: Loop Exec Time: 6415 us[0m
+[0;32mI (193172) BME280: TS=192700111000 ns Temp=20.69 C Press=100775 Pa Hum=58%[0m
+[0;32mI (194162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (194162) BME280: Temp: 20.69 C  Pressure: 100774 Pa  Humidity: 58 %[0m
+[1;31mE (194162) UDP: sendto failed: errno=12[0m
+[0;32mI (194162) METRIC: E2E Latency: 3166 us[0m
+[0;32mI (194162) METRIC: Loop Exec Time: 7291 us[0m
+[0;32mI (194172) BME280: TS=193700119000 ns Temp=20.69 C Press=100774 Pa Hum=58%[0m
+[0;32mI (195162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (195162) BME280: Temp: 20.70 C  Pressure: 100771 Pa  Humidity: 58 %[0m
+[1;31mE (195162) UDP: sendto failed: errno=12[0m
+[0;32mI (195162) METRIC: E2E Latency: 4456 us[0m
+[0;32mI (195162) METRIC: Loop Exec Time: 7284 us[0m
+[0;32mI (195172) BME280: TS=194700111000 ns Temp=20.70 C Press=100771 Pa Hum=58%[0m
+[0;32mI (196162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (196162) BME280: Temp: 20.69 C  Pressure: 100770 Pa  Humidity: 58 %[0m
+[0;32mI (196162) UDP: Sent 22 bytes[0m
+[0;32mI (196162) METRIC: E2E Latency: 5830 us[0m
+[0;32mI (196162) METRIC: Loop Exec Time: 6541 us[0m
+[0;32mI (196172) BME280: TS=195700015000 ns Temp=20.69 C Press=100770 Pa Hum=58%[0m
+[0;32mI (197162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (197162) BME280: Temp: 20.70 C  Pressure: 100773 Pa  Humidity: 58 %[0m
+[0;32mI (197162) UDP: Sent 22 bytes[0m
+[0;32mI (197162) METRIC: E2E Latency: 3108 us[0m
+[0;32mI (197162) METRIC: Loop Exec Time: 6384 us[0m
+[0;32mI (197172) BME280: TS=196700080000 ns Temp=20.70 C Press=100773 Pa Hum=58%[0m
+[0;32mI (198162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (198162) BME280: Temp: 20.69 C  Pressure: 100777 Pa  Humidity: 58 %[0m
+[0;32mI (198162) UDP: Sent 22 bytes[0m
+[0;32mI (198162) METRIC: E2E Latency: 3133 us[0m
+[0;32mI (198162) METRIC: Loop Exec Time: 6415 us[0m
+[0;32mI (198172) BME280: TS=197700111000 ns Temp=20.69 C Press=100777 Pa Hum=58%[0m
+[0;32mI (199162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (199162) BME280: Temp: 20.69 C  Pressure: 100781 Pa  Humidity: 58 %[0m
+[1;31mE (199162) UDP: sendto failed: errno=12[0m
+[0;32mI (199162) METRIC: E2E Latency: 3158 us[0m
+[0;32mI (199162) METRIC: Loop Exec Time: 7283 us[0m
+[0;32mI (199172) BME280: TS=198700111000 ns Temp=20.69 C Press=100781 Pa Hum=58%[0m
+[0;32mI (200162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (200162) BME280: Temp: 20.70 C  Pressure: 100776 Pa  Humidity: 58 %[0m
+[1;31mE (200162) UDP: sendto failed: errno=12[0m
+[0;32mI (200162) METRIC: E2E Latency: 3178 us[0m
+[0;32mI (200162) METRIC: Loop Exec Time: 7287 us[0m
+[0;32mI (200172) BME280: TS=199700115000 ns Temp=20.70 C Press=100776 Pa Hum=58%[0m
+[0;32mI (201162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (201162) BME280: Temp: 20.70 C  Pressure: 100776 Pa  Humidity: 58 %[0m
+[0;32mI (201162) UDP: Sent 22 bytes[0m
+[0;32mI (201162) METRIC: E2E Latency: 5860 us[0m
+[0;32mI (201162) METRIC: Loop Exec Time: 6578 us[0m
+[0;32mI (201172) BME280: TS=200700023000 ns Temp=20.70 C Press=100776 Pa Hum=58%[0m
+[0;32mI (202162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (202162) BME280: Temp: 20.69 C  Pressure: 100769 Pa  Humidity: 58 %[0m
+[0;32mI (202162) UDP: Sent 22 bytes[0m
+[0;32mI (202162) METRIC: E2E Latency: 3112 us[0m
+[0;32mI (202162) METRIC: Loop Exec Time: 6399 us[0m
+[0;32mI (202172) BME280: TS=201700096000 ns Temp=20.69 C Press=100769 Pa Hum=58%[0m
+[0;32mI (203162) METRIC: Loop Period (Jitter): 1000000 us[0m
+[0;32mI (203162) BME280: Temp: 20.70 C  Pressure: 100779 Pa  Humidity: 58 %[0m
+[0;32mI (203162) UDP: Sent 22 bytes[0m
+[0;32mI (203162) METRIC: E2E Latency: 3117 us[0m
+[0;32mI (203162) METRIC: Loop Exec Time: 6419 us[0m
+[0;32mI (203172) BME280: TS=202700115000 ns Temp=20.70 C Press=100779 Pa Hum=58%[0m

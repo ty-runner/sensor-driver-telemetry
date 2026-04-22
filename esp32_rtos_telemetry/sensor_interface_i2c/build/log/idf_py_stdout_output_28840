@@ -1,0 +1,1897 @@
+Command: C:\Espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe C:\Espressif\frameworks\esp-idf-v5.5.3\tools/idf_monitor.py -p COM5 -b 115200 --toolchain-prefix xtensa-esp32-elf- --target esp32 --revision 0 C:\Users\jsrun\Desktop\GitHub\sensor-driver-telemetry\esp32_rtos_telemetry\sensor_interface_i2c\build\sensor_interface_i2c.elf C:\Users\jsrun\Desktop\GitHub\sensor-driver-telemetry\esp32_rtos_telemetry\sensor_interface_i2c\build\bootloader\bootloader.elf --force-color -m 'C:\Espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe' 'C:\Espressif\frameworks\esp-idf-v5.5.3\tools\idf.py' '-p' 'COM5'
+e\&&'�A%�Flash Size �ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:6280
+load:0x40078000,len:15864
+load:0x40080400,len:3920
+entry 0x40080644
+[0;32mI (27) boot: ESP-IDF v5.5.3 2nd stage bootloader[0m
+[0;32mI (27) boot: compile time Mar 11 2026 13:49:18[0m
+[0;32mI (28) boot: Multicore bootloader[0m
+[0;32mI (29) boot: chip revision: v3.1[0m
+[0;32mI (32) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (35) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (39) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (42) boot: Enabling RNG early entropy source...[0m
+[0;32mI (47) boot: Partition Table:[0m
+[0;32mI (49) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (56) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (62) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (69) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (75) boot: End of partition table[0m
+[0;32mI (79) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=1a570h (107888) map[0m
+[0;32mI (123) esp_image: segment 1: paddr=0002a598 vaddr=3ffb0000 size=04388h ( 17288) load[0m
+[0;32mI (130) esp_image: segment 2: paddr=0002e928 vaddr=40080000 size=016f0h (  5872) load[0m
+[0;32mI (132) esp_image: segment 3: paddr=00030020 vaddr=400d0020 size=85ae4h (547556) map[0m
+[0;32mI (322) esp_image: segment 4: paddr=000b5b0c vaddr=400816f0 size=17d38h ( 97592) load[0m
+[0;32mI (360) esp_image: segment 5: paddr=000cd84c vaddr=50000000 size=00020h (    32) load[0m
+[0;32mI (372) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (372) boot: Disabling RNG early entropy source...[0m
+[0;32mI (383) cpu_start: Multicore app[0m
+[0;32mI (391) cpu_start: GPIO 3 and 1 are used as console UART I/O pins[0m
+[0;32mI (391) cpu_start: Pro cpu start user code[0m
+[0;32mI (391) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (393) app_init: Application information:[0m
+[0;32mI (397) app_init: Project name:     sensor_interface_i2c[0m
+[0;32mI (402) app_init: App version:      dae1ed0-dirty[0m
+[0;32mI (407) app_init: Compile time:     Apr  8 2026 11:28:41[0m
+[0;32mI (412) app_init: ELF file SHA256:  f24e5f58a...[0m
+[0;32mI (416) app_init: ESP-IDF:          v5.5.3[0m
+[0;32mI (420) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (424) efuse_init: Max chip rev:     v3.99 [0m
+[0;32mI (428) efuse_init: Chip rev:         v3.1[0m
+[0;32mI (432) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (438) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (443) heap_init: At 3FFB86E0 len 00027920 (158 KiB): DRAM[0m
+[0;32mI (448) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (453) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (459) heap_init: At 40099428 len 00006BD8 (26 KiB): IRAM[0m
+[0;32mI (466) spi_flash: detected chip: generic[0m
+[0;32mI (468) spi_flash: flash io: dio[0m
+[0;33mW (471) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;33mW (483) i2c: This driver is an old driver, please migrate your application code to adapt `driver/i2c_master.h`[0m
+[0;32mI (494) main_task: Started on CPU0[0m
+[0;32mI (504) main_task: Calling app_main()[0m
+[0;32mI (504) APP: Startup memory snapshot[0m
+[0;32mI (504) MEM: Heap free: 277448 B, Used heap: 19976 B, Largest free block: 147456 B, Stack high-water: 2092 words (2092 B free min)[0m
+[0;32mI (614) BME280: Sensor detected! Chip ID: 0x60[0m
+[0;32mI (724) APP: After sensor init[0m
+[0;32mI (724) MEM: Heap free: 277108 B, Used heap: 20316 B, Largest free block: 147456 B, Stack high-water: 2092 words (2092 B free min)[0m
+[0;32mI (764) wifi:wifi driver task: 3ffc089c, prio:23, stack:6656, core=0[0m
+[0;32mI (774) wifi:wifi firmware version: 4df78f2[0m
+[0;32mI (774) wifi:wifi certification version: v7.0[0m
+[0;32mI (774) wifi:config NVS flash: enabled[0m
+[0;32mI (774) wifi:config nano formatting: disabled[0m
+[0;32mI (784) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (784) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (784) wifi:Init management short buffer num: 32[0m
+[0;32mI (794) wifi:Init dynamic tx buffer num: 32[0m
+[0;32mI (794) wifi:Init static rx buffer size: 1600[0m
+[0;32mI (804) wifi:Init static rx buffer num: 10[0m
+[0;32mI (804) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (814) wifi_init: rx ba win: 6[0m
+[0;32mI (814) wifi_init: accept mbox: 6[0m
+[0;32mI (814) wifi_init: tcpip mbox: 32[0m
+[0;32mI (814) wifi_init: udp mbox: 6[0m
+[0;32mI (824) wifi_init: tcp mbox: 6[0m
+[0;32mI (824) wifi_init: tcp tx win: 5760[0m
+[0;32mI (824) wifi_init: tcp rx win: 5760[0m
+[0;32mI (834) wifi_init: tcp mss: 1440[0m
+[0;32mI (834) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (834) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;33mW (844) wifi:Password length matches WPA2 standards, authmode threshold changes from OPEN to WPA2[0m
+[0;32mI (854) phy_init: phy_version 4863,a3a4459,Oct 28 2025,14:30:06[0m
+[0;32mI (924) wifi:mode : sta (24:dc:c3:c1:01:64)[0m
+[0;32mI (924) wifi:enable tsf[0m
+[0;32mI (934) WIFI: wifi_init_sta finished[0m
+[0;32mI (934) wifi:Set ps type: 0, coexist: 0[0m
+
+[0;32mI (944) wifi:new:<3,1>, old:<1,0>, ap:<255,255>, sta:<3,1>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (944) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (2024) wifi:state: auth -> assoc (0x0)[0m
+[0;32mI (2064) wifi:Association refused temporarily time 1000, comeback time 1100 (TUs)[0m
+[0;32mI (3184) wifi:state: assoc -> auth (0xb0)[0m
+[0;32mI (4264) APP: After Wi-Fi init[0m
+[0;32mI (4264) MEM: Heap free: 222396 B, Used heap: 75028 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (4274) wifi:state: auth -> assoc (0x0)[0m
+[0;32mI (4274) UDP: UDP socket created, sending to 192.168.68.85:5005[0m
+[0;32mI (4284) APP: After UDP socket setup[0m
+[0;32mI (4284) MEM: Heap free: 227428 B, Used heap: 69996 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (4294) BME280: Temp: 22.62 C  Pressure: 101044 Pa  Humidity: 46 %[0m
+[0;32mI (4304) wifi:state: assoc -> run (0x10)[0m
+[1;31mE (4314) UDP: sendto failed: errno=118[0m
+[0;32mI (4314) METRIC: E2E Latency: 16041 us[0m
+[0;32mI (4314) METRIC: Loop Exec Time: 16686 us | CPU Util: 1.669%[0m
+[0;32mI (4324) wifi:connected with MountVernon, aid = 3, channel 3, 40U, bssid = 0c:ef:15:3c:9f:ce[0m
+[0;32mI (4324) wifi:security: WPA3-SAE, phy: bgn, rssi: -64[0m
+[0;32mI (4334) wifi:pm start, type: 0[0m
+
+[0;32mI (4334) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us[0m
+[0;32mI (4344) MEM: Heap free: 226780 B, Used heap: 70956 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (4354) BME280: TS=3834276000 ns Temp=22.62 C Press=101044 Pa Hum=46%[0m
+[0;32mI (4354) wifi:AP's beacon interval = 102400 us, DTIM period = 1[0m
+[0;32mI (4364) wifi:<ba-add>idx:0 (ifx:0, 0c:ef:15:3c:9f:ce), tid:0, ssn:0, winSize:64[0m
+[0;32mI (4464) wifi:<ba-add>idx:1 (ifx:0, 0c:ef:15:3c:9f:ce), tid:6, ssn:2, winSize:64[0m
+[0;32mI (5294) METRIC: Actual Period: 995202 us | Jitter: -4798 us[0m
+[0;32mI (5294) BME280: Temp: 22.62 C  Pressure: 101044 Pa  Humidity: 46 %[0m
+[1;31mE (5294) UDP: sendto failed: errno=118[0m
+[0;32mI (5294) METRIC: E2E Latency: 3633 us[0m
+[0;32mI (5294) METRIC: Loop Exec Time: 7619 us | CPU Util: 0.762%[0m
+[0;32mI (5304) MEM: Heap free: 226260 B, Used heap: 71164 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (5314) BME280: TS=4830074000 ns Temp=22.62 C Press=101044 Pa Hum=46%[0m
+[0;32mI (5394) esp_netif_handlers: sta ip: 192.168.68.83, mask: 255.255.252.0, gw: 192.168.68.1[0m
+[0;32mI (6294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (6294) BME280: Temp: 22.61 C  Pressure: 101036 Pa  Humidity: 46 %[0m
+[0;32mI (6294) UDP: Sent 22 bytes[0m
+[0;32mI (6294) METRIC: E2E Latency: 4583 us[0m
+[0;32mI (6294) METRIC: Loop Exec Time: 6335 us | CPU Util: 0.633%[0m
+[0;32mI (6304) MEM: Heap free: 226144 B, Used heap: 71280 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (6314) BME280: TS=5829992000 ns Temp=22.61 C Press=101036 Pa Hum=46%[0m
+[0;32mI (7294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (7294) BME280: Temp: 22.61 C  Pressure: 101039 Pa  Humidity: 46 %[0m
+[0;32mI (7294) UDP: Sent 22 bytes[0m
+[0;32mI (7294) METRIC: E2E Latency: 4428 us[0m
+[0;32mI (7294) METRIC: Loop Exec Time: 6451 us | CPU Util: 0.645%[0m
+[0;32mI (7304) MEM: Heap free: 225952 B, Used heap: 71472 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (7314) BME280: TS=6830112000 ns Temp=22.61 C Press=101039 Pa Hum=46%[0m
+[0;32mI (8294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (8294) BME280: Temp: 22.61 C  Pressure: 101036 Pa  Humidity: 46 %[0m
+[0;32mI (8294) UDP: Sent 22 bytes[0m
+[0;32mI (8294) METRIC: E2E Latency: 4313 us[0m
+[0;32mI (8294) METRIC: Loop Exec Time: 6375 us | CPU Util: 0.637%[0m
+[0;32mI (8304) MEM: Heap free: 226156 B, Used heap: 71268 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (8314) BME280: TS=7830032000 ns Temp=22.61 C Press=101036 Pa Hum=46%[0m
+[0;32mI (9294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (9294) BME280: Temp: 22.61 C  Pressure: 101040 Pa  Humidity: 46 %[0m
+[0;32mI (9294) UDP: Sent 22 bytes[0m
+[0;32mI (9294) METRIC: E2E Latency: 4269 us[0m
+[0;32mI (9294) METRIC: Loop Exec Time: 6383 us | CPU Util: 0.638%[0m
+[0;32mI (9304) MEM: Heap free: 226156 B, Used heap: 71268 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (9314) BME280: TS=8830040000 ns Temp=22.61 C Press=101040 Pa Hum=46%[0m
+[0;32mI (10294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (10294) BME280: Temp: 22.61 C  Pressure: 101042 Pa  Humidity: 46 %[0m
+[0;32mI (10294) UDP: Sent 22 bytes[0m
+[0;32mI (10294) METRIC: E2E Latency: 4996 us[0m
+[0;32mI (10294) METRIC: Loop Exec Time: 6688 us | CPU Util: 0.669%[0m
+[0;32mI (10304) MEM: Heap free: 226156 B, Used heap: 71268 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (10314) BME280: TS=9829998000 ns Temp=22.61 C Press=101042 Pa Hum=46%[0m
+[0;32mI (11294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (11294) BME280: Temp: 22.61 C  Pressure: 101039 Pa  Humidity: 46 %[0m
+[0;32mI (11294) UDP: Sent 22 bytes[0m
+[0;32mI (11294) METRIC: E2E Latency: 4387 us[0m
+[0;32mI (11294) METRIC: Loop Exec Time: 6644 us | CPU Util: 0.664%[0m
+[0;32mI (11304) MEM: Heap free: 225952 B, Used heap: 71472 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (11314) BME280: TS=10829954000 ns Temp=22.61 C Press=101039 Pa Hum=46%[0m
+[0;32mI (12294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (12294) BME280: Temp: 22.62 C  Pressure: 101041 Pa  Humidity: 46 %[0m
+[0;32mI (12294) UDP: Sent 22 bytes[0m
+[0;32mI (12294) METRIC: E2E Latency: 4528 us[0m
+[0;32mI (12294) METRIC: Loop Exec Time: 6632 us | CPU Util: 0.663%[0m
+[0;32mI (12304) MEM: Heap free: 225952 B, Used heap: 71472 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (12314) BME280: TS=11829938000 ns Temp=22.62 C Press=101041 Pa Hum=46%[0m
+[0;32mI (13294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (13294) BME280: Temp: 22.61 C  Pressure: 101048 Pa  Humidity: 46 %[0m
+[0;32mI (13294) UDP: Sent 22 bytes[0m
+[0;32mI (13294) METRIC: E2E Latency: 4389 us[0m
+[0;32mI (13294) METRIC: Loop Exec Time: 6612 us | CPU Util: 0.661%[0m
+[0;32mI (13304) MEM: Heap free: 226156 B, Used heap: 71268 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (13314) BME280: TS=12829922000 ns Temp=22.61 C Press=101048 Pa Hum=46%[0m
+[0;32mI (14294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (14294) BME280: Temp: 22.61 C  Pressure: 101042 Pa  Humidity: 46 %[0m
+[0;32mI (14294) UDP: Sent 22 bytes[0m
+[0;32mI (14294) METRIC: E2E Latency: 4473 us[0m
+[0;32mI (14294) METRIC: Loop Exec Time: 6648 us | CPU Util: 0.665%[0m
+[0;32mI (14304) MEM: Heap free: 226156 B, Used heap: 71268 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (14314) BME280: TS=13829954000 ns Temp=22.61 C Press=101042 Pa Hum=46%[0m
+[0;32mI (15294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (15294) BME280: Temp: 22.62 C  Pressure: 101038 Pa  Humidity: 46 %[0m
+[0;32mI (15294) UDP: Sent 22 bytes[0m
+[0;32mI (15294) METRIC: E2E Latency: 4396 us[0m
+[0;32mI (15294) METRIC: Loop Exec Time: 6748 us | CPU Util: 0.675%[0m
+[0;32mI (15304) MEM: Heap free: 226156 B, Used heap: 71268 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (15314) BME280: TS=14829954000 ns Temp=22.62 C Press=101038 Pa Hum=46%[0m
+[0;32mI (16294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (16294) BME280: Temp: 22.61 C  Pressure: 101042 Pa  Humidity: 46 %[0m
+[0;32mI (16294) UDP: Sent 22 bytes[0m
+[0;32mI (16294) METRIC: E2E Latency: 4420 us[0m
+[0;32mI (16294) METRIC: Loop Exec Time: 6604 us | CPU Util: 0.660%[0m
+[0;32mI (16304) MEM: Heap free: 226156 B, Used heap: 71268 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (16314) BME280: TS=15829910000 ns Temp=22.61 C Press=101042 Pa Hum=46%[0m
+[0;32mI (17294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (17294) BME280: Temp: 22.61 C  Pressure: 101048 Pa  Humidity: 46 %[0m
+[0;32mI (17294) UDP: Sent 22 bytes[0m
+[0;32mI (17294) METRIC: E2E Latency: 4453 us[0m
+[0;32mI (17294) METRIC: Loop Exec Time: 6660 us | CPU Util: 0.666%[0m
+[0;32mI (17304) MEM: Heap free: 226156 B, Used heap: 71268 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (17314) BME280: TS=16829966000 ns Temp=22.61 C Press=101048 Pa Hum=46%[0m
+[0;32mI (18294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (18294) BME280: Temp: 22.60 C  Pressure: 101041 Pa  Humidity: 46 %[0m
+[0;32mI (18294) UDP: Sent 22 bytes[0m
+[0;32mI (18294) METRIC: E2E Latency: 4356 us[0m
+[0;32mI (18294) METRIC: Loop Exec Time: 6652 us | CPU Util: 0.665%[0m
+[0;32mI (18304) MEM: Heap free: 226156 B, Used heap: 71268 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (18314) BME280: TS=17829958000 ns Temp=22.60 C Press=101041 Pa Hum=46%[0m
+[0;32mI (19294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (19294) BME280: Temp: 22.61 C  Pressure: 101042 Pa  Humidity: 46 %[0m
+[0;32mI (19294) UDP: Sent 22 bytes[0m
+[0;32mI (19294) METRIC: E2E Latency: 4291 us[0m
+[0;32mI (19294) METRIC: Loop Exec Time: 6652 us | CPU Util: 0.665%[0m
+[0;32mI (19304) MEM: Heap free: 226156 B, Used heap: 71268 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (19314) BME280: TS=18829954000 ns Temp=22.61 C Press=101042 Pa Hum=46%[0m
+[0;32mI (20294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (20294) BME280: Temp: 22.62 C  Pressure: 101049 Pa  Humidity: 46 %[0m
+[0;32mI (20294) UDP: Sent 22 bytes[0m
+[0;32mI (20294) METRIC: E2E Latency: 4295 us[0m
+[0;32mI (20294) METRIC: Loop Exec Time: 6604 us | CPU Util: 0.660%[0m
+[0;32mI (20304) MEM: Heap free: 226156 B, Used heap: 71268 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (20314) BME280: TS=19829910000 ns Temp=22.62 C Press=101049 Pa Hum=46%[0m
+[0;32mI (21294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (21294) BME280: Temp: 22.61 C  Pressure: 101039 Pa  Humidity: 46 %[0m
+[0;32mI (21294) UDP: Sent 22 bytes[0m
+[0;32mI (21294) METRIC: E2E Latency: 4362 us[0m
+[0;32mI (21294) METRIC: Loop Exec Time: 6652 us | CPU Util: 0.665%[0m
+[0;32mI (21304) MEM: Heap free: 226156 B, Used heap: 71268 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (21314) BME280: TS=20829954000 ns Temp=22.61 C Press=101039 Pa Hum=46%[0m
+[0;32mI (22294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (22294) BME280: Temp: 22.60 C  Pressure: 101047 Pa  Humidity: 46 %[0m
+[0;32mI (22294) UDP: Sent 22 bytes[0m
+[0;32mI (22294) METRIC: E2E Latency: 3930 us[0m
+[0;32mI (22294) METRIC: Loop Exec Time: 6669 us | CPU Util: 0.667%[0m
+[0;32mI (22304) MEM: Heap free: 226156 B, Used heap: 71268 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (22314) BME280: TS=21829970000 ns Temp=22.60 C Press=101047 Pa Hum=46%[0m
+[0;32mI (23294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (23294) BME280: Temp: 22.61 C  Pressure: 101043 Pa  Humidity: 46 %[0m
+[0;32mI (23294) UDP: Sent 22 bytes[0m
+[0;32mI (23294) METRIC: E2E Latency: 3944 us[0m
+[0;32mI (23294) METRIC: Loop Exec Time: 6936 us | CPU Util: 0.694%[0m
+[0;32mI (23304) MEM: Heap free: 226156 B, Used heap: 71268 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (23314) BME280: TS=22830243000 ns Temp=22.61 C Press=101043 Pa Hum=46%[0m
+[0;32mI (24294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (24294) BME280: Temp: 22.61 C  Pressure: 101036 Pa  Humidity: 46 %[0m
+[0;32mI (24294) UDP: Sent 22 bytes[0m
+[0;32mI (24294) METRIC: E2E Latency: 4478 us[0m
+[0;32mI (24294) METRIC: Loop Exec Time: 6628 us | CPU Util: 0.663%[0m
+[0;32mI (24304) MEM: Heap free: 226156 B, Used heap: 71268 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (24314) BME280: TS=23829923000 ns Temp=22.61 C Press=101036 Pa Hum=46%[0m
+[0;32mI (25294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (25294) BME280: Temp: 22.61 C  Pressure: 101042 Pa  Humidity: 46 %[0m
+[0;32mI (25294) UDP: Sent 22 bytes[0m
+[0;32mI (25294) METRIC: E2E Latency: 4501 us[0m
+[0;32mI (25294) METRIC: Loop Exec Time: 6652 us | CPU Util: 0.665%[0m
+[0;32mI (25304) MEM: Heap free: 226156 B, Used heap: 71268 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (25314) BME280: TS=24829954000 ns Temp=22.61 C Press=101042 Pa Hum=46%[0m
+[0;32mI (26294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (26294) BME280: Temp: 22.61 C  Pressure: 101037 Pa  Humidity: 46 %[0m
+[0;32mI (26294) UDP: Sent 22 bytes[0m
+[0;32mI (26294) METRIC: E2E Latency: 4293 us[0m
+[0;32mI (26294) METRIC: Loop Exec Time: 6660 us | CPU Util: 0.666%[0m
+[0;32mI (26304) MEM: Heap free: 226156 B, Used heap: 71268 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (26314) BME280: TS=25829954000 ns Temp=22.61 C Press=101037 Pa Hum=46%[0m
+[0;32mI (27294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (27294) BME280: Temp: 22.61 C  Pressure: 101048 Pa  Humidity: 46 %[0m
+[0;32mI (27294) UDP: Sent 22 bytes[0m
+[0;32mI (27294) METRIC: E2E Latency: 4068 us[0m
+[0;32mI (27294) METRIC: Loop Exec Time: 6660 us | CPU Util: 0.666%[0m
+[0;32mI (27304) MEM: Heap free: 226156 B, Used heap: 71268 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (27314) BME280: TS=26829950000 ns Temp=22.61 C Press=101048 Pa Hum=46%[0m
+[0;32mI (28294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (28294) BME280: Temp: 22.62 C  Pressure: 101044 Pa  Humidity: 46 %[0m
+[0;32mI (28294) UDP: Sent 22 bytes[0m
+[0;32mI (28294) METRIC: E2E Latency: 4335 us[0m
+[0;32mI (28294) METRIC: Loop Exec Time: 6644 us | CPU Util: 0.664%[0m
+[0;32mI (28304) MEM: Heap free: 226156 B, Used heap: 71268 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (28314) BME280: TS=27829954000 ns Temp=22.62 C Press=101044 Pa Hum=46%[0m
+[0;32mI (29294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (29294) BME280: Temp: 22.61 C  Pressure: 101043 Pa  Humidity: 46 %[0m
+[0;32mI (29294) UDP: Sent 22 bytes[0m
+[0;32mI (29294) METRIC: E2E Latency: 4499 us[0m
+[0;32mI (29294) METRIC: Loop Exec Time: 6644 us | CPU Util: 0.664%[0m
+[0;32mI (29304) MEM: Heap free: 226156 B, Used heap: 71268 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (29314) BME280: TS=28829938000 ns Temp=22.61 C Press=101043 Pa Hum=46%[0m
+[0;32mI (30294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (30294) BME280: Temp: 22.60 C  Pressure: 101040 Pa  Humidity: 46 %[0m
+[0;32mI (30294) UDP: Sent 22 bytes[0m
+[0;32mI (30294) METRIC: E2E Latency: 4345 us[0m
+[0;32mI (30294) METRIC: Loop Exec Time: 6672 us | CPU Util: 0.667%[0m
+[0;32mI (30304) MEM: Heap free: 226156 B, Used heap: 71268 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (30314) BME280: TS=29829966000 ns Temp=22.60 C Press=101040 Pa Hum=46%[0m
+[0;32mI (31294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (31294) BME280: Temp: 22.60 C  Pressure: 101046 Pa  Humidity: 46 %[0m
+[0;32mI (31294) UDP: Sent 22 bytes[0m
+[0;32mI (31294) METRIC: E2E Latency: 4297 us[0m
+[0;32mI (31294) METRIC: Loop Exec Time: 6652 us | CPU Util: 0.665%[0m
+[0;32mI (31304) MEM: Heap free: 226156 B, Used heap: 71268 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (31314) BME280: TS=30829958000 ns Temp=22.60 C Press=101046 Pa Hum=46%[0m
+[0;32mI (32294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (32294) BME280: Temp: 22.60 C  Pressure: 101040 Pa  Humidity: 46 %[0m
+[0;32mI (32294) UDP: Sent 22 bytes[0m
+[0;32mI (32294) METRIC: E2E Latency: 4328 us[0m
+[0;32mI (32294) METRIC: Loop Exec Time: 6668 us | CPU Util: 0.667%[0m
+[0;32mI (32304) MEM: Heap free: 226156 B, Used heap: 71268 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (32314) BME280: TS=31829966000 ns Temp=22.60 C Press=101040 Pa Hum=46%[0m
+[0;32mI (33294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (33294) BME280: Temp: 22.61 C  Pressure: 101042 Pa  Humidity: 46 %[0m
+[0;32mI (33294) UDP: Sent 22 bytes[0m
+[0;32mI (33294) METRIC: E2E Latency: 4335 us[0m
+[0;32mI (33294) METRIC: Loop Exec Time: 6612 us | CPU Util: 0.661%[0m
+[0;32mI (33304) MEM: Heap free: 226156 B, Used heap: 71268 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (33314) BME280: TS=32829906000 ns Temp=22.61 C Press=101042 Pa Hum=46%[0m
+[0;32mI (34294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (34294) BME280: Temp: 22.60 C  Pressure: 101041 Pa  Humidity: 46 %[0m
+[0;32mI (34294) UDP: Sent 22 bytes[0m
+[0;32mI (34294) METRIC: E2E Latency: 3904 us[0m
+[0;32mI (34294) METRIC: Loop Exec Time: 6660 us | CPU Util: 0.666%[0m
+[0;32mI (34304) MEM: Heap free: 226156 B, Used heap: 71268 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (34314) BME280: TS=33829966000 ns Temp=22.60 C Press=101041 Pa Hum=46%[0m
+[0;32mI (35294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (35294) BME280: Temp: 22.61 C  Pressure: 101042 Pa  Humidity: 46 %[0m
+[0;32mI (35294) UDP: Sent 22 bytes[0m
+[0;32mI (35294) METRIC: E2E Latency: 3944 us[0m
+[0;32mI (35294) METRIC: Loop Exec Time: 6652 us | CPU Util: 0.665%[0m
+[0;32mI (35304) MEM: Heap free: 225952 B, Used heap: 71472 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (35314) BME280: TS=34829958000 ns Temp=22.61 C Press=101042 Pa Hum=46%[0m
+[0;32mI (36294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (36294) BME280: Temp: 22.61 C  Pressure: 101042 Pa  Humidity: 46 %[0m
+[0;32mI (36294) UDP: Sent 22 bytes[0m
+[0;32mI (36294) METRIC: E2E Latency: 3936 us[0m
+[0;32mI (36294) METRIC: Loop Exec Time: 6652 us | CPU Util: 0.665%[0m
+[0;32mI (36304) MEM: Heap free: 225952 B, Used heap: 71472 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (36314) BME280: TS=35829954000 ns Temp=22.61 C Press=101042 Pa Hum=46%[0m
+[0;32mI (37294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (37294) BME280: Temp: 22.61 C  Pressure: 101036 Pa  Humidity: 46 %[0m
+[0;32mI (37294) UDP: Sent 22 bytes[0m
+[0;32mI (37294) METRIC: E2E Latency: 4421 us[0m
+[0;32mI (37294) METRIC: Loop Exec Time: 6604 us | CPU Util: 0.660%[0m
+[0;32mI (37304) MEM: Heap free: 226156 B, Used heap: 71268 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (37314) BME280: TS=36829907000 ns Temp=22.61 C Press=101036 Pa Hum=46%[0m
+[0;32mI (38294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (38294) BME280: Temp: 22.60 C  Pressure: 101040 Pa  Humidity: 46 %[0m
+[0;32mI (38294) UDP: Sent 22 bytes[0m
+[0;32mI (38294) METRIC: E2E Latency: 4305 us[0m
+[0;32mI (38294) METRIC: Loop Exec Time: 6652 us | CPU Util: 0.665%[0m
+[0;32mI (38304) MEM: Heap free: 225952 B, Used heap: 71472 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (38314) BME280: TS=37829954000 ns Temp=22.60 C Press=101040 Pa Hum=46%[0m
+[0;32mI (39294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (39294) BME280: Temp: 22.61 C  Pressure: 101042 Pa  Humidity: 46 %[0m
+[0;32mI (39294) UDP: Sent 22 bytes[0m
+[0;32mI (39294) METRIC: E2E Latency: 4547 us[0m
+[0;32mI (39294) METRIC: Loop Exec Time: 6636 us | CPU Util: 0.664%[0m
+[0;32mI (39304) MEM: Heap free: 226156 B, Used heap: 71268 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (39314) BME280: TS=38829942000 ns Temp=22.61 C Press=101042 Pa Hum=46%[0m
+[0;32mI (40294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (40294) BME280: Temp: 22.61 C  Pressure: 101037 Pa  Humidity: 46 %[0m
+[0;32mI (40294) UDP: Sent 22 bytes[0m
+[0;32mI (40294) METRIC: E2E Latency: 3900 us[0m
+[0;32mI (40294) METRIC: Loop Exec Time: 7375 us | CPU Util: 0.738%[0m
+[0;32mI (40304) MEM: Heap free: 225952 B, Used heap: 71472 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (40314) BME280: TS=39829974000 ns Temp=22.61 C Press=101037 Pa Hum=46%[0m
+[0;32mI (41294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (41294) BME280: Temp: 22.61 C  Pressure: 101039 Pa  Humidity: 46 %[0m
+[0;32mI (41294) UDP: Sent 22 bytes[0m
+[0;32mI (41294) METRIC: E2E Latency: 4372 us[0m
+[0;32mI (41294) METRIC: Loop Exec Time: 6636 us | CPU Util: 0.664%[0m
+[0;32mI (41304) MEM: Heap free: 226156 B, Used heap: 71268 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (41314) BME280: TS=40829942000 ns Temp=22.61 C Press=101039 Pa Hum=46%[0m
+[0;32mI (42294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (42294) BME280: Temp: 22.61 C  Pressure: 101036 Pa  Humidity: 46 %[0m
+[0;32mI (42294) UDP: Sent 22 bytes[0m
+[0;32mI (42294) METRIC: E2E Latency: 4491 us[0m
+[0;32mI (42294) METRIC: Loop Exec Time: 6648 us | CPU Util: 0.665%[0m
+[0;32mI (42304) MEM: Heap free: 225952 B, Used heap: 71472 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (42314) BME280: TS=41829950000 ns Temp=22.61 C Press=101036 Pa Hum=46%[0m
+[0;32mI (43294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (43294) BME280: Temp: 22.62 C  Pressure: 101044 Pa  Humidity: 46 %[0m
+[0;32mI (43294) UDP: Sent 22 bytes[0m
+[0;32mI (43294) METRIC: E2E Latency: 4310 us[0m
+[0;32mI (43294) METRIC: Loop Exec Time: 6648 us | CPU Util: 0.665%[0m
+[0;32mI (43304) MEM: Heap free: 226156 B, Used heap: 71268 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (43314) BME280: TS=42829954000 ns Temp=22.62 C Press=101044 Pa Hum=46%[0m
+[0;32mI (44294) METRIC: Actual Period: 1000343 us | Jitter: 343 us[0m
+[0;32mI (44294) BME280: Temp: 22.61 C  Pressure: 101043 Pa  Humidity: 46 %[0m
+[0;32mI (44294) UDP: Sent 22 bytes[0m
+[0;32mI (44294) METRIC: E2E Latency: 4301 us[0m
+[0;32mI (44294) METRIC: Loop Exec Time: 6841 us | CPU Util: 0.684%[0m
+[0;32mI (44304) MEM: Heap free: 226156 B, Used heap: 71268 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (44314) BME280: TS=43830314000 ns Temp=22.61 C Press=101043 Pa Hum=46%[0m
+[0;32mI (45294) METRIC: Actual Period: 999657 us | Jitter: -343 us[0m
+[0;32mI (45294) BME280: Temp: 22.62 C  Pressure: 101041 Pa  Humidity: 46 %[0m
+[0;32mI (45294) UDP: Sent 22 bytes[0m
+[0;32mI (45294) METRIC: E2E Latency: 4442 us[0m
+[0;32mI (45294) METRIC: Loop Exec Time: 6836 us | CPU Util: 0.684%[0m
+[0;32mI (45304) MEM: Heap free: 226156 B, Used heap: 71268 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (45314) BME280: TS=44829971000 ns Temp=22.62 C Press=101041 Pa Hum=46%[0m
+[0;32mI (46294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (46294) BME280: Temp: 22.62 C  Pressure: 101046 Pa  Humidity: 46 %[0m
+[0;32mI (46294) UDP: Sent 22 bytes[0m
+[0;32mI (46294) METRIC: E2E Latency: 4362 us[0m
+[0;32mI (46294) METRIC: Loop Exec Time: 6616 us | CPU Util: 0.662%[0m
+[0;32mI (46304) MEM: Heap free: 226156 B, Used heap: 71268 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (46314) BME280: TS=45829918000 ns Temp=22.62 C Press=101046 Pa Hum=46%[0m
+[0;32mI (47294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (47294) BME280: Temp: 22.61 C  Pressure: 101042 Pa  Humidity: 46 %[0m
+[0;32mI (47294) UDP: Sent 22 bytes[0m
+[0;32mI (47294) METRIC: E2E Latency: 4308 us[0m
+[0;32mI (47294) METRIC: Loop Exec Time: 6648 us | CPU Util: 0.665%[0m
+[0;32mI (47304) MEM: Heap free: 226156 B, Used heap: 71268 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (47314) BME280: TS=46829958000 ns Temp=22.61 C Press=101042 Pa Hum=46%[0m
+[0;32mI (48294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (48294) BME280: Temp: 22.61 C  Pressure: 101036 Pa  Humidity: 46 %[0m
+[0;32mI (48294) UDP: Sent 22 bytes[0m
+[0;32mI (48294) METRIC: E2E Latency: 4324 us[0m
+[0;32mI (48294) METRIC: Loop Exec Time: 6648 us | CPU Util: 0.665%[0m
+[0;32mI (48304) MEM: Heap free: 226156 B, Used heap: 71268 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (48314) BME280: TS=47829954000 ns Temp=22.61 C Press=101036 Pa Hum=46%[0m
+[0;32mI (49294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (49294) BME280: Temp: 22.62 C  Pressure: 101044 Pa  Humidity: 46 %[0m
+[0;32mI (49294) UDP: Sent 22 bytes[0m
+[0;32mI (49294) METRIC: E2E Latency: 4461 us[0m
+[0;32mI (49294) METRIC: Loop Exec Time: 6656 us | CPU Util: 0.666%[0m
+[0;32mI (49304) MEM: Heap free: 226156 B, Used heap: 71268 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (49314) BME280: TS=48829954000 ns Temp=22.62 C Press=101044 Pa Hum=46%[0m
+[0;32mI (50294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (50294) BME280: Temp: 22.61 C  Pressure: 101042 Pa  Humidity: 46 %[0m
+[0;32mI (50294) UDP: Sent 22 bytes[0m
+[0;32mI (50294) METRIC: E2E Latency: 4358 us[0m
+[0;32mI (50294) METRIC: Loop Exec Time: 6612 us | CPU Util: 0.661%[0m
+[0;32mI (50304) MEM: Heap free: 226156 B, Used heap: 71268 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (50314) BME280: TS=49829911000 ns Temp=22.61 C Press=101042 Pa Hum=46%[0m
+[0;32mI (51294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (51294) BME280: Temp: 22.61 C  Pressure: 101043 Pa  Humidity: 46 %[0m
+[0;32mI (51294) UDP: Sent 22 bytes[0m
+[0;32mI (51294) METRIC: E2E Latency: 4318 us[0m
+[0;32mI (51294) METRIC: Loop Exec Time: 6660 us | CPU Util: 0.666%[0m
+[0;32mI (51304) MEM: Heap free: 226156 B, Used heap: 71268 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (51314) BME280: TS=50829966000 ns Temp=22.61 C Press=101043 Pa Hum=46%[0m
+[0;32mI (52294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (52294) BME280: Temp: 22.61 C  Pressure: 101036 Pa  Humidity: 46 %[0m
+[0;32mI (52294) UDP: Sent 22 bytes[0m
+[0;32mI (52294) METRIC: E2E Latency: 4243 us[0m
+[0;32mI (52294) METRIC: Loop Exec Time: 6652 us | CPU Util: 0.665%[0m
+[0;32mI (52304) MEM: Heap free: 226156 B, Used heap: 71268 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (52314) BME280: TS=51829962000 ns Temp=22.61 C Press=101036 Pa Hum=46%[0m
+[0;32mI (53294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (53294) BME280: Temp: 22.61 C  Pressure: 101037 Pa  Humidity: 46 %[0m
+[0;32mI (53294) UDP: Sent 22 bytes[0m
+[0;32mI (53294) METRIC: E2E Latency: 5107 us[0m
+[0;32mI (53294) METRIC: Loop Exec Time: 6660 us | CPU Util: 0.666%[0m
+[0;32mI (53304) MEM: Heap free: 225952 B, Used heap: 71472 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (53314) BME280: TS=52829962000 ns Temp=22.61 C Press=101037 Pa Hum=46%[0m
+[0;32mI (54294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (54294) BME280: Temp: 22.61 C  Pressure: 101039 Pa  Humidity: 46 %[0m
+[0;32mI (54294) UDP: Sent 22 bytes[0m
+[0;32mI (54294) METRIC: E2E Latency: 4316 us[0m
+[0;32mI (54294) METRIC: Loop Exec Time: 6624 us | CPU Util: 0.662%[0m
+[0;32mI (54304) MEM: Heap free: 226156 B, Used heap: 71268 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (54314) BME280: TS=53829934000 ns Temp=22.61 C Press=101039 Pa Hum=46%[0m
+[0;32mI (55294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (55294) BME280: Temp: 22.61 C  Pressure: 101043 Pa  Humidity: 46 %[0m
+[0;32mI (55294) UDP: Sent 22 bytes[0m
+[0;32mI (55294) METRIC: E2E Latency: 4445 us[0m
+[0;32mI (55294) METRIC: Loop Exec Time: 6656 us | CPU Util: 0.666%[0m
+[0;32mI (55304) MEM: Heap free: 226156 B, Used heap: 71268 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (55314) BME280: TS=54829962000 ns Temp=22.61 C Press=101043 Pa Hum=46%[0m
+[0;32mI (56294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (56294) BME280: Temp: 22.61 C  Pressure: 101046 Pa  Humidity: 46 %[0m
+[0;32mI (56294) UDP: Sent 22 bytes[0m
+[0;32mI (56294) METRIC: E2E Latency: 4210 us[0m
+[0;32mI (56294) METRIC: Loop Exec Time: 6656 us | CPU Util: 0.666%[0m
+[0;32mI (56304) MEM: Heap free: 226156 B, Used heap: 71268 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (56314) BME280: TS=55829958000 ns Temp=22.61 C Press=101046 Pa Hum=46%[0m
+[0;32mI (57294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (57294) BME280: Temp: 22.60 C  Pressure: 101041 Pa  Humidity: 46 %[0m
+[0;32mI (57294) UDP: Sent 22 bytes[0m
+[0;32mI (57294) METRIC: E2E Latency: 3900 us[0m
+[0;32mI (57294) METRIC: Loop Exec Time: 6672 us | CPU Util: 0.667%[0m
+[0;32mI (57304) MEM: Heap free: 226156 B, Used heap: 71268 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (57314) BME280: TS=56829962000 ns Temp=22.60 C Press=101041 Pa Hum=46%[0m
+[0;32mI (58294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (58294) BME280: Temp: 22.61 C  Pressure: 101045 Pa  Humidity: 46 %[0m
+[0;32mI (58294) UDP: Sent 22 bytes[0m
+[0;32mI (58294) METRIC: E2E Latency: 4411 us[0m
+[0;32mI (58294) METRIC: Loop Exec Time: 6620 us | CPU Util: 0.662%[0m
+[0;32mI (58304) MEM: Heap free: 226156 B, Used heap: 71268 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (58314) BME280: TS=57829926000 ns Temp=22.61 C Press=101045 Pa Hum=46%[0m
+[0;32mI (59294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (59294) BME280: Temp: 22.61 C  Pressure: 101046 Pa  Humidity: 46 %[0m
+[0;32mI (59294) UDP: Sent 22 bytes[0m
+[0;32mI (59294) METRIC: E2E Latency: 4430 us[0m
+[0;32mI (59294) METRIC: Loop Exec Time: 6636 us | CPU Util: 0.664%[0m
+[0;32mI (59304) MEM: Heap free: 225952 B, Used heap: 71472 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (59314) BME280: TS=58829942000 ns Temp=22.61 C Press=101046 Pa Hum=46%[0m
+[0;32mI (60294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (60294) BME280: Temp: 22.60 C  Pressure: 101041 Pa  Humidity: 46 %[0m
+[0;32mI (60294) UDP: Sent 22 bytes[0m
+[0;32mI (60294) METRIC: E2E Latency: 4357 us[0m
+[0;32mI (60294) METRIC: Loop Exec Time: 6648 us | CPU Util: 0.665%[0m
+[0;32mI (60304) MEM: Heap free: 226156 B, Used heap: 71268 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (60314) BME280: TS=59829950000 ns Temp=22.60 C Press=101041 Pa Hum=46%[0m
+[0;32mI (61294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (61294) BME280: Temp: 22.61 C  Pressure: 101042 Pa  Humidity: 46 %[0m
+[0;32mI (61294) UDP: Sent 22 bytes[0m
+[0;32mI (61294) METRIC: E2E Latency: 4383 us[0m
+[0;32mI (61294) METRIC: Loop Exec Time: 6736 us | CPU Util: 0.674%[0m
+[0;32mI (61304) MEM: Heap free: 226156 B, Used heap: 71268 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (61314) BME280: TS=60830046000 ns Temp=22.61 C Press=101042 Pa Hum=46%[0m
+[0;32mI (62294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (62294) BME280: Temp: 22.61 C  Pressure: 101040 Pa  Humidity: 46 %[0m
+[0;32mI (62294) UDP: Sent 22 bytes[0m
+[0;32mI (62294) METRIC: E2E Latency: 4563 us[0m
+[0;32mI (62294) METRIC: Loop Exec Time: 6664 us | CPU Util: 0.666%[0m
+[0;32mI (62304) MEM: Heap free: 226156 B, Used heap: 71268 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (62314) BME280: TS=61829974000 ns Temp=22.61 C Press=101040 Pa Hum=46%[0m
+[0;32mI (63294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (63294) BME280: Temp: 22.61 C  Pressure: 101042 Pa  Humidity: 46 %[0m
+[0;32mI (63294) UDP: Sent 22 bytes[0m
+[0;32mI (63294) METRIC: E2E Latency: 4426 us[0m
+[0;32mI (63294) METRIC: Loop Exec Time: 6608 us | CPU Util: 0.661%[0m
+[0;32mI (63304) MEM: Heap free: 226156 B, Used heap: 71268 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (63314) BME280: TS=62829907000 ns Temp=22.61 C Press=101042 Pa Hum=46%[0m
+[0;32mI (64294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (64294) BME280: Temp: 22.62 C  Pressure: 101044 Pa  Humidity: 46 %[0m
+[0;32mI (64294) UDP: Sent 22 bytes[0m
+[0;32mI (64294) METRIC: E2E Latency: 4371 us[0m
+[0;32mI (64294) METRIC: Loop Exec Time: 6668 us | CPU Util: 0.667%[0m
+[0;32mI (64304) MEM: Heap free: 226156 B, Used heap: 71268 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (64314) BME280: TS=63829970000 ns Temp=22.62 C Press=101044 Pa Hum=46%[0m
+[0;32mI (65294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (65294) BME280: Temp: 22.61 C  Pressure: 101045 Pa  Humidity: 46 %[0m
+[0;32mI (65294) UDP: Sent 22 bytes[0m
+[0;32mI (65294) METRIC: E2E Latency: 4377 us[0m
+[0;32mI (65294) METRIC: Loop Exec Time: 6680 us | CPU Util: 0.668%[0m
+[0;32mI (65304) MEM: Heap free: 226156 B, Used heap: 71268 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (65314) BME280: TS=64829978000 ns Temp=22.61 C Press=101045 Pa Hum=46%[0m
+[0;32mI (66294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (66294) BME280: Temp: 22.61 C  Pressure: 101053 Pa  Humidity: 46 %[0m
+[0;32mI (66294) UDP: Sent 22 bytes[0m
+[0;32mI (66294) METRIC: E2E Latency: 4456 us[0m
+[0;32mI (66294) METRIC: Loop Exec Time: 6664 us | CPU Util: 0.666%[0m
+[0;32mI (66304) MEM: Heap free: 226156 B, Used heap: 71268 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (66314) BME280: TS=65829970000 ns Temp=22.61 C Press=101053 Pa Hum=46%[0m
+[0;32mI (67294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (67294) BME280: Temp: 22.61 C  Pressure: 101039 Pa  Humidity: 46 %[0m
+[0;32mI (67294) UDP: Sent 22 bytes[0m
+[0;32mI (67294) METRIC: E2E Latency: 4349 us[0m
+[0;32mI (67294) METRIC: Loop Exec Time: 6604 us | CPU Util: 0.660%[0m
+[0;32mI (67304) MEM: Heap free: 226156 B, Used heap: 71268 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (67314) BME280: TS=66829907000 ns Temp=22.61 C Press=101039 Pa Hum=46%[0m
+[0;32mI (68294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (68294) BME280: Temp: 22.61 C  Pressure: 101042 Pa  Humidity: 46 %[0m
+[0;32mI (68294) UDP: Sent 22 bytes[0m
+[0;32mI (68294) METRIC: E2E Latency: 4469 us[0m
+[0;32mI (68294) METRIC: Loop Exec Time: 6668 us | CPU Util: 0.667%[0m
+[0;32mI (68304) MEM: Heap free: 226156 B, Used heap: 71268 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (68314) BME280: TS=67829966000 ns Temp=22.61 C Press=101042 Pa Hum=46%[0m
+[0;32mI (69294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (69294) BME280: Temp: 22.61 C  Pressure: 101042 Pa  Humidity: 46 %[0m
+[0;32mI (69294) UDP: Sent 22 bytes[0m
+[0;32mI (69294) METRIC: E2E Latency: 4581 us[0m
+[0;32mI (69294) METRIC: Loop Exec Time: 6664 us | CPU Util: 0.666%[0m
+[0;32mI (69304) MEM: Heap free: 226156 B, Used heap: 71268 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (69314) BME280: TS=68829974000 ns Temp=22.61 C Press=101042 Pa Hum=46%[0m
+[0;32mI (70294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (70294) BME280: Temp: 22.61 C  Pressure: 101042 Pa  Humidity: 46 %[0m
+[0;32mI (70294) UDP: Sent 22 bytes[0m
+[0;32mI (70294) METRIC: E2E Latency: 5147 us[0m
+[0;32mI (70294) METRIC: Loop Exec Time: 6648 us | CPU Util: 0.665%[0m
+[0;32mI (70304) MEM: Heap free: 225952 B, Used heap: 71472 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (70314) BME280: TS=69829950000 ns Temp=22.61 C Press=101042 Pa Hum=46%[0m
+[0;32mI (71294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (71294) BME280: Temp: 22.61 C  Pressure: 101036 Pa  Humidity: 46 %[0m
+[0;32mI (71294) UDP: Sent 22 bytes[0m
+[0;32mI (71294) METRIC: E2E Latency: 4344 us[0m
+[0;32mI (71294) METRIC: Loop Exec Time: 6624 us | CPU Util: 0.662%[0m
+[0;32mI (71304) MEM: Heap free: 226156 B, Used heap: 71268 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (71314) BME280: TS=70829931000 ns Temp=22.61 C Press=101036 Pa Hum=46%[0m
+[0;32mI (72294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (72294) BME280: Temp: 22.61 C  Pressure: 101032 Pa  Humidity: 46 %[0m
+[0;32mI (72294) UDP: Sent 22 bytes[0m
+[0;32mI (72294) METRIC: E2E Latency: 4293 us[0m
+[0;32mI (72294) METRIC: Loop Exec Time: 6660 us | CPU Util: 0.666%[0m
+[0;32mI (72304) MEM: Heap free: 225952 B, Used heap: 71472 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (72314) BME280: TS=71829962000 ns Temp=22.61 C Press=101032 Pa Hum=46%[0m
+[0;32mI (73294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (73294) BME280: Temp: 22.60 C  Pressure: 101036 Pa  Humidity: 46 %[0m
+[0;32mI (73294) UDP: Sent 22 bytes[0m
+[0;32mI (73294) METRIC: E2E Latency: 4199 us[0m
+[0;32mI (73294) METRIC: Loop Exec Time: 6660 us | CPU Util: 0.666%[0m
+[0;32mI (73304) MEM: Heap free: 226156 B, Used heap: 71268 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (73314) BME280: TS=72829962000 ns Temp=22.60 C Press=101036 Pa Hum=46%[0m
+[0;32mI (74294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (74294) BME280: Temp: 22.61 C  Pressure: 101036 Pa  Humidity: 46 %[0m
+[0;32mI (74294) UDP: Sent 22 bytes[0m
+[0;32mI (74294) METRIC: E2E Latency: 5090 us[0m
+[0;32mI (74294) METRIC: Loop Exec Time: 6660 us | CPU Util: 0.666%[0m
+[0;32mI (74304) MEM: Heap free: 226156 B, Used heap: 71268 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (74314) BME280: TS=73829970000 ns Temp=22.61 C Press=101036 Pa Hum=46%[0m
+[0;32mI (75294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (75294) BME280: Temp: 22.61 C  Pressure: 101036 Pa  Humidity: 46 %[0m
+[0;32mI (75294) UDP: Sent 22 bytes[0m
+[0;32mI (75294) METRIC: E2E Latency: 4365 us[0m
+[0;32mI (75294) METRIC: Loop Exec Time: 6636 us | CPU Util: 0.664%[0m
+[0;32mI (75304) MEM: Heap free: 226156 B, Used heap: 71268 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (75314) BME280: TS=74829942000 ns Temp=22.61 C Press=101036 Pa Hum=46%[0m
+[0;32mI (76294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (76294) BME280: Temp: 22.61 C  Pressure: 101039 Pa  Humidity: 46 %[0m
+[0;32mI (76294) UDP: Sent 22 bytes[0m
+[0;32mI (76294) METRIC: E2E Latency: 3889 us[0m
+[0;32mI (76294) METRIC: Loop Exec Time: 6632 us | CPU Util: 0.663%[0m
+[0;32mI (76304) MEM: Heap free: 226156 B, Used heap: 71268 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (76314) BME280: TS=75829934000 ns Temp=22.61 C Press=101039 Pa Hum=46%[0m
+[0;32mI (77294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (77294) BME280: Temp: 22.61 C  Pressure: 101031 Pa  Humidity: 46 %[0m
+[0;32mI (77294) UDP: Sent 22 bytes[0m
+[0;32mI (77294) METRIC: E2E Latency: 4348 us[0m
+[0;32mI (77294) METRIC: Loop Exec Time: 6668 us | CPU Util: 0.667%[0m
+[0;32mI (77304) MEM: Heap free: 226156 B, Used heap: 71268 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (77314) BME280: TS=76829970000 ns Temp=22.61 C Press=101031 Pa Hum=46%[0m
+[0;32mI (78294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (78294) BME280: Temp: 22.61 C  Pressure: 101042 Pa  Humidity: 46 %[0m
+[0;32mI (78294) UDP: Sent 22 bytes[0m
+[0;32mI (78294) METRIC: E2E Latency: 4387 us[0m
+[0;32mI (78294) METRIC: Loop Exec Time: 6668 us | CPU Util: 0.667%[0m
+[0;32mI (78304) MEM: Heap free: 226156 B, Used heap: 71268 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (78314) BME280: TS=77829966000 ns Temp=22.61 C Press=101042 Pa Hum=46%[0m
+[0;32mI (79294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (79294) BME280: Temp: 22.61 C  Pressure: 101036 Pa  Humidity: 46 %[0m
+[0;32mI (79294) UDP: Sent 22 bytes[0m
+[0;32mI (79294) METRIC: E2E Latency: 4364 us[0m
+[0;32mI (79294) METRIC: Loop Exec Time: 6660 us | CPU Util: 0.666%[0m
+[0;32mI (79304) MEM: Heap free: 226156 B, Used heap: 71268 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (79314) BME280: TS=78829970000 ns Temp=22.61 C Press=101036 Pa Hum=46%[0m
+[0;32mI (80294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (80294) BME280: Temp: 22.62 C  Pressure: 101041 Pa  Humidity: 46 %[0m
+[0;32mI (80294) UDP: Sent 22 bytes[0m
+[0;32mI (80294) METRIC: E2E Latency: 4367 us[0m
+[0;32mI (80294) METRIC: Loop Exec Time: 6604 us | CPU Util: 0.660%[0m
+[0;32mI (80304) MEM: Heap free: 226156 B, Used heap: 71268 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (80314) BME280: TS=79829907000 ns Temp=22.62 C Press=101041 Pa Hum=46%[0m
+[0;32mI (81294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (81294) BME280: Temp: 22.61 C  Pressure: 101036 Pa  Humidity: 46 %[0m
+[0;32mI (81294) UDP: Sent 22 bytes[0m
+[0;32mI (81294) METRIC: E2E Latency: 4393 us[0m
+[0;32mI (81294) METRIC: Loop Exec Time: 6660 us | CPU Util: 0.666%[0m
+[0;32mI (81304) MEM: Heap free: 226156 B, Used heap: 71268 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (81314) BME280: TS=80829962000 ns Temp=22.61 C Press=101036 Pa Hum=46%[0m
+[0;32mI (82294) METRIC: Actual Period: 1000051 us | Jitter: 51 us[0m
+[0;32mI (82294) BME280: Temp: 22.61 C  Pressure: 101039 Pa  Humidity: 46 %[0m
+[0;32mI (82294) UDP: Sent 22 bytes[0m
+[0;32mI (82294) METRIC: E2E Latency: 4891 us[0m
+[0;32mI (82294) METRIC: Loop Exec Time: 6752 us | CPU Util: 0.675%[0m
+[0;32mI (82304) MEM: Heap free: 226156 B, Used heap: 71268 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (82314) BME280: TS=81830027000 ns Temp=22.61 C Press=101039 Pa Hum=46%[0m
+[0;32mI (83294) METRIC: Actual Period: 999949 us | Jitter: -51 us[0m
+[0;32mI (83294) BME280: Temp: 22.61 C  Pressure: 101045 Pa  Humidity: 46 %[0m
+[0;32mI (83294) UDP: Sent 22 bytes[0m
+[0;32mI (83294) METRIC: E2E Latency: 3900 us[0m
+[0;32mI (83294) METRIC: Loop Exec Time: 6753 us | CPU Util: 0.675%[0m
+[0;32mI (83304) MEM: Heap free: 226156 B, Used heap: 71268 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (83314) BME280: TS=82829977000 ns Temp=22.61 C Press=101045 Pa Hum=46%[0m
+[0;32mI (84294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (84294) BME280: Temp: 22.60 C  Pressure: 101040 Pa  Humidity: 46 %[0m
+[0;32mI (84294) UDP: Sent 22 bytes[0m
+[0;32mI (84294) METRIC: E2E Latency: 4308 us[0m
+[0;32mI (84294) METRIC: Loop Exec Time: 6632 us | CPU Util: 0.663%[0m
+[0;32mI (84304) MEM: Heap free: 226156 B, Used heap: 71268 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (84314) BME280: TS=83829903000 ns Temp=22.60 C Press=101040 Pa Hum=46%[0m
+[0;32mI (85294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (85294) BME280: Temp: 22.60 C  Pressure: 101036 Pa  Humidity: 46 %[0m
+[0;32mI (85294) UDP: Sent 22 bytes[0m
+[0;32mI (85294) METRIC: E2E Latency: 3912 us[0m
+[0;32mI (85294) METRIC: Loop Exec Time: 6725 us | CPU Util: 0.673%[0m
+[0;32mI (85304) MEM: Heap free: 225952 B, Used heap: 71472 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (85314) BME280: TS=84829966000 ns Temp=22.60 C Press=101036 Pa Hum=46%[0m
+[0;32mI (86294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (86294) BME280: Temp: 22.61 C  Pressure: 101042 Pa  Humidity: 46 %[0m
+[0;32mI (86294) UDP: Sent 22 bytes[0m
+[0;32mI (86294) METRIC: E2E Latency: 4354 us[0m
+[0;32mI (86294) METRIC: Loop Exec Time: 6656 us | CPU Util: 0.666%[0m
+[0;32mI (86304) MEM: Heap free: 226156 B, Used heap: 71268 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (86314) BME280: TS=85829958000 ns Temp=22.61 C Press=101042 Pa Hum=46%[0m
+[0;32mI (87294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (87294) BME280: Temp: 22.61 C  Pressure: 101048 Pa  Humidity: 46 %[0m
+[0;32mI (87294) UDP: Sent 22 bytes[0m
+[0;32mI (87294) METRIC: E2E Latency: 4741 us[0m
+[0;32mI (87294) METRIC: Loop Exec Time: 6656 us | CPU Util: 0.666%[0m
+[0;32mI (87304) MEM: Heap free: 225952 B, Used heap: 71472 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (87314) BME280: TS=86829966000 ns Temp=22.61 C Press=101048 Pa Hum=46%[0m
+[0;32mI (88294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (88294) BME280: Temp: 22.60 C  Pressure: 101036 Pa  Humidity: 46 %[0m
+[0;32mI (88294) UDP: Sent 22 bytes[0m
+[0;32mI (88294) METRIC: E2E Latency: 4399 us[0m
+[0;32mI (88294) METRIC: Loop Exec Time: 6628 us | CPU Util: 0.663%[0m
+[0;32mI (88304) MEM: Heap free: 226156 B, Used heap: 71268 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (88314) BME280: TS=87829931000 ns Temp=22.60 C Press=101036 Pa Hum=46%[0m
+[0;32mI (89294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (89294) BME280: Temp: 22.60 C  Pressure: 101041 Pa  Humidity: 46 %[0m
+[0;32mI (89294) UDP: Sent 22 bytes[0m
+[0;32mI (89294) METRIC: E2E Latency: 4305 us[0m
+[0;32mI (89294) METRIC: Loop Exec Time: 6672 us | CPU Util: 0.667%[0m
+[0;32mI (89304) MEM: Heap free: 225952 B, Used heap: 71472 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (89314) BME280: TS=88829974000 ns Temp=22.60 C Press=101041 Pa Hum=46%[0m
+[0;32mI (90294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (90294) BME280: Temp: 22.60 C  Pressure: 101037 Pa  Humidity: 46 %[0m
+[0;32mI (90294) UDP: Sent 22 bytes[0m
+[0;32mI (90294) METRIC: E2E Latency: 4342 us[0m
+[0;32mI (90294) METRIC: Loop Exec Time: 6652 us | CPU Util: 0.665%[0m
+[0;32mI (90304) MEM: Heap free: 226156 B, Used heap: 71268 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (90314) BME280: TS=89829954000 ns Temp=22.60 C Press=101037 Pa Hum=46%[0m
+[0;32mI (91294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (91294) BME280: Temp: 22.60 C  Pressure: 101040 Pa  Humidity: 46 %[0m
+[0;32mI (91294) UDP: Sent 22 bytes[0m
+[0;32mI (91294) METRIC: E2E Latency: 5020 us[0m
+[0;32mI (91294) METRIC: Loop Exec Time: 6668 us | CPU Util: 0.667%[0m
+[0;32mI (91304) MEM: Heap free: 226156 B, Used heap: 71268 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (91314) BME280: TS=90829978000 ns Temp=22.60 C Press=101040 Pa Hum=46%[0m
+[0;32mI (92294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (92294) BME280: Temp: 22.60 C  Pressure: 101037 Pa  Humidity: 46 %[0m
+[0;32mI (92294) UDP: Sent 22 bytes[0m
+[0;32mI (92294) METRIC: E2E Latency: 4350 us[0m
+[0;32mI (92294) METRIC: Loop Exec Time: 6640 us | CPU Util: 0.664%[0m
+[0;32mI (92304) MEM: Heap free: 226156 B, Used heap: 71268 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (92314) BME280: TS=91829946000 ns Temp=22.60 C Press=101037 Pa Hum=46%[0m
+[0;32mI (93294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (93294) BME280: Temp: 22.60 C  Pressure: 101040 Pa  Humidity: 46 %[0m
+[0;32mI (93294) UDP: Sent 22 bytes[0m
+[0;32mI (93294) METRIC: E2E Latency: 4439 us[0m
+[0;32mI (93294) METRIC: Loop Exec Time: 6644 us | CPU Util: 0.664%[0m
+[0;32mI (93304) MEM: Heap free: 226156 B, Used heap: 71268 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (93314) BME280: TS=92829942000 ns Temp=22.60 C Press=101040 Pa Hum=46%[0m
+[0;32mI (94294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (94294) BME280: Temp: 22.59 C  Pressure: 101039 Pa  Humidity: 46 %[0m
+[0;32mI (94294) UDP: Sent 22 bytes[0m
+[0;32mI (94294) METRIC: E2E Latency: 4354 us[0m
+[0;32mI (94294) METRIC: Loop Exec Time: 6672 us | CPU Util: 0.667%[0m
+[0;32mI (94304) MEM: Heap free: 226156 B, Used heap: 71268 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (94314) BME280: TS=93829974000 ns Temp=22.59 C Press=101039 Pa Hum=46%[0m
+[0;32mI (95294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (95294) BME280: Temp: 22.61 C  Pressure: 101042 Pa  Humidity: 46 %[0m
+[0;32mI (95294) UDP: Sent 22 bytes[0m
+[0;32mI (95294) METRIC: E2E Latency: 4224 us[0m
+[0;32mI (95294) METRIC: Loop Exec Time: 6676 us | CPU Util: 0.668%[0m
+[0;32mI (95304) MEM: Heap free: 226156 B, Used heap: 71268 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (95314) BME280: TS=94829974000 ns Temp=22.61 C Press=101042 Pa Hum=46%[0m
+[0;32mI (96294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (96294) BME280: Temp: 22.60 C  Pressure: 101037 Pa  Humidity: 46 %[0m
+[0;32mI (96294) UDP: Sent 22 bytes[0m
+[0;32mI (96294) METRIC: E2E Latency: 4465 us[0m
+[0;32mI (96294) METRIC: Loop Exec Time: 6672 us | CPU Util: 0.667%[0m
+[0;32mI (96304) MEM: Heap free: 226156 B, Used heap: 71268 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (96314) BME280: TS=95829974000 ns Temp=22.60 C Press=101037 Pa Hum=46%[0m
+[0;32mI (97294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (97294) BME280: Temp: 22.60 C  Pressure: 101035 Pa  Humidity: 46 %[0m
+[0;32mI (97294) UDP: Sent 22 bytes[0m
+[0;32mI (97294) METRIC: E2E Latency: 4348 us[0m
+[0;32mI (97294) METRIC: Loop Exec Time: 6600 us | CPU Util: 0.660%[0m
+[0;32mI (97304) MEM: Heap free: 226156 B, Used heap: 71268 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (97314) BME280: TS=96829907000 ns Temp=22.60 C Press=101035 Pa Hum=46%[0m
+[0;32mI (98294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (98294) BME280: Temp: 22.60 C  Pressure: 101040 Pa  Humidity: 46 %[0m
+[0;32mI (98294) UDP: Sent 22 bytes[0m
+[0;32mI (98294) METRIC: E2E Latency: 4292 us[0m
+[0;32mI (98294) METRIC: Loop Exec Time: 6660 us | CPU Util: 0.666%[0m
+[0;32mI (98304) MEM: Heap free: 226156 B, Used heap: 71268 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (98314) BME280: TS=97829962000 ns Temp=22.60 C Press=101040 Pa Hum=46%[0m
+[0;32mI (99294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (99294) BME280: Temp: 22.60 C  Pressure: 101040 Pa  Humidity: 46 %[0m
+[0;32mI (99294) UDP: Sent 22 bytes[0m
+[0;32mI (99294) METRIC: E2E Latency: 4351 us[0m
+[0;32mI (99294) METRIC: Loop Exec Time: 6676 us | CPU Util: 0.668%[0m
+[0;32mI (99304) MEM: Heap free: 226156 B, Used heap: 71268 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (99314) BME280: TS=98829974000 ns Temp=22.60 C Press=101040 Pa Hum=46%[0m
+[0;32mI (100294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (100294) BME280: Temp: 22.59 C  Pressure: 101044 Pa  Humidity: 46 %[0m
+[0;32mI (100294) UDP: Sent 22 bytes[0m
+[0;32mI (100294) METRIC: E2E Latency: 4401 us[0m
+[0;32mI (100294) METRIC: Loop Exec Time: 7008 us | CPU Util: 0.701%[0m
+[0;32mI (100304) MEM: Heap free: 226156 B, Used heap: 71268 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (100314) BME280: TS=99829964000 ns Temp=22.59 C Press=101044 Pa Hum=46%[0m
+[0;32mI (101294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (101294) BME280: Temp: 22.59 C  Pressure: 101039 Pa  Humidity: 46 %[0m
+[0;32mI (101294) UDP: Sent 22 bytes[0m
+[0;32mI (101294) METRIC: E2E Latency: 4353 us[0m
+[0;32mI (101294) METRIC: Loop Exec Time: 6961 us | CPU Util: 0.696%[0m
+[0;32mI (101304) MEM: Heap free: 226156 B, Used heap: 71268 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (101314) BME280: TS=100829912000 ns Temp=22.59 C Press=101039 Pa Hum=46%[0m
+[0;32mI (102294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (102294) BME280: Temp: 22.59 C  Pressure: 101034 Pa  Humidity: 46 %[0m
+[0;32mI (102294) UDP: Sent 22 bytes[0m
+[0;32mI (102294) METRIC: E2E Latency: 4333 us[0m
+[0;32mI (102294) METRIC: Loop Exec Time: 7000 us | CPU Util: 0.700%[0m
+[0;32mI (102304) MEM: Heap free: 226156 B, Used heap: 71268 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (102314) BME280: TS=101829960000 ns Temp=22.59 C Press=101034 Pa Hum=46%[0m
+[0;32mI (103294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (103294) BME280: Temp: 22.60 C  Pressure: 101046 Pa  Humidity: 46 %[0m
+[0;32mI (103294) UDP: Sent 22 bytes[0m
+[0;32mI (103294) METRIC: E2E Latency: 4407 us[0m
+[0;32mI (103294) METRIC: Loop Exec Time: 7020 us | CPU Util: 0.702%[0m
+[0;32mI (103304) MEM: Heap free: 226156 B, Used heap: 71268 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (103314) BME280: TS=102829972000 ns Temp=22.60 C Press=101046 Pa Hum=46%[0m
+[0;32mI (104294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (104294) BME280: Temp: 22.59 C  Pressure: 101042 Pa  Humidity: 46 %[0m
+[0;32mI (104294) UDP: Sent 22 bytes[0m
+[0;32mI (104294) METRIC: E2E Latency: 4350 us[0m
+[0;32mI (104294) METRIC: Loop Exec Time: 7008 us | CPU Util: 0.701%[0m
+[0;32mI (104304) MEM: Heap free: 225952 B, Used heap: 71472 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (104314) BME280: TS=103829972000 ns Temp=22.59 C Press=101042 Pa Hum=46%[0m
+[0;32mI (105294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (105294) BME280: Temp: 22.59 C  Pressure: 101041 Pa  Humidity: 46 %[0m
+[0;32mI (105294) UDP: Sent 22 bytes[0m
+[0;32mI (105294) METRIC: E2E Latency: 4402 us[0m
+[0;32mI (105294) METRIC: Loop Exec Time: 6977 us | CPU Util: 0.698%[0m
+[0;32mI (105304) MEM: Heap free: 226156 B, Used heap: 71268 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (105314) BME280: TS=104829932000 ns Temp=22.59 C Press=101041 Pa Hum=46%[0m
+[0;32mI (106294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (106294) BME280: Temp: 22.59 C  Pressure: 101042 Pa  Humidity: 46 %[0m
+[0;32mI (106294) UDP: Sent 22 bytes[0m
+[0;32mI (106294) METRIC: E2E Latency: 4331 us[0m
+[0;32mI (106294) METRIC: Loop Exec Time: 7016 us | CPU Util: 0.702%[0m
+[0;32mI (106304) MEM: Heap free: 226156 B, Used heap: 71268 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (106314) BME280: TS=105829972000 ns Temp=22.59 C Press=101042 Pa Hum=46%[0m
+[0;32mI (107294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (107294) BME280: Temp: 22.60 C  Pressure: 101040 Pa  Humidity: 46 %[0m
+[0;32mI (107294) UDP: Sent 22 bytes[0m
+[0;32mI (107294) METRIC: E2E Latency: 4297 us[0m
+[0;32mI (107294) METRIC: Loop Exec Time: 7012 us | CPU Util: 0.701%[0m
+[0;32mI (107304) MEM: Heap free: 225952 B, Used heap: 71472 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (107314) BME280: TS=106829968000 ns Temp=22.60 C Press=101040 Pa Hum=46%[0m
+[0;32mI (108294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (108294) BME280: Temp: 22.59 C  Pressure: 101037 Pa  Humidity: 46 %[0m
+[0;32mI (108294) UDP: Sent 22 bytes[0m
+[0;32mI (108294) METRIC: E2E Latency: 4772 us[0m
+[0;32mI (108294) METRIC: Loop Exec Time: 6992 us | CPU Util: 0.699%[0m
+[0;32mI (108304) MEM: Heap free: 226156 B, Used heap: 71268 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (108314) BME280: TS=107829948000 ns Temp=22.59 C Press=101037 Pa Hum=46%[0m
+[0;32mI (109294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (109294) BME280: Temp: 22.59 C  Pressure: 101039 Pa  Humidity: 46 %[0m
+[0;32mI (109294) UDP: Sent 22 bytes[0m
+[0;32mI (109294) METRIC: E2E Latency: 4199 us[0m
+[0;32mI (109294) METRIC: Loop Exec Time: 7009 us | CPU Util: 0.701%[0m
+[0;32mI (109304) MEM: Heap free: 226156 B, Used heap: 71268 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (109314) BME280: TS=108829964000 ns Temp=22.59 C Press=101039 Pa Hum=46%[0m
+[0;32mI (110294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (110294) BME280: Temp: 22.59 C  Pressure: 101041 Pa  Humidity: 46 %[0m
+[0;32mI (110294) UDP: Sent 22 bytes[0m
+[0;32mI (110294) METRIC: E2E Latency: 4321 us[0m
+[0;32mI (110294) METRIC: Loop Exec Time: 6980 us | CPU Util: 0.698%[0m
+[0;32mI (110304) MEM: Heap free: 226156 B, Used heap: 71268 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (110314) BME280: TS=109829936000 ns Temp=22.59 C Press=101041 Pa Hum=46%[0m
+[0;32mI (111294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (111294) BME280: Temp: 22.60 C  Pressure: 101037 Pa  Humidity: 46 %[0m
+[0;32mI (111294) UDP: Sent 22 bytes[0m
+[0;32mI (111294) METRIC: E2E Latency: 4417 us[0m
+[0;32mI (111294) METRIC: Loop Exec Time: 7016 us | CPU Util: 0.702%[0m
+[0;32mI (111304) MEM: Heap free: 226156 B, Used heap: 71268 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (111314) BME280: TS=110829976000 ns Temp=22.60 C Press=101037 Pa Hum=46%[0m
+[0;32mI (112294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (112294) BME280: Temp: 22.59 C  Pressure: 101039 Pa  Humidity: 46 %[0m
+[0;32mI (112294) UDP: Sent 22 bytes[0m
+[0;32mI (112294) METRIC: E2E Latency: 5076 us[0m
+[0;32mI (112294) METRIC: Loop Exec Time: 7000 us | CPU Util: 0.700%[0m
+[0;32mI (112304) MEM: Heap free: 226156 B, Used heap: 71268 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (112314) BME280: TS=111829960000 ns Temp=22.59 C Press=101039 Pa Hum=46%[0m
+[0;32mI (113294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (113294) BME280: Temp: 22.59 C  Pressure: 101037 Pa  Humidity: 46 %[0m
+[0;32mI (113294) UDP: Sent 22 bytes[0m
+[0;32mI (113294) METRIC: E2E Latency: 4359 us[0m
+[0;32mI (113294) METRIC: Loop Exec Time: 7008 us | CPU Util: 0.701%[0m
+[0;32mI (113304) MEM: Heap free: 226156 B, Used heap: 71268 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (113314) BME280: TS=112829964000 ns Temp=22.59 C Press=101037 Pa Hum=46%[0m
+[0;32mI (114294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (114294) BME280: Temp: 22.59 C  Pressure: 101033 Pa  Humidity: 46 %[0m
+[0;32mI (114294) UDP: Sent 22 bytes[0m
+[0;32mI (114294) METRIC: E2E Latency: 4316 us[0m
+[0;32mI (114294) METRIC: Loop Exec Time: 6999 us | CPU Util: 0.700%[0m
+[0;32mI (114304) MEM: Heap free: 226156 B, Used heap: 71268 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (114314) BME280: TS=113829912000 ns Temp=22.59 C Press=101033 Pa Hum=46%[0m
+[0;32mI (115294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (115294) BME280: Temp: 22.59 C  Pressure: 101039 Pa  Humidity: 46 %[0m
+[0;32mI (115294) UDP: Sent 22 bytes[0m
+[0;32mI (115294) METRIC: E2E Latency: 4798 us[0m
+[0;32mI (115294) METRIC: Loop Exec Time: 7012 us | CPU Util: 0.701%[0m
+[0;32mI (115304) MEM: Heap free: 226156 B, Used heap: 71268 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (115314) BME280: TS=114829972000 ns Temp=22.59 C Press=101039 Pa Hum=46%[0m
+[0;32mI (116294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (116294) BME280: Temp: 22.60 C  Pressure: 101040 Pa  Humidity: 46 %[0m
+[0;32mI (116294) UDP: Sent 22 bytes[0m
+[0;32mI (116294) METRIC: E2E Latency: 4605 us[0m
+[0;32mI (116294) METRIC: Loop Exec Time: 7008 us | CPU Util: 0.701%[0m
+[0;32mI (116304) MEM: Heap free: 226156 B, Used heap: 71268 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (116314) BME280: TS=115829972000 ns Temp=22.60 C Press=101040 Pa Hum=46%[0m
+[0;32mI (117294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (117294) BME280: Temp: 22.60 C  Pressure: 101040 Pa  Humidity: 46 %[0m
+[0;32mI (117294) UDP: Sent 22 bytes[0m
+[0;32mI (117294) METRIC: E2E Latency: 4431 us[0m
+[0;32mI (117294) METRIC: Loop Exec Time: 7320 us | CPU Util: 0.732%[0m
+[0;32mI (117304) MEM: Heap free: 225952 B, Used heap: 71472 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (117314) BME280: TS=116829972000 ns Temp=22.60 C Press=101040 Pa Hum=46%[0m
+[0;32mI (118294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (118294) BME280: Temp: 22.59 C  Pressure: 101045 Pa  Humidity: 46 %[0m
+[0;32mI (118294) UDP: Sent 22 bytes[0m
+[0;32mI (118294) METRIC: E2E Latency: 4387 us[0m
+[0;32mI (118294) METRIC: Loop Exec Time: 6961 us | CPU Util: 0.696%[0m
+[0;32mI (118304) MEM: Heap free: 226156 B, Used heap: 71268 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (118314) BME280: TS=117829913000 ns Temp=22.59 C Press=101045 Pa Hum=46%[0m
+[0;32mI (119294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (119294) BME280: Temp: 22.59 C  Pressure: 101039 Pa  Humidity: 46 %[0m
+[0;32mI (119294) UDP: Sent 22 bytes[0m
+[0;32mI (119294) METRIC: E2E Latency: 4381 us[0m
+[0;32mI (119294) METRIC: Loop Exec Time: 7004 us | CPU Util: 0.700%[0m
+[0;32mI (119304) MEM: Heap free: 226156 B, Used heap: 71268 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (119314) BME280: TS=118829960000 ns Temp=22.59 C Press=101039 Pa Hum=46%[0m
+[0;32mI (120294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (120294) BME280: Temp: 22.60 C  Pressure: 101040 Pa  Humidity: 46 %[0m
+[0;32mI (120294) UDP: Sent 22 bytes[0m
+[0;32mI (120294) METRIC: E2E Latency: 4293 us[0m
+[0;32mI (120294) METRIC: Loop Exec Time: 7073 us | CPU Util: 0.707%[0m
+[0;32mI (120304) MEM: Heap free: 226156 B, Used heap: 71268 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (120314) BME280: TS=119829960000 ns Temp=22.60 C Press=101040 Pa Hum=46%[0m
+[0;32mI (121294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (121294) BME280: Temp: 22.60 C  Pressure: 101035 Pa  Humidity: 46 %[0m
+[0;32mI (121294) UDP: Sent 22 bytes[0m
+[0;32mI (121294) METRIC: E2E Latency: 3876 us[0m
+[0;32mI (121294) METRIC: Loop Exec Time: 8239 us | CPU Util: 0.824%[0m
+[0;32mI (121304) MEM: Heap free: 225952 B, Used heap: 71472 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (121314) BME280: TS=120830219000 ns Temp=22.60 C Press=101035 Pa Hum=46%[0m
+[0;32mI (122294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (122294) BME280: Temp: 22.59 C  Pressure: 101044 Pa  Humidity: 46 %[0m
+[0;32mI (122294) UDP: Sent 22 bytes[0m
+[0;32mI (122294) METRIC: E2E Latency: 4402 us[0m
+[0;32mI (122294) METRIC: Loop Exec Time: 7001 us | CPU Util: 0.700%[0m
+[0;32mI (122304) MEM: Heap free: 225952 B, Used heap: 71472 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (122314) BME280: TS=121829956000 ns Temp=22.59 C Press=101044 Pa Hum=46%[0m
+[0;32mI (123294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (123294) BME280: Temp: 22.59 C  Pressure: 101039 Pa  Humidity: 46 %[0m
+[0;32mI (123294) UDP: Sent 22 bytes[0m
+[0;32mI (123294) METRIC: E2E Latency: 4343 us[0m
+[0;32mI (123294) METRIC: Loop Exec Time: 6996 us | CPU Util: 0.700%[0m
+[0;32mI (123304) MEM: Heap free: 226156 B, Used heap: 71268 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (123314) BME280: TS=122829952000 ns Temp=22.59 C Press=101039 Pa Hum=46%[0m
+[0;32mI (124294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (124294) BME280: Temp: 22.60 C  Pressure: 101040 Pa  Humidity: 46 %[0m
+[0;32mI (124294) UDP: Sent 22 bytes[0m
+[0;32mI (124294) METRIC: E2E Latency: 4317 us[0m
+[0;32mI (124294) METRIC: Loop Exec Time: 6992 us | CPU Util: 0.699%[0m
+[0;32mI (124304) MEM: Heap free: 226156 B, Used heap: 71268 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (124314) BME280: TS=123829948000 ns Temp=22.60 C Press=101040 Pa Hum=46%[0m
+[0;32mI (125294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (125294) BME280: Temp: 22.59 C  Pressure: 101039 Pa  Humidity: 47 %[0m
+[0;32mI (125294) UDP: Sent 22 bytes[0m
+[0;32mI (125294) METRIC: E2E Latency: 4077 us[0m
+[0;32mI (125294) METRIC: Loop Exec Time: 7195 us | CPU Util: 0.720%[0m
+[0;32mI (125304) MEM: Heap free: 226176 B, Used heap: 71248 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (125314) BME280: TS=124829964000 ns Temp=22.59 C Press=101039 Pa Hum=47%[0m
+[0;32mI (126294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (126294) BME280: Temp: 22.59 C  Pressure: 101039 Pa  Humidity: 47 %[0m
+[0;32mI (126294) UDP: Sent 22 bytes[0m
+[0;32mI (126294) METRIC: E2E Latency: 4433 us[0m
+[0;32mI (126294) METRIC: Loop Exec Time: 7000 us | CPU Util: 0.700%[0m
+[0;32mI (126304) MEM: Heap free: 226176 B, Used heap: 71248 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (126314) BME280: TS=125829956000 ns Temp=22.59 C Press=101039 Pa Hum=47%[0m
+[0;32mI (127294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (127294) BME280: Temp: 22.60 C  Pressure: 101037 Pa  Humidity: 47 %[0m
+[0;32mI (127294) UDP: Sent 22 bytes[0m
+[0;32mI (127294) METRIC: E2E Latency: 3924 us[0m
+[0;32mI (127294) METRIC: Loop Exec Time: 6997 us | CPU Util: 0.700%[0m
+[0;32mI (127304) MEM: Heap free: 226176 B, Used heap: 71248 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (127314) BME280: TS=126829952000 ns Temp=22.60 C Press=101037 Pa Hum=47%[0m
+[0;32mI (128294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (128294) BME280: Temp: 22.60 C  Pressure: 101043 Pa  Humidity: 46 %[0m
+[0;32mI (128294) UDP: Sent 22 bytes[0m
+[0;32mI (128294) METRIC: E2E Latency: 4320 us[0m
+[0;32mI (128294) METRIC: Loop Exec Time: 7000 us | CPU Util: 0.700%[0m
+[0;32mI (128304) MEM: Heap free: 226176 B, Used heap: 71248 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (128314) BME280: TS=127829956000 ns Temp=22.60 C Press=101043 Pa Hum=46%[0m
+[0;32mI (129294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (129294) BME280: Temp: 22.59 C  Pressure: 101041 Pa  Humidity: 46 %[0m
+[0;32mI (129294) UDP: Sent 22 bytes[0m
+[0;32mI (129294) METRIC: E2E Latency: 4395 us[0m
+[0;32mI (129294) METRIC: Loop Exec Time: 7004 us | CPU Util: 0.700%[0m
+[0;32mI (129304) MEM: Heap free: 226176 B, Used heap: 71248 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (129314) BME280: TS=128829960000 ns Temp=22.59 C Press=101041 Pa Hum=46%[0m
+[0;32mI (130294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (130294) BME280: Temp: 22.59 C  Pressure: 101037 Pa  Humidity: 46 %[0m
+[0;32mI (130294) UDP: Sent 22 bytes[0m
+[0;32mI (130294) METRIC: E2E Latency: 4390 us[0m
+[0;32mI (130294) METRIC: Loop Exec Time: 6992 us | CPU Util: 0.699%[0m
+[0;32mI (130304) MEM: Heap free: 226176 B, Used heap: 71248 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (130314) BME280: TS=129829952000 ns Temp=22.59 C Press=101037 Pa Hum=46%[0m
+[0;32mI (131294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (131294) BME280: Temp: 22.59 C  Pressure: 101044 Pa  Humidity: 46 %[0m
+[0;32mI (131294) UDP: Sent 22 bytes[0m
+[0;32mI (131294) METRIC: E2E Latency: 4196 us[0m
+[0;32mI (131294) METRIC: Loop Exec Time: 6957 us | CPU Util: 0.696%[0m
+[0;32mI (131304) MEM: Heap free: 226176 B, Used heap: 71248 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (131314) BME280: TS=130829912000 ns Temp=22.59 C Press=101044 Pa Hum=46%[0m
+[0;32mI (132294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (132294) BME280: Temp: 22.60 C  Pressure: 101043 Pa  Humidity: 46 %[0m
+[0;32mI (132294) UDP: Sent 22 bytes[0m
+[0;32mI (132294) METRIC: E2E Latency: 4315 us[0m
+[0;32mI (132294) METRIC: Loop Exec Time: 6997 us | CPU Util: 0.700%[0m
+[0;32mI (132304) MEM: Heap free: 226176 B, Used heap: 71248 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (132314) BME280: TS=131829952000 ns Temp=22.60 C Press=101043 Pa Hum=46%[0m
+[0;32mI (133294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (133294) BME280: Temp: 22.59 C  Pressure: 101039 Pa  Humidity: 46 %[0m
+[0;32mI (133294) UDP: Sent 22 bytes[0m
+[0;32mI (133294) METRIC: E2E Latency: 4346 us[0m
+[0;32mI (133294) METRIC: Loop Exec Time: 7005 us | CPU Util: 0.701%[0m
+[0;32mI (133304) MEM: Heap free: 226176 B, Used heap: 71248 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (133314) BME280: TS=132829964000 ns Temp=22.59 C Press=101039 Pa Hum=46%[0m
+[0;32mI (134294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (134294) BME280: Temp: 22.59 C  Pressure: 101033 Pa  Humidity: 46 %[0m
+[0;32mI (134294) UDP: Sent 22 bytes[0m
+[0;32mI (134294) METRIC: E2E Latency: 4413 us[0m
+[0;32mI (134294) METRIC: Loop Exec Time: 7008 us | CPU Util: 0.701%[0m
+[0;32mI (134304) MEM: Heap free: 225972 B, Used heap: 71452 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (134314) BME280: TS=133829964000 ns Temp=22.59 C Press=101033 Pa Hum=46%[0m
+[0;32mI (135294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (135294) BME280: Temp: 22.59 C  Pressure: 101039 Pa  Humidity: 46 %[0m
+[0;32mI (135294) UDP: Sent 22 bytes[0m
+[0;32mI (135294) METRIC: E2E Latency: 4417 us[0m
+[0;32mI (135294) METRIC: Loop Exec Time: 6973 us | CPU Util: 0.697%[0m
+[0;32mI (135304) MEM: Heap free: 226176 B, Used heap: 71248 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (135314) BME280: TS=134829928000 ns Temp=22.59 C Press=101039 Pa Hum=46%[0m
+[0;32mI (136294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (136294) BME280: Temp: 22.59 C  Pressure: 101044 Pa  Humidity: 46 %[0m
+[0;32mI (136294) UDP: Sent 22 bytes[0m
+[0;32mI (136294) METRIC: E2E Latency: 4325 us[0m
+[0;32mI (136294) METRIC: Loop Exec Time: 7012 us | CPU Util: 0.701%[0m
+[0;32mI (136304) MEM: Heap free: 225972 B, Used heap: 71452 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (136314) BME280: TS=135829968000 ns Temp=22.59 C Press=101044 Pa Hum=46%[0m
+[0;32mI (137294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (137294) BME280: Temp: 22.59 C  Pressure: 101037 Pa  Humidity: 46 %[0m
+[0;32mI (137294) UDP: Sent 22 bytes[0m
+[0;32mI (137294) METRIC: E2E Latency: 4323 us[0m
+[0;32mI (137294) METRIC: Loop Exec Time: 7000 us | CPU Util: 0.700%[0m
+[0;32mI (137304) MEM: Heap free: 226176 B, Used heap: 71248 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (137314) BME280: TS=136829960000 ns Temp=22.59 C Press=101037 Pa Hum=46%[0m
+[0;32mI (138294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (138294) BME280: Temp: 22.60 C  Pressure: 101040 Pa  Humidity: 46 %[0m
+[0;32mI (138294) UDP: Sent 22 bytes[0m
+[0;32mI (138294) METRIC: E2E Latency: 3877 us[0m
+[0;32mI (138294) METRIC: Loop Exec Time: 7142 us | CPU Util: 0.714%[0m
+[0;32mI (138304) MEM: Heap free: 226176 B, Used heap: 71248 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (138314) BME280: TS=137829972000 ns Temp=22.60 C Press=101040 Pa Hum=46%[0m
+[0;32mI (139294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (139294) BME280: Temp: 22.59 C  Pressure: 101042 Pa  Humidity: 46 %[0m
+[0;32mI (139294) UDP: Sent 22 bytes[0m
+[0;32mI (139294) METRIC: E2E Latency: 4364 us[0m
+[0;32mI (139294) METRIC: Loop Exec Time: 6969 us | CPU Util: 0.697%[0m
+[0;32mI (139304) MEM: Heap free: 226176 B, Used heap: 71248 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (139314) BME280: TS=138829928000 ns Temp=22.59 C Press=101042 Pa Hum=46%[0m
+[0;32mI (140294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (140294) BME280: Temp: 22.59 C  Pressure: 101036 Pa  Humidity: 46 %[0m
+[0;32mI (140294) UDP: Sent 22 bytes[0m
+[0;32mI (140294) METRIC: E2E Latency: 4380 us[0m
+[0;32mI (140294) METRIC: Loop Exec Time: 6985 us | CPU Util: 0.698%[0m
+[0;32mI (140304) MEM: Heap free: 226176 B, Used heap: 71248 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (140314) BME280: TS=139829940000 ns Temp=22.59 C Press=101036 Pa Hum=46%[0m
+[0;32mI (141294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (141294) BME280: Temp: 22.60 C  Pressure: 101040 Pa  Humidity: 46 %[0m
+[0;32mI (141294) UDP: Sent 22 bytes[0m
+[0;32mI (141294) METRIC: E2E Latency: 4440 us[0m
+[0;32mI (141294) METRIC: Loop Exec Time: 6993 us | CPU Util: 0.699%[0m
+[0;32mI (141304) MEM: Heap free: 226176 B, Used heap: 71248 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (141314) BME280: TS=140829956000 ns Temp=22.60 C Press=101040 Pa Hum=46%[0m
+[0;32mI (142294) METRIC: Actual Period: 1000144 us | Jitter: 144 us[0m
+[0;32mI (142294) BME280: Temp: 22.60 C  Pressure: 101040 Pa  Humidity: 46 %[0m
+[0;32mI (142294) UDP: Sent 22 bytes[0m
+[0;32mI (142294) METRIC: E2E Latency: 3936 us[0m
+[0;32mI (142294) METRIC: Loop Exec Time: 7189 us | CPU Util: 0.719%[0m
+[0;32mI (142304) MEM: Heap free: 225972 B, Used heap: 71452 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (142314) BME280: TS=141830121000 ns Temp=22.60 C Press=101040 Pa Hum=46%[0m
+[0;32mI (143294) METRIC: Actual Period: 999856 us | Jitter: -144 us[0m
+[0;32mI (143294) BME280: Temp: 22.59 C  Pressure: 101034 Pa  Humidity: 46 %[0m
+[0;32mI (143294) UDP: Sent 22 bytes[0m
+[0;32mI (143294) METRIC: E2E Latency: 3932 us[0m
+[0;32mI (143294) METRIC: Loop Exec Time: 7449 us | CPU Util: 0.745%[0m
+[0;32mI (143304) MEM: Heap free: 226176 B, Used heap: 71248 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (143314) BME280: TS=142829965000 ns Temp=22.59 C Press=101034 Pa Hum=46%[0m
+[0;32mI (144294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (144294) BME280: Temp: 22.59 C  Pressure: 101037 Pa  Humidity: 46 %[0m
+[0;32mI (144294) UDP: Sent 22 bytes[0m
+[0;32mI (144294) METRIC: E2E Latency: 4351 us[0m
+[0;32mI (144294) METRIC: Loop Exec Time: 6953 us | CPU Util: 0.695%[0m
+[0;32mI (144304) MEM: Heap free: 226176 B, Used heap: 71248 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (144314) BME280: TS=143829909000 ns Temp=22.59 C Press=101037 Pa Hum=46%[0m
+[0;32mI (145294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (145294) BME280: Temp: 22.60 C  Pressure: 101037 Pa  Humidity: 46 %[0m
+[0;32mI (145294) UDP: Sent 22 bytes[0m
+[0;32mI (145294) METRIC: E2E Latency: 4355 us[0m
+[0;32mI (145294) METRIC: Loop Exec Time: 7012 us | CPU Util: 0.701%[0m
+[0;32mI (145304) MEM: Heap free: 226176 B, Used heap: 71248 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (145314) BME280: TS=144829968000 ns Temp=22.60 C Press=101037 Pa Hum=46%[0m
+[0;32mI (146294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (146294) BME280: Temp: 22.60 C  Pressure: 101037 Pa  Humidity: 46 %[0m
+[0;32mI (146294) UDP: Sent 22 bytes[0m
+[0;32mI (146294) METRIC: E2E Latency: 4352 us[0m
+[0;32mI (146294) METRIC: Loop Exec Time: 7020 us | CPU Util: 0.702%[0m
+[0;32mI (146304) MEM: Heap free: 226176 B, Used heap: 71248 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (146314) BME280: TS=145829972000 ns Temp=22.60 C Press=101037 Pa Hum=46%[0m
+[0;32mI (147294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (147294) BME280: Temp: 22.60 C  Pressure: 101040 Pa  Humidity: 46 %[0m
+[0;32mI (147294) UDP: Sent 22 bytes[0m
+[0;32mI (147294) METRIC: E2E Latency: 3940 us[0m
+[0;32mI (147294) METRIC: Loop Exec Time: 7213 us | CPU Util: 0.721%[0m
+[0;32mI (147304) MEM: Heap free: 226176 B, Used heap: 71248 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (147314) BME280: TS=146829968000 ns Temp=22.60 C Press=101040 Pa Hum=46%[0m
+[0;32mI (148294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (148294) BME280: Temp: 22.60 C  Pressure: 101040 Pa  Humidity: 46 %[0m
+[0;32mI (148294) UDP: Sent 22 bytes[0m
+[0;32mI (148294) METRIC: E2E Latency: 4421 us[0m
+[0;32mI (148294) METRIC: Loop Exec Time: 7311 us | CPU Util: 0.731%[0m
+[0;32mI (148304) MEM: Heap free: 226176 B, Used heap: 71248 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (148314) BME280: TS=147829912000 ns Temp=22.60 C Press=101040 Pa Hum=46%[0m
+[0;32mI (149294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (149294) BME280: Temp: 22.60 C  Pressure: 101040 Pa  Humidity: 46 %[0m
+[0;32mI (149294) UDP: Sent 22 bytes[0m
+[0;32mI (149294) METRIC: E2E Latency: 4399 us[0m
+[0;32mI (149294) METRIC: Loop Exec Time: 7012 us | CPU Util: 0.701%[0m
+[0;32mI (149304) MEM: Heap free: 226176 B, Used heap: 71248 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (149314) BME280: TS=148829968000 ns Temp=22.60 C Press=101040 Pa Hum=46%[0m
+[0;32mI (150294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (150294) BME280: Temp: 22.60 C  Pressure: 101038 Pa  Humidity: 46 %[0m
+[0;32mI (150294) UDP: Sent 22 bytes[0m
+[0;32mI (150294) METRIC: E2E Latency: 4476 us[0m
+[0;32mI (150294) METRIC: Loop Exec Time: 7012 us | CPU Util: 0.701%[0m
+[0;32mI (150304) MEM: Heap free: 226176 B, Used heap: 71248 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (150314) BME280: TS=149829972000 ns Temp=22.60 C Press=101038 Pa Hum=46%[0m
+[0;32mI (151294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (151294) BME280: Temp: 22.59 C  Pressure: 101036 Pa  Humidity: 46 %[0m
+[0;32mI (151294) UDP: Sent 22 bytes[0m
+[0;32mI (151294) METRIC: E2E Latency: 5201 us[0m
+[0;32mI (151294) METRIC: Loop Exec Time: 7008 us | CPU Util: 0.701%[0m
+[0;32mI (151304) MEM: Heap free: 225972 B, Used heap: 71452 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (151314) BME280: TS=150829964000 ns Temp=22.59 C Press=101036 Pa Hum=46%[0m
+[0;32mI (152294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (152294) BME280: Temp: 22.60 C  Pressure: 101040 Pa  Humidity: 46 %[0m
+[0;32mI (152294) UDP: Sent 22 bytes[0m
+[0;32mI (152294) METRIC: E2E Latency: 4417 us[0m
+[0;32mI (152294) METRIC: Loop Exec Time: 6973 us | CPU Util: 0.697%[0m
+[0;32mI (152304) MEM: Heap free: 226176 B, Used heap: 71248 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (152314) BME280: TS=151829928000 ns Temp=22.60 C Press=101040 Pa Hum=46%[0m
+[0;32mI (153294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (153294) BME280: Temp: 22.59 C  Pressure: 101039 Pa  Humidity: 46 %[0m
+[0;32mI (153294) UDP: Sent 22 bytes[0m
+[0;32mI (153294) METRIC: E2E Latency: 4536 us[0m
+[0;32mI (153294) METRIC: Loop Exec Time: 7012 us | CPU Util: 0.701%[0m
+[0;32mI (153304) MEM: Heap free: 225972 B, Used heap: 71452 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (153314) BME280: TS=152829972000 ns Temp=22.59 C Press=101039 Pa Hum=46%[0m
+[0;32mI (154294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (154294) BME280: Temp: 22.61 C  Pressure: 101036 Pa  Humidity: 46 %[0m
+[0;32mI (154294) UDP: Sent 22 bytes[0m
+[0;32mI (154294) METRIC: E2E Latency: 4713 us[0m
+[0;32mI (154294) METRIC: Loop Exec Time: 7004 us | CPU Util: 0.700%[0m
+[0;32mI (154304) MEM: Heap free: 226176 B, Used heap: 71248 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (154314) BME280: TS=153829968000 ns Temp=22.61 C Press=101036 Pa Hum=46%[0m
+[0;32mI (155294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (155294) BME280: Temp: 22.60 C  Pressure: 101036 Pa  Humidity: 46 %[0m
+[0;32mI (155294) UDP: Sent 22 bytes[0m
+[0;32mI (155294) METRIC: E2E Latency: 3916 us[0m
+[0;32mI (155294) METRIC: Loop Exec Time: 7028 us | CPU Util: 0.703%[0m
+[0;32mI (155304) MEM: Heap free: 225972 B, Used heap: 71248 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (155314) BME280: TS=154829976000 ns Temp=22.60 C Press=101036 Pa Hum=46%[0m
+[0;32mI (156294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (156294) BME280: Temp: 22.60 C  Pressure: 101029 Pa  Humidity: 46 %[0m
+[0;32mI (156294) UDP: Sent 22 bytes[0m
+[0;32mI (156294) METRIC: E2E Latency: 4382 us[0m
+[0;32mI (156294) METRIC: Loop Exec Time: 6969 us | CPU Util: 0.697%[0m
+[0;32mI (156304) MEM: Heap free: 226176 B, Used heap: 71248 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (156314) BME280: TS=155829924000 ns Temp=22.60 C Press=101029 Pa Hum=46%[0m
+[0;32mI (157294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (157294) BME280: Temp: 22.59 C  Pressure: 101039 Pa  Humidity: 46 %[0m
+[0;32mI (157294) UDP: Sent 22 bytes[0m
+[0;32mI (157294) METRIC: E2E Latency: 4382 us[0m
+[0;32mI (157294) METRIC: Loop Exec Time: 6981 us | CPU Util: 0.698%[0m
+[0;32mI (157304) MEM: Heap free: 226176 B, Used heap: 71248 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (157314) BME280: TS=156829936000 ns Temp=22.59 C Press=101039 Pa Hum=46%[0m
+[0;32mI (158294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (158294) BME280: Temp: 22.60 C  Pressure: 101040 Pa  Humidity: 46 %[0m
+[0;32mI (158294) UDP: Sent 22 bytes[0m
+[0;32mI (158294) METRIC: E2E Latency: 4345 us[0m
+[0;32mI (158294) METRIC: Loop Exec Time: 6996 us | CPU Util: 0.700%[0m
+[0;32mI (158304) MEM: Heap free: 226176 B, Used heap: 71248 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (158314) BME280: TS=157829952000 ns Temp=22.60 C Press=101040 Pa Hum=46%[0m
+[0;32mI (159294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (159294) BME280: Temp: 22.60 C  Pressure: 101035 Pa  Humidity: 46 %[0m
+[0;32mI (159294) UDP: Sent 22 bytes[0m
+[0;32mI (159294) METRIC: E2E Latency: 4371 us[0m
+[0;32mI (159294) METRIC: Loop Exec Time: 7008 us | CPU Util: 0.701%[0m
+[0;32mI (159304) MEM: Heap free: 226176 B, Used heap: 71248 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (159314) BME280: TS=158829964000 ns Temp=22.60 C Press=101035 Pa Hum=46%[0m
+[0;32mI (160294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (160294) BME280: Temp: 22.60 C  Pressure: 101040 Pa  Humidity: 46 %[0m
+[0;32mI (160294) UDP: Sent 22 bytes[0m
+[0;32mI (160294) METRIC: E2E Latency: 4463 us[0m
+[0;32mI (160294) METRIC: Loop Exec Time: 6996 us | CPU Util: 0.700%[0m
+[0;32mI (160304) MEM: Heap free: 225972 B, Used heap: 71452 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (160314) BME280: TS=159829952000 ns Temp=22.60 C Press=101040 Pa Hum=46%[0m
+[0;32mI (161294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (161294) BME280: Temp: 22.59 C  Pressure: 101033 Pa  Humidity: 46 %[0m
+[0;32mI (161294) UDP: Sent 22 bytes[0m
+[0;32mI (161294) METRIC: E2E Latency: 4321 us[0m
+[0;32mI (161294) METRIC: Loop Exec Time: 6945 us | CPU Util: 0.695%[0m
+[0;32mI (161304) MEM: Heap free: 226176 B, Used heap: 71248 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (161314) BME280: TS=160829901000 ns Temp=22.59 C Press=101033 Pa Hum=46%[0m
+[0;32mI (162294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (162294) BME280: Temp: 22.59 C  Pressure: 101039 Pa  Humidity: 46 %[0m
+[0;32mI (162294) UDP: Sent 22 bytes[0m
+[0;32mI (162294) METRIC: E2E Latency: 4597 us[0m
+[0;32mI (162294) METRIC: Loop Exec Time: 6981 us | CPU Util: 0.698%[0m
+[0;32mI (162304) MEM: Heap free: 226176 B, Used heap: 71248 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (162314) BME280: TS=161829940000 ns Temp=22.59 C Press=101039 Pa Hum=46%[0m
+[0;32mI (163294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (163294) BME280: Temp: 22.59 C  Pressure: 101039 Pa  Humidity: 46 %[0m
+[0;32mI (163294) UDP: Sent 22 bytes[0m
+[0;32mI (163294) METRIC: E2E Latency: 4328 us[0m
+[0;32mI (163294) METRIC: Loop Exec Time: 7028 us | CPU Util: 0.703%[0m
+[0;32mI (163304) MEM: Heap free: 226176 B, Used heap: 71248 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (163314) BME280: TS=162829976000 ns Temp=22.59 C Press=101039 Pa Hum=46%[0m
+[0;32mI (164294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (164294) BME280: Temp: 22.60 C  Pressure: 101040 Pa  Humidity: 46 %[0m
+[0;32mI (164294) UDP: Sent 22 bytes[0m
+[0;32mI (164294) METRIC: E2E Latency: 4351 us[0m
+[0;32mI (164294) METRIC: Loop Exec Time: 7013 us | CPU Util: 0.701%[0m
+[0;32mI (164304) MEM: Heap free: 226176 B, Used heap: 71248 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (164314) BME280: TS=163829956000 ns Temp=22.60 C Press=101040 Pa Hum=46%[0m
+[0;32mI (165294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (165294) BME280: Temp: 22.59 C  Pressure: 101033 Pa  Humidity: 46 %[0m
+[0;32mI (165294) UDP: Sent 22 bytes[0m
+[0;32mI (165294) METRIC: E2E Latency: 4346 us[0m
+[0;32mI (165294) METRIC: Loop Exec Time: 6957 us | CPU Util: 0.696%[0m
+[0;32mI (165304) MEM: Heap free: 226176 B, Used heap: 71248 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (165314) BME280: TS=164829905000 ns Temp=22.59 C Press=101033 Pa Hum=46%[0m
+[0;32mI (166294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (166294) BME280: Temp: 22.59 C  Pressure: 101039 Pa  Humidity: 46 %[0m
+[0;32mI (166294) UDP: Sent 22 bytes[0m
+[0;32mI (166294) METRIC: E2E Latency: 4528 us[0m
+[0;32mI (166294) METRIC: Loop Exec Time: 7004 us | CPU Util: 0.700%[0m
+[0;32mI (166304) MEM: Heap free: 226176 B, Used heap: 71248 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (166314) BME280: TS=165829952000 ns Temp=22.59 C Press=101039 Pa Hum=46%[0m
+[0;32mI (167294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (167294) BME280: Temp: 22.59 C  Pressure: 101036 Pa  Humidity: 46 %[0m
+[0;32mI (167294) UDP: Sent 22 bytes[0m
+[0;32mI (167294) METRIC: E2E Latency: 4475 us[0m
+[0;32mI (167294) METRIC: Loop Exec Time: 7008 us | CPU Util: 0.701%[0m
+[0;32mI (167304) MEM: Heap free: 226176 B, Used heap: 71248 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (167314) BME280: TS=166829968000 ns Temp=22.59 C Press=101036 Pa Hum=46%[0m
+[0;32mI (168294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (168294) BME280: Temp: 22.60 C  Pressure: 101035 Pa  Humidity: 46 %[0m
+[0;32mI (168294) UDP: Sent 22 bytes[0m
+[0;32mI (168294) METRIC: E2E Latency: 5033 us[0m
+[0;32mI (168294) METRIC: Loop Exec Time: 6993 us | CPU Util: 0.699%[0m
+[0;32mI (168304) MEM: Heap free: 225972 B, Used heap: 71452 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (168314) BME280: TS=167829952000 ns Temp=22.60 C Press=101035 Pa Hum=46%[0m
+[0;32mI (169294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (169294) BME280: Temp: 22.60 C  Pressure: 101032 Pa  Humidity: 46 %[0m
+[0;32mI (169294) UDP: Sent 22 bytes[0m
+[0;32mI (169294) METRIC: E2E Latency: 4356 us[0m
+[0;32mI (169294) METRIC: Loop Exec Time: 7093 us | CPU Util: 0.709%[0m
+[0;32mI (169304) MEM: Heap free: 225972 B, Used heap: 71452 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (169314) BME280: TS=168829936000 ns Temp=22.60 C Press=101032 Pa Hum=46%[0m
+[0;32mI (170294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (170294) BME280: Temp: 22.59 C  Pressure: 101039 Pa  Humidity: 46 %[0m
+[0;32mI (170294) UDP: Sent 22 bytes[0m
+[0;32mI (170294) METRIC: E2E Latency: 4423 us[0m
+[0;32mI (170294) METRIC: Loop Exec Time: 6997 us | CPU Util: 0.700%[0m
+[0;32mI (170304) MEM: Heap free: 225972 B, Used heap: 71452 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (170314) BME280: TS=169829952000 ns Temp=22.59 C Press=101039 Pa Hum=46%[0m
+[0;32mI (171294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (171294) BME280: Temp: 22.60 C  Pressure: 101037 Pa  Humidity: 46 %[0m
+[0;32mI (171294) UDP: Sent 22 bytes[0m
+[0;32mI (171294) METRIC: E2E Latency: 4331 us[0m
+[0;32mI (171294) METRIC: Loop Exec Time: 7004 us | CPU Util: 0.700%[0m
+[0;32mI (171304) MEM: Heap free: 226176 B, Used heap: 71248 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (171314) BME280: TS=170829960000 ns Temp=22.60 C Press=101037 Pa Hum=46%[0m
+[0;32mI (172294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (172294) BME280: Temp: 22.60 C  Pressure: 101040 Pa  Humidity: 46 %[0m
+[0;32mI (172294) UDP: Sent 22 bytes[0m
+[0;32mI (172294) METRIC: E2E Latency: 5066 us[0m
+[0;32mI (172294) METRIC: Loop Exec Time: 6993 us | CPU Util: 0.699%[0m
+[0;32mI (172304) MEM: Heap free: 225972 B, Used heap: 71452 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (172314) BME280: TS=171829956000 ns Temp=22.60 C Press=101040 Pa Hum=46%[0m
+[0;32mI (173294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (173294) BME280: Temp: 22.60 C  Pressure: 101035 Pa  Humidity: 46 %[0m
+[0;32mI (173294) UDP: Sent 22 bytes[0m
+[0;32mI (173294) METRIC: E2E Latency: 4328 us[0m
+[0;32mI (173294) METRIC: Loop Exec Time: 7001 us | CPU Util: 0.700%[0m
+[0;32mI (173304) MEM: Heap free: 226176 B, Used heap: 71248 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (173314) BME280: TS=172829952000 ns Temp=22.60 C Press=101035 Pa Hum=46%[0m
+[0;32mI (174294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (174294) BME280: Temp: 22.59 C  Pressure: 101039 Pa  Humidity: 46 %[0m
+[0;32mI (174294) UDP: Sent 22 bytes[0m
+[0;32mI (174294) METRIC: E2E Latency: 4420 us[0m
+[0;32mI (174294) METRIC: Loop Exec Time: 7049 us | CPU Util: 0.705%[0m
+[0;32mI (174304) MEM: Heap free: 226176 B, Used heap: 71248 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (174314) BME280: TS=173829928000 ns Temp=22.59 C Press=101039 Pa Hum=46%[0m
+[0;32mI (175294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (175294) BME280: Temp: 22.59 C  Pressure: 101037 Pa  Humidity: 46 %[0m
+[0;32mI (175294) UDP: Sent 22 bytes[0m
+[0;32mI (175294) METRIC: E2E Latency: 4408 us[0m
+[0;32mI (175294) METRIC: Loop Exec Time: 7012 us | CPU Util: 0.701%[0m
+[0;32mI (175304) MEM: Heap free: 226176 B, Used heap: 71248 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (175314) BME280: TS=174829968000 ns Temp=22.59 C Press=101037 Pa Hum=46%[0m
+[0;32mI (176294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (176294) BME280: Temp: 22.59 C  Pressure: 101039 Pa  Humidity: 46 %[0m
+[0;32mI (176294) UDP: Sent 22 bytes[0m
+[0;32mI (176294) METRIC: E2E Latency: 4675 us[0m
+[0;32mI (176294) METRIC: Loop Exec Time: 6997 us | CPU Util: 0.700%[0m
+[0;32mI (176304) MEM: Heap free: 226176 B, Used heap: 71248 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (176314) BME280: TS=175829952000 ns Temp=22.59 C Press=101039 Pa Hum=46%[0m
+[0;32mI (177294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (177294) BME280: Temp: 22.60 C  Pressure: 101035 Pa  Humidity: 46 %[0m
+[0;32mI (177294) UDP: Sent 22 bytes[0m
+[0;32mI (177294) METRIC: E2E Latency: 4360 us[0m
+[0;32mI (177294) METRIC: Loop Exec Time: 7012 us | CPU Util: 0.701%[0m
+[0;32mI (177304) MEM: Heap free: 226176 B, Used heap: 71248 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (177314) BME280: TS=176829964000 ns Temp=22.60 C Press=101035 Pa Hum=46%[0m
+[0;32mI (178294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (178294) BME280: Temp: 22.61 C  Pressure: 101036 Pa  Humidity: 46 %[0m
+[0;32mI (178294) UDP: Sent 22 bytes[0m
+[0;32mI (178294) METRIC: E2E Latency: 4321 us[0m
+[0;32mI (178294) METRIC: Loop Exec Time: 6949 us | CPU Util: 0.695%[0m
+[0;32mI (178304) MEM: Heap free: 225972 B, Used heap: 71452 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (178314) BME280: TS=177829909000 ns Temp=22.61 C Press=101036 Pa Hum=46%[0m
+[0;32mI (179294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (179294) BME280: Temp: 22.61 C  Pressure: 101039 Pa  Humidity: 46 %[0m
+[0;32mI (179294) UDP: Sent 22 bytes[0m
+[0;32mI (179294) METRIC: E2E Latency: 3924 us[0m
+[0;32mI (179294) METRIC: Loop Exec Time: 7073 us | CPU Util: 0.707%[0m
+[0;32mI (179304) MEM: Heap free: 225972 B, Used heap: 71452 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (179314) BME280: TS=178829964000 ns Temp=22.61 C Press=101039 Pa Hum=46%[0m
+[0;32mI (180294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (180294) BME280: Temp: 22.61 C  Pressure: 101036 Pa  Humidity: 46 %[0m
+[0;32mI (180294) UDP: Sent 22 bytes[0m
+[0;32mI (180294) METRIC: E2E Latency: 4309 us[0m
+[0;32mI (180294) METRIC: Loop Exec Time: 7004 us | CPU Util: 0.700%[0m
+[0;32mI (180304) MEM: Heap free: 226176 B, Used heap: 71248 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (180314) BME280: TS=179829960000 ns Temp=22.61 C Press=101036 Pa Hum=46%[0m
+[0;32mI (181294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (181294) BME280: Temp: 22.61 C  Pressure: 101042 Pa  Humidity: 46 %[0m
+[0;32mI (181294) UDP: Sent 22 bytes[0m
+[0;32mI (181294) METRIC: E2E Latency: 4271 us[0m
+[0;32mI (181294) METRIC: Loop Exec Time: 7084 us | CPU Util: 0.708%[0m
+[0;32mI (181304) MEM: Heap free: 226176 B, Used heap: 71248 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (181314) BME280: TS=180830044000 ns Temp=22.61 C Press=101042 Pa Hum=46%[0m
+[0;32mI (182294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (182294) BME280: Temp: 22.60 C  Pressure: 101041 Pa  Humidity: 46 %[0m
+[0;32mI (182294) UDP: Sent 22 bytes[0m
+[0;32mI (182294) METRIC: E2E Latency: 4372 us[0m
+[0;32mI (182294) METRIC: Loop Exec Time: 7008 us | CPU Util: 0.701%[0m
+[0;32mI (182304) MEM: Heap free: 226176 B, Used heap: 71248 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (182314) BME280: TS=181829964000 ns Temp=22.60 C Press=101041 Pa Hum=46%[0m
+[0;32mI (183294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (183294) BME280: Temp: 22.61 C  Pressure: 101039 Pa  Humidity: 46 %[0m
+[0;32mI (183294) UDP: Sent 22 bytes[0m
+[0;32mI (183294) METRIC: E2E Latency: 4388 us[0m
+[0;32mI (183294) METRIC: Loop Exec Time: 7004 us | CPU Util: 0.700%[0m
+[0;32mI (183304) MEM: Heap free: 225972 B, Used heap: 71452 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (183314) BME280: TS=182829964000 ns Temp=22.61 C Press=101039 Pa Hum=46%[0m
+[0;32mI (184294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (184294) BME280: Temp: 22.61 C  Pressure: 101036 Pa  Humidity: 46 %[0m
+[0;32mI (184294) UDP: Sent 22 bytes[0m
+[0;32mI (184294) METRIC: E2E Latency: 4350 us[0m
+[0;32mI (184294) METRIC: Loop Exec Time: 7001 us | CPU Util: 0.700%[0m
+[0;32mI (184304) MEM: Heap free: 226176 B, Used heap: 71248 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (184314) BME280: TS=183829956000 ns Temp=22.61 C Press=101036 Pa Hum=46%[0m
+[0;32mI (185294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (185294) BME280: Temp: 22.62 C  Pressure: 101038 Pa  Humidity: 46 %[0m
+[0;32mI (185294) UDP: Sent 22 bytes[0m
+[0;32mI (185294) METRIC: E2E Latency: 4827 us[0m
+[0;32mI (185294) METRIC: Loop Exec Time: 7005 us | CPU Util: 0.701%[0m
+[0;32mI (185304) MEM: Heap free: 225972 B, Used heap: 71452 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (185314) BME280: TS=184829968000 ns Temp=22.62 C Press=101038 Pa Hum=46%[0m
+[0;32mI (186294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (186294) BME280: Temp: 22.62 C  Pressure: 101041 Pa  Humidity: 46 %[0m
+[0;32mI (186294) UDP: Sent 22 bytes[0m
+[0;32mI (186294) METRIC: E2E Latency: 4487 us[0m
+[0;32mI (186294) METRIC: Loop Exec Time: 6985 us | CPU Util: 0.698%[0m
+[0;32mI (186304) MEM: Heap free: 226176 B, Used heap: 71248 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (186314) BME280: TS=185829948000 ns Temp=22.62 C Press=101041 Pa Hum=46%[0m
+[0;32mI (187294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (187294) BME280: Temp: 22.61 C  Pressure: 101042 Pa  Humidity: 46 %[0m
+[0;32mI (187294) UDP: Sent 22 bytes[0m
+[0;32mI (187294) METRIC: E2E Latency: 4332 us[0m
+[0;32mI (187294) METRIC: Loop Exec Time: 7008 us | CPU Util: 0.701%[0m
+[0;32mI (187304) MEM: Heap free: 226176 B, Used heap: 71248 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (187314) BME280: TS=186829964000 ns Temp=22.61 C Press=101042 Pa Hum=46%[0m
+[0;32mI (188294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (188294) BME280: Temp: 22.61 C  Pressure: 101036 Pa  Humidity: 46 %[0m
+[0;32mI (188294) UDP: Sent 22 bytes[0m
+[0;32mI (188294) METRIC: E2E Latency: 4988 us[0m
+[0;32mI (188294) METRIC: Loop Exec Time: 7012 us | CPU Util: 0.701%[0m
+[0;32mI (188304) MEM: Heap free: 225972 B, Used heap: 71508 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (188314) BME280: TS=187829972000 ns Temp=22.61 C Press=101036 Pa Hum=46%[0m
+[0;32mI (189294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (189294) BME280: Temp: 22.61 C  Pressure: 101042 Pa  Humidity: 46 %[0m
+[0;32mI (189294) UDP: Sent 22 bytes[0m
+[0;32mI (189294) METRIC: E2E Latency: 4907 us[0m
+[0;32mI (189294) METRIC: Loop Exec Time: 7036 us | CPU Util: 0.704%[0m
+[0;32mI (189304) MEM: Heap free: 226176 B, Used heap: 71248 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (189314) BME280: TS=188829992000 ns Temp=22.61 C Press=101042 Pa Hum=46%[0m
+[0;32mI (190294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (190294) BME280: Temp: 22.62 C  Pressure: 101044 Pa  Humidity: 46 %[0m
+[0;32mI (190294) UDP: Sent 22 bytes[0m
+[0;32mI (190294) METRIC: E2E Latency: 3932 us[0m
+[0;32mI (190294) METRIC: Loop Exec Time: 6992 us | CPU Util: 0.699%[0m
+[0;32mI (190304) MEM: Heap free: 226176 B, Used heap: 71248 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (190314) BME280: TS=189829948000 ns Temp=22.62 C Press=101044 Pa Hum=46%[0m
+[0;32mI (191294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (191294) BME280: Temp: 22.61 C  Pressure: 101043 Pa  Humidity: 46 %[0m
+[0;32mI (191294) UDP: Sent 22 bytes[0m
+[0;32mI (191294) METRIC: E2E Latency: 4353 us[0m
+[0;32mI (191294) METRIC: Loop Exec Time: 6992 us | CPU Util: 0.699%[0m
+[0;32mI (191304) MEM: Heap free: 226176 B, Used heap: 71248 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (191314) BME280: TS=190829948000 ns Temp=22.61 C Press=101043 Pa Hum=46%[0m
+[0;32mI (192294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (192294) BME280: Temp: 22.61 C  Pressure: 101042 Pa  Humidity: 46 %[0m
+[0;32mI (192294) UDP: Sent 22 bytes[0m
+[0;32mI (192294) METRIC: E2E Latency: 4283 us[0m
+[0;32mI (192294) METRIC: Loop Exec Time: 7001 us | CPU Util: 0.700%[0m
+[0;32mI (192304) MEM: Heap free: 226176 B, Used heap: 71248 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (192314) BME280: TS=191829960000 ns Temp=22.61 C Press=101042 Pa Hum=46%[0m
+[0;32mI (193294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (193294) BME280: Temp: 22.62 C  Pressure: 101044 Pa  Humidity: 46 %[0m
+[0;32mI (193294) UDP: Sent 22 bytes[0m
+[0;32mI (193294) METRIC: E2E Latency: 3885 us[0m
+[0;32mI (193294) METRIC: Loop Exec Time: 6996 us | CPU Util: 0.700%[0m
+[0;32mI (193304) MEM: Heap free: 226176 B, Used heap: 71248 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (193314) BME280: TS=192829960000 ns Temp=22.62 C Press=101044 Pa Hum=46%[0m
+[0;32mI (194294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (194294) BME280: Temp: 22.60 C  Pressure: 101038 Pa  Humidity: 46 %[0m
+[0;32mI (194294) UDP: Sent 22 bytes[0m
+[0;32mI (194294) METRIC: E2E Latency: 4448 us[0m
+[0;32mI (194294) METRIC: Loop Exec Time: 7012 us | CPU Util: 0.701%[0m
+[0;32mI (194304) MEM: Heap free: 226176 B, Used heap: 71248 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (194314) BME280: TS=193829968000 ns Temp=22.60 C Press=101038 Pa Hum=46%[0m
+[0;32mI (195294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (195294) BME280: Temp: 22.61 C  Pressure: 101036 Pa  Humidity: 46 %[0m
+[0;32mI (195294) UDP: Sent 22 bytes[0m
+[0;32mI (195294) METRIC: E2E Latency: 4358 us[0m
+[0;32mI (195294) METRIC: Loop Exec Time: 7377 us | CPU Util: 0.738%[0m
+[0;32mI (195304) MEM: Heap free: 226176 B, Used heap: 71248 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (195314) BME280: TS=194829909000 ns Temp=22.61 C Press=101036 Pa Hum=46%[0m
+[0;32mI (196294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (196294) BME280: Temp: 22.61 C  Pressure: 101036 Pa  Humidity: 46 %[0m
+[0;32mI (196294) UDP: Sent 22 bytes[0m
+[0;32mI (196294) METRIC: E2E Latency: 4336 us[0m
+[0;32mI (196294) METRIC: Loop Exec Time: 7004 us | CPU Util: 0.700%[0m
+[0;32mI (196304) MEM: Heap free: 225972 B, Used heap: 71452 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (196314) BME280: TS=195829968000 ns Temp=22.61 C Press=101036 Pa Hum=46%[0m
+[0;32mI (197294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (197294) BME280: Temp: 22.61 C  Pressure: 101040 Pa  Humidity: 46 %[0m
+[0;32mI (197294) UDP: Sent 22 bytes[0m
+[0;32mI (197294) METRIC: E2E Latency: 4408 us[0m
+[0;32mI (197294) METRIC: Loop Exec Time: 6996 us | CPU Util: 0.700%[0m
+[0;32mI (197304) MEM: Heap free: 226176 B, Used heap: 71248 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (197314) BME280: TS=196829956000 ns Temp=22.61 C Press=101040 Pa Hum=46%[0m
+[0;32mI (198294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (198294) BME280: Temp: 22.61 C  Pressure: 101036 Pa  Humidity: 46 %[0m
+[0;32mI (198294) UDP: Sent 22 bytes[0m
+[0;32mI (198294) METRIC: E2E Latency: 4423 us[0m
+[0;32mI (198294) METRIC: Loop Exec Time: 7017 us | CPU Util: 0.702%[0m
+[0;32mI (198304) MEM: Heap free: 225972 B, Used heap: 71452 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (198314) BME280: TS=197829976000 ns Temp=22.61 C Press=101036 Pa Hum=46%[0m
+[0;32mI (199294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (199294) BME280: Temp: 22.61 C  Pressure: 101035 Pa  Humidity: 46 %[0m
+[0;32mI (199294) UDP: Sent 22 bytes[0m
+[0;32mI (199294) METRIC: E2E Latency: 4558 us[0m
+[0;32mI (199294) METRIC: Loop Exec Time: 6996 us | CPU Util: 0.700%[0m
+[0;32mI (199304) MEM: Heap free: 226176 B, Used heap: 71248 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (199314) BME280: TS=198829909000 ns Temp=22.61 C Press=101035 Pa Hum=46%[0m
+[0;32mI (200294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (200294) BME280: Temp: 22.61 C  Pressure: 101039 Pa  Humidity: 46 %[0m
+[0;32mI (200294) UDP: Sent 22 bytes[0m
+[0;32mI (200294) METRIC: E2E Latency: 4316 us[0m
+[0;32mI (200294) METRIC: Loop Exec Time: 7001 us | CPU Util: 0.700%[0m
+[0;32mI (200304) MEM: Heap free: 226176 B, Used heap: 71248 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (200314) BME280: TS=199829960000 ns Temp=22.61 C Press=101039 Pa Hum=46%[0m
+[0;32mI (201294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (201294) BME280: Temp: 22.62 C  Pressure: 101033 Pa  Humidity: 46 %[0m
+[0;32mI (201294) UDP: Sent 22 bytes[0m
+[0;32mI (201294) METRIC: E2E Latency: 4325 us[0m
+[0;32mI (201294) METRIC: Loop Exec Time: 7004 us | CPU Util: 0.700%[0m
+[0;32mI (201304) MEM: Heap free: 226176 B, Used heap: 71248 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (201314) BME280: TS=200829952000 ns Temp=22.62 C Press=101033 Pa Hum=46%[0m
+[0;32mI (202294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (202294) BME280: Temp: 22.62 C  Pressure: 101035 Pa  Humidity: 46 %[0m
+[0;32mI (202294) UDP: Sent 22 bytes[0m
+[0;32mI (202294) METRIC: E2E Latency: 4209 us[0m
+[0;32mI (202294) METRIC: Loop Exec Time: 7013 us | CPU Util: 0.701%[0m
+[0;32mI (202304) MEM: Heap free: 225972 B, Used heap: 71452 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (202314) BME280: TS=201829976000 ns Temp=22.62 C Press=101035 Pa Hum=46%[0m
+[0;32mI (203294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (203294) BME280: Temp: 22.62 C  Pressure: 101041 Pa  Humidity: 46 %[0m
+[0;32mI (203294) UDP: Sent 22 bytes[0m
+[0;32mI (203294) METRIC: E2E Latency: 4332 us[0m
+[0;32mI (203294) METRIC: Loop Exec Time: 6996 us | CPU Util: 0.700%[0m
+[0;32mI (203304) MEM: Heap free: 226176 B, Used heap: 71248 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (203314) BME280: TS=202829952000 ns Temp=22.62 C Press=101041 Pa Hum=46%[0m
+[0;32mI (204294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (204294) BME280: Temp: 22.61 C  Pressure: 101034 Pa  Humidity: 46 %[0m
+[0;32mI (204294) UDP: Sent 22 bytes[0m
+[0;32mI (204294) METRIC: E2E Latency: 4296 us[0m
+[0;32mI (204294) METRIC: Loop Exec Time: 7008 us | CPU Util: 0.701%[0m
+[0;32mI (204304) MEM: Heap free: 226176 B, Used heap: 71248 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (204314) BME280: TS=203829964000 ns Temp=22.61 C Press=101034 Pa Hum=46%[0m
+[0;32mI (205294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (205294) BME280: Temp: 22.62 C  Pressure: 101033 Pa  Humidity: 46 %[0m
+[0;32mI (205294) UDP: Sent 22 bytes[0m
+[0;32mI (205294) METRIC: E2E Latency: 4357 us[0m
+[0;32mI (205294) METRIC: Loop Exec Time: 7035 us | CPU Util: 0.703%[0m
+[0;32mI (205304) MEM: Heap free: 226176 B, Used heap: 71248 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (205314) BME280: TS=204829952000 ns Temp=22.62 C Press=101033 Pa Hum=46%[0m
+[0;32mI (206294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (206294) BME280: Temp: 22.62 C  Pressure: 101038 Pa  Humidity: 46 %[0m
+[0;32mI (206294) UDP: Sent 22 bytes[0m
+[0;32mI (206294) METRIC: E2E Latency: 4521 us[0m
+[0;32mI (206294) METRIC: Loop Exec Time: 7127 us | CPU Util: 0.713%[0m
+[0;32mI (206304) MEM: Heap free: 226176 B, Used heap: 71248 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (206314) BME280: TS=205829972000 ns Temp=22.62 C Press=101038 Pa Hum=46%[0m
+[0;32mI (207294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (207294) BME280: Temp: 22.61 C  Pressure: 101037 Pa  Humidity: 46 %[0m
+[0;32mI (207294) UDP: Sent 22 bytes[0m
+[0;32mI (207294) METRIC: E2E Latency: 4365 us[0m
+[0;32mI (207294) METRIC: Loop Exec Time: 6989 us | CPU Util: 0.699%[0m
+[0;32mI (207304) MEM: Heap free: 226176 B, Used heap: 71248 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (207314) BME280: TS=206829944000 ns Temp=22.61 C Press=101037 Pa Hum=46%[0m
+[0;32mI (208294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (208294) BME280: Temp: 22.61 C  Pressure: 101043 Pa  Humidity: 46 %[0m
+[0;32mI (208294) UDP: Sent 22 bytes[0m
+[0;32mI (208294) METRIC: E2E Latency: 4451 us[0m
+[0;32mI (208294) METRIC: Loop Exec Time: 7019 us | CPU Util: 0.702%[0m
+[0;32mI (208304) MEM: Heap free: 226176 B, Used heap: 71248 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (208314) BME280: TS=207829940000 ns Temp=22.61 C Press=101043 Pa Hum=46%[0m
+[0;32mI (209294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (209294) BME280: Temp: 22.62 C  Pressure: 101038 Pa  Humidity: 46 %[0m
+[0;32mI (209294) UDP: Sent 22 bytes[0m
+[0;32mI (209294) METRIC: E2E Latency: 4322 us[0m
+[0;32mI (209294) METRIC: Loop Exec Time: 6997 us | CPU Util: 0.700%[0m
+[0;32mI (209304) MEM: Heap free: 226176 B, Used heap: 71248 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (209314) BME280: TS=208829952000 ns Temp=22.62 C Press=101038 Pa Hum=46%[0m
+[0;32mI (210294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (210294) BME280: Temp: 22.62 C  Pressure: 101044 Pa  Humidity: 46 %[0m
+[0;32mI (210294) UDP: Sent 22 bytes[0m
+[0;32mI (210294) METRIC: E2E Latency: 4439 us[0m
+[0;32mI (210294) METRIC: Loop Exec Time: 7087 us | CPU Util: 0.709%[0m
+[0;32mI (210304) MEM: Heap free: 226176 B, Used heap: 71248 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (210314) BME280: TS=209829968000 ns Temp=22.62 C Press=101044 Pa Hum=46%[0m
+[0;32mI (211294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (211294) BME280: Temp: 22.62 C  Pressure: 101041 Pa  Humidity: 46 %[0m
+[0;32mI (211294) UDP: Sent 22 bytes[0m
+[0;32mI (211294) METRIC: E2E Latency: 4395 us[0m
+[0;32mI (211294) METRIC: Loop Exec Time: 6996 us | CPU Util: 0.700%[0m
+[0;32mI (211304) MEM: Heap free: 226176 B, Used heap: 71248 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (211314) BME280: TS=210829956000 ns Temp=22.62 C Press=101041 Pa Hum=46%[0m
+[0;32mI (212294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (212294) BME280: Temp: 22.62 C  Pressure: 101038 Pa  Humidity: 46 %[0m
+[0;32mI (212294) UDP: Sent 22 bytes[0m
+[0;32mI (212294) METRIC: E2E Latency: 4334 us[0m
+[0;32mI (212294) METRIC: Loop Exec Time: 7076 us | CPU Util: 0.708%[0m
+[0;32mI (212304) MEM: Heap free: 226176 B, Used heap: 71248 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (212314) BME280: TS=211829909000 ns Temp=22.62 C Press=101038 Pa Hum=46%[0m
+[0;32mI (213294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (213294) BME280: Temp: 22.62 C  Pressure: 101044 Pa  Humidity: 46 %[0m
+[0;32mI (213294) UDP: Sent 22 bytes[0m
+[0;32mI (213294) METRIC: E2E Latency: 4473 us[0m
+[0;32mI (213294) METRIC: Loop Exec Time: 7004 us | CPU Util: 0.700%[0m
+[0;32mI (213304) MEM: Heap free: 226176 B, Used heap: 71248 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (213314) BME280: TS=212829956000 ns Temp=22.62 C Press=101044 Pa Hum=46%[0m
+[0;32mI (214294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (214294) BME280: Temp: 22.62 C  Pressure: 101039 Pa  Humidity: 46 %[0m
+[0;32mI (214294) UDP: Sent 22 bytes[0m
+[0;32mI (214294) METRIC: E2E Latency: 4327 us[0m
+[0;32mI (214294) METRIC: Loop Exec Time: 7012 us | CPU Util: 0.701%[0m
+[0;32mI (214304) MEM: Heap free: 226176 B, Used heap: 71248 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (214314) BME280: TS=213829968000 ns Temp=22.62 C Press=101039 Pa Hum=46%[0m
+[0;32mI (215294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (215294) BME280: Temp: 22.62 C  Pressure: 101039 Pa  Humidity: 46 %[0m
+[0;32mI (215294) UDP: Sent 22 bytes[0m
+[0;32mI (215294) METRIC: E2E Latency: 4024 us[0m
+[0;32mI (215294) METRIC: Loop Exec Time: 6996 us | CPU Util: 0.700%[0m
+[0;32mI (215304) MEM: Heap free: 225972 B, Used heap: 71452 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (215314) BME280: TS=214829952000 ns Temp=22.62 C Press=101039 Pa Hum=46%[0m
+[0;32mI (216294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (216294) BME280: Temp: 22.61 C  Pressure: 101036 Pa  Humidity: 46 %[0m
+[0;32mI (216294) UDP: Sent 22 bytes[0m
+[0;32mI (216294) METRIC: E2E Latency: 4377 us[0m
+[0;32mI (216294) METRIC: Loop Exec Time: 6945 us | CPU Util: 0.695%[0m
+[0;32mI (216304) MEM: Heap free: 226176 B, Used heap: 71248 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (216314) BME280: TS=215829901000 ns Temp=22.61 C Press=101036 Pa Hum=46%[0m
+[0;32mI (217294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (217294) BME280: Temp: 22.62 C  Pressure: 101038 Pa  Humidity: 46 %[0m
+[0;32mI (217294) UDP: Sent 22 bytes[0m
+[0;32mI (217294) METRIC: E2E Latency: 4385 us[0m
+[0;32mI (217294) METRIC: Loop Exec Time: 6989 us | CPU Util: 0.699%[0m
+[0;32mI (217304) MEM: Heap free: 225972 B, Used heap: 71452 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (217314) BME280: TS=216829948000 ns Temp=22.62 C Press=101038 Pa Hum=46%[0m
+[0;32mI (218294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (218294) BME280: Temp: 22.62 C  Pressure: 101038 Pa  Humidity: 46 %[0m
+[0;32mI (218294) UDP: Sent 22 bytes[0m
+[0;32mI (218294) METRIC: E2E Latency: 4331 us[0m
+[0;32mI (218294) METRIC: Loop Exec Time: 7000 us | CPU Util: 0.700%[0m
+[0;32mI (218304) MEM: Heap free: 226176 B, Used heap: 71248 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (218314) BME280: TS=217829948000 ns Temp=22.62 C Press=101038 Pa Hum=46%[0m
+[0;32mI (219294) METRIC: Actual Period: 1000192 us | Jitter: 192 us[0m
+[0;32mI (219294) BME280: Temp: 22.61 C  Pressure: 101042 Pa  Humidity: 46 %[0m
+[0;32mI (219294) UDP: Sent 22 bytes[0m
+[0;32mI (219294) METRIC: E2E Latency: 3932 us[0m
+[0;32mI (219294) METRIC: Loop Exec Time: 7173 us | CPU Util: 0.717%[0m
+[0;32mI (219304) MEM: Heap free: 225972 B, Used heap: 71452 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (219314) BME280: TS=218830157000 ns Temp=22.61 C Press=101042 Pa Hum=46%[0m
+[0;32mI (220294) METRIC: Actual Period: 999808 us | Jitter: -192 us[0m
+[0;32mI (220294) BME280: Temp: 22.61 C  Pressure: 101036 Pa  Humidity: 46 %[0m
+[0;32mI (220294) UDP: Sent 22 bytes[0m
+[0;32mI (220294) METRIC: E2E Latency: 4455 us[0m
+[0;32mI (220294) METRIC: Loop Exec Time: 7173 us | CPU Util: 0.717%[0m
+[0;32mI (220304) MEM: Heap free: 226176 B, Used heap: 71248 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (220314) BME280: TS=219829957000 ns Temp=22.61 C Press=101036 Pa Hum=46%[0m
+[0;32mI (221294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (221294) BME280: Temp: 22.61 C  Pressure: 101036 Pa  Humidity: 46 %[0m
+[0;32mI (221294) UDP: Sent 22 bytes[0m
+[0;32mI (221294) METRIC: E2E Latency: 4352 us[0m
+[0;32mI (221294) METRIC: Loop Exec Time: 6981 us | CPU Util: 0.698%[0m
+[0;32mI (221304) MEM: Heap free: 226176 B, Used heap: 71248 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (221314) BME280: TS=220829936000 ns Temp=22.61 C Press=101036 Pa Hum=46%[0m
+[0;32mI (222294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (222294) BME280: Temp: 22.62 C  Pressure: 101038 Pa  Humidity: 46 %[0m
+[0;32mI (222294) UDP: Sent 22 bytes[0m
+[0;32mI (222294) METRIC: E2E Latency: 4522 us[0m
+[0;32mI (222294) METRIC: Loop Exec Time: 6996 us | CPU Util: 0.700%[0m
+[0;32mI (222304) MEM: Heap free: 226176 B, Used heap: 71248 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (222314) BME280: TS=221829944000 ns Temp=22.62 C Press=101038 Pa Hum=46%[0m
+[0;32mI (223294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (223294) BME280: Temp: 22.61 C  Pressure: 101043 Pa  Humidity: 46 %[0m
+[0;32mI (223294) UDP: Sent 22 bytes[0m
+[0;32mI (223294) METRIC: E2E Latency: 4654 us[0m
+[0;32mI (223294) METRIC: Loop Exec Time: 7009 us | CPU Util: 0.701%[0m
+[0;32mI (223304) MEM: Heap free: 225972 B, Used heap: 71452 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (223314) BME280: TS=222829968000 ns Temp=22.61 C Press=101043 Pa Hum=46%[0m
+[0;32mI (224294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (224294) BME280: Temp: 22.62 C  Pressure: 101039 Pa  Humidity: 46 %[0m
+[0;32mI (224294) UDP: Sent 22 bytes[0m
+[0;32mI (224294) METRIC: E2E Latency: 4404 us[0m
+[0;32mI (224294) METRIC: Loop Exec Time: 6989 us | CPU Util: 0.699%[0m
+[0;32mI (224304) MEM: Heap free: 226176 B, Used heap: 71248 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (224314) BME280: TS=223829948000 ns Temp=22.62 C Press=101039 Pa Hum=46%[0m
+[0;32mI (225294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (225294) BME280: Temp: 22.62 C  Pressure: 101042 Pa  Humidity: 46 %[0m
+[0;32mI (225294) UDP: Sent 22 bytes[0m
+[0;32mI (225294) METRIC: E2E Latency: 4313 us[0m
+[0;32mI (225294) METRIC: Loop Exec Time: 6977 us | CPU Util: 0.698%[0m
+[0;32mI (225304) MEM: Heap free: 225972 B, Used heap: 71452 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (225314) BME280: TS=224829932000 ns Temp=22.62 C Press=101042 Pa Hum=46%[0m
+[0;32mI (226294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (226294) BME280: Temp: 22.61 C  Pressure: 101037 Pa  Humidity: 46 %[0m
+[0;32mI (226294) UDP: Sent 22 bytes[0m
+[0;32mI (226294) METRIC: E2E Latency: 4302 us[0m
+[0;32mI (226294) METRIC: Loop Exec Time: 6985 us | CPU Util: 0.698%[0m
+[0;32mI (226304) MEM: Heap free: 225972 B, Used heap: 71248 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (226314) BME280: TS=225829940000 ns Temp=22.61 C Press=101037 Pa Hum=46%[0m
+[0;32mI (227294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (227294) BME280: Temp: 22.62 C  Pressure: 101038 Pa  Humidity: 46 %[0m
+[0;32mI (227294) UDP: Sent 22 bytes[0m
+[0;32mI (227294) METRIC: E2E Latency: 4395 us[0m
+[0;32mI (227294) METRIC: Loop Exec Time: 7001 us | CPU Util: 0.700%[0m
+[0;32mI (227304) MEM: Heap free: 226176 B, Used heap: 71248 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (227314) BME280: TS=226829956000 ns Temp=22.62 C Press=101038 Pa Hum=46%[0m
+[0;32mI (228294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (228294) BME280: Temp: 22.62 C  Pressure: 101039 Pa  Humidity: 46 %[0m
+[0;32mI (228294) UDP: Sent 22 bytes[0m
+[0;32mI (228294) METRIC: E2E Latency: 4354 us[0m
+[0;32mI (228294) METRIC: Loop Exec Time: 6989 us | CPU Util: 0.699%[0m
+[0;32mI (228304) MEM: Heap free: 226176 B, Used heap: 71248 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (228314) BME280: TS=227829948000 ns Temp=22.62 C Press=101039 Pa Hum=46%[0m
+[0;32mI (229294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (229294) BME280: Temp: 22.62 C  Pressure: 101035 Pa  Humidity: 46 %[0m
+[0;32mI (229294) UDP: Sent 22 bytes[0m
+[0;32mI (229294) METRIC: E2E Latency: 4342 us[0m
+[0;32mI (229294) METRIC: Loop Exec Time: 7107 us | CPU Util: 0.711%[0m
+[0;32mI (229304) MEM: Heap free: 226176 B, Used heap: 71248 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (229314) BME280: TS=228829905000 ns Temp=22.62 C Press=101035 Pa Hum=46%[0m
+[0;32mI (230294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (230294) BME280: Temp: 22.62 C  Pressure: 101038 Pa  Humidity: 46 %[0m
+[0;32mI (230294) UDP: Sent 22 bytes[0m
+[0;32mI (230294) METRIC: E2E Latency: 4747 us[0m
+[0;32mI (230294) METRIC: Loop Exec Time: 6996 us | CPU Util: 0.700%[0m
+[0;32mI (230304) MEM: Heap free: 226176 B, Used heap: 71248 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (230314) BME280: TS=229829960000 ns Temp=22.62 C Press=101038 Pa Hum=46%[0m
+[0;32mI (231294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (231294) BME280: Temp: 22.62 C  Pressure: 101038 Pa  Humidity: 46 %[0m
+[0;32mI (231294) UDP: Sent 22 bytes[0m
+[0;32mI (231294) METRIC: E2E Latency: 4452 us[0m
+[0;32mI (231294) METRIC: Loop Exec Time: 7020 us | CPU Util: 0.702%[0m
+[0;32mI (231304) MEM: Heap free: 226176 B, Used heap: 71248 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (231314) BME280: TS=230829968000 ns Temp=22.62 C Press=101038 Pa Hum=46%[0m
+[0;32mI (232294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (232294) BME280: Temp: 22.62 C  Pressure: 101038 Pa  Humidity: 46 %[0m
+[0;32mI (232294) UDP: Sent 22 bytes[0m
+[0;32mI (232294) METRIC: E2E Latency: 3921 us[0m
+[0;32mI (232294) METRIC: Loop Exec Time: 7008 us | CPU Util: 0.701%[0m
+[0;32mI (232304) MEM: Heap free: 225972 B, Used heap: 71452 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (232314) BME280: TS=231829968000 ns Temp=22.62 C Press=101038 Pa Hum=46%[0m
+[0;32mI (233294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (233294) BME280: Temp: 22.62 C  Pressure: 101035 Pa  Humidity: 46 %[0m
+[0;32mI (233294) UDP: Sent 22 bytes[0m
+[0;32mI (233294) METRIC: E2E Latency: 4480 us[0m
+[0;32mI (233294) METRIC: Loop Exec Time: 6969 us | CPU Util: 0.697%[0m
+[0;32mI (233304) MEM: Heap free: 226176 B, Used heap: 71248 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (233314) BME280: TS=232829920000 ns Temp=22.62 C Press=101035 Pa Hum=46%[0m
+[0;32mI (234294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (234294) BME280: Temp: 22.62 C  Pressure: 101042 Pa  Humidity: 46 %[0m
+[0;32mI (234294) UDP: Sent 22 bytes[0m
+[0;32mI (234294) METRIC: E2E Latency: 4356 us[0m
+[0;32mI (234294) METRIC: Loop Exec Time: 7016 us | CPU Util: 0.702%[0m
+[0;32mI (234304) MEM: Heap free: 225972 B, Used heap: 71452 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (234314) BME280: TS=233829972000 ns Temp=22.62 C Press=101042 Pa Hum=46%[0m
+[0;32mI (235294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (235294) BME280: Temp: 22.63 C  Pressure: 101040 Pa  Humidity: 46 %[0m
+[0;32mI (235294) UDP: Sent 22 bytes[0m
+[0;32mI (235294) METRIC: E2E Latency: 4372 us[0m
+[0;32mI (235294) METRIC: Loop Exec Time: 6992 us | CPU Util: 0.699%[0m
+[0;32mI (235304) MEM: Heap free: 226176 B, Used heap: 71248 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (235314) BME280: TS=234829952000 ns Temp=22.63 C Press=101040 Pa Hum=46%[0m
+[0;32mI (236294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (236294) BME280: Temp: 22.62 C  Pressure: 101041 Pa  Humidity: 46 %[0m
+[0;32mI (236294) UDP: Sent 22 bytes[0m
+[0;32mI (236294) METRIC: E2E Latency: 3925 us[0m
+[0;32mI (236294) METRIC: Loop Exec Time: 7036 us | CPU Util: 0.704%[0m
+[0;32mI (236304) MEM: Heap free: 225972 B, Used heap: 71452 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (236314) BME280: TS=235829980000 ns Temp=22.62 C Press=101041 Pa Hum=46%[0m
+[0;32mI (237294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (237294) BME280: Temp: 22.62 C  Pressure: 101038 Pa  Humidity: 46 %[0m
+[0;32mI (237294) UDP: Sent 22 bytes[0m
+[0;32mI (237294) METRIC: E2E Latency: 4474 us[0m
+[0;32mI (237294) METRIC: Loop Exec Time: 6981 us | CPU Util: 0.698%[0m
+[0;32mI (237304) MEM: Heap free: 226176 B, Used heap: 71248 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (237314) BME280: TS=236829936000 ns Temp=22.62 C Press=101038 Pa Hum=46%[0m
+[0;32mI (238294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (238294) BME280: Temp: 22.63 C  Pressure: 101040 Pa  Humidity: 46 %[0m
+[0;32mI (238294) UDP: Sent 22 bytes[0m
+[0;32mI (238294) METRIC: E2E Latency: 4507 us[0m
+[0;32mI (238294) METRIC: Loop Exec Time: 6973 us | CPU Util: 0.697%[0m
+[0;32mI (238304) MEM: Heap free: 226176 B, Used heap: 71248 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (238314) BME280: TS=237829932000 ns Temp=22.63 C Press=101040 Pa Hum=46%[0m
+[0;32mI (239294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (239294) BME280: Temp: 22.62 C  Pressure: 101041 Pa  Humidity: 46 %[0m
+[0;32mI (239294) UDP: Sent 22 bytes[0m
+[0;32mI (239294) METRIC: E2E Latency: 4360 us[0m
+[0;32mI (239294) METRIC: Loop Exec Time: 7004 us | CPU Util: 0.700%[0m
+[0;32mI (239304) MEM: Heap free: 226176 B, Used heap: 71248 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (239314) BME280: TS=238829956000 ns Temp=22.62 C Press=101041 Pa Hum=46%[0m
+[0;32mI (240294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (240294) BME280: Temp: 22.63 C  Pressure: 101037 Pa  Humidity: 46 %[0m
+[0;32mI (240294) UDP: Sent 22 bytes[0m
+[0;32mI (240294) METRIC: E2E Latency: 4428 us[0m
+[0;32mI (240294) METRIC: Loop Exec Time: 7000 us | CPU Util: 0.700%[0m
+[0;32mI (240304) MEM: Heap free: 226176 B, Used heap: 71248 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (240314) BME280: TS=239829960000 ns Temp=22.63 C Press=101037 Pa Hum=46%[0m
+[0;32mI (241294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (241294) BME280: Temp: 22.63 C  Pressure: 101034 Pa  Humidity: 46 %[0m
+[0;32mI (241294) UDP: Sent 22 bytes[0m
+[0;32mI (241294) METRIC: E2E Latency: 3868 us[0m
+[0;32mI (241294) METRIC: Loop Exec Time: 7080 us | CPU Util: 0.708%[0m
+[0;32mI (241304) MEM: Heap free: 226176 B, Used heap: 71248 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (241314) BME280: TS=240830048000 ns Temp=22.63 C Press=101034 Pa Hum=46%[0m
+[0;32mI (242294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (242294) BME280: Temp: 22.62 C  Pressure: 101039 Pa  Humidity: 46 %[0m
+[0;32mI (242294) UDP: Sent 22 bytes[0m
+[0;32mI (242294) METRIC: E2E Latency: 4332 us[0m
+[0;32mI (242294) METRIC: Loop Exec Time: 6965 us | CPU Util: 0.697%[0m
+[0;32mI (242304) MEM: Heap free: 226176 B, Used heap: 71248 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (242314) BME280: TS=241829912000 ns Temp=22.62 C Press=101039 Pa Hum=46%[0m
+[0;32mI (243294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (243294) BME280: Temp: 22.63 C  Pressure: 101034 Pa  Humidity: 46 %[0m
+[0;32mI (243294) UDP: Sent 22 bytes[0m
+[0;32mI (243294) METRIC: E2E Latency: 4445 us[0m
+[0;32mI (243294) METRIC: Loop Exec Time: 7009 us | CPU Util: 0.701%[0m
+[0;32mI (243304) MEM: Heap free: 225972 B, Used heap: 71452 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (243314) BME280: TS=242829972000 ns Temp=22.63 C Press=101034 Pa Hum=46%[0m
+[0;32mI (244294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (244294) BME280: Temp: 22.63 C  Pressure: 101034 Pa  Humidity: 46 %[0m
+[0;32mI (244294) UDP: Sent 22 bytes[0m
+[0;32mI (244294) METRIC: E2E Latency: 5083 us[0m
+[0;32mI (244294) METRIC: Loop Exec Time: 7008 us | CPU Util: 0.701%[0m
+[0;32mI (244304) MEM: Heap free: 226176 B, Used heap: 71248 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (244314) BME280: TS=243829964000 ns Temp=22.63 C Press=101034 Pa Hum=46%[0m
+[0;32mI (245294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (245294) BME280: Temp: 22.62 C  Pressure: 101039 Pa  Humidity: 46 %[0m
+[0;32mI (245294) UDP: Sent 22 bytes[0m
+[0;32mI (245294) METRIC: E2E Latency: 4427 us[0m
+[0;32mI (245294) METRIC: Loop Exec Time: 7013 us | CPU Util: 0.701%[0m
+[0;32mI (245304) MEM: Heap free: 225972 B, Used heap: 71452 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (245314) BME280: TS=244829964000 ns Temp=22.62 C Press=101039 Pa Hum=46%[0m
+[0;32mI (246294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (246294) BME280: Temp: 22.63 C  Pressure: 101041 Pa  Humidity: 46 %[0m
+[0;32mI (246294) UDP: Sent 22 bytes[0m
+[0;32mI (246294) METRIC: E2E Latency: 4401 us[0m
+[0;32mI (246294) METRIC: Loop Exec Time: 6992 us | CPU Util: 0.699%[0m
+[0;32mI (246304) MEM: Heap free: 226176 B, Used heap: 71248 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (246314) BME280: TS=245829948000 ns Temp=22.63 C Press=101041 Pa Hum=46%[0m
+[0;32mI (247294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (247294) BME280: Temp: 22.63 C  Pressure: 101040 Pa  Humidity: 46 %[0m
+[0;32mI (247294) UDP: Sent 22 bytes[0m
+[0;32mI (247294) METRIC: E2E Latency: 3946 us[0m
+[0;32mI (247294) METRIC: Loop Exec Time: 7008 us | CPU Util: 0.701%[0m
+[0;32mI (247304) MEM: Heap free: 226176 B, Used heap: 71248 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (247314) BME280: TS=246829960000 ns Temp=22.63 C Press=101040 Pa Hum=46%[0m
+[0;32mI (248294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (248294) BME280: Temp: 22.63 C  Pressure: 101040 Pa  Humidity: 46 %[0m
+[0;32mI (248294) UDP: Sent 22 bytes[0m
+[0;32mI (248294) METRIC: E2E Latency: 3941 us[0m
+[0;32mI (248294) METRIC: Loop Exec Time: 7012 us | CPU Util: 0.701%[0m
+[0;32mI (248304) MEM: Heap free: 225972 B, Used heap: 71452 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (248314) BME280: TS=247829972000 ns Temp=22.63 C Press=101040 Pa Hum=46%[0m
+[0;32mI (249294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (249294) BME280: Temp: 22.63 C  Pressure: 101037 Pa  Humidity: 46 %[0m
+[0;32mI (249294) UDP: Sent 22 bytes[0m
+[0;32mI (249294) METRIC: E2E Latency: 5160 us[0m
+[0;32mI (249294) METRIC: Loop Exec Time: 6996 us | CPU Util: 0.700%[0m
+[0;32mI (249304) MEM: Heap free: 225972 B, Used heap: 71452 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (249314) BME280: TS=248829956000 ns Temp=22.63 C Press=101037 Pa Hum=46%[0m
+[0;32mI (250294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (250294) BME280: Temp: 22.63 C  Pressure: 101037 Pa  Humidity: 46 %[0m
+[0;32mI (250294) UDP: Sent 22 bytes[0m
+[0;32mI (250294) METRIC: E2E Latency: 4362 us[0m
+[0;32mI (250294) METRIC: Loop Exec Time: 6977 us | CPU Util: 0.698%[0m
+[0;32mI (250304) MEM: Heap free: 225972 B, Used heap: 71452 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (250314) BME280: TS=249829940000 ns Temp=22.63 C Press=101037 Pa Hum=46%[0m
+[0;32mI (251294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (251294) BME280: Temp: 22.63 C  Pressure: 101040 Pa  Humidity: 46 %[0m
+[0;32mI (251294) UDP: Sent 22 bytes[0m
+[0;32mI (251294) METRIC: E2E Latency: 4418 us[0m
+[0;32mI (251294) METRIC: Loop Exec Time: 7004 us | CPU Util: 0.700%[0m
+[0;32mI (251304) MEM: Heap free: 225972 B, Used heap: 71452 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (251314) BME280: TS=250829964000 ns Temp=22.63 C Press=101040 Pa Hum=46%[0m
+[0;32mI (252294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (252294) BME280: Temp: 22.64 C  Pressure: 101036 Pa  Humidity: 46 %[0m
+[0;32mI (252294) UDP: Sent 22 bytes[0m
+[0;32mI (252294) METRIC: E2E Latency: 4325 us[0m
+[0;32mI (252294) METRIC: Loop Exec Time: 7004 us | CPU Util: 0.700%[0m
+[0;32mI (252304) MEM: Heap free: 226176 B, Used heap: 71248 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (252314) BME280: TS=251829964000 ns Temp=22.64 C Press=101036 Pa Hum=46%[0m
+[0;32mI (253294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (253294) BME280: Temp: 22.63 C  Pressure: 101040 Pa  Humidity: 46 %[0m
+[0;32mI (253294) UDP: Sent 22 bytes[0m
+[0;32mI (253294) METRIC: E2E Latency: 3857 us[0m
+[0;32mI (253294) METRIC: Loop Exec Time: 7020 us | CPU Util: 0.702%[0m
+[0;32mI (253304) MEM: Heap free: 226176 B, Used heap: 71248 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (253314) BME280: TS=252829972000 ns Temp=22.63 C Press=101040 Pa Hum=46%[0m
+[0;32mI (254294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (254294) BME280: Temp: 22.63 C  Pressure: 101029 Pa  Humidity: 46 %[0m
+[0;32mI (254294) UDP: Sent 22 bytes[0m
+[0;32mI (254294) METRIC: E2E Latency: 4296 us[0m
+[0;32mI (254294) METRIC: Loop Exec Time: 6965 us | CPU Util: 0.697%[0m
+[0;32mI (254304) MEM: Heap free: 226176 B, Used heap: 71248 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (254314) BME280: TS=253829925000 ns Temp=22.63 C Press=101029 Pa Hum=46%[0m
+[0;32mI (255294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (255294) BME280: Temp: 22.63 C  Pressure: 101030 Pa  Humidity: 46 %[0m
+[0;32mI (255294) UDP: Sent 22 bytes[0m
+[0;32mI (255294) METRIC: E2E Latency: 4397 us[0m
+[0;32mI (255294) METRIC: Loop Exec Time: 6981 us | CPU Util: 0.698%[0m
+[0;32mI (255304) MEM: Heap free: 226176 B, Used heap: 71248 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (255314) BME280: TS=254829936000 ns Temp=22.63 C Press=101030 Pa Hum=46%[0m
+[0;32mI (256294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (256294) BME280: Temp: 22.63 C  Pressure: 101045 Pa  Humidity: 46 %[0m
+[0;32mI (256294) UDP: Sent 22 bytes[0m
+[0;32mI (256294) METRIC: E2E Latency: 4502 us[0m
+[0;32mI (256294) METRIC: Loop Exec Time: 6992 us | CPU Util: 0.699%[0m
+[0;32mI (256304) MEM: Heap free: 226176 B, Used heap: 71248 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (256314) BME280: TS=255829948000 ns Temp=22.63 C Press=101045 Pa Hum=46%[0m
+[0;32mI (257294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (257294) BME280: Temp: 22.64 C  Pressure: 101036 Pa  Humidity: 46 %[0m
+[0;32mI (257294) UDP: Sent 22 bytes[0m
+[0;32mI (257294) METRIC: E2E Latency: 3925 us[0m
+[0;32mI (257294) METRIC: Loop Exec Time: 7004 us | CPU Util: 0.700%[0m
+[0;32mI (257304) MEM: Heap free: 226176 B, Used heap: 71248 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (257314) BME280: TS=256829968000 ns Temp=22.64 C Press=101036 Pa Hum=46%[0m
+[0;32mI (258294) METRIC: Actual Period: 1000000 us | Jitter: 0 us[0m
+[0;32mI (258294) BME280: Temp: 22.63 C  Pressure: 101040 Pa  Humidity: 46 %[0m
+[0;32mI (258294) UDP: Sent 22 bytes[0m
+[0;32mI (258294) METRIC: E2E Latency: 4403 us[0m
+[0;32mI (258294) METRIC: Loop Exec Time: 7004 us | CPU Util: 0.700%[0m
+[0;32mI (258304) MEM: Heap free: 226176 B, Used heap: 71248 B, Largest free block: 110592 B, Stack high-water: 1436 words (1436 B free min)[0m
+[0;32mI (258314) BME280: TS=257829960000 ns Temp=22.63 C Press=101040 Pa Hum=46%[0m

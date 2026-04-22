@@ -1,0 +1,834 @@
+Command: C:\Espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe C:\Espressif\frameworks\esp-idf-v5.5.3\tools/idf_monitor.py -p COM5 -b 115200 --toolchain-prefix xtensa-esp32-elf- --target esp32 --revision 0 C:\Users\jsrun\Desktop\GitHub\sensor-driver-telemetry\esp32_rtos_telemetry\sensor_interface_i2c\build\sensor_interface_i2c.elf C:\Users\jsrun\Desktop\GitHub\sensor-driver-telemetry\esp32_rtos_telemetry\sensor_interface_i2c\build\bootloader\bootloader.elf --force-color -m 'C:\Espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe' 'C:\Espressif\frameworks\esp-idf-v5.5.3\tools\idf.py' '-p' 'COM5'
+eY.�2: SPI Flash Size : 2MB
+�ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:6280
+load:0x40078000,len:15864
+load:0x40080400,len:3920
+entry 0x40080644
+[0;32mI (27) boot: ESP-IDF v5.5.3 2nd stage bootloader[0m
+[0;32mI (27) boot: compile time Mar 11 2026 13:49:18[0m
+[0;32mI (28) boot: Multicore bootloader[0m
+[0;32mI (29) boot: chip revision: v3.1[0m
+[0;32mI (32) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (35) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (39) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (42) boot: Enabling RNG early entropy source...[0m
+[0;32mI (47) boot: Partition Table:[0m
+[0;32mI (49) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (56) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (62) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (69) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (75) boot: End of partition table[0m
+[0;32mI (79) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=1a304h (107268) map[0m
+[0;32mI (123) esp_image: segment 1: paddr=0002a32c vaddr=3ffb0000 size=04388h ( 17288) load[0m
+[0;32mI (129) esp_image: segment 2: paddr=0002e6bc vaddr=40080000 size=0195ch (  6492) load[0m
+[0;32mI (132) esp_image: segment 3: paddr=00030020 vaddr=400d0020 size=84c08h (543752) map[0m
+[0;32mI (320) esp_image: segment 4: paddr=000b4c30 vaddr=4008195c size=17a94h ( 96916) load[0m
+[0;32mI (358) esp_image: segment 5: paddr=000cc6cc vaddr=50000000 size=00020h (    32) load[0m
+[0;32mI (370) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (371) boot: Disabling RNG early entropy source...[0m
+[0;32mI (381) cpu_start: Multicore app[0m
+[0;32mI (389) cpu_start: GPIO 3 and 1 are used as console UART I/O pins[0m
+[0;32mI (390) cpu_start: Pro cpu start user code[0m
+[0;32mI (390) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (391) app_init: Application information:[0m
+[0;32mI (395) app_init: Project name:     sensor_interface_i2c[0m
+[0;32mI (400) app_init: App version:      04bde44-dirty[0m
+[0;32mI (405) app_init: Compile time:     Mar 25 2026 16:21:03[0m
+[0;32mI (410) app_init: ELF file SHA256:  5824b9f86...[0m
+[0;32mI (414) app_init: ESP-IDF:          v5.5.3[0m
+[0;32mI (418) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (422) efuse_init: Max chip rev:     v3.99 [0m
+[0;32mI (426) efuse_init: Chip rev:         v3.1[0m
+[0;32mI (430) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (436) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (441) heap_init: At 3FFB86E0 len 00027920 (158 KiB): DRAM[0m
+[0;32mI (446) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (452) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (457) heap_init: At 400993F0 len 00006C10 (27 KiB): IRAM[0m
+[0;32mI (464) spi_flash: detected chip: generic[0m
+[0;32mI (466) spi_flash: flash io: dio[0m
+[0;33mW (469) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;33mW (481) i2c: This driver is an old driver, please migrate your application code to adapt `driver/i2c_master.h`[0m
+[0;32mI (492) main_task: Started on CPU0[0m
+[0;32mI (502) main_task: Calling app_main()[0m
+[0;32mI (602) BME280: Sensor detected! Chip ID: 0x60[0m
+[0;32mI (742) wifi:wifi driver task: 3ffc089c, prio:23, stack:6656, core=0[0m
+[0;32mI (752) wifi:wifi firmware version: 4df78f2[0m
+[0;32mI (752) wifi:wifi certification version: v7.0[0m
+[0;32mI (752) wifi:config NVS flash: enabled[0m
+[0;32mI (752) wifi:config nano formatting: disabled[0m
+[0;32mI (762) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (762) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (762) wifi:Init management short buffer num: 32[0m
+[0;32mI (772) wifi:Init dynamic tx buffer num: 32[0m
+[0;32mI (772) wifi:Init static rx buffer size: 1600[0m
+[0;32mI (782) wifi:Init static rx buffer num: 10[0m
+[0;32mI (782) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (792) wifi_init: rx ba win: 6[0m
+[0;32mI (792) wifi_init: accept mbox: 6[0m
+[0;32mI (792) wifi_init: tcpip mbox: 32[0m
+[0;32mI (792) wifi_init: udp mbox: 6[0m
+[0;32mI (802) wifi_init: tcp mbox: 6[0m
+[0;32mI (802) wifi_init: tcp tx win: 5760[0m
+[0;32mI (802) wifi_init: tcp rx win: 5760[0m
+[0;32mI (802) wifi_init: tcp mss: 1440[0m
+[0;32mI (812) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (812) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;33mW (822) wifi:Password length matches WPA2 standards, authmode threshold changes from OPEN to WPA2[0m
+[0;32mI (822) phy_init: phy_version 4863,a3a4459,Oct 28 2025,14:30:06[0m
+[0;32mI (912) wifi:mode : sta (24:dc:c3:c1:01:64)[0m
+[0;32mI (912) wifi:enable tsf[0m
+[0;32mI (912) WIFI: wifi_init_sta finished[0m
+[0;32mI (962) wifi:new:<3,1>, old:<1,0>, ap:<255,255>, sta:<3,1>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (962) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (2032) wifi:state: auth -> assoc (0x0)[0m
+[0;32mI (2062) wifi:Association refused temporarily time 1000, comeback time 1100 (TUs)[0m
+[0;32mI (3182) wifi:state: assoc -> auth (0xb0)[0m
+[0;32mI (4212) UDP: UDP socket created, sending to 192.168.68.57:5005[0m
+[0;32mI (4212) wifi:state: auth -> assoc (0x0)[0m
+[0;32mI (4212) BME280: Temp: 24.47 C  Pressure: 100599 Pa  Humidity: 50 %[0m
+[1;31mE (4212) UDP: sendto failed: errno=118[0m
+[0;32mI (4222) METRIC: E2E Latency: 7601 us[0m
+[0;32mI (4222) METRIC: Loop Exec Time: 10919 us[0m
+[0;32mI (4222) BME280: TS=3752222000 ns Temp=24.47 C Press=100599 Pa Hum=50%[0m
+[0;32mI (4242) wifi:state: assoc -> run (0x10)[0m
+[0;32mI (4272) wifi:connected with MountVernon, aid = 5, channel 3, 40U, bssid = 0c:ef:15:3c:9f:ce[0m
+[0;32mI (4272) wifi:security: WPA3-SAE, phy: bgn, rssi: -61[0m
+[0;32mI (4282) wifi:pm start, type: 1[0m
+
+[0;32mI (4282) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us[0m
+[0;32mI (4302) wifi:<ba-add>idx:0 (ifx:0, 0c:ef:15:3c:9f:ce), tid:0, ssn:0, winSize:64[0m
+[0;32mI (4342) wifi:AP's beacon interval = 102400 us, DTIM period = 1[0m
+[0;32mI (4962) wifi:<ba-add>idx:1 (ifx:0, 0c:ef:15:3c:9f:ce), tid:6, ssn:2, winSize:64[0m
+[0;32mI (5212) BME280: Temp: 24.47 C  Pressure: 100602 Pa  Humidity: 50 %[0m
+[1;31mE (5212) UDP: sendto failed: errno=118[0m
+[0;32mI (5212) METRIC: E2E Latency: 2856 us[0m
+[0;32mI (5212) METRIC: Loop Exec Time: 3691 us[0m
+[0;32mI (5212) BME280: TS=4749561000 ns Temp=24.47 C Press=100602 Pa Hum=50%[0m
+[0;32mI (5902) esp_netif_handlers: sta ip: 192.168.68.62, mask: 255.255.252.0, gw: 192.168.68.1[0m
+[0;32mI (6212) BME280: Temp: 24.46 C  Pressure: 100600 Pa  Humidity: 50 %[0m
+[0;32mI (6212) UDP: Sent 22 bytes[0m
+[0;32mI (6212) METRIC: E2E Latency: 4783 us[0m
+[0;32mI (6212) METRIC: Loop Exec Time: 4930 us[0m
+[0;32mI (6212) BME280: TS=5749561000 ns Temp=24.46 C Press=100600 Pa Hum=50%[0m
+[0;32mI (7212) BME280: Temp: 24.46 C  Pressure: 100603 Pa  Humidity: 50 %[0m
+[0;32mI (7212) UDP: Sent 22 bytes[0m
+[0;32mI (7212) METRIC: E2E Latency: 4676 us[0m
+[0;32mI (7212) METRIC: Loop Exec Time: 4823 us[0m
+[0;32mI (7212) BME280: TS=6749565000 ns Temp=24.46 C Press=100603 Pa Hum=50%[0m
+[0;32mI (8212) BME280: Temp: 24.45 C  Pressure: 100607 Pa  Humidity: 50 %[0m
+[0;32mI (8212) UDP: Sent 22 bytes[0m
+[0;32mI (8212) METRIC: E2E Latency: 6097 us[0m
+[0;32mI (8212) METRIC: Loop Exec Time: 6247 us[0m
+[0;32mI (8212) BME280: TS=7749565000 ns Temp=24.45 C Press=100607 Pa Hum=50%[0m
+[0;32mI (9212) BME280: Temp: 24.46 C  Pressure: 100617 Pa  Humidity: 50 %[0m
+[0;32mI (9212) UDP: Sent 22 bytes[0m
+[0;32mI (9212) METRIC: E2E Latency: 4537 us[0m
+[0;32mI (9212) METRIC: Loop Exec Time: 4684 us[0m
+[0;32mI (9212) BME280: TS=8749565000 ns Temp=24.46 C Press=100617 Pa Hum=50%[0m
+[0;32mI (10212) BME280: Temp: 24.45 C  Pressure: 100602 Pa  Humidity: 50 %[0m
+[0;32mI (10212) UDP: Sent 22 bytes[0m
+[0;32mI (10212) METRIC: E2E Latency: 5055 us[0m
+[0;32mI (10212) METRIC: Loop Exec Time: 5203 us[0m
+[0;32mI (10212) BME280: TS=9749565000 ns Temp=24.45 C Press=100602 Pa Hum=50%[0m
+[0;32mI (11212) BME280: Temp: 24.45 C  Pressure: 100607 Pa  Humidity: 50 %[0m
+[0;32mI (11212) UDP: Sent 22 bytes[0m
+[0;32mI (11212) METRIC: E2E Latency: 4976 us[0m
+[0;32mI (11212) METRIC: Loop Exec Time: 5125 us[0m
+[0;32mI (11212) BME280: TS=10749565000 ns Temp=24.45 C Press=100607 Pa Hum=50%[0m
+[0;32mI (12212) BME280: Temp: 24.44 C  Pressure: 100605 Pa  Humidity: 50 %[0m
+[0;32mI (12212) UDP: Sent 22 bytes[0m
+[0;32mI (12212) METRIC: E2E Latency: 4960 us[0m
+[0;32mI (12212) METRIC: Loop Exec Time: 5109 us[0m
+[0;32mI (12212) BME280: TS=11749565000 ns Temp=24.44 C Press=100605 Pa Hum=50%[0m
+[0;32mI (13212) BME280: Temp: 24.44 C  Pressure: 100606 Pa  Humidity: 50 %[0m
+[0;32mI (13212) UDP: Sent 22 bytes[0m
+[0;32mI (13212) METRIC: E2E Latency: 6273 us[0m
+[0;32mI (13212) METRIC: Loop Exec Time: 6438 us[0m
+[0;32mI (13212) BME280: TS=12749565000 ns Temp=24.44 C Press=100606 Pa Hum=50%[0m
+[0;32mI (14212) BME280: Temp: 24.44 C  Pressure: 100599 Pa  Humidity: 50 %[0m
+[0;32mI (14212) UDP: Sent 22 bytes[0m
+[0;32mI (14212) METRIC: E2E Latency: 5035 us[0m
+[0;32mI (14212) METRIC: Loop Exec Time: 5184 us[0m
+[0;32mI (14212) BME280: TS=13749565000 ns Temp=24.44 C Press=100599 Pa Hum=50%[0m
+[0;32mI (15212) BME280: Temp: 24.43 C  Pressure: 100603 Pa  Humidity: 50 %[0m
+[0;32mI (15212) UDP: Sent 22 bytes[0m
+[0;32mI (15212) METRIC: E2E Latency: 4612 us[0m
+[0;32mI (15212) METRIC: Loop Exec Time: 5226 us[0m
+[0;32mI (15212) BME280: TS=14749565000 ns Temp=24.43 C Press=100603 Pa Hum=50%[0m
+[0;32mI (16212) BME280: Temp: 24.43 C  Pressure: 100603 Pa  Humidity: 50 %[0m
+[0;32mI (16212) UDP: Sent 22 bytes[0m
+[0;32mI (16212) METRIC: E2E Latency: 5362 us[0m
+[0;32mI (16212) METRIC: Loop Exec Time: 5511 us[0m
+[0;32mI (16212) BME280: TS=15749565000 ns Temp=24.43 C Press=100603 Pa Hum=50%[0m
+[0;32mI (17212) BME280: Temp: 24.42 C  Pressure: 100596 Pa  Humidity: 50 %[0m
+[0;32mI (17212) UDP: Sent 22 bytes[0m
+[0;32mI (17212) METRIC: E2E Latency: 5068 us[0m
+[0;32mI (17212) METRIC: Loop Exec Time: 5217 us[0m
+[0;32mI (17212) BME280: TS=16749565000 ns Temp=24.42 C Press=100596 Pa Hum=50%[0m
+[0;32mI (18212) BME280: Temp: 24.42 C  Pressure: 100602 Pa  Humidity: 50 %[0m
+[0;32mI (18212) UDP: Sent 22 bytes[0m
+[0;32mI (18212) METRIC: E2E Latency: 6151 us[0m
+[0;32mI (18212) METRIC: Loop Exec Time: 6351 us[0m
+[0;32mI (18212) BME280: TS=17749565000 ns Temp=24.42 C Press=100602 Pa Hum=50%[0m
+[0;32mI (19212) BME280: Temp: 24.42 C  Pressure: 100604 Pa  Humidity: 50 %[0m
+[0;32mI (19212) UDP: Sent 22 bytes[0m
+[0;32mI (19212) METRIC: E2E Latency: 6216 us[0m
+[0;32mI (19212) METRIC: Loop Exec Time: 6369 us[0m
+[0;32mI (19212) BME280: TS=18749565000 ns Temp=24.42 C Press=100604 Pa Hum=50%[0m
+[0;32mI (20212) BME280: Temp: 24.41 C  Pressure: 100598 Pa  Humidity: 50 %[0m
+[0;32mI (20212) UDP: Sent 22 bytes[0m
+[0;32mI (20212) METRIC: E2E Latency: 6008 us[0m
+[0;32mI (20212) METRIC: Loop Exec Time: 6157 us[0m
+[0;32mI (20212) BME280: TS=19749565000 ns Temp=24.41 C Press=100598 Pa Hum=50%[0m
+[0;32mI (21212) BME280: Temp: 24.40 C  Pressure: 100602 Pa  Humidity: 50 %[0m
+[0;32mI (21212) UDP: Sent 22 bytes[0m
+[0;32mI (21212) METRIC: E2E Latency: 6124 us[0m
+[0;32mI (21212) METRIC: Loop Exec Time: 6276 us[0m
+[0;32mI (21212) BME280: TS=20749565000 ns Temp=24.40 C Press=100602 Pa Hum=50%[0m
+[0;32mI (22212) BME280: Temp: 24.41 C  Pressure: 100598 Pa  Humidity: 50 %[0m
+[0;32mI (22212) UDP: Sent 22 bytes[0m
+[0;32mI (22212) METRIC: E2E Latency: 4985 us[0m
+[0;32mI (22212) METRIC: Loop Exec Time: 5147 us[0m
+[0;32mI (22212) BME280: TS=21749565000 ns Temp=24.41 C Press=100598 Pa Hum=50%[0m
+[0;32mI (23212) BME280: Temp: 24.41 C  Pressure: 100611 Pa  Humidity: 50 %[0m
+[0;32mI (23212) UDP: Sent 22 bytes[0m
+[0;32mI (23212) METRIC: E2E Latency: 6081 us[0m
+[0;32mI (23212) METRIC: Loop Exec Time: 6234 us[0m
+[0;32mI (23212) BME280: TS=22749565000 ns Temp=24.41 C Press=100611 Pa Hum=50%[0m
+[0;32mI (24212) BME280: Temp: 24.41 C  Pressure: 100600 Pa  Humidity: 50 %[0m
+[0;32mI (24212) UDP: Sent 22 bytes[0m
+[0;32mI (24212) METRIC: E2E Latency: 6079 us[0m
+[0;32mI (24212) METRIC: Loop Exec Time: 6231 us[0m
+[0;32mI (24212) BME280: TS=23749565000 ns Temp=24.41 C Press=100600 Pa Hum=50%[0m
+[0;32mI (25212) BME280: Temp: 24.40 C  Pressure: 100607 Pa  Humidity: 50 %[0m
+[0;32mI (25212) UDP: Sent 22 bytes[0m
+[0;32mI (25212) METRIC: E2E Latency: 4954 us[0m
+[0;32mI (25212) METRIC: Loop Exec Time: 5201 us[0m
+[0;32mI (25212) BME280: TS=24749565000 ns Temp=24.40 C Press=100607 Pa Hum=50%[0m
+[0;32mI (26212) BME280: Temp: 24.40 C  Pressure: 100604 Pa  Humidity: 50 %[0m
+[0;32mI (26212) UDP: Sent 22 bytes[0m
+[0;32mI (26212) METRIC: E2E Latency: 6040 us[0m
+[0;32mI (26212) METRIC: Loop Exec Time: 6323 us[0m
+[0;32mI (26212) BME280: TS=25749565000 ns Temp=24.40 C Press=100604 Pa Hum=50%[0m
+[0;32mI (27212) BME280: Temp: 24.39 C  Pressure: 100596 Pa  Humidity: 50 %[0m
+[0;32mI (27212) UDP: Sent 22 bytes[0m
+[0;32mI (27212) METRIC: E2E Latency: 6133 us[0m
+[0;32mI (27212) METRIC: Loop Exec Time: 6301 us[0m
+[0;32mI (27212) BME280: TS=26749565000 ns Temp=24.39 C Press=100596 Pa Hum=50%[0m
+[0;32mI (28212) BME280: Temp: 24.40 C  Pressure: 100598 Pa  Humidity: 51 %[0m
+[0;32mI (28212) UDP: Sent 22 bytes[0m
+[0;32mI (28212) METRIC: E2E Latency: 6047 us[0m
+[0;32mI (28212) METRIC: Loop Exec Time: 6304 us[0m
+[0;32mI (28212) BME280: TS=27749565000 ns Temp=24.40 C Press=100598 Pa Hum=51%[0m
+[0;32mI (29212) BME280: Temp: 24.41 C  Pressure: 100611 Pa  Humidity: 51 %[0m
+[0;32mI (29212) UDP: Sent 22 bytes[0m
+[0;32mI (29212) METRIC: E2E Latency: 6060 us[0m
+[0;32mI (29212) METRIC: Loop Exec Time: 6370 us[0m
+[0;32mI (29212) BME280: TS=28749565000 ns Temp=24.41 C Press=100611 Pa Hum=51%[0m
+[0;32mI (30212) BME280: Temp: 24.39 C  Pressure: 100608 Pa  Humidity: 51 %[0m
+[0;32mI (30212) UDP: Sent 22 bytes[0m
+[0;32mI (30212) METRIC: E2E Latency: 4883 us[0m
+[0;32mI (30212) METRIC: Loop Exec Time: 5040 us[0m
+[0;32mI (30212) BME280: TS=29749565000 ns Temp=24.39 C Press=100608 Pa Hum=51%[0m
+[0;32mI (31212) BME280: Temp: 24.39 C  Pressure: 100605 Pa  Humidity: 51 %[0m
+[0;32mI (31212) UDP: Sent 22 bytes[0m
+[0;32mI (31212) METRIC: E2E Latency: 4919 us[0m
+[0;32mI (31212) METRIC: Loop Exec Time: 5068 us[0m
+[0;32mI (31212) BME280: TS=30749565000 ns Temp=24.39 C Press=100605 Pa Hum=51%[0m
+[0;32mI (32212) BME280: Temp: 24.39 C  Pressure: 100611 Pa  Humidity: 51 %[0m
+[0;32mI (32212) UDP: Sent 22 bytes[0m
+[0;32mI (32212) METRIC: E2E Latency: 6068 us[0m
+[0;32mI (32212) METRIC: Loop Exec Time: 6221 us[0m
+[0;32mI (32212) BME280: TS=31749565000 ns Temp=24.39 C Press=100611 Pa Hum=51%[0m
+[0;32mI (33212) BME280: Temp: 24.38 C  Pressure: 100612 Pa  Humidity: 51 %[0m
+[0;32mI (33212) UDP: Sent 22 bytes[0m
+[0;32mI (33212) METRIC: E2E Latency: 5009 us[0m
+[0;32mI (33212) METRIC: Loop Exec Time: 5158 us[0m
+[0;32mI (33212) BME280: TS=32749565000 ns Temp=24.38 C Press=100612 Pa Hum=51%[0m
+[0;32mI (34212) BME280: Temp: 24.38 C  Pressure: 100590 Pa  Humidity: 51 %[0m
+[0;32mI (34212) UDP: Sent 22 bytes[0m
+[0;32mI (34212) METRIC: E2E Latency: 5057 us[0m
+[0;32mI (34212) METRIC: Loop Exec Time: 5206 us[0m
+[0;32mI (34212) BME280: TS=33749565000 ns Temp=24.38 C Press=100590 Pa Hum=51%[0m
+[0;32mI (35212) BME280: Temp: 24.38 C  Pressure: 100595 Pa  Humidity: 51 %[0m
+[0;32mI (35212) UDP: Sent 22 bytes[0m
+[0;32mI (35212) METRIC: E2E Latency: 4978 us[0m
+[0;32mI (35212) METRIC: Loop Exec Time: 5127 us[0m
+[0;32mI (35212) BME280: TS=34749565000 ns Temp=24.38 C Press=100595 Pa Hum=51%[0m
+[0;32mI (36212) BME280: Temp: 24.38 C  Pressure: 100606 Pa  Humidity: 51 %[0m
+[0;32mI (36212) UDP: Sent 22 bytes[0m
+[0;32mI (36212) METRIC: E2E Latency: 4502 us[0m
+[0;32mI (36212) METRIC: Loop Exec Time: 4651 us[0m
+[0;32mI (36212) BME280: TS=35749565000 ns Temp=24.38 C Press=100606 Pa Hum=51%[0m
+[0;32mI (37212) BME280: Temp: 24.37 C  Pressure: 100604 Pa  Humidity: 50 %[0m
+[0;32mI (37212) UDP: Sent 22 bytes[0m
+[0;32mI (37212) METRIC: E2E Latency: 4498 us[0m
+[0;32mI (37212) METRIC: Loop Exec Time: 4647 us[0m
+[0;32mI (37212) BME280: TS=36749565000 ns Temp=24.37 C Press=100604 Pa Hum=50%[0m
+[0;32mI (38212) BME280: Temp: 24.36 C  Pressure: 100601 Pa  Humidity: 50 %[0m
+[0;32mI (38212) UDP: Sent 22 bytes[0m
+[0;32mI (38212) METRIC: E2E Latency: 5024 us[0m
+[0;32mI (38212) METRIC: Loop Exec Time: 5173 us[0m
+[0;32mI (38212) BME280: TS=37749565000 ns Temp=24.36 C Press=100601 Pa Hum=50%[0m
+[0;32mI (39212) BME280: Temp: 24.36 C  Pressure: 100606 Pa  Humidity: 50 %[0m
+[0;32mI (39212) UDP: Sent 22 bytes[0m
+[0;32mI (39212) METRIC: E2E Latency: 6073 us[0m
+[0;32mI (39212) METRIC: Loop Exec Time: 6225 us[0m
+[0;32mI (39212) BME280: TS=38749565000 ns Temp=24.36 C Press=100606 Pa Hum=50%[0m
+[0;32mI (40212) BME280: Temp: 24.36 C  Pressure: 100606 Pa  Humidity: 50 %[0m
+[0;32mI (40212) UDP: Sent 22 bytes[0m
+[0;32mI (40212) METRIC: E2E Latency: 6039 us[0m
+[0;32mI (40212) METRIC: Loop Exec Time: 6192 us[0m
+[0;32mI (40212) BME280: TS=39749565000 ns Temp=24.36 C Press=100606 Pa Hum=50%[0m
+[0;32mI (41212) BME280: Temp: 24.35 C  Pressure: 100607 Pa  Humidity: 50 %[0m
+[0;32mI (41212) UDP: Sent 22 bytes[0m
+[0;32mI (41212) METRIC: E2E Latency: 4896 us[0m
+[0;32mI (41212) METRIC: Loop Exec Time: 5420 us[0m
+[0;32mI (41212) BME280: TS=40749565000 ns Temp=24.35 C Press=100607 Pa Hum=50%[0m
+[0;32mI (42212) BME280: Temp: 24.36 C  Pressure: 100608 Pa  Humidity: 51 %[0m
+[0;32mI (42212) UDP: Sent 22 bytes[0m
+[0;32mI (42212) METRIC: E2E Latency: 5916 us[0m
+[0;32mI (42212) METRIC: Loop Exec Time: 6078 us[0m
+[0;32mI (42212) BME280: TS=41749565000 ns Temp=24.36 C Press=100608 Pa Hum=51%[0m
+[0;32mI (43212) BME280: Temp: 24.35 C  Pressure: 100596 Pa  Humidity: 50 %[0m
+[0;32mI (43212) UDP: Sent 22 bytes[0m
+[0;32mI (43212) METRIC: E2E Latency: 5988 us[0m
+[0;32mI (43212) METRIC: Loop Exec Time: 6141 us[0m
+[0;32mI (43212) BME280: TS=42749565000 ns Temp=24.35 C Press=100596 Pa Hum=50%[0m
+[0;32mI (44212) BME280: Temp: 24.35 C  Pressure: 100604 Pa  Humidity: 50 %[0m
+[0;32mI (44212) UDP: Sent 22 bytes[0m
+[0;32mI (44212) METRIC: E2E Latency: 6334 us[0m
+[0;32mI (44212) METRIC: Loop Exec Time: 6546 us[0m
+[0;32mI (44212) BME280: TS=43749565000 ns Temp=24.35 C Press=100604 Pa Hum=50%[0m
+[0;32mI (45212) BME280: Temp: 24.35 C  Pressure: 100601 Pa  Humidity: 50 %[0m
+[0;32mI (45212) UDP: Sent 22 bytes[0m
+[0;32mI (45212) METRIC: E2E Latency: 6049 us[0m
+[0;32mI (45212) METRIC: Loop Exec Time: 6210 us[0m
+[0;32mI (45212) BME280: TS=44749565000 ns Temp=24.35 C Press=100601 Pa Hum=50%[0m
+[0;32mI (46212) BME280: Temp: 24.35 C  Pressure: 100604 Pa  Humidity: 50 %[0m
+[0;32mI (46212) UDP: Sent 22 bytes[0m
+[0;32mI (46212) METRIC: E2E Latency: 5357 us[0m
+[0;32mI (46212) METRIC: Loop Exec Time: 5590 us[0m
+[0;32mI (46212) BME280: TS=45749565000 ns Temp=24.35 C Press=100604 Pa Hum=50%[0m
+[0;32mI (47212) BME280: Temp: 24.34 C  Pressure: 100610 Pa  Humidity: 50 %[0m
+[0;32mI (47212) UDP: Sent 22 bytes[0m
+[0;32mI (47212) METRIC: E2E Latency: 5180 us[0m
+[0;32mI (47212) METRIC: Loop Exec Time: 5396 us[0m
+[0;32mI (47212) BME280: TS=46749565000 ns Temp=24.34 C Press=100610 Pa Hum=50%[0m
+[0;32mI (48212) BME280: Temp: 24.33 C  Pressure: 100604 Pa  Humidity: 50 %[0m
+[0;32mI (48212) UDP: Sent 22 bytes[0m
+[0;32mI (48212) METRIC: E2E Latency: 5058 us[0m
+[0;32mI (48212) METRIC: Loop Exec Time: 5207 us[0m
+[0;32mI (48212) BME280: TS=47749565000 ns Temp=24.33 C Press=100604 Pa Hum=50%[0m
+[0;32mI (49212) BME280: Temp: 24.34 C  Pressure: 100607 Pa  Humidity: 50 %[0m
+[0;32mI (49212) UDP: Sent 22 bytes[0m
+[0;32mI (49212) METRIC: E2E Latency: 6013 us[0m
+[0;32mI (49212) METRIC: Loop Exec Time: 6166 us[0m
+[0;32mI (49212) BME280: TS=48749565000 ns Temp=24.34 C Press=100607 Pa Hum=50%[0m
+[0;32mI (50212) BME280: Temp: 24.34 C  Pressure: 100605 Pa  Humidity: 50 %[0m
+[0;32mI (50212) UDP: Sent 22 bytes[0m
+[0;32mI (50212) METRIC: E2E Latency: 4719 us[0m
+[0;32mI (50212) METRIC: Loop Exec Time: 4867 us[0m
+[0;32mI (50212) BME280: TS=49749565000 ns Temp=24.34 C Press=100605 Pa Hum=50%[0m
+[0;32mI (51212) BME280: Temp: 24.33 C  Pressure: 100603 Pa  Humidity: 50 %[0m
+[0;32mI (51212) UDP: Sent 22 bytes[0m
+[0;32mI (51212) METRIC: E2E Latency: 6005 us[0m
+[0;32mI (51212) METRIC: Loop Exec Time: 6158 us[0m
+[0;32mI (51212) BME280: TS=50749565000 ns Temp=24.33 C Press=100603 Pa Hum=50%[0m
+[0;32mI (52212) BME280: Temp: 24.33 C  Pressure: 100600 Pa  Humidity: 50 %[0m
+[0;32mI (52212) UDP: Sent 22 bytes[0m
+[0;32mI (52212) METRIC: E2E Latency: 4911 us[0m
+[0;32mI (52212) METRIC: Loop Exec Time: 5066 us[0m
+[0;32mI (52212) BME280: TS=51749565000 ns Temp=24.33 C Press=100600 Pa Hum=50%[0m
+[0;32mI (53212) BME280: Temp: 24.32 C  Pressure: 100607 Pa  Humidity: 50 %[0m
+[0;32mI (53212) UDP: Sent 22 bytes[0m
+[0;32mI (53212) METRIC: E2E Latency: 6035 us[0m
+[0;32mI (53212) METRIC: Loop Exec Time: 6188 us[0m
+[0;32mI (53212) BME280: TS=52749565000 ns Temp=24.32 C Press=100607 Pa Hum=50%[0m
+[0;32mI (54212) BME280: Temp: 24.31 C  Pressure: 100603 Pa  Humidity: 50 %[0m
+[0;32mI (54212) UDP: Sent 22 bytes[0m
+[0;32mI (54212) METRIC: E2E Latency: 4506 us[0m
+[0;32mI (54212) METRIC: Loop Exec Time: 5052 us[0m
+[0;32mI (54212) BME280: TS=53749565000 ns Temp=24.31 C Press=100603 Pa Hum=50%[0m
+[0;32mI (55212) BME280: Temp: 24.32 C  Pressure: 100601 Pa  Humidity: 50 %[0m
+[0;32mI (55212) UDP: Sent 22 bytes[0m
+[0;32mI (55212) METRIC: E2E Latency: 6068 us[0m
+[0;32mI (55212) METRIC: Loop Exec Time: 6221 us[0m
+[0;32mI (55212) BME280: TS=54749565000 ns Temp=24.32 C Press=100601 Pa Hum=50%[0m
+[0;32mI (56212) BME280: Temp: 24.31 C  Pressure: 100594 Pa  Humidity: 50 %[0m
+[0;32mI (56212) UDP: Sent 22 bytes[0m
+[0;32mI (56212) METRIC: E2E Latency: 6299 us[0m
+[0;32mI (56212) METRIC: Loop Exec Time: 6456 us[0m
+[0;32mI (56212) BME280: TS=55749565000 ns Temp=24.31 C Press=100594 Pa Hum=50%[0m
+[0;32mI (57212) BME280: Temp: 24.32 C  Pressure: 100601 Pa  Humidity: 50 %[0m
+[0;32mI (57212) UDP: Sent 22 bytes[0m
+[0;32mI (57212) METRIC: E2E Latency: 6054 us[0m
+[0;32mI (57212) METRIC: Loop Exec Time: 6207 us[0m
+[0;32mI (57212) BME280: TS=56749565000 ns Temp=24.32 C Press=100601 Pa Hum=50%[0m
+[0;32mI (58212) BME280: Temp: 24.31 C  Pressure: 100602 Pa  Humidity: 50 %[0m
+[0;32mI (58212) UDP: Sent 22 bytes[0m
+[0;32mI (58212) METRIC: E2E Latency: 4894 us[0m
+[0;32mI (58212) METRIC: Loop Exec Time: 5043 us[0m
+[0;32mI (58212) BME280: TS=57749565000 ns Temp=24.31 C Press=100602 Pa Hum=50%[0m
+[0;32mI (59212) BME280: Temp: 24.31 C  Pressure: 100605 Pa  Humidity: 51 %[0m
+[0;32mI (59212) UDP: Sent 22 bytes[0m
+[0;32mI (59212) METRIC: E2E Latency: 6084 us[0m
+[0;32mI (59212) METRIC: Loop Exec Time: 6237 us[0m
+[0;32mI (59212) BME280: TS=58749565000 ns Temp=24.31 C Press=100605 Pa Hum=51%[0m
+[0;32mI (60212) BME280: Temp: 24.31 C  Pressure: 100605 Pa  Humidity: 51 %[0m
+[0;32mI (60212) UDP: Sent 22 bytes[0m
+[0;32mI (60212) METRIC: E2E Latency: 4868 us[0m
+[0;32mI (60212) METRIC: Loop Exec Time: 5017 us[0m
+[0;32mI (60212) BME280: TS=59749565000 ns Temp=24.31 C Press=100605 Pa Hum=51%[0m
+[0;32mI (61212) BME280: Temp: 24.31 C  Pressure: 100605 Pa  Humidity: 51 %[0m
+[0;32mI (61212) UDP: Sent 22 bytes[0m
+[0;32mI (61212) METRIC: E2E Latency: 6164 us[0m
+[0;32mI (61212) METRIC: Loop Exec Time: 6317 us[0m
+[0;32mI (61212) BME280: TS=60749565000 ns Temp=24.31 C Press=100605 Pa Hum=51%[0m
+[0;32mI (62212) BME280: Temp: 24.30 C  Pressure: 100604 Pa  Humidity: 51 %[0m
+[0;32mI (62212) UDP: Sent 22 bytes[0m
+[0;32mI (62212) METRIC: E2E Latency: 6020 us[0m
+[0;32mI (62212) METRIC: Loop Exec Time: 6173 us[0m
+[0;32mI (62212) BME280: TS=61749565000 ns Temp=24.30 C Press=100604 Pa Hum=51%[0m
+[0;32mI (63212) BME280: Temp: 24.31 C  Pressure: 100602 Pa  Humidity: 51 %[0m
+[0;32mI (63212) UDP: Sent 22 bytes[0m
+[0;32mI (63212) METRIC: E2E Latency: 4968 us[0m
+[0;32mI (63212) METRIC: Loop Exec Time: 5117 us[0m
+[0;32mI (63212) BME280: TS=62749565000 ns Temp=24.31 C Press=100602 Pa Hum=51%[0m
+[0;32mI (64212) BME280: Temp: 24.31 C  Pressure: 100600 Pa  Humidity: 51 %[0m
+[0;32mI (64212) UDP: Sent 22 bytes[0m
+[0;32mI (64212) METRIC: E2E Latency: 5984 us[0m
+[0;32mI (64212) METRIC: Loop Exec Time: 6248 us[0m
+[0;32mI (64212) BME280: TS=63749565000 ns Temp=24.31 C Press=100600 Pa Hum=51%[0m
+[0;32mI (65212) BME280: Temp: 24.30 C  Pressure: 100599 Pa  Humidity: 51 %[0m
+[0;32mI (65212) UDP: Sent 22 bytes[0m
+[0;32mI (65212) METRIC: E2E Latency: 6059 us[0m
+[0;32mI (65212) METRIC: Loop Exec Time: 6212 us[0m
+[0;32mI (65212) BME280: TS=64749565000 ns Temp=24.30 C Press=100599 Pa Hum=51%[0m
+[0;32mI (66212) BME280: Temp: 24.30 C  Pressure: 100604 Pa  Humidity: 51 %[0m
+[0;32mI (66212) UDP: Sent 22 bytes[0m
+[0;32mI (66212) METRIC: E2E Latency: 5604 us[0m
+[0;32mI (66212) METRIC: Loop Exec Time: 5757 us[0m
+[0;32mI (66212) BME280: TS=65749565000 ns Temp=24.30 C Press=100604 Pa Hum=51%[0m
+[0;32mI (67212) BME280: Temp: 24.30 C  Pressure: 100604 Pa  Humidity: 51 %[0m
+[0;32mI (67212) UDP: Sent 22 bytes[0m
+[0;32mI (67212) METRIC: E2E Latency: 4514 us[0m
+[0;32mI (67212) METRIC: Loop Exec Time: 4663 us[0m
+[0;32mI (67212) BME280: TS=66749667000 ns Temp=24.30 C Press=100604 Pa Hum=51%[0m
+[0;32mI (68212) BME280: Temp: 24.30 C  Pressure: 100606 Pa  Humidity: 51 %[0m
+[0;32mI (68212) UDP: Sent 22 bytes[0m
+[0;32mI (68212) METRIC: E2E Latency: 6073 us[0m
+[0;32mI (68212) METRIC: Loop Exec Time: 6226 us[0m
+[0;32mI (68212) BME280: TS=67749565000 ns Temp=24.30 C Press=100606 Pa Hum=51%[0m
+[0;32mI (69212) BME280: Temp: 24.29 C  Pressure: 100605 Pa  Humidity: 51 %[0m
+[0;32mI (69212) UDP: Sent 22 bytes[0m
+[0;32mI (69212) METRIC: E2E Latency: 4985 us[0m
+[0;32mI (69212) METRIC: Loop Exec Time: 5134 us[0m
+[0;32mI (69212) BME280: TS=68749565000 ns Temp=24.29 C Press=100605 Pa Hum=51%[0m
+[0;32mI (70212) BME280: Temp: 24.29 C  Pressure: 100602 Pa  Humidity: 51 %[0m
+[0;32mI (70212) UDP: Sent 22 bytes[0m
+[0;32mI (70212) METRIC: E2E Latency: 4996 us[0m
+[0;32mI (70212) METRIC: Loop Exec Time: 5145 us[0m
+[0;32mI (70212) BME280: TS=69749565000 ns Temp=24.29 C Press=100602 Pa Hum=51%[0m
+[0;32mI (71212) BME280: Temp: 24.29 C  Pressure: 100600 Pa  Humidity: 51 %[0m
+[0;32mI (71212) UDP: Sent 22 bytes[0m
+[0;32mI (71212) METRIC: E2E Latency: 4499 us[0m
+[0;32mI (71212) METRIC: Loop Exec Time: 4648 us[0m
+[0;32mI (71212) BME280: TS=70749565000 ns Temp=24.29 C Press=100600 Pa Hum=51%[0m
+[0;32mI (72212) BME280: Temp: 24.29 C  Pressure: 100600 Pa  Humidity: 51 %[0m
+[0;32mI (72212) UDP: Sent 22 bytes[0m
+[0;32mI (72212) METRIC: E2E Latency: 4535 us[0m
+[0;32mI (72212) METRIC: Loop Exec Time: 4684 us[0m
+[0;32mI (72212) BME280: TS=71749565000 ns Temp=24.29 C Press=100600 Pa Hum=51%[0m
+[0;32mI (73212) BME280: Temp: 24.30 C  Pressure: 100609 Pa  Humidity: 51 %[0m
+[0;32mI (73212) UDP: Sent 22 bytes[0m
+[0;32mI (73212) METRIC: E2E Latency: 6104 us[0m
+[0;32mI (73212) METRIC: Loop Exec Time: 6257 us[0m
+[0;32mI (73212) BME280: TS=72749565000 ns Temp=24.30 C Press=100609 Pa Hum=51%[0m
+[0;32mI (74212) BME280: Temp: 24.29 C  Pressure: 100599 Pa  Humidity: 51 %[0m
+[0;32mI (74212) UDP: Sent 22 bytes[0m
+[0;32mI (74212) METRIC: E2E Latency: 6086 us[0m
+[0;32mI (74212) METRIC: Loop Exec Time: 6247 us[0m
+[0;32mI (74212) BME280: TS=73749565000 ns Temp=24.29 C Press=100599 Pa Hum=51%[0m
+[0;32mI (75212) BME280: Temp: 24.29 C  Pressure: 100599 Pa  Humidity: 51 %[0m
+[0;32mI (75212) UDP: Sent 22 bytes[0m
+[0;32mI (75212) METRIC: E2E Latency: 6416 us[0m
+[0;32mI (75212) METRIC: Loop Exec Time: 6656 us[0m
+[0;32mI (75212) BME280: TS=74749565000 ns Temp=24.29 C Press=100599 Pa Hum=51%[0m
+[0;32mI (76212) BME280: Temp: 24.28 C  Pressure: 100597 Pa  Humidity: 51 %[0m
+[0;32mI (76212) UDP: Sent 22 bytes[0m
+[0;32mI (76212) METRIC: E2E Latency: 6133 us[0m
+[0;32mI (76212) METRIC: Loop Exec Time: 6286 us[0m
+[0;32mI (76212) BME280: TS=75749565000 ns Temp=24.28 C Press=100597 Pa Hum=51%[0m
+[0;32mI (77212) BME280: Temp: 24.29 C  Pressure: 100607 Pa  Humidity: 51 %[0m
+[0;32mI (77212) UDP: Sent 22 bytes[0m
+[0;32mI (77212) METRIC: E2E Latency: 6007 us[0m
+[0;32mI (77212) METRIC: Loop Exec Time: 6160 us[0m
+[0;32mI (77212) BME280: TS=76749565000 ns Temp=24.29 C Press=100607 Pa Hum=51%[0m
+[0;32mI (78212) BME280: Temp: 24.28 C  Pressure: 100608 Pa  Humidity: 51 %[0m
+[0;32mI (78212) UDP: Sent 22 bytes[0m
+[0;32mI (78212) METRIC: E2E Latency: 6057 us[0m
+[0;32mI (78212) METRIC: Loop Exec Time: 6219 us[0m
+[0;32mI (78212) BME280: TS=77749565000 ns Temp=24.28 C Press=100608 Pa Hum=51%[0m
+[0;32mI (79212) BME280: Temp: 24.28 C  Pressure: 100606 Pa  Humidity: 51 %[0m
+[0;32mI (79212) UDP: Sent 22 bytes[0m
+[0;32mI (79212) METRIC: E2E Latency: 4975 us[0m
+[0;32mI (79212) METRIC: Loop Exec Time: 5124 us[0m
+[0;32mI (79212) BME280: TS=78749565000 ns Temp=24.28 C Press=100606 Pa Hum=51%[0m
+[0;32mI (80212) BME280: Temp: 24.27 C  Pressure: 100598 Pa  Humidity: 51 %[0m
+[0;32mI (80212) UDP: Sent 22 bytes[0m
+[0;32mI (80212) METRIC: E2E Latency: 6524 us[0m
+[0;32mI (80212) METRIC: Loop Exec Time: 6677 us[0m
+[0;32mI (80212) BME280: TS=79749565000 ns Temp=24.27 C Press=100598 Pa Hum=51%[0m
+[0;32mI (81212) BME280: Temp: 24.27 C  Pressure: 100599 Pa  Humidity: 51 %[0m
+[0;32mI (81212) UDP: Sent 22 bytes[0m
+[0;32mI (81212) METRIC: E2E Latency: 4946 us[0m
+[0;32mI (81212) METRIC: Loop Exec Time: 5095 us[0m
+[0;32mI (81212) BME280: TS=80749565000 ns Temp=24.27 C Press=100599 Pa Hum=51%[0m
+[0;32mI (82212) BME280: Temp: 24.28 C  Pressure: 100600 Pa  Humidity: 51 %[0m
+[0;32mI (82212) UDP: Sent 22 bytes[0m
+[0;32mI (82212) METRIC: E2E Latency: 4954 us[0m
+[0;32mI (82212) METRIC: Loop Exec Time: 5103 us[0m
+[0;32mI (82212) BME280: TS=81749565000 ns Temp=24.28 C Press=100600 Pa Hum=51%[0m
+[0;32mI (83212) BME280: Temp: 24.28 C  Pressure: 100603 Pa  Humidity: 51 %[0m
+[0;32mI (83212) UDP: Sent 22 bytes[0m
+[0;32mI (83212) METRIC: E2E Latency: 5905 us[0m
+[0;32mI (83212) METRIC: Loop Exec Time: 6175 us[0m
+[0;32mI (83212) BME280: TS=82749565000 ns Temp=24.28 C Press=100603 Pa Hum=51%[0m
+[0;32mI (84212) BME280: Temp: 24.27 C  Pressure: 100601 Pa  Humidity: 51 %[0m
+[0;32mI (84212) UDP: Sent 22 bytes[0m
+[0;32mI (84212) METRIC: E2E Latency: 4997 us[0m
+[0;32mI (84212) METRIC: Loop Exec Time: 5146 us[0m
+[0;32mI (84212) BME280: TS=83749565000 ns Temp=24.27 C Press=100601 Pa Hum=51%[0m
+[0;32mI (85212) BME280: Temp: 24.27 C  Pressure: 100598 Pa  Humidity: 51 %[0m
+[0;32mI (85212) UDP: Sent 22 bytes[0m
+[0;32mI (85212) METRIC: E2E Latency: 4913 us[0m
+[0;32mI (85212) METRIC: Loop Exec Time: 5168 us[0m
+[0;32mI (85212) BME280: TS=84749565000 ns Temp=24.27 C Press=100598 Pa Hum=51%[0m
+[0;32mI (86212) BME280: Temp: 24.26 C  Pressure: 100603 Pa  Humidity: 51 %[0m
+[0;32mI (86212) UDP: Sent 22 bytes[0m
+[0;32mI (86212) METRIC: E2E Latency: 6096 us[0m
+[0;32mI (86212) METRIC: Loop Exec Time: 6249 us[0m
+[0;32mI (86212) BME280: TS=85749565000 ns Temp=24.26 C Press=100603 Pa Hum=51%[0m
+[0;32mI (87212) BME280: Temp: 24.27 C  Pressure: 100599 Pa  Humidity: 51 %[0m
+[0;32mI (87212) UDP: Sent 22 bytes[0m
+[0;32mI (87212) METRIC: E2E Latency: 4880 us[0m
+[0;32mI (87212) METRIC: Loop Exec Time: 5029 us[0m
+[0;32mI (87212) BME280: TS=86749565000 ns Temp=24.27 C Press=100599 Pa Hum=51%[0m
+[0;32mI (88212) BME280: Temp: 24.26 C  Pressure: 100603 Pa  Humidity: 51 %[0m
+[0;32mI (88212) UDP: Sent 22 bytes[0m
+[0;32mI (88212) METRIC: E2E Latency: 6138 us[0m
+[0;32mI (88212) METRIC: Loop Exec Time: 6299 us[0m
+[0;32mI (88212) BME280: TS=87749565000 ns Temp=24.26 C Press=100603 Pa Hum=51%[0m
+[0;32mI (89212) BME280: Temp: 24.26 C  Pressure: 100602 Pa  Humidity: 51 %[0m
+[0;32mI (89212) UDP: Sent 22 bytes[0m
+[0;32mI (89212) METRIC: E2E Latency: 6101 us[0m
+[0;32mI (89212) METRIC: Loop Exec Time: 6355 us[0m
+[0;32mI (89212) BME280: TS=88749565000 ns Temp=24.26 C Press=100602 Pa Hum=51%[0m
+[0;32mI (90212) BME280: Temp: 24.25 C  Pressure: 100596 Pa  Humidity: 51 %[0m
+[0;32mI (90212) UDP: Sent 22 bytes[0m
+[0;32mI (90212) METRIC: E2E Latency: 6091 us[0m
+[0;32mI (90212) METRIC: Loop Exec Time: 6244 us[0m
+[0;32mI (90212) BME280: TS=89749565000 ns Temp=24.25 C Press=100596 Pa Hum=51%[0m
+[0;32mI (91212) BME280: Temp: 24.26 C  Pressure: 100602 Pa  Humidity: 51 %[0m
+[0;32mI (91212) UDP: Sent 22 bytes[0m
+[0;32mI (91212) METRIC: E2E Latency: 5034 us[0m
+[0;32mI (91212) METRIC: Loop Exec Time: 5183 us[0m
+[0;32mI (91212) BME280: TS=90749565000 ns Temp=24.26 C Press=100602 Pa Hum=51%[0m
+[0;32mI (92212) BME280: Temp: 24.25 C  Pressure: 100606 Pa  Humidity: 51 %[0m
+[0;32mI (92212) UDP: Sent 22 bytes[0m
+[0;32mI (92212) METRIC: E2E Latency: 5934 us[0m
+[0;32mI (92212) METRIC: Loop Exec Time: 6087 us[0m
+[0;32mI (92212) BME280: TS=91749565000 ns Temp=24.25 C Press=100606 Pa Hum=51%[0m
+[0;32mI (93212) BME280: Temp: 24.25 C  Pressure: 100601 Pa  Humidity: 51 %[0m
+[0;32mI (93212) UDP: Sent 22 bytes[0m
+[0;32mI (93212) METRIC: E2E Latency: 6413 us[0m
+[0;32mI (93212) METRIC: Loop Exec Time: 6626 us[0m
+[0;32mI (93212) BME280: TS=92749565000 ns Temp=24.25 C Press=100601 Pa Hum=51%[0m
+[0;32mI (94212) BME280: Temp: 24.25 C  Pressure: 100601 Pa  Humidity: 51 %[0m
+[0;32mI (94212) UDP: Sent 22 bytes[0m
+[0;32mI (94212) METRIC: E2E Latency: 6041 us[0m
+[0;32mI (94212) METRIC: Loop Exec Time: 6349 us[0m
+[0;32mI (94212) BME280: TS=93749565000 ns Temp=24.25 C Press=100601 Pa Hum=51%[0m
+[0;32mI (95212) BME280: Temp: 24.26 C  Pressure: 100602 Pa  Humidity: 51 %[0m
+[0;32mI (95212) UDP: Sent 22 bytes[0m
+[0;32mI (95212) METRIC: E2E Latency: 6517 us[0m
+[0;32mI (95212) METRIC: Loop Exec Time: 6749 us[0m
+[0;32mI (95212) BME280: TS=94749565000 ns Temp=24.26 C Press=100602 Pa Hum=51%[0m
+[0;32mI (96212) BME280: Temp: 24.25 C  Pressure: 100601 Pa  Humidity: 51 %[0m
+[0;32mI (96212) UDP: Sent 22 bytes[0m
+[0;32mI (96212) METRIC: E2E Latency: 4513 us[0m
+[0;32mI (96212) METRIC: Loop Exec Time: 4968 us[0m
+[0;32mI (96212) BME280: TS=95749565000 ns Temp=24.25 C Press=100601 Pa Hum=51%[0m
+[0;32mI (97212) BME280: Temp: 24.26 C  Pressure: 100605 Pa  Humidity: 51 %[0m
+[0;32mI (97212) UDP: Sent 22 bytes[0m
+[0;32mI (97212) METRIC: E2E Latency: 6467 us[0m
+[0;32mI (97212) METRIC: Loop Exec Time: 6620 us[0m
+[0;32mI (97212) BME280: TS=96749565000 ns Temp=24.26 C Press=100605 Pa Hum=51%[0m
+[0;32mI (98212) BME280: Temp: 24.26 C  Pressure: 100608 Pa  Humidity: 51 %[0m
+[0;32mI (98212) UDP: Sent 22 bytes[0m
+[0;32mI (98212) METRIC: E2E Latency: 4966 us[0m
+[0;32mI (98212) METRIC: Loop Exec Time: 5115 us[0m
+[0;32mI (98212) BME280: TS=97749565000 ns Temp=24.26 C Press=100608 Pa Hum=51%[0m
+[0;32mI (99212) BME280: Temp: 24.25 C  Pressure: 100599 Pa  Humidity: 51 %[0m
+[0;32mI (99212) UDP: Sent 22 bytes[0m
+[0;32mI (99212) METRIC: E2E Latency: 5627 us[0m
+[0;32mI (99212) METRIC: Loop Exec Time: 5780 us[0m
+[0;32mI (99212) BME280: TS=98749565000 ns Temp=24.25 C Press=100599 Pa Hum=51%[0m
+[0;32mI (100212) BME280: Temp: 24.25 C  Pressure: 100612 Pa  Humidity: 51 %[0m
+[0;32mI (100212) UDP: Sent 22 bytes[0m
+[0;32mI (100212) METRIC: E2E Latency: 6036 us[0m
+[0;32mI (100212) METRIC: Loop Exec Time: 6190 us[0m
+[0;32mI (100212) BME280: TS=99749565000 ns Temp=24.25 C Press=100612 Pa Hum=51%[0m
+[0;32mI (101212) BME280: Temp: 24.25 C  Pressure: 100603 Pa  Humidity: 51 %[0m
+[0;32mI (101212) UDP: Sent 22 bytes[0m
+[0;32mI (101212) METRIC: E2E Latency: 5881 us[0m
+[0;32mI (101212) METRIC: Loop Exec Time: 6032 us[0m
+[0;32mI (101212) BME280: TS=100749565000 ns Temp=24.25 C Press=100603 Pa Hum=51%[0m
+[0;32mI (102212) BME280: Temp: 24.25 C  Pressure: 100606 Pa  Humidity: 51 %[0m
+[0;32mI (102212) UDP: Sent 22 bytes[0m
+[0;32mI (102212) METRIC: E2E Latency: 4946 us[0m
+[0;32mI (102212) METRIC: Loop Exec Time: 5097 us[0m
+[0;32mI (102212) BME280: TS=101749565000 ns Temp=24.25 C Press=100606 Pa Hum=51%[0m
+[0;32mI (103212) BME280: Temp: 24.25 C  Pressure: 100606 Pa  Humidity: 51 %[0m
+[0;32mI (103212) UDP: Sent 22 bytes[0m
+[0;32mI (103212) METRIC: E2E Latency: 5999 us[0m
+[0;32mI (103212) METRIC: Loop Exec Time: 6153 us[0m
+[0;32mI (103212) BME280: TS=102749565000 ns Temp=24.25 C Press=100606 Pa Hum=51%[0m
+[0;32mI (104212) BME280: Temp: 24.25 C  Pressure: 100601 Pa  Humidity: 51 %[0m
+[0;32mI (104212) UDP: Sent 22 bytes[0m
+[0;32mI (104212) METRIC: E2E Latency: 6055 us[0m
+[0;32mI (104212) METRIC: Loop Exec Time: 6210 us[0m
+[0;32mI (104212) BME280: TS=103749565000 ns Temp=24.25 C Press=100601 Pa Hum=51%[0m
+[0;32mI (105212) BME280: Temp: 24.25 C  Pressure: 100601 Pa  Humidity: 51 %[0m
+[0;32mI (105212) UDP: Sent 22 bytes[0m
+[0;32mI (105212) METRIC: E2E Latency: 6073 us[0m
+[0;32mI (105212) METRIC: Loop Exec Time: 6228 us[0m
+[0;32mI (105212) BME280: TS=104749565000 ns Temp=24.25 C Press=100601 Pa Hum=51%[0m
+[0;32mI (106212) BME280: Temp: 24.25 C  Pressure: 100598 Pa  Humidity: 51 %[0m
+[0;32mI (106212) UDP: Sent 22 bytes[0m
+[0;32mI (106212) METRIC: E2E Latency: 6026 us[0m
+[0;32mI (106212) METRIC: Loop Exec Time: 6180 us[0m
+[0;32mI (106212) BME280: TS=105749565000 ns Temp=24.25 C Press=100598 Pa Hum=51%[0m
+[0;32mI (107212) BME280: Temp: 24.23 C  Pressure: 100597 Pa  Humidity: 51 %[0m
+[0;32mI (107212) UDP: Sent 22 bytes[0m
+[0;32mI (107212) METRIC: E2E Latency: 4916 us[0m
+[0;32mI (107212) METRIC: Loop Exec Time: 5190 us[0m
+[0;32mI (107212) BME280: TS=106749565000 ns Temp=24.23 C Press=100597 Pa Hum=51%[0m
+[0;32mI (108212) BME280: Temp: 24.24 C  Pressure: 100600 Pa  Humidity: 51 %[0m
+[0;32mI (108212) UDP: Sent 22 bytes[0m
+[0;32mI (108212) METRIC: E2E Latency: 5016 us[0m
+[0;32mI (108212) METRIC: Loop Exec Time: 5167 us[0m
+[0;32mI (108212) BME280: TS=107749565000 ns Temp=24.24 C Press=100600 Pa Hum=51%[0m
+[0;32mI (109212) BME280: Temp: 24.23 C  Pressure: 100604 Pa  Humidity: 51 %[0m
+[0;32mI (109212) UDP: Sent 22 bytes[0m
+[0;32mI (109212) METRIC: E2E Latency: 4947 us[0m
+[0;32mI (109212) METRIC: Loop Exec Time: 5098 us[0m
+[0;32mI (109212) BME280: TS=108749565000 ns Temp=24.23 C Press=100604 Pa Hum=51%[0m
+[0;32mI (110212) BME280: Temp: 24.24 C  Pressure: 100599 Pa  Humidity: 51 %[0m
+[0;32mI (110212) UDP: Sent 22 bytes[0m
+[0;32mI (110212) METRIC: E2E Latency: 4944 us[0m
+[0;32mI (110212) METRIC: Loop Exec Time: 5095 us[0m
+[0;32mI (110212) BME280: TS=109749565000 ns Temp=24.24 C Press=100599 Pa Hum=51%[0m
+[0;32mI (111212) BME280: Temp: 24.23 C  Pressure: 100598 Pa  Humidity: 52 %[0m
+[0;32mI (111212) UDP: Sent 22 bytes[0m
+[0;32mI (111212) METRIC: E2E Latency: 4952 us[0m
+[0;32mI (111212) METRIC: Loop Exec Time: 5103 us[0m
+[0;32mI (111212) BME280: TS=110749565000 ns Temp=24.23 C Press=100598 Pa Hum=52%[0m
+[0;32mI (112212) BME280: Temp: 24.23 C  Pressure: 100603 Pa  Humidity: 52 %[0m
+[0;32mI (112212) UDP: Sent 22 bytes[0m
+[0;32mI (112212) METRIC: E2E Latency: 4971 us[0m
+[0;32mI (112212) METRIC: Loop Exec Time: 5122 us[0m
+[0;32mI (112212) BME280: TS=111749565000 ns Temp=24.23 C Press=100603 Pa Hum=52%[0m
+[0;32mI (113212) BME280: Temp: 24.24 C  Pressure: 100602 Pa  Humidity: 52 %[0m
+[0;32mI (113212) UDP: Sent 22 bytes[0m
+[0;32mI (113212) METRIC: E2E Latency: 4938 us[0m
+[0;32mI (113212) METRIC: Loop Exec Time: 5089 us[0m
+[0;32mI (113212) BME280: TS=112749565000 ns Temp=24.24 C Press=100602 Pa Hum=52%[0m
+[0;32mI (114212) BME280: Temp: 24.24 C  Pressure: 100604 Pa  Humidity: 52 %[0m
+[0;32mI (114212) UDP: Sent 22 bytes[0m
+[0;32mI (114212) METRIC: E2E Latency: 5196 us[0m
+[0;32mI (114212) METRIC: Loop Exec Time: 5347 us[0m
+[0;32mI (114212) BME280: TS=113749565000 ns Temp=24.24 C Press=100604 Pa Hum=52%[0m
+[0;32mI (115212) BME280: Temp: 24.24 C  Pressure: 100602 Pa  Humidity: 53 %[0m
+[0;32mI (115212) UDP: Sent 22 bytes[0m
+[0;32mI (115212) METRIC: E2E Latency: 4870 us[0m
+[0;32mI (115212) METRIC: Loop Exec Time: 5173 us[0m
+[0;32mI (115212) BME280: TS=114749565000 ns Temp=24.24 C Press=100602 Pa Hum=53%[0m
+[0;32mI (116212) BME280: Temp: 24.24 C  Pressure: 100604 Pa  Humidity: 53 %[0m
+[0;32mI (116212) UDP: Sent 22 bytes[0m
+[0;32mI (116212) METRIC: E2E Latency: 4998 us[0m
+[0;32mI (116212) METRIC: Loop Exec Time: 5158 us[0m
+[0;32mI (116212) BME280: TS=115749565000 ns Temp=24.24 C Press=100604 Pa Hum=53%[0m
+[0;32mI (117212) BME280: Temp: 24.24 C  Pressure: 100602 Pa  Humidity: 52 %[0m
+[0;32mI (117212) UDP: Sent 22 bytes[0m
+[0;32mI (117212) METRIC: E2E Latency: 5932 us[0m
+[0;32mI (117212) METRIC: Loop Exec Time: 6273 us[0m
+[0;32mI (117212) BME280: TS=116749565000 ns Temp=24.24 C Press=100602 Pa Hum=52%[0m
+[0;32mI (118212) BME280: Temp: 24.22 C  Pressure: 100604 Pa  Humidity: 52 %[0m
+[0;32mI (118212) UDP: Sent 22 bytes[0m
+[0;32mI (118212) METRIC: E2E Latency: 7565 us[0m
+[0;32mI (118212) METRIC: Loop Exec Time: 7720 us[0m
+[0;32mI (118212) BME280: TS=117749565000 ns Temp=24.22 C Press=100604 Pa Hum=52%[0m
+[0;32mI (119212) BME280: Temp: 24.23 C  Pressure: 100604 Pa  Humidity: 52 %[0m
+[0;32mI (119212) UDP: Sent 22 bytes[0m
+[0;32mI (119212) METRIC: E2E Latency: 6089 us[0m
+[0;32mI (119212) METRIC: Loop Exec Time: 6243 us[0m
+[0;32mI (119212) BME280: TS=118749565000 ns Temp=24.23 C Press=100604 Pa Hum=52%[0m
+[0;32mI (120212) BME280: Temp: 24.23 C  Pressure: 100595 Pa  Humidity: 52 %[0m
+[0;32mI (120212) UDP: Sent 22 bytes[0m
+[0;32mI (120212) METRIC: E2E Latency: 6035 us[0m
+[0;32mI (120212) METRIC: Loop Exec Time: 6198 us[0m
+[0;32mI (120212) BME280: TS=119749565000 ns Temp=24.23 C Press=100595 Pa Hum=52%[0m
+[0;32mI (121212) BME280: Temp: 24.23 C  Pressure: 100606 Pa  Humidity: 52 %[0m
+[0;32mI (121212) UDP: Sent 22 bytes[0m
+[0;32mI (121212) METRIC: E2E Latency: 5012 us[0m
+[0;32mI (121212) METRIC: Loop Exec Time: 5163 us[0m
+[0;32mI (121212) BME280: TS=120749565000 ns Temp=24.23 C Press=100606 Pa Hum=52%[0m
+[0;32mI (122212) BME280: Temp: 24.24 C  Pressure: 100610 Pa  Humidity: 52 %[0m
+[0;32mI (122212) UDP: Sent 22 bytes[0m
+[0;32mI (122212) METRIC: E2E Latency: 6087 us[0m
+[0;32mI (122212) METRIC: Loop Exec Time: 6242 us[0m
+[0;32mI (122212) BME280: TS=121749565000 ns Temp=24.24 C Press=100610 Pa Hum=52%[0m
+[0;32mI (123212) BME280: Temp: 24.23 C  Pressure: 100603 Pa  Humidity: 52 %[0m
+[0;32mI (123212) UDP: Sent 22 bytes[0m
+[0;32mI (123212) METRIC: E2E Latency: 4882 us[0m
+[0;32mI (123212) METRIC: Loop Exec Time: 5040 us[0m
+[0;32mI (123212) BME280: TS=122749565000 ns Temp=24.23 C Press=100603 Pa Hum=52%[0m
+[0;32mI (124212) BME280: Temp: 24.23 C  Pressure: 100603 Pa  Humidity: 52 %[0m
+[0;32mI (124212) UDP: Sent 22 bytes[0m
+[0;32mI (124212) METRIC: E2E Latency: 4906 us[0m
+[0;32mI (124212) METRIC: Loop Exec Time: 5064 us[0m
+[0;32mI (124212) BME280: TS=123749565000 ns Temp=24.23 C Press=100603 Pa Hum=52%[0m
+[0;32mI (125212) BME280: Temp: 24.22 C  Pressure: 100608 Pa  Humidity: 52 %[0m
+[0;32mI (125212) UDP: Sent 22 bytes[0m
+[0;32mI (125212) METRIC: E2E Latency: 6050 us[0m
+[0;32mI (125212) METRIC: Loop Exec Time: 6376 us[0m
+[0;32mI (125212) BME280: TS=124749565000 ns Temp=24.22 C Press=100608 Pa Hum=52%[0m
+[0;32mI (126212) BME280: Temp: 24.23 C  Pressure: 100603 Pa  Humidity: 52 %[0m
+[0;32mI (126212) UDP: Sent 22 bytes[0m
+[0;32mI (126212) METRIC: E2E Latency: 5608 us[0m
+[0;32mI (126212) METRIC: Loop Exec Time: 5762 us[0m
+[0;32mI (126212) BME280: TS=125749565000 ns Temp=24.23 C Press=100603 Pa Hum=52%[0m
+[0;32mI (127212) BME280: Temp: 24.22 C  Pressure: 100602 Pa  Humidity: 51 %[0m
+[0;32mI (127212) UDP: Sent 22 bytes[0m
+[0;32mI (127212) METRIC: E2E Latency: 4796 us[0m
+[0;32mI (127212) METRIC: Loop Exec Time: 5466 us[0m
+[0;32mI (127212) BME280: TS=126749565000 ns Temp=24.22 C Press=100602 Pa Hum=51%[0m
+[0;32mI (128212) BME280: Temp: 24.23 C  Pressure: 100600 Pa  Humidity: 51 %[0m
+[0;32mI (128212) UDP: Sent 22 bytes[0m
+[0;32mI (128212) METRIC: E2E Latency: 6088 us[0m
+[0;32mI (128212) METRIC: Loop Exec Time: 6243 us[0m
+[0;32mI (128212) BME280: TS=127749565000 ns Temp=24.23 C Press=100600 Pa Hum=51%[0m
+[0;32mI (129212) BME280: Temp: 24.23 C  Pressure: 100597 Pa  Humidity: 51 %[0m
+[0;32mI (129212) UDP: Sent 22 bytes[0m
+[0;32mI (129212) METRIC: E2E Latency: 6336 us[0m
+[0;32mI (129212) METRIC: Loop Exec Time: 6555 us[0m
+[0;32mI (129212) BME280: TS=128749565000 ns Temp=24.23 C Press=100597 Pa Hum=51%[0m
+[0;32mI (130212) BME280: Temp: 24.22 C  Pressure: 100601 Pa  Humidity: 51 %[0m
+[0;32mI (130212) UDP: Sent 22 bytes[0m
+[0;32mI (130212) METRIC: E2E Latency: 5580 us[0m
+[0;32mI (130212) METRIC: Loop Exec Time: 5735 us[0m
+[0;32mI (130212) BME280: TS=129749565000 ns Temp=24.22 C Press=100601 Pa Hum=51%[0m
+[0;32mI (131212) BME280: Temp: 24.22 C  Pressure: 100596 Pa  Humidity: 51 %[0m
+[0;32mI (131212) UDP: Sent 22 bytes[0m
+[0;32mI (131212) METRIC: E2E Latency: 4966 us[0m
+[0;32mI (131212) METRIC: Loop Exec Time: 5116 us[0m
+[0;32mI (131212) BME280: TS=130749565000 ns Temp=24.22 C Press=100596 Pa Hum=51%[0m
+[0;32mI (132212) BME280: Temp: 24.22 C  Pressure: 100601 Pa  Humidity: 51 %[0m
+[0;32mI (132212) UDP: Sent 22 bytes[0m
+[0;32mI (132212) METRIC: E2E Latency: 4874 us[0m
+[0;32mI (132212) METRIC: Loop Exec Time: 5025 us[0m
+[0;32mI (132212) BME280: TS=131749565000 ns Temp=24.22 C Press=100601 Pa Hum=51%[0m
+[0;32mI (133212) BME280: Temp: 24.21 C  Pressure: 100600 Pa  Humidity: 51 %[0m
+[0;32mI (133212) UDP: Sent 22 bytes[0m
+[0;32mI (133212) METRIC: E2E Latency: 6366 us[0m
+[0;32mI (133212) METRIC: Loop Exec Time: 6580 us[0m
+[0;32mI (133212) BME280: TS=132749565000 ns Temp=24.21 C Press=100600 Pa Hum=51%[0m
+[0;32mI (134212) BME280: Temp: 24.22 C  Pressure: 100601 Pa  Humidity: 51 %[0m
+[0;32mI (134212) UDP: Sent 22 bytes[0m
+[0;32mI (134212) METRIC: E2E Latency: 4976 us[0m
+[0;32mI (134212) METRIC: Loop Exec Time: 5126 us[0m
+[0;32mI (134212) BME280: TS=133749565000 ns Temp=24.22 C Press=100601 Pa Hum=51%[0m
+[0;32mI (135212) BME280: Temp: 24.21 C  Pressure: 100609 Pa  Humidity: 51 %[0m
+[0;32mI (135212) UDP: Sent 22 bytes[0m
+[0;32mI (135212) METRIC: E2E Latency: 4435 us[0m
+[0;32mI (135212) METRIC: Loop Exec Time: 4586 us[0m
+[0;32mI (135212) BME280: TS=134749565000 ns Temp=24.21 C Press=100609 Pa Hum=51%[0m
+[0;32mI (136212) BME280: Temp: 24.22 C  Pressure: 100601 Pa  Humidity: 51 %[0m
+[0;32mI (136212) UDP: Sent 22 bytes[0m
+[0;32mI (136212) METRIC: E2E Latency: 4947 us[0m
+[0;32mI (136212) METRIC: Loop Exec Time: 5097 us[0m
+[0;32mI (136212) BME280: TS=135749565000 ns Temp=24.22 C Press=100601 Pa Hum=51%[0m
+[0;32mI (137212) BME280: Temp: 24.21 C  Pressure: 100605 Pa  Humidity: 51 %[0m
+[0;32mI (137212) UDP: Sent 22 bytes[0m
+[0;32mI (137212) METRIC: E2E Latency: 4774 us[0m
+[0;32mI (137212) METRIC: Loop Exec Time: 4925 us[0m
+[0;32mI (137212) BME280: TS=136749565000 ns Temp=24.21 C Press=100605 Pa Hum=51%[0m
+[0;32mI (138212) BME280: Temp: 24.21 C  Pressure: 100605 Pa  Humidity: 51 %[0m
+[0;32mI (138212) UDP: Sent 22 bytes[0m
+[0;32mI (138212) METRIC: E2E Latency: 6088 us[0m
+[0;32mI (138212) METRIC: Loop Exec Time: 6655 us[0m
+[0;32mI (138212) BME280: TS=137749565000 ns Temp=24.21 C Press=100605 Pa Hum=51%[0m
+[0;32mI (139212) BME280: Temp: 24.21 C  Pressure: 100597 Pa  Humidity: 51 %[0m
+[0;32mI (139212) UDP: Sent 22 bytes[0m
+[0;32mI (139212) METRIC: E2E Latency: 4506 us[0m
+[0;32mI (139212) METRIC: Loop Exec Time: 4657 us[0m
+[0;32mI (139212) BME280: TS=138749565000 ns Temp=24.21 C Press=100597 Pa Hum=51%[0m
+[0;32mI (140212) BME280: Temp: 24.20 C  Pressure: 100592 Pa  Humidity: 51 %[0m
+[0;32mI (140212) UDP: Sent 22 bytes[0m
+[0;32mI (140212) METRIC: E2E Latency: 6012 us[0m
+[0;32mI (140212) METRIC: Loop Exec Time: 6167 us[0m
+[0;32mI (140212) BME280: TS=139749565000 ns Temp=24.20 C Press=100592 Pa Hum=51%[0m
+[0;32mI (141212) BME280: Temp: 24.21 C  Pressure: 100597 Pa  Humidity: 51 %[0m
+[0;32mI (141212) UDP: Sent 22 bytes[0m
+[0;32mI (141212) METRIC: E2E Latency: 5953 us[0m
+[0;32mI (141212) METRIC: Loop Exec Time: 6228 us[0m
+[0;32mI (141212) BME280: TS=140749565000 ns Temp=24.21 C Press=100597 Pa Hum=51%[0m
+[0;32mI (142212) BME280: Temp: 24.21 C  Pressure: 100605 Pa  Humidity: 51 %[0m
+[0;32mI (142212) UDP: Sent 22 bytes[0m
+[0;32mI (142212) METRIC: E2E Latency: 4490 us[0m
+[0;32mI (142212) METRIC: Loop Exec Time: 4641 us[0m
+[0;32mI (142212) BME280: TS=141749565000 ns Temp=24.21 C Press=100605 Pa Hum=51%[0m
+[0;32mI (143212) BME280: Temp: 24.19 C  Pressure: 100600 Pa  Humidity: 51 %[0m
+[0;32mI (143212) UDP: Sent 22 bytes[0m
+[0;32mI (143212) METRIC: E2E Latency: 6038 us[0m
+[0;32mI (143212) METRIC: Loop Exec Time: 6193 us[0m
+[0;32mI (143212) BME280: TS=142749565000 ns Temp=24.19 C Press=100600 Pa Hum=51%[0m
+[0;32mI (144212) BME280: Temp: 24.20 C  Pressure: 100606 Pa  Humidity: 51 %[0m
+[0;32mI (144212) UDP: Sent 22 bytes[0m
+[0;32mI (144212) METRIC: E2E Latency: 5635 us[0m
+[0;32mI (144212) METRIC: Loop Exec Time: 5790 us[0m
+[0;32mI (144212) BME280: TS=143749565000 ns Temp=24.20 C Press=100606 Pa Hum=51%[0m
+[0;32mI (145212) BME280: Temp: 24.19 C  Pressure: 100608 Pa  Humidity: 51 %[0m
+[0;32mI (145212) UDP: Sent 22 bytes[0m
+[0;32mI (145212) METRIC: E2E Latency: 4839 us[0m
+[0;32mI (145212) METRIC: Loop Exec Time: 4989 us[0m
+[0;32mI (145212) BME280: TS=144749565000 ns Temp=24.19 C Press=100608 Pa Hum=51%[0m
+[0;32mI (146212) BME280: Temp: 24.18 C  Pressure: 100598 Pa  Humidity: 51 %[0m
+[0;32mI (146212) UDP: Sent 22 bytes[0m
+[0;32mI (146212) METRIC: E2E Latency: 5864 us[0m
+[0;32mI (146212) METRIC: Loop Exec Time: 6019 us[0m
+[0;32mI (146212) BME280: TS=145749565000 ns Temp=24.18 C Press=100598 Pa Hum=51%[0m
+[0;32mI (147212) BME280: Temp: 24.19 C  Pressure: 100604 Pa  Humidity: 52 %[0m
+[0;32mI (147212) UDP: Sent 22 bytes[0m
+[0;32mI (147212) METRIC: E2E Latency: 4982 us[0m
+[0;32mI (147212) METRIC: Loop Exec Time: 5133 us[0m
+[0;32mI (147212) BME280: TS=146749565000 ns Temp=24.19 C Press=100604 Pa Hum=52%[0m
+[0;32mI (148212) BME280: Temp: 24.19 C  Pressure: 100600 Pa  Humidity: 52 %[0m
+[0;32mI (148212) UDP: Sent 22 bytes[0m
+[0;32mI (148212) METRIC: E2E Latency: 4447 us[0m
+[0;32mI (148212) METRIC: Loop Exec Time: 4598 us[0m
+[0;32mI (148212) BME280: TS=147749720000 ns Temp=24.19 C Press=100600 Pa Hum=52%[0m
+[0;32mI (149212) BME280: Temp: 24.21 C  Pressure: 100602 Pa  Humidity: 52 %[0m
+[0;32mI (149212) UDP: Sent 22 bytes[0m
+[0;32mI (149212) METRIC: E2E Latency: 4904 us[0m
+[0;32mI (149212) METRIC: Loop Exec Time: 5055 us[0m
+[0;32mI (149212) BME280: TS=148749565000 ns Temp=24.21 C Press=100602 Pa Hum=52%[0m

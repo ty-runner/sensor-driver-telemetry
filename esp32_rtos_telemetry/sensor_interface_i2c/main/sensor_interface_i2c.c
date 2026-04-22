@@ -14,6 +14,8 @@
 #include "esp_wifi.h"
 #include "esp_event.h"
 #include "nvs_flash.h"
+#include <fcntl.h>
+#include "esp_heap_caps.h"
 
 #define I2C_MASTER_SCL_IO 22
 #define I2C_MASTER_SDA_IO 21
@@ -21,9 +23,11 @@
 
 #define I2C_MASTER_PORT I2C_NUM_0
 
-#define BME280_ADDR 0x77   // or 0x77 depending on wiring
+#define BME280_ADDR 0x77
 #define BME280_CHIP_ID_REG 0xD0
 #define BME280_CHIP_ID 0x60
+#define LOOP_PERIOD_US 1000000ULL   // 1 second loop
+
 
 struct bme280_sensor_packet{ //packet structure for transmission
     uint64_t timestamp_ns;
@@ -280,6 +284,7 @@ static void wifi_init_sta(void)
     ESP_ERROR_CHECK(esp_wifi_connect());
 
     ESP_LOGI("WIFI", "wifi_init_sta finished");
+    esp_wifi_set_ps(WIFI_PS_NONE);
 }
 
 static int udp_socket_create(struct sockaddr_in *dest_addr)
@@ -318,8 +323,37 @@ static esp_err_t udp_send_packet(int sock, const struct sockaddr_in *dest_addr,
     return ESP_OK;
 }
 
+static void log_memory_metrics(const char *tag)
+{
+    size_t total_heap = heap_caps_get_total_size(MALLOC_CAP_DEFAULT);
+    size_t free_heap = heap_caps_get_free_size(MALLOC_CAP_DEFAULT);
+    size_t min_free_heap = heap_caps_get_minimum_free_size(MALLOC_CAP_DEFAULT);
+    size_t largest_block = heap_caps_get_largest_free_block(MALLOC_CAP_DEFAULT);
+    UBaseType_t stack_high_water_words = uxTaskGetStackHighWaterMark(NULL);
+    size_t used_heap = total_heap - heap_caps_get_free_size(MALLOC_CAP_DEFAULT);
+    ESP_LOGI(tag,
+             "Heap free: %u B, Used heap: %u B, Largest free block: %u B, Stack high-water: %u words (%u B free min)",
+             (unsigned)free_heap,
+             (unsigned)used_heap,
+             (unsigned)largest_block,
+             (unsigned)stack_high_water_words,
+             (unsigned)(stack_high_water_words * sizeof(StackType_t)));
+}
+
+static void log_cpu_metrics(uint64_t exec_time_us, uint64_t period_us)
+{
+    float cpu_percent = ((float)exec_time_us / (float)period_us) * 100.0f;
+
+    ESP_LOGI("METRIC",
+             "Loop Exec Time: %llu us | CPU Util: %.3f%%",
+             exec_time_us,
+             cpu_percent);
+}
 void app_main(void)
 {
+    ESP_LOGI("APP", "Startup memory snapshot");
+    log_memory_metrics("MEM");
+
     ESP_ERROR_CHECK(i2c_master_init());
     vTaskDelay(pdMS_TO_TICKS(100));
 
@@ -328,15 +362,32 @@ void app_main(void)
 
     read_calibration_data();
 
+    ESP_LOGI("APP", "After sensor init");
+    log_memory_metrics("MEM");
+
     wifi_init_sta();
     vTaskDelay(pdMS_TO_TICKS(3000)); // simple delay so Wi-Fi can associate
 
+    ESP_LOGI("APP", "After Wi-Fi init");
+    log_memory_metrics("MEM");
+
     struct sockaddr_in dest_addr;
     int sock = udp_socket_create(&dest_addr);
+
+    int flags = fcntl(sock, F_GETFL, 0);
+    fcntl(sock, F_SETFL, flags | O_NONBLOCK);
+
+    int buf_size = 4096;
+    setsockopt(sock, SOL_SOCKET, SO_SNDBUF, &buf_size, sizeof(buf_size));
+
     if (sock < 0) {
         ESP_LOGE("APP", "Failed to create UDP socket");
         return;
     }
+
+    ESP_LOGI("APP", "After UDP socket setup");
+    log_memory_metrics("MEM");
+
     const TickType_t xFrequency = pdMS_TO_TICKS(1000);
     TickType_t xLastWakeTime = xTaskGetTickCount();
 
@@ -346,10 +397,15 @@ void app_main(void)
         // ---- LOOP START TIMESTAMP ----
         uint64_t loop_start = esp_timer_get_time(); // us
 
-        // ---- JITTER (TRUE PERIOD) ----
+        // ---- TRUE PERIOD / JITTER ----
         if (prev_loop_start != 0) {
-            uint64_t loop_period = loop_start - prev_loop_start;
-            ESP_LOGI("METRIC", "Loop Period (Jitter): %llu us", loop_period);
+            uint64_t actual_period = loop_start - prev_loop_start;
+            int64_t jitter_us = (int64_t)actual_period - (int64_t)LOOP_PERIOD_US;
+
+            ESP_LOGI("METRIC",
+                     "Actual Period: %llu us | Jitter: %lld us",
+                     actual_period,
+                     jitter_us);
         }
         prev_loop_start = loop_start;
 
@@ -357,21 +413,23 @@ void app_main(void)
         uint64_t e2e_start = esp_timer_get_time();
 
         struct bme280_sensor_packet pkt_host = bme280_read();
-        struct bme280_sensor_packet pkt_net;
 
-        serialize_bme280_packet(&pkt_host, &pkt_net);
-
-        udp_send_packet(sock, &dest_addr, &pkt_net);
+        udp_send_packet(sock, &dest_addr, &pkt_host);
 
         // ---- END-TO-END LATENCY END ----
         uint64_t e2e_end = esp_timer_get_time();
-        ESP_LOGI("METRIC", "E2E Latency: %llu us", (e2e_end - e2e_start));
+        uint64_t e2e_latency_us = e2e_end - e2e_start;
+        ESP_LOGI("METRIC", "E2E Latency: %llu us", e2e_latency_us);
 
         // ---- LOOP EXECUTION TIME ----
         uint64_t loop_end = esp_timer_get_time();
-        ESP_LOGI("METRIC", "Loop Exec Time: %llu us", (loop_end - loop_start));
+        uint64_t loop_exec_time_us = loop_end - loop_start;
 
-        // Optional: keep your sensor print
+        log_cpu_metrics(loop_exec_time_us, LOOP_PERIOD_US);
+
+        // ---- MEMORY / STACK METRICS ----
+        log_memory_metrics("MEM");
+
         ESP_LOGI("BME280",
                  "TS=%llu ns Temp=%d.%02d C Press=%u Pa Hum=%u%%",
                  pkt_host.timestamp_ns,
@@ -383,25 +441,6 @@ void app_main(void)
         // ---- DETERMINISTIC DELAY ----
         vTaskDelayUntil(&xLastWakeTime, xFrequency);
     }
+
     close(sock);
-    /*while (1) {
-        struct bme280_sensor_packet pkt_host = bme280_read();
-        struct bme280_sensor_packet pkt_net;
-
-        serialize_bme280_packet(&pkt_host, &pkt_net);
-
-        ESP_LOGI("BME280",
-                 "TS=%llu ns Temp=%d.%02d C Press=%u Pa Hum=%u%%",
-                 pkt_host.timestamp_ns,
-                 pkt_host.temp_c / 100,
-                 abs(pkt_host.temp_c % 100),
-                 pkt_host.pressure_pa,
-                 pkt_host.humidity_percent);
-
-        udp_send_packet(sock, &dest_addr, &pkt_net);
-
-        vTaskDelay(pdMS_TO_TICKS(1000));
-    }
-
-    close(sock);*/
 }
